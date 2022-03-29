@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.BaseDataService", "SmartRoom.BaseDataService\SmartRoom.BaseDataService.csproj", "{47A09673-18CE-420B-B8F2-59C0EDAA9BA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.CommonBase", "SmartRoom.CommonBase\SmartRoom.CommonBase.csproj", "{7B950A79-ECBE-45D1-A599-B9F6F3CDC590}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47A09673-18CE-420B-B8F2-59C0EDAA9BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A09673-18CE-420B-B8F2-59C0EDAA9BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A09673-18CE-420B-B8F2-59C0EDAA9BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A09673-18CE-420B-B8F2-59C0EDAA9BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B950A79-ECBE-45D1-A599-B9F6F3CDC590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B950A79-ECBE-45D1-A599-B9F6F3CDC590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B950A79-ECBE-45D1-A599-B9F6F3CDC590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B950A79-ECBE-45D1-A599-B9F6F3CDC590}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61129793-6A27-422D-96B4-12D5C182F4AA}
+	EndGlobalSection
+EndGlobal
