@@ -8,6 +8,8 @@ namespace SmartRoom.CommonBase.Core.Entities
         public int Size { get; set; }
         [Required]
         public string Name { get; set; } = string.Empty;
+        public string RoomType { get; set; } = "Unknown";
+        public string Building { get; set; } = "Unknown";
         public ICollection<RoomEquipment> RoomEquipment { get; set; } = new List<RoomEquipment>();
         public ICollection<State> State { get; set; } = new List<State>();
     }
