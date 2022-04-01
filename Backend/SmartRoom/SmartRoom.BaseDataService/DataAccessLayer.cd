@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartRoom.BaseDataService.Persistence.SmartRoomDBContext">
+    <Position X="7.25" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAEAAAAAAACAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\SmartRoomDBContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BinaryStates" />
+      <Property Name="MeasureStates" />
+      <Property Name="RoomEquipments" />
+      <Property Name="Rooms" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartRoom.BaseDataService.Persistence.SmartRoomUOW">
+    <Position X="5.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAACAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\SmartRoomUOW.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BinaryStates" />
+      <Property Name="RoomEquipments" />
+      <Property Name="Rooms" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;">
+    <Position X="12.25" Y="2" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Persistence.GenericEntityRepository&lt;E&gt;">
+    <Position X="9.5" Y="5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Persistence.UnitOfWork">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
