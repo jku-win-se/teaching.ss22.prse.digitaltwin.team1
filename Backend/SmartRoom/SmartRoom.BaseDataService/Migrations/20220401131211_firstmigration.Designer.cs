@@ -12,8 +12,8 @@ using SmartRoom.BaseDataService.Persistence;
 namespace SmartRoom.BaseDataService.Migrations
 {
     [DbContext(typeof(SmartRoomDBContext))]
-    [Migration("20220330121303_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220401131211_firstmigration")]
+    partial class firstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

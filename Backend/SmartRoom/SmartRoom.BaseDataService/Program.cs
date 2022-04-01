@@ -1,5 +1,6 @@
 using SmartRoom.BaseDataService.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 var configBuilder = new ConfigurationBuilder()
@@ -7,9 +8,14 @@ var configBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
 
 // Add services to the container.
+var npCpnn = new NpgsqlConnectionStringBuilder(configBuilder["DbConnection:ConnectionString"])
+{
+    Password = "SmartRoom"
+};
+
 builder.Services.AddDbContext<SmartRoomDBContext>(options =>
 {
-    options.UseNpgsql(configBuilder["DbConnection:ConnectionString"]);
+    options.UseNpgsql(npCpnn.ConnectionString);
 });
 
 builder.Services.AddControllers();
