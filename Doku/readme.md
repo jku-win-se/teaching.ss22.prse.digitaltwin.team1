@@ -10,7 +10,6 @@ To preview the prototype click on the *play-button* in the upper right corner of
 
 Otherwise use these links open the presentation mode for the [desktop](https://www.figma.com/proto/eF8Nwqi88dUXHkD92kE4xA/Smart-Room-Prototype?node-id=83%3A1058&scaling=contain&page-id=83%3A379&starting-point-node-id=83%3A1058) or [mobile](https://www.figma.com/proto/eF8Nwqi88dUXHkD92kE4xA/Smart-Room-Prototype?node-id=83%3A3588&scaling=min-zoom&page-id=83%3A3144&starting-point-node-id=83%3A3588) version immediately.
 
----
 
 ## Clickable components
 ### Main page
@@ -27,6 +26,6 @@ Otherwise use these links open the presentation mode for the [desktop](https://w
 - save button &rarr; returns to main page
 
 ### Edit dialog
-- close button besides "Add a new Smart Room" &rarr; returns to main page
+- close button besides "Edit Smart Room" &rarr; returns to main page
 - cancel button &rarr; returns to main page
 - save button &rarr; returns to main page
