@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartRoom.CommonBase.Core.Entities.BinaryState">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Entities\BinaryState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Core.Entities.EntityObject">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Entities\EntityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Core.Entities.MeasureState">
+    <Position X="10.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Core\Entities\MeasureState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Core.Entities.Room">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAggAAAAAAAAAQAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Core\Entities\Room.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="State" />
+      <Property Name="RoomEquipment" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Core.Entities.RoomEquipment">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Core\Entities\RoomEquipment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="States" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SmartRoom.CommonBase.Core.Entities.State">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACCAAAAAAAAAAAAAAQAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Entities\State.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
