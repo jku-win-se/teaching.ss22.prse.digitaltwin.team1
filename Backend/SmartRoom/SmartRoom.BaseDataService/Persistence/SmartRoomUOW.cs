@@ -1,6 +1,13 @@
-﻿namespace SmartRoom.BaseDataService.Persistence
+﻿using Microsoft.EntityFrameworkCore;
+using SmartRoom.CommonBase.Persistence;
+
+namespace SmartRoom.BaseDataService.Persistence
 {
-    public class SmartRoomUOW
+    public class SmartRoomUOW : UnitOfWork
     {
+        public SmartRoomUOW(SmartRoomDBContext context) : base(context)
+        {
+
+        }
     }
 }

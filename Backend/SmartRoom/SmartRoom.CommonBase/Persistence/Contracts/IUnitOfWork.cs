@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartRoom.CommonBase.Persistence.Contracts
+﻿namespace SmartRoom.CommonBase.Persistence.Contracts
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        Task SaveChangesAsync();
+        R? GetRepo<R>();
     }
 }
