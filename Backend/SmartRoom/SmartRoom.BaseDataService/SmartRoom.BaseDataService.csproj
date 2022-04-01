@@ -18,12 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Logic\" />
+    <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
+    <Folder Include="Logic\" />
   </ItemGroup>
 
 </Project>

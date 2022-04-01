@@ -1,6 +1,10 @@
-using SmartRoom.BaseDataService.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using SmartRoom.BaseDataService.Persistence;
+using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Logic;
+using SmartRoom.CommonBase.Logic.Contracts;
+using SmartRoom.CommonBase.Persistence.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 var configBuilder = new ConfigurationBuilder()
@@ -17,6 +21,9 @@ builder.Services.AddDbContext<SmartRoomDBContext>(options =>
 {
     options.UseNpgsql(npCpnn.ConnectionString);
 });
+
+builder.Services.AddScoped<IUnitOfWork, SmartRoomUOW>();
+builder.Services.AddTransient<IGenericEntityManager<Room>, GenericEntityManager<Room>>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Persistence.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartRoom.CommonBase.Persistence
 {
