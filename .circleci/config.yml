@@ -1,19 +1,18 @@
 version: 2.1
-    jobs:
-      build:
-        docker:
-          - image: circleci/node:12.9.1-browsers
-        working_directory: ~/frontend/smart-home-ui
-        steps:
-          - checkout
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    working_directory: ~/frontend/smart-home-ui
+    steps:
+      - checkout
 
-          - run:
-            name: Install Dependencies
-            command: npm install
-    
-          - run:
-            name: Run tests
-            command: npm run test
-    
-          - run: npm run build
-    
+      - run:
+        name: Install Dependencies
+        command: npm install
+
+      - run:
+        name: Run tests
+        command: npm run test
+
+      - run: npm run build
