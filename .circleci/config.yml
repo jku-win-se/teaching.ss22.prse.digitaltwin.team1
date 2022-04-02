@@ -1,0 +1,88 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7.0
+  heroku: circleci/heroku@1.2.6
+
+jobs:
+  # ---------- frontend jobs ----------
+  build_and_test_frontend:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - checkout
+      - node/install-packages:
+          app-dir: ./Frontend/smart-home-ui
+          pkg-manager: npm
+      - run:
+          command: cd Frontend/smart-home-ui && npm test
+          name: Run tests
+      - run:
+          command: cd Frontend/smart-home-ui && npm run build
+          name: Build app
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+#  create_artifacts_backend:
+#    docker:
+#      - image: cimg/node:17.2.0
+#    steps:
+#      - attach_workspace:
+#          at: ~/project
+#      - store_artifacts:
+#          path: /Frontend/smart-home-ui/build
+
+  deploy_frontend: # this can be any name you choose
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git:
+          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
+
+  # ---------- backend jobs ----------
+  build_and_test_backend:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: Backend/SmartRoom/SmartRoom.SmartRoom.BaseDataService.Tests
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  create_artifacts_backend:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Publish
+          command: dotnet publish -c Release -o /WebService
+      - store_artifacts:
+          path: /WebService
+
+workflows:
+  on_commit:
+    jobs:
+      - build_and_test_frontend
+      - build_and_test_backend
+      - create_artifacts_backend:
+          requires: 
+            - build_and_test_backend
+#      - create_artifacts_frontend:
+#          requires: 
+#            - build_and_test_frontend
