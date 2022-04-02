@@ -65,6 +65,7 @@ jobs:
       - run:
           name: Publish
           command: dotnet publish -c Release -o /WebService
+          working_directory: Backend
       - store_artifacts:
           path: /WebService
 
