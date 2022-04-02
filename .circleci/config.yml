@@ -10,6 +10,7 @@ jobs:
 
     working_directory: /Frontend/smart-home-ui
     steps:
+      - run: chown -R $USER:$USER /Frontend/smart-home-ui
       - checkout
       - node/install-packages:
           pkg-manager: npm
