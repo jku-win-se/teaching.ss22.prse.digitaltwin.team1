@@ -1,31 +1,16 @@
 version: 2.1
-
     jobs:
       build:
         docker:
           - image: circleci/node:12.9.1-browsers
-    
         working_directory: ~/frontend/smart-home-ui
-    
         steps:
           - checkout
-    
-          - restore_cache:
-              keys:
-                - v1-dependencies-{{ checksum "package.json" }}
-                - v1-dependencies-
 
           - run:
             name: Install Dependencies
             command: npm install
     
-          - save_cache:
-              paths:
-                - node_modules
-                - ~/.npm
-                - ~/.cache
-              key: v1-dependencies-{{ checksum "package.json" }}
-
           - run:
             name: Run tests
             command: npm run test
