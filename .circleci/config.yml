@@ -61,6 +61,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
+      - run: ls
       - run:
           name: Publish
           command: dotnet publish -c Release -o /WebService
