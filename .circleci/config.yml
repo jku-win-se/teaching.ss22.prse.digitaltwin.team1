@@ -23,15 +23,7 @@ jobs:
           root: ~/project
           paths:
             - .
-#  create_artifacts_backend:
-#    docker:
-#      - image: cimg/node:17.2.0
-#    steps:
-#      - attach_workspace:
-#          at: ~/project
-#      - store_artifacts:
-#          path: /Frontend/smart-home-ui/build
-
+            
   deploy_frontend: # this can be any name you choose
     docker:
       - image: cimg/node:17.2.0
@@ -60,7 +52,7 @@ jobs:
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - persist_to_workspace:
-          root: ~/backendproject
+          root: ~/project
           paths:
             - Backend/SmartRoom
   create_artifacts_backend:
@@ -68,7 +60,7 @@ jobs:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
       - attach_workspace:
-          at: ~/backendproject
+          at: ~/project
       - run:
           name: Publish
           command: dotnet publish -c Release -o /WebService
@@ -78,11 +70,15 @@ jobs:
 workflows:
   on_commit:
     jobs:
-      - build_and_test_frontend
       - build_and_test_backend
       - create_artifacts_backend:
           requires: 
             - build_and_test_backend
+      - build_and_test_frontend:
+          reqires:
+            - create_artifacts_backend
+
+
 #      - create_artifacts_frontend:
 #          requires: 
 #            - build_and_test_frontend
