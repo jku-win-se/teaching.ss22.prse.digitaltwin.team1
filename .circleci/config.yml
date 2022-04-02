@@ -63,7 +63,7 @@ jobs:
           root: ~/project
           paths:
             - .
-create_artifacts_backend:
+  create_artifacts_backend:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
