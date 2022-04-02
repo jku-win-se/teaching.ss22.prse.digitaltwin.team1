@@ -15,11 +15,9 @@ jobs:
           app-dir: /Frontend/smart-home-ui
           pkg-manager: npm
       - run:
-          app-dir: /Frontend/smart-home-ui
           command: npm test
           name: Run tests
       - run:
-          app-dir: /Frontend/smart-home-ui
           command: npm build
           name: Build app
       - persist_to_workspace:
