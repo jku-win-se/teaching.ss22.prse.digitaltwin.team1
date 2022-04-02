@@ -75,7 +75,7 @@ workflows:
           requires: 
             - build_and_test_backend
       - build_and_test_frontend:
-          reqires:
+          requires:
             - create_artifacts_backend
 
 
