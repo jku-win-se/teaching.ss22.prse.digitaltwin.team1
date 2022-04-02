@@ -12,12 +12,11 @@ jobs:
       - node/install-packages:
           app-dir: ./Frontend/smart-home-ui
           pkg-manager: npm
-      - run: cd Frontend/smart-home-ui
       - run:
-          command: npm test
+          command: cd Frontend/smart-home-ui && npm test
           name: Run tests
       - run:
-          command: npm build
+          command: cd Frontend/smart-home-ui && npm build
           name: Build app
       - persist_to_workspace:
           root: ~/project
