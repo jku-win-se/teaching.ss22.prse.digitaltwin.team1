@@ -4,7 +4,8 @@ orbs:
   heroku: circleci/heroku@1.2.6
 
 jobs:
-  build_and_test:
+  # ---------- frontend jobs ----------
+  build_and_test_frontend:
     docker:
       - image: cimg/node:17.2.0
     steps:
@@ -22,7 +23,16 @@ jobs:
           root: ~/project
           paths:
             - .
-  deploy: # this can be any name you choose
+#  create_artifacts_backend:
+#    docker:
+#      - image: cimg/node:17.2.0
+#    steps:
+#      - attach_workspace:
+#          at: ~/project
+#      - store_artifacts:
+#          path: /Frontend/smart-home-ui/build
+
+  deploy_frontend: # this can be any name you choose
     docker:
       - image: cimg/node:17.2.0
     steps:
@@ -31,16 +41,48 @@ jobs:
       - heroku/deploy-via-git:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
 
+  # ---------- backend jobs ----------
+  build_and_test_backend:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: SmartRoom.WebService
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: SmartRoom.WebService
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: SmartRoom.WebService.Test
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+create_artifacts_backend:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Publish
+          command: dotnet publish -c Release -o /WebService
+      - store_artifacts:
+          path: /WebService
+
 workflows:
   on_commit:
     jobs:
-      - build_and_test
-      # Follow instructions here to authenticate git for Heroku: https://devcenter.heroku.com/articles/git#http-git-authentication
-      # The following code may be uncommented, onnce HEROKU_API_KEY & HEROKU_APP_NAME environemnt variables are present
-      # Read more: https://circleci.com/docs/2.0/env-vars/
-      # - deploy:
-      #     requires:
-      #       - build_and_test # only deploy if the build_and_test job has completed
-      #     filters:
-      #       branches:
-      #         only: master # only deploy when on main/master
+      - build_and_test_frontend
+      - build_and_test_backend
+      - create_artifacts_backend:
+          requires: 
+            - build_and_test_backend
+#      - create_artifacts_frontend:
+#          requires: 
+#            - build_and_test_frontend
