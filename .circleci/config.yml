@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: cimg/node:17.2.0
 
-    working_directory: ~/frontend/smart-home-ui
+    working_directory: ~/Frontend/smart-home-ui
     steps:
       - checkout
       - node/install-packages:
