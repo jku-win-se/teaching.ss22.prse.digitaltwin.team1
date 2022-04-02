@@ -9,10 +9,10 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - checkout
-      - run: ls
       - node/install-packages:
           app-dir: ./Frontend/smart-home-ui
           pkg-manager: npm
+      - run: cd Frontend/smart-home-ui
       - run:
           command: npm test
           name: Run tests
