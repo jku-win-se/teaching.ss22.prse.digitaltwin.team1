@@ -60,7 +60,7 @@ jobs:
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - persist_to_workspace:
-          root: ~/project/backend
+          root: ~/backendproject
           paths:
             - Backend/SmartRoom
   create_artifacts_backend:
@@ -68,7 +68,7 @@ jobs:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
       - attach_workspace:
-          at: ~/project/backend
+          at: ~/backendproject
       - run:
           name: Publish
           command: dotnet publish -c Release -o /WebService
