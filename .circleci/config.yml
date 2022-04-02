@@ -50,15 +50,15 @@ jobs:
       - run:
           name: Restore
           command: dotnet restore
-          working_directory: SmartRoom.WebService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - run:
           name: Build
           command: dotnet build -c Release
-          working_directory: SmartRoom.WebService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - run:
           name: Running Tests
           command: dotnet test
-          working_directory: SmartRoom.WebService.Test
+          working_directory: Backend/SmartRoom/SmartRoom.SmartRoom.BaseDataService.Tests
       - persist_to_workspace:
           root: ~/project
           paths:
