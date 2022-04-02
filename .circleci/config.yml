@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: ls
       - node/install-packages:
-          app-dir: ~/Frontend/smart-home-ui
+          app-dir: ./Frontend/smart-home-ui
           pkg-manager: npm
       - run:
           command: npm test
