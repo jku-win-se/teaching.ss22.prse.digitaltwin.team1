@@ -16,7 +16,7 @@ jobs:
           command: cd Frontend/smart-home-ui && npm test
           name: Run tests
       - run:
-          command: cd Frontend/smart-home-ui && npm build
+          command: cd Frontend/smart-home-ui && npm run build
           name: Build app
       - persist_to_workspace:
           root: ~/project
