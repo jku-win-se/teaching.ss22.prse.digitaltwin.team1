@@ -7,14 +7,19 @@ jobs:
   build_and_test:
     docker:
       - image: cimg/node:17.2.0
+
+    working_directory: ~/Frontend/smart-home-ui
     steps:
       - checkout
       - node/install-packages:
+          app-dir: /Frontend/smart-home-ui
           pkg-manager: npm
       - run:
+          app-dir: /Frontend/smart-home-ui
           command: npm test
           name: Run tests
       - run:
+          app-dir: /Frontend/smart-home-ui
           command: npm build
           name: Build app
       - persist_to_workspace:
@@ -33,8 +38,7 @@ jobs:
 workflows:
   on_commit:
     jobs:
-      - build_and_test:
-          app-dir: /Frontend/smart-home-ui
+      - build_and_test
       # Follow instructions here to authenticate git for Heroku: https://devcenter.heroku.com/articles/git#http-git-authentication
       # The following code may be uncommented, onnce HEROKU_API_KEY & HEROKU_APP_NAME environemnt variables are present
       # Read more: https://circleci.com/docs/2.0/env-vars/
