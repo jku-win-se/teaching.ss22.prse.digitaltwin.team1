@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Publish
           command: dotnet publish -c Release -o /WebService
-          working_directory: Backend
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - store_artifacts:
           path: /WebService
 
