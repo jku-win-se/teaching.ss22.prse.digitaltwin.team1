@@ -1,4 +1,5 @@
 version: 2.1
+
     jobs:
       build:
         docker:
@@ -12,9 +13,11 @@ version: 2.1
           - restore_cache:
               keys:
                 - v1-dependencies-{{ checksum "package.json" }}
-                # fallback to using the latest cache if no exact match is found
                 - v1-dependencies-
-          - run: npm install
+
+          - run:
+            name: Install Dependencies
+            command: npm install
     
           - save_cache:
               paths:
@@ -23,7 +26,9 @@ version: 2.1
                 - ~/.cache
               key: v1-dependencies-{{ checksum "package.json" }}
 
-          - run: npm run test
+          - run:
+            name: Run tests
+            command: npm run test
     
           - run: npm run build
     
