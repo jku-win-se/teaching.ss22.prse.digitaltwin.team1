@@ -34,7 +34,25 @@ jobs:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
 
   # ---------- backend jobs ----------
-  build_and_test_backend:
+  build_and_test_CommonBase:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: Backend/SmartRoom/SmartRoom.CommonBase
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Backend/SmartRoom/SmartRoom.CommonBase
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: Backend/SmartRoom/SmartRoom.CommonBase.Tests
+
+  build_and_test_BaseDataService:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
@@ -55,6 +73,7 @@ jobs:
           root: ~/project
           paths:
             - ./Backend
+
   create_artifacts_backend:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
@@ -72,8 +91,21 @@ jobs:
 workflows:
   on_commit:
     jobs:
-      - build_and_test_backend
-      - build_and_test_frontend
+      - build_and_test_CommonBase
+      - build_and_test_BaseDataService:
+          requires: 
+            - build_and_test_CommonBase
+          filters:
+            branches:
+              only:
+                - main
+                - release_.*
+      - build_and_test_frontend:
+          filters:
+            branches:
+              only:
+                - main
+                - release_.*
       - create_artifacts_backend:
           requires: 
-            - build_and_test_backend
+            - build_and_test_BaseDataService
