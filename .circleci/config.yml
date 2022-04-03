@@ -91,7 +91,12 @@ jobs:
 workflows:
   on_commit:
     jobs:
-      - build_and_test_CommonBase
+      - build_and_test_CommonBase:
+          filters:
+            branches:
+              only:
+                - main
+                - release_.*   
       - build_and_test_BaseDataService:
           requires: 
             - build_and_test_CommonBase
