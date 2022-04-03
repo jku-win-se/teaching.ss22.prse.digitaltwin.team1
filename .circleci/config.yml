@@ -96,7 +96,7 @@ workflows:
             branches:
               only:
                 - main
-                - release_1   
+                - /^release_.*/   
       - build_and_test_BaseDataService:
           requires: 
             - build_and_test_CommonBase
@@ -104,13 +104,13 @@ workflows:
             branches:
               only:
                 - main
-                - release_1 
+                - /^release_.*/ 
       - build_and_test_frontend:
           filters:
             branches:
               only:
                 - main
-                - release_1 
+                - /^release_.*/ 
       - create_artifacts_backend:
           requires: 
             - build_and_test_BaseDataService
