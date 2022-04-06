@@ -5,17 +5,17 @@ using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Logic;
 using SmartRoom.CommonBase.Logic.Contracts;
 using SmartRoom.CommonBase.Persistence.Contracts;
+using SmartRoom.CommonBase.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 var configBuilder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables()
+            .Build()
+            .Decrypt("CipherKey", "CipherText:");
 
 // Add services to the container.
-var npCpnn = new NpgsqlConnectionStringBuilder(configBuilder["DbConnection:ConnectionString"])
-{
-    Password = "SmartRoom"
-};
+var npCpnn = new NpgsqlConnectionStringBuilder(configBuilder["DbConnection:ConnectionString"]);
 
 builder.Services.AddDbContext<SmartRoomDBContext>(options =>
 {
