@@ -4,7 +4,7 @@ namespace SmartRoom.CommonBase.Utils
 {
     public static class ConfigurationRootExtensions
     {
-        public static IConfigurationRoot Decrypt(this IConfigurationRoot root, string keyPath, string cipherPrefix)
+        public static IConfigurationRoot Decrypt(this IConfigurationRoot root, string cipherPrefix)
         {
             var cipher = new Aes256Cipher("sfShK7FHmK8kYU62EDhb3FhUQL4fXKhYINTYaeHjf6U=");
             DecryptInChildren(root);
