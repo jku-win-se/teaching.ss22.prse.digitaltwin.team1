@@ -6,13 +6,14 @@ using SmartRoom.CommonBase.Logic;
 using SmartRoom.CommonBase.Logic.Contracts;
 using SmartRoom.CommonBase.Persistence.Contracts;
 using SmartRoom.CommonBase.Utils;
+using SmartRoom.CommonBase.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 var configBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
             .Build()
-            .Decrypt("CipherKey", "CipherText:");
+            .Decrypt("CipherText:");
 
 // Add services to the container.
 var npCpnn = new NpgsqlConnectionStringBuilder(configBuilder["DbConnection:ConnectionString"]);
@@ -24,6 +25,7 @@ builder.Services.AddDbContext<SmartRoomDBContext>(options =>
 
 builder.Services.AddScoped<IUnitOfWork, SmartRoomUOW>();
 builder.Services.AddTransient<IGenericEntityManager<Room>, GenericEntityManager<Room>>();
+builder.Services.AddSingleton<IConfiguration>(configBuilder);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,6 +39,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseMiddleware<ApiKeyManager>();
 }
 
 app.UseHttpsRedirection();
