@@ -8,12 +8,11 @@ namespace SmartRoom.BaseDataService.Persistence
         public SmartRoomUOW(SmartRoomDBContext context) : base(context)
         {
             Rooms = new GenericEntityRepository<Room>(context);
-            BinaryStates = new GenericEntityRepository<BinaryState>(context);
             RoomEquipments = new GenericEntityRepository<RoomEquipment>(context);
         }
 
         public GenericEntityRepository<Room> Rooms { get; private set; }
-        public GenericEntityRepository<BinaryState> BinaryStates { get; private set; }
+        
         public GenericEntityRepository<RoomEquipment> RoomEquipments { get; private set; }
     }
 }

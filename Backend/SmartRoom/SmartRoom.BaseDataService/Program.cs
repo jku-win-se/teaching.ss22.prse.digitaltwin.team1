@@ -25,6 +25,7 @@ builder.Services.AddDbContext<SmartRoomDBContext>(options =>
 
 builder.Services.AddScoped<IUnitOfWork, SmartRoomUOW>();
 builder.Services.AddTransient<IGenericEntityManager<Room>, GenericEntityManager<Room>>();
+builder.Services.AddTransient<IGenericEntityManager<RoomEquipment>, GenericEntityManager<RoomEquipment>>();
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 
 builder.Services.AddControllers();
