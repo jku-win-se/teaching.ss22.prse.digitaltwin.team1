@@ -1,5 +1,6 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Persistence;
+using SmartRoom.CommonBase.Persistence.Contracts;
 
 namespace SmartRoom.BaseDataService.Persistence
 {
@@ -11,8 +12,8 @@ namespace SmartRoom.BaseDataService.Persistence
             RoomEquipments = new GenericEntityRepository<RoomEquipment>(context);
         }
 
-        public GenericEntityRepository<Room> Rooms { get; private set; }
+        public IGenericEntityRepository<Room> Rooms { get; private set; }
         
-        public GenericEntityRepository<RoomEquipment> RoomEquipments { get; private set; }
+        public IGenericEntityRepository<RoomEquipment> RoomEquipments { get; private set; }
     }
 }

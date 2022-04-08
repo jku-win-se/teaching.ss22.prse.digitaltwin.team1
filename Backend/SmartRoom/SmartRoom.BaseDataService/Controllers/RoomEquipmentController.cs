@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Logic.Contracts;
 using SmartRoom.CommonBase.Web;

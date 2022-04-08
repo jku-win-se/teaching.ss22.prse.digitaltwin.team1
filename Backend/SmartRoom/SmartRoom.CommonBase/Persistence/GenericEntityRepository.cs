@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartRoom.CommonBase.Persistence.Contracts;
 
 namespace SmartRoom.CommonBase.Persistence
 {
-    public class GenericEntityRepository<E> where E : Core.Entities.EntityObject
+    public class GenericEntityRepository<E> : IGenericEntityRepository<E> where E : Core.Entities.EntityObject
     {
         private protected readonly DbContext _context;
         public GenericEntityRepository(DbContext context)
