@@ -12,4 +12,8 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
+  </ItemGroup>
+
 </Project>
