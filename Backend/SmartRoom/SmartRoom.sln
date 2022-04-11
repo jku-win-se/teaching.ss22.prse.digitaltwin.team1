@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.CommonBase", "Sma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.BaseDataService.Tests", "SmartRoom.BaseDataService.Tests\SmartRoom.BaseDataService.Tests.csproj", "{1ED1A097-0A95-4439-B377-53F2EE3F72D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.CommonBase.Tests", "SmartRoom.CommonBase.Tests\SmartRoom.CommonBase.Tests.csproj", "{F9102852-E99A-4A40-B6DD-FEF8AD5F8222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.CommonBase.Tests", "SmartRoom.CommonBase.Tests\SmartRoom.CommonBase.Tests.csproj", "{F9102852-E99A-4A40-B6DD-FEF8AD5F8222}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5D20EF-8E4E-46D2-90C6-3CE5459B55EC}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
