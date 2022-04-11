@@ -15,10 +15,16 @@ namespace SmartRoom.TransDataService.Controllers
             _manager = manager;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<BinaryState[]>> GetBy(Guid id)
+        [HttpGet("[action]/{id}")]
+        public async Task<ActionResult<BinaryState[]>> GetBinaryBy(Guid id)
         {
-            return await _manager.GetStatesByEntityID(id);
+            return await _manager.GetStatesByEntityID<BinaryState>(id);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<ActionResult<MeasureState[]>> GetMeasureBy(Guid id)
+        {
+            return await _manager.GetStatesByEntityID<MeasureState>(id);
         }
     }
 }

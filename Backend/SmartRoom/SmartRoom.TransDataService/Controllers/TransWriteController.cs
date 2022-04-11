@@ -16,7 +16,24 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddState(BinaryState state)
+        [Route("[action]")]
+        public async Task<IActionResult> AddBinaryState(BinaryState state)
+        {
+            try
+            {
+                await _manager.addState(state);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+                throw;
+            }
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> AddMeasureState(MeasureState state)
         {
             try
             {

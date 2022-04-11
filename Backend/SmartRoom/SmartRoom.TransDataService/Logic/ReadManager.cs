@@ -12,19 +12,19 @@ namespace SmartRoom.TransDataService.Logic
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task<BinaryState[]> GetStatesByEntityID(Guid id)
+        public async Task<E[]> GetStatesByEntityID<E>(Guid id) where E : State
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                return await context.BinaryStates.Where(s => s.EntityRefID.Equals(id)).ToArrayAsync();
+                return await context.Set<E>().Where(s => s.EntityRefID.Equals(id)).ToArrayAsync();
             }
         }
 
-        public async Task<State[]> GetStatesByTimeSpan(DateTime from, DateTime to)
+        public async Task<E[]> GetStatesByTimeSpan<E>(DateTime from, DateTime to) where E : State
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                return await context.BinaryStates.Where(s => s.TimeStamp >= from && s.TimeStamp < to).ToArrayAsync();
+                return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).ToArrayAsync();
             }
         }
     }

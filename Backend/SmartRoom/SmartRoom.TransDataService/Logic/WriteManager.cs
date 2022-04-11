@@ -12,7 +12,7 @@ namespace SmartRoom.TransDataService.Logic
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task addState(State state) 
+        public async Task addState<E>(E state) where E : State
         {
             await Task.Run(() =>
             {
