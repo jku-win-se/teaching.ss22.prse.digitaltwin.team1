@@ -32,7 +32,7 @@ namespace SmartRoom.CommonBase.Web
             {
                 await _entityManager.Add(entity);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return BadRequest();
             }

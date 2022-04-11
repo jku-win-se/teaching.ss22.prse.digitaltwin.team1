@@ -1,5 +1,4 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Persistence;
 using SmartRoom.CommonBase.Persistence.Contracts;
 
 namespace SmartRoom.CommonBase.Logic
@@ -49,9 +48,9 @@ namespace SmartRoom.CommonBase.Logic
             return dat;
         }
 
-        private protected GenericEntityRepository<E> GetRepo()
+        private protected IGenericEntityRepository<E> GetRepo()
         {
-            return _unitOfWork.GetRepo<GenericEntityRepository<E>>()!;
+            return _unitOfWork.GetRepo<IGenericEntityRepository<E>>()!;
         }
 
     }
