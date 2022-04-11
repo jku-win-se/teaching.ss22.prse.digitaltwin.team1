@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SmartRoom.BaseDataService.Persistence;
@@ -11,9 +12,10 @@ using SmartRoom.BaseDataService.Persistence;
 namespace SmartRoom.BaseDataService.Migrations
 {
     [DbContext(typeof(SmartRoomDBContext))]
-    partial class SmartRoomDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220411085309_initialMigration")]
+    partial class initialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,6 +42,11 @@ namespace SmartRoom.BaseDataService.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
+
                     b.Property<int>("Size")
                         .HasColumnType("integer");
 
@@ -64,6 +71,11 @@ namespace SmartRoom.BaseDataService.Migrations
 
                     b.Property<Guid>("RoomID")
                         .HasColumnType("uuid");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("bytea");
 
                     b.HasKey("Id");
 

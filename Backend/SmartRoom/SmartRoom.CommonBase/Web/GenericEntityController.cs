@@ -19,7 +19,7 @@ namespace SmartRoom.CommonBase.Web
         }
 
         [HttpGet("{id}")]
-        public virtual async Task<ActionResult<E>> Get(int id)
+        public virtual async Task<ActionResult<E>> Get(Guid id)
         {
             var res = await _entityManager.GetBy(id);
             return Ok(res);
@@ -55,7 +55,7 @@ namespace SmartRoom.CommonBase.Web
         }
 
         [HttpDelete("{id}")]
-        public virtual async Task<IActionResult> Delete(int id)
+        public virtual async Task<IActionResult> Delete(Guid id)
         {
             await _entityManager.Delete(id);
             return Ok();

@@ -31,7 +31,7 @@ namespace SmartRoom.CommonBase.Persistence
             return await GetDataWithIncludes().ToArrayAsync();
         }
 
-        public virtual async Task<E> GetBy(int id)
+        public virtual async Task<E> GetBy(Guid id)
         {
             return await GetDataWithIncludes().Where(e => e.Id == id).FirstAsync();
         }

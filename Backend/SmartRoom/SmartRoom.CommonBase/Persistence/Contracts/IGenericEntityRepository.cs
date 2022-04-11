@@ -10,6 +10,6 @@
 
         Task<E[]> Get();
 
-        Task<E> GetBy(int id);
+        Task<E> GetBy(Guid id);
     }
 }

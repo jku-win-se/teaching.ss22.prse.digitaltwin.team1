@@ -11,6 +11,5 @@ namespace SmartRoom.CommonBase.Core.Entities
         public string RoomType { get; set; } = "Unknown";
         public string Building { get; set; } = "Unknown";
         public ICollection<RoomEquipment> RoomEquipment { get; set; } = new List<RoomEquipment>();
-        public ICollection<State> State { get; set; } = new List<State>();
     }
 }

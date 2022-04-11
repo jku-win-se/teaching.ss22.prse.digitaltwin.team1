@@ -7,7 +7,5 @@ namespace SmartRoom.BaseDataService.Persistence
     {
         DbSet<Room>? Rooms { get; set; }
         DbSet<RoomEquipment>? RoomEquipments { get; set; }
-        DbSet<MeasureState>? MeasureStates { get; set; }
-        DbSet<BinaryState>? BinaryStates { get; set; }
     }
 }
