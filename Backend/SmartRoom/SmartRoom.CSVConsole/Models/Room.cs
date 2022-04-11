@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartRoom.CSVConsole.Models
+﻿namespace SmartRoom.CSVConsole.Models
 {
-    public class Room
+    public class Room : IBaseModel<CommonBase.Core.Entities.Room>
     {
-        public string name { get; set; }
+        public string name { get; set; } = string.Empty;
         public int size { get; set; }
+
+        public CommonBase.Core.Entities.Room GetEntity()
+        {
+            return new CommonBase.Core.Entities.Room
+            {
+                Name = name,
+                Size = size
+            };
+        }
     }
 }

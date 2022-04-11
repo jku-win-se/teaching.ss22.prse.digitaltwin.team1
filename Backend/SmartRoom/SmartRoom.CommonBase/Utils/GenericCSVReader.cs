@@ -25,7 +25,7 @@ namespace SmartRoom.CommonBase.Utils
             IEnumerable<string> lines = File.ReadLines(_fileName);
             string[] headers = lines.First().Split(_sep);
             NumberFormatInfo provider = new NumberFormatInfo();
-
+            Console.WriteLine($"Reading {lines.Count()} lines from {typeof(T).Name}");
             foreach (var line in lines.Skip(1))
             {
                 var t = new T();

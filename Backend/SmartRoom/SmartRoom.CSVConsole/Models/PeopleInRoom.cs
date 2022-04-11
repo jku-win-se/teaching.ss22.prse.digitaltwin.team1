@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.CSVConsole.Models
 {
-    public class PeopleInRoom
+    public class PeopleInRoom : IBaseModel <MeasureState>
     {
         public DateTime Timestamp { get; set; }
-        public string Room_Id { get; set; }
+        public string Room_Id { get; set; } = string.Empty;
         public int NOPeopleInRoom { get; set; }
+
+        public MeasureState GetEntity()
+        {
+            return new MeasureState
+            {
+                MeasureValue = NOPeopleInRoom,
+                Name = typeof(PeopleInRoom).Name,
+                TimeStamp = Timestamp
+            };
+        }
     }
 }
