@@ -5,7 +5,7 @@ using SmartRoom.CommonBase.Utils;
 using SmartRoom.CSVConsole.Data;
 using SmartRoom.CSVConsole.Models;
 
-
+string path = @"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data";
 
 Console.WriteLine("Hello, World!");
 IEnumerable<WindowOpen> windowStates;
@@ -19,7 +19,7 @@ IEnumerable<VentilatorOn> ventilatorOn;
 IEnumerable<Window> window;
 
 
-using (GenericCSVReader<WindowOpen> reader = new GenericCSVReader<WindowOpen>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\WindowOpen.csv"))
+using (GenericCSVReader<WindowOpen> reader = new GenericCSVReader<WindowOpen>(@$"{path}\WindowOpen.csv"))
 { 
    windowStates = reader.Read();
 }
@@ -49,18 +49,17 @@ using (GenericCSVReader<Room> reader = new GenericCSVReader<Room>(@"C:\Daten\Git
     roomCap = reader.Read();
 }
 
-using (GenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartVentilator\SmartVentilator.CSVConsole\Data\Ventilator.csv"))
+using (GenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@$"{path}\Ventilator.csv"))
 {
     ventilator = reader.Read();
 }
 
-using (GenericCSVReader<VentilatorOn> reader = new GenericCSVReader<VentilatorOn>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartVentilatorOn\SmartVentilatorOn.CSVConsole\Data\VentilatorOn.csv"))
+using (GenericCSVReader<VentilatorOn> reader = new GenericCSVReader<VentilatorOn>(@$"{path}\VentilatorOn.csv"))
 {
     ventilatorOn = reader.Read();
 }
 
-using (GenericCSVReader<Window> reader = new GenericCSVReader<Window>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartWindow\SmartWindow.CSVConsole\Data\Window.csv"))
+using (GenericCSVReader<Window> reader = new GenericCSVReader<Window>(@$"{path}\Window.csv"))
 {
     window = reader.Read();
 }
-//ToDo Create Props and readers for all csv
