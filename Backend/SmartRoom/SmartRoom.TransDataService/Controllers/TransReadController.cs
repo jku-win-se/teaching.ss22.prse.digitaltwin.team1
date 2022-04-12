@@ -26,5 +26,10 @@ namespace SmartRoom.TransDataService.Controllers
         {
             return await _manager.GetStatesByEntityID<MeasureState>(id);
         }
+
+        //GetRecentDataByID
+
+        //[HttpGet("[action]/{id}/{interval}")]
+        //GetAgregateDataByID(interval = 5)
     }
 }
