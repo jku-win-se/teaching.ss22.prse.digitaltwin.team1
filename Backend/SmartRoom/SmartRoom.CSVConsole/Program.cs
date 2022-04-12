@@ -41,27 +41,27 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
         windowStates = reader.Read();
     }
 
-    using (GenericCSVReader<Door> reader = new GenericCSVReader<Door>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door.csv"))
+    using (GenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{path}\Door.csv"))
     {
         doorID = reader.Read();
     }
 
-    using (GenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door_Connects_Room.csv"))
+    using (GenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{path}\Door_Connects_Room.csv"))
     {
         doorConnectsRoom = reader.Read();
     }
 
-    using (GenericCSVReader<DoorOpen> reader = new GenericCSVReader<DoorOpen>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\DoorOpen.csv"))
+    using (GenericCSVReader<DoorOpen> reader = new GenericCSVReader<DoorOpen>(@$"{path}\DoorOpen.csv"))
     {
         doorOpen = reader.Read();
     }
 
-    using (GenericCSVReader<PeopleInRoom> reader = new GenericCSVReader<PeopleInRoom>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\PeopleInRoom.csv"))
+    using (GenericCSVReader<PeopleInRoom> reader = new GenericCSVReader<PeopleInRoom>(@$"{path}\PeopleInRoom.csv"))
     {
         peopleInRoom = reader.Read();
     }
 
-    using (GenericCSVReader<Room> reader = new GenericCSVReader<Room>(@"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Room.csv"))
+    using (GenericCSVReader<Room> reader = new GenericCSVReader<Room>(@$"{path}\Room.csv"))
     {
         roomCap = reader.Read();
     }
@@ -80,6 +80,8 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
     {
         window = reader.Read();
     }
+
+ Console.Write($"Import beendet ");
 
 }
 
