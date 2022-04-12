@@ -9,7 +9,9 @@ using SmartRoom.CommonBase.Persistence.Contracts;
 using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
 
+string _policyName = "CorsPolicy";
 var builder = WebApplication.CreateBuilder(args);
+
 var configBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
@@ -48,6 +50,16 @@ var securityReq = new OpenApiSecurityRequirement()
 };
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: _policyName, builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddSwaggerGen(options => 
 {
     options.AddSecurityDefinition("ApiKey", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -76,6 +88,8 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(_policyName);
 
 app.UseAuthorization();
 app.UseAuthentication();

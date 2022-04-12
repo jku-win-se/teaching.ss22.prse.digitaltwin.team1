@@ -6,7 +6,9 @@ using SmartRoom.CommonBase.Web;
 using SmartRoom.TransDataService.Logic;
 using SmartRoom.TransDataService.Persistence;
 
+string _policyName = "CorsPolicy";
 var builder = WebApplication.CreateBuilder(args);
+
 var configBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
@@ -27,7 +29,16 @@ builder.Services.AddTransient<ReadManager, ReadManager>();
 builder.Services.AddTransient<WriteManager, WriteManager>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: _policyName, builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 var securityReq = new OpenApiSecurityRequirement()
 {
@@ -73,6 +84,8 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(_policyName);
 
 app.UseAuthorization();
 app.UseAuthentication();
