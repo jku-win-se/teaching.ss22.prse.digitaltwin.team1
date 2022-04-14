@@ -2,7 +2,6 @@
 
 
 using SmartRoom.CommonBase.Utils;
-using SmartRoom.CSVConsole.Data;
 using SmartRoom.CSVConsole.Models;
 using System.Reflection;
 

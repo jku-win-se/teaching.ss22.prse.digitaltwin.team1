@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SmartRoom.CommonBase.Core.Entities;
+﻿using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.CSVConsole.Models
 {

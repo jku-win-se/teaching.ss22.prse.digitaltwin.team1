@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.CSVConsole.Models
 {
-    public class Ventilator
+    public class Ventilator : IBaseModel<RoomEquipment>
     {
-        public int ID { get; set; }
-        public string Room_Id { get; set; }
+        public string ID { get; set; } = String.Empty;
+        public string Room_Id { get; set; } = String.Empty;
+
+        public RoomEquipment GetEntity()
+        {
+            return new RoomEquipment
+            {
+                Name = typeof(Ventilator).Name,
+                EquipmentRef = ID
+            };
+        }
     }
 }

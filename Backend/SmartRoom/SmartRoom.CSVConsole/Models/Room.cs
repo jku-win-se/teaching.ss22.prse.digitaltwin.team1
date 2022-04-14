@@ -10,7 +10,7 @@
             return new CommonBase.Core.Entities.Room
             {
                 Name = name,
-                Size = size
+                PeopleCount = size
             };
         }
     }

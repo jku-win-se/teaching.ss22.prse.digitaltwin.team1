@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SmartRoom.CommonBase.Core.Entities;
 
-namespace SmartRoom.CSVConsole.Data
+namespace SmartRoom.CSVConsole.Models
+
 {
-    public class Window
+    public class Window : IBaseModel<RoomEquipment>
     {
         public int ID { get; set; }
-        public string Room_Id { get; set; }
+        public string Room_Id { get; set; } = string.Empty; 
+
+        public RoomEquipment GetEntity()
+        {
+            return new RoomEquipment
+            {
+                Name = typeof(Window).Name,
+                EquipmentRef = Room_Id
+            };
+        }
     }
 }
