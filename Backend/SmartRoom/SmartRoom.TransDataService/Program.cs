@@ -1,13 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-using SmartRoom.BaseDataService.Persistence;
-using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Logic;
-using SmartRoom.CommonBase.Logic.Contracts;
-using SmartRoom.CommonBase.Persistence.Contracts;
 using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
+using SmartRoom.TransDataService.Logic;
+using SmartRoom.TransDataService.Persistence;
 
 string _policyName = "CorsPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -21,18 +18,27 @@ var configBuilder = new ConfigurationBuilder()
 // Add services to the container.
 var npCpnn = new NpgsqlConnectionStringBuilder(configBuilder["DbConnection:ConnectionString"]);
 
-builder.Services.AddDbContext<SmartRoomDBContext>(options =>
+builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 {
-    options.UseNpgsql(npCpnn.ConnectionString);
+    options.UseNpgsql(npCpnn.ConnectionString)
+           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking); ;
 });
 
-builder.Services.AddScoped<IUnitOfWork, SmartRoomUOW>();
-builder.Services.AddTransient<IGenericEntityManager<Room>, GenericEntityManager<Room>>();
-builder.Services.AddTransient<IGenericEntityManager<RoomEquipment>, GenericEntityManager<RoomEquipment>>();
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
+builder.Services.AddTransient<ReadManager, ReadManager>();
+builder.Services.AddTransient<WriteManager, WriteManager>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: _policyName, builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 var securityReq = new OpenApiSecurityRequirement()
 {
@@ -50,17 +56,7 @@ var securityReq = new OpenApiSecurityRequirement()
 };
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddCors(opt =>
-{
-    opt.AddPolicy(name: _policyName, builder =>
-    {
-        builder.AllowAnyOrigin()
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
-
-builder.Services.AddSwaggerGen(options => 
+builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("ApiKey", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {

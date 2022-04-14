@@ -18,7 +18,7 @@ namespace SmartRoom.CommonBase.Logic
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(Guid id)
         {
             var del = await GetRepo().GetBy(id);
             if (del == null) return;
@@ -37,7 +37,7 @@ namespace SmartRoom.CommonBase.Logic
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public virtual async Task<E> GetBy(int id)
+        public virtual async Task<E> GetBy(Guid id)
         {
             return await GetRepo().GetBy(id);
         }
