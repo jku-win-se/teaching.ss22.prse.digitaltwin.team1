@@ -79,6 +79,8 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
     {
         window = reader.Read();
     }
+    await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("", window.First(), "");
+
 
  Console.Write($"Import beendet ");
 
