@@ -93,8 +93,14 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
             equipments.Add(doorID.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity()); 
         }
 
-        equipments.AddRange(window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());   
+        equipments.AddRange(window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());
+
+        roomEntity.RoomEquipment.AddRange(equipments);
+        Console.WriteLine($"{roomEntity}");
     }
+
+
+    
 
     Console.Write($"Import beendet ");
 
