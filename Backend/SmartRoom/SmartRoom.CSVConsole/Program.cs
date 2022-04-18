@@ -79,10 +79,24 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
     {
         window = reader.Read();
     }
-    await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("", window.First(), "");
+    //await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("", window.First(), "");
 
+    foreach (var roomModel in roomCap) 
+    {
+        var roomEntity = roomModel.GetEntity();
+        var equipments = ventilator
+            .Where(v => v.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase))
+            .Select(v => v.GetEntity()).ToList();
 
- Console.Write($"Import beendet ");
+        foreach (var doorInRoom in doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name)))
+        {
+            equipments.Add(doorID.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity()); 
+        }
+
+        equipments.AddRange(window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());   
+    }
+
+    Console.Write($"Import beendet ");
 
 }
 
