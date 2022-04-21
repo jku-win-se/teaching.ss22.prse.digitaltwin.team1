@@ -49,13 +49,26 @@ namespace SmartRoom.TransDataService.Logic
         public async Task<object> GetChartData<E>(Guid id, string name, int intervall) where E : State
         {
             if (typeof(E).Equals(typeof(MeasureState))) return await GetMeasureChartData(id, name, intervall, typeof(E).Name);
-            else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall);
+            else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall, typeof(E).Name);
             else return new();
         }
 
-        private async Task<object> GetBinaryChartData(Guid id, string name, int intervall)
+        private async Task<object> GetBinaryChartData(Guid id, string name, int intervall, string type)
         {
-            throw new NotImplementedException();
+            string stmd =
+                $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, bool_or(\"BinaryValue\") " +
+                $"FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
+                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'";
+
+            using (var context = await _dbContextFactory.CreateDbContextAsync())
+            {
+                return context.RawSqlQuery(stmd,
+                    d => new
+                    {
+                        TimeStamp = d[3],
+                        Value = d[4]
+                    });
+            }
         }
 
         private async Task<object> GetMeasureChartData(Guid id, string name, int intervall, string type)
