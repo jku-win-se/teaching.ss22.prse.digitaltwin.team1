@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 
@@ -26,7 +25,7 @@ namespace SmartRoom.TransDataService.Logic
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
                 var data = context.Set<E>().Where(s => s.EntityRefID.Equals(id) && s.Name.Equals(name));
-                
+
                 return await data.Where(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp))).FirstAsync();
             }
         }
@@ -49,11 +48,28 @@ namespace SmartRoom.TransDataService.Logic
 
         public async Task<object> GetChartData<E>(Guid id, string name, int intervall) where E : State
         {
+            if (typeof(E).Equals(typeof(MeasureState))) return await GetMeasureChartData(id, name, intervall, typeof(E).Name);
+            else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall);
+            else return new();
+        }
+
+        private async Task<object> GetBinaryChartData(Guid id, string name, int intervall)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task<object> GetMeasureChartData(Guid id, string name, int intervall, string type)
+        {
+            string stmd =
+                $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"MeasureValue\") " +
+                $"FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
+                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'";
+
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                return context.RawSqlQuery($"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"MeasureValue\") FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" HAVING \"Discriminator\" like '{typeof(E).Name}' and \"Name\" like '{name}'",
-                    d => new 
-                    { 
+                return context.RawSqlQuery(stmd,
+                    d => new
+                    {
                         TimeStamp = d[3],
                         Value = d[4]
                     });
