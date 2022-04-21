@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 
@@ -35,6 +36,27 @@ namespace SmartRoom.TransDataService.Logic
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
                 return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).ToArrayAsync();
+            }
+        }
+
+        public async Task<string[]> GetStateTypesByEntityID<E>(Guid id) where E : State
+        {
+            using (var context = await _dbContextFactory.CreateDbContextAsync())
+            {
+                return context.Set<E>().Where(s => s.EntityRefID.Equals(id)).Select(d => d.Name).Distinct().ToArray();
+            }
+        }
+
+        public async Task<object> GetChartData<E>(Guid id, string name, int intervall) where E : State
+        {
+            using (var context = await _dbContextFactory.CreateDbContextAsync())
+            {
+                return context.RawSqlQuery($"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"MeasureValue\") FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" HAVING \"Discriminator\" like '{typeof(E).Name}' and \"Name\" like '{name}'",
+                    d => new 
+                    { 
+                        TimeStamp = d[3],
+                        Value = d[4]
+                    });
             }
         }
     }

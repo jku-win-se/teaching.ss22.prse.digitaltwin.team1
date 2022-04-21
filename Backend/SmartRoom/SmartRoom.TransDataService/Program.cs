@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Npgsql;
+using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
+using SmartRoom.TransDataService.Controllers;
 using SmartRoom.TransDataService.Logic;
 using SmartRoom.TransDataService.Persistence;
 
