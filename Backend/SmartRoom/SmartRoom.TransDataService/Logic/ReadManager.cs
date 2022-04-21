@@ -58,7 +58,8 @@ namespace SmartRoom.TransDataService.Logic
             string stmd =
                 $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, bool_or(\"BinaryValue\") " +
                 $"FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
-                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'";
+                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
+                $"ORDER BY five_min";
 
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
@@ -76,7 +77,8 @@ namespace SmartRoom.TransDataService.Logic
             string stmd =
                 $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"MeasureValue\") " +
                 $"FROM public.\"State\" GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
-                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'";
+                $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
+                $"ORDER BY five_min";
 
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
