@@ -4,6 +4,8 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Main } from "./pages/main/main.page";
 import { Details } from "./pages/details/details.page";
+import CssBaseline from "@mui/material/CssBaseline";
+import "@fontsource/poppins";
 
 function App() {
   return (

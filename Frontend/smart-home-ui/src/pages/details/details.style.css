@@ -1,0 +1,34 @@
+.grid-bg {
+  width: inherit;
+}
+
+.chart-height {
+  box-shadow: 0px 0.542169px 1.89759px rgba(0, 0, 0, 0.039),
+    0px 2.00602px 6.77711px rgba(0, 0, 0, 0.19);
+
+  padding: 0 20px;
+  height: 30vh;
+  background-color: blue;
+}
+
+@media only screen and (max-width: 900px) {
+  .chart-height {
+    box-shadow: none;
+    margin: auto !important;
+    padding: 0;
+  }
+}
+
+.infoboard-height {
+  height: 20vh;
+  background-color: grey;
+}
+.control-height {
+  height: 50vh;
+  background-color: green;
+}
+
+.header-font-size {
+  font-weight: bold;
+  font-size: clamp(1.5rem, 7vw, 3.5rem);
+}
