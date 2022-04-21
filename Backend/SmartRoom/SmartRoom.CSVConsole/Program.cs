@@ -99,9 +99,6 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
         Console.WriteLine($"{roomEntity}");
     }
 
-
-    
-
     Console.Write($"Import beendet ");
 
 }
