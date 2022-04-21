@@ -25,7 +25,7 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
 
-        [HttpGet("[action]/{id}")]
+        [HttpGet("[action]/{id}&{name}")]
         public async Task<ActionResult<S>> GetRecentBy(Guid id, string name)
         {
             return await _manager.GetRecentStateByEntityID<S>(id, name);
@@ -38,7 +38,7 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
 
-        [HttpGet("[action]/{id}")]
+        [HttpGet("[action]/{id}&{name}")]
         public async Task<object> GetMeasureChartData(Guid id, string name, int intervall = 5)
         {
             if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist!");
