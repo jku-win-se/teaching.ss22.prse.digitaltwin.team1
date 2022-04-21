@@ -9,7 +9,7 @@ string path = @"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartR
 
 Console.WriteLine("Hello, World!");
 IEnumerable<WindowOpen> windowStates;
-IEnumerable<Door> doorID;
+IEnumerable<Door> doors;
 IEnumerable<DoorConnectsRoom> doorConnectsRoom;
 IEnumerable<DoorOpen> doorOpen;
 IEnumerable<PeopleInRoom> peopleInRoom;
@@ -42,7 +42,7 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
 
     using (GenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{path}\Door.csv"))
     {
-        doorID = reader.Read();
+        doors = reader.Read();
     }
 
     using (GenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{path}\Door_Connects_Room.csv"))
@@ -88,9 +88,9 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
             .Where(v => v.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase))
             .Select(v => v.GetEntity()).ToList();
 
-        foreach (var doorInRoom in doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name)))
+        foreach (var doorInRoom in doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name,StringComparison.CurrentCultureIgnoreCase)))
         {
-            equipments.Add(doorID.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity()); 
+            equipments.Add(doors.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity()); 
         }
 
         equipments.AddRange(window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());

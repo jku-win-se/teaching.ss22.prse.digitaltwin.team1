@@ -13,7 +13,7 @@ namespace SmartRoom.CSVConsole.Models
             return new RoomEquipment
             {
                 Name = typeof(Window).Name,
-                EquipmentRef = Room_Id
+                EquipmentRef = ID.ToString()
             };
         }
     }
