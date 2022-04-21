@@ -1,51 +1,46 @@
 ﻿
 using Newtonsoft.Json;
-using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
 namespace SmartRoom.CommonBase.Utils
 {
     public static class WebApiTrans
     {
-        public static async Task<HttpResponseMessage> GetAPI(string uri, string authtoken = null)
+        public static async Task<T> GetAPI<T>(string uri, string authtoken = "") where T : new()
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
             HttpResponseMessage response;
 
             using (HttpClient client = new HttpClient())
             {
-                if (authtoken != null)
+                if (!string.IsNullOrEmpty(authtoken))
                 {
                     client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                      new MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Authorization =
-                      new AuthenticationHeaderValue("ApiKey", authtoken);
+                    client.DefaultRequestHeaders.Add("ApiKey", authtoken);
                 }
-
-                response = await client.SendAsync(request);
+                response = await client.GetAsync(uri);
             }
 
-            return response;
+            if (response.IsSuccessStatusCode)
+            {
+                var res = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(res);
+            }
+            return new T();
         }
 
-        public static async Task<HttpResponseMessage> PostAPI(string uri, object contentparam, string authtoken = null)
+        public static async Task<HttpResponseMessage> PostAPI(string uri, object contentparam, string authtoken = "")
         {
             var request = new HttpRequestMessage(HttpMethod.Post, uri);
             HttpResponseMessage response;
 
-            var content = JsonConvert.SerializeObject(contentparam);
-            StringContent stringContent = new StringContent(content, System.Text.Encoding.UTF8, "application/json");
-
             using (HttpClient client = new HttpClient())
             {
-                if (authtoken != null)
+                if (string.IsNullOrEmpty(authtoken))
                 {
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(
-                      new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Add("ApiKey", authtoken);
                 }
-                response = await client.PostAsync(request.RequestUri, stringContent);
+                response = await client.PostAsJsonAsync(request.RequestUri, contentparam);
             }
 
             return response;
