@@ -32,15 +32,15 @@ if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
 }
 
 //Export
-//Console.Write($"[e] wenn der Export gstartet werden soll: ");
-//var exp = Console.ReadLine();
-//exp = Console.ReadLine();
-//
-//
-//if (exp.Equals("e", StringComparison.CurrentCultureIgnoreCase))
-//{
-//    var export = new ExportManager();
-//    export.ExportCSV();
-//    
-//}
-//Console.Write($"Export beendet ");
+Console.Write($"[e] wenn der Export gstartet werden soll: ");
+var exp = Console.ReadLine();
+exp = Console.ReadLine();
+
+
+if (exp.Equals("e", StringComparison.CurrentCultureIgnoreCase))
+{
+    var export = new ExportManager();
+    export.ExportCSV();
+    
+}
+Console.Write($"Export beendet ");
