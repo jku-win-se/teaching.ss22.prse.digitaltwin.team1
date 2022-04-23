@@ -69,7 +69,8 @@ namespace SmartRoom.CommonBase.Utils
         }
 
         #region IDisposable Support
-        private bool _disposedValue = false; 
+        private bool _disposedValue = false;
+        //public IEnumerable<SmartRoom.CSVConsole.Models.WindowOpen> windowStates;
 
         public void Dispose() => Dispose(true);
 
