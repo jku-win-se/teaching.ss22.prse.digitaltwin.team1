@@ -32,20 +32,32 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpGet("[action]/{id}")]
-        public async Task<ActionResult<string[]>> GetBinaryStateTypesBy(Guid id)
+        public async Task<ActionResult<string[]>> GetTypesBy(Guid id)
         {
             return await _manager.GetStateTypesByEntityID<S>(id);
         }
 
 
         [HttpGet("[action]/{id}&{name}")]
-        public async Task<object> GetMeasureChartData(Guid id, string name, int intervall = 5)
+        public async Task<object> GetChartData(Guid id, string name, int intervall = 5)
         {
-            if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist!");
+            if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist with the given ID!");
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
 
             return await _manager.GetChartData<S>(id, name, intervall);
+        }
+
+        [HttpPost("[action]/{name}")]
+        public async Task<object> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5)
+        {
+            ids = ids.Where(id => _manager.GetStateTypesByEntityID<S>(id).Result.Any(ms => ms.Equals(name))).ToArray();
+
+            if (!ids.Any()) return BadRequest("Parameter *name* does not exsist with the given IDs!");
+            if (intervall < 0) intervall *= -1;
+            if (intervall == 0) intervall = 5;
+
+            return await _manager.GetChartData<S>(ids, name, intervall);
         }
     }
 }
