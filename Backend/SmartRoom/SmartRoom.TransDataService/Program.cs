@@ -70,7 +70,15 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseHttpsRedirection();
+
+app.UseCors(_policyName);
+
+app.UseAuthorization();
+app.UseAuthentication();
+
+app.MapControllers().RequireCors(_policyName);
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -82,14 +90,5 @@ else
     app.UseSwaggerUI();
     app.UseMiddleware<ApiKeyManager>();
 }
-
-app.UseHttpsRedirection();
-
-app.UseCors(_policyName);
-
-app.UseAuthorization();
-app.UseAuthentication();
-
-app.MapControllers();
 
 app.Run();
