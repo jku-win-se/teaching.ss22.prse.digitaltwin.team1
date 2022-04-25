@@ -16,7 +16,7 @@
 - Coverlet (04.2022, https://github.com/coverlet-coverage/coverlet)
 ## Services
 ### Database
-- Postgrsql (https://www.postgresql.org/)
+- Postgresql (https://www.postgresql.org/)
     - Instance: ElephantSQL (https://www.elephantsql.com/)
 - Timescale (https://www.timescale.com/)
     - Instance: TimescaleCloud https://console.cloud.timescale.com/
