@@ -1,0 +1,61 @@
+2022-04-25 17:08:28.146 +02:00 [INF] Starting up
+2022-04-25 17:08:28.594 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-25 17:08:28.598 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-25 17:08:28.601 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-25 17:08:28.602 +02:00 [INF] Hosting environment: Development
+2022-04-25 17:08:28.603 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-25 17:08:31.663 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Command - -
+2022-04-25 17:08:31.753 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:08:31.762 +02:00 [INF] Route matched with {action = "GetBy", controller = "Command"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetBy() on controller SmartRoom.DataSimulatorService.Controllers.CommandController (SmartRoom.DataSimulatorService).
+2022-04-25 17:15:14.105 +02:00 [INF] Starting up
+2022-04-25 17:15:14.510 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-25 17:15:14.516 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-25 17:15:14.521 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-25 17:15:14.523 +02:00 [INF] Hosting environment: Development
+2022-04-25 17:15:14.524 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-25 17:15:19.479 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Command - -
+2022-04-25 17:15:19.564 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:15:19.575 +02:00 [INF] Route matched with {action = "GetBy", controller = "Command"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetBy() on controller SmartRoom.DataSimulatorService.Controllers.CommandController (SmartRoom.DataSimulatorService).
+2022-04-25 17:38:41.278 +02:00 [INF] Starting up
+2022-04-25 17:38:41.823 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-25 17:38:41.829 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-25 17:38:41.833 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-25 17:38:41.835 +02:00 [INF] Hosting environment: Development
+2022-04-25 17:38:41.835 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-25 17:38:42.062 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Command - -
+2022-04-25 17:38:42.189 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:38:42.206 +02:00 [INF] Route matched with {action = "GetBy", controller = "Command"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetBy() on controller SmartRoom.DataSimulatorService.Controllers.CommandController (SmartRoom.DataSimulatorService).
+2022-04-25 17:38:42.218 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService) in 2.8726ms
+2022-04-25 17:38:42.223 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:38:42.229 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'System.IFormatProvider' while attempting to activate 'SmartRoom.DataSimulatorService.Controllers.CommandController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method4(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 17:38:42.402 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Command - - - 500 - text/plain;+charset=utf-8 343.6688ms
+2022-04-25 17:39:34.666 +02:00 [INF] Starting up
+2022-04-25 17:39:34.957 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-25 17:39:34.962 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-25 17:39:34.966 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-25 17:39:34.967 +02:00 [INF] Hosting environment: Development
+2022-04-25 17:39:34.968 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-25 17:39:37.914 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Command - -
+2022-04-25 17:39:38.038 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:39:38.054 +02:00 [INF] Route matched with {action = "GetBy", controller = "Command"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetBy() on controller SmartRoom.DataSimulatorService.Controllers.CommandController (SmartRoom.DataSimulatorService).
+2022-04-25 17:39:38.071 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-25 17:39:38.120 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService) in 55.4638ms
+2022-04-25 17:39:38.126 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
+2022-04-25 17:39:38.131 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Command - - - 200 - application/json;+charset=utf-8 222.1931ms

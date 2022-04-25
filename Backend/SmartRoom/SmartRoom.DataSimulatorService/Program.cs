@@ -1,9 +1,21 @@
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Core;
 using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
+using SmartRoom.DataSimulatorService.Logic;
 
 string _policyName = "CorsPolicy";
 var builder = WebApplication.CreateBuilder(args);
+
+DataSink sink = new DataSink();
+
+Log.Logger = new LoggerConfiguration()
+  .WriteTo.Console()
+  .WriteTo.File(Directory.GetCurrentDirectory() + "Logs.txt", shared: true)
+  .WriteTo.Sink(sink)
+  .CreateLogger();
+
 
 var configBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -12,6 +24,10 @@ var configBuilder = new ConfigurationBuilder()
             .Decrypt("CipherText:");
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
+builder.Services.AddSingleton<DataSink>(sink);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(Log.Logger);
 
 builder.Services.AddControllers();
 
@@ -76,4 +92,18 @@ else
     app.UseMiddleware<ApiKeyManager>();
 }
 
-app.Run();
+try
+{
+    Log.Information("Starting up");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Unhandled exception");
+}
+finally
+{
+    Log.Information("Shut down complete");
+    Log.CloseAndFlush();
+}
+
