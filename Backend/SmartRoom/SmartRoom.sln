@@ -16,9 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.TransDataService", "SmartRoom.TransDataService\SmartRoom.TransDataService.csproj", "{16A8A4E7-4613-412D-A2EF-E52589BA7D7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.TransDataService", "SmartRoom.TransDataService\SmartRoom.TransDataService.csproj", "{16A8A4E7-4613-412D-A2EF-E52589BA7D7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.TransDataService.Tests", "SmartRoom.TransDataService.Tests\SmartRoom.TransDataService.Tests.csproj", "{E7F1B26C-1642-452B-B87A-B62FE67F18D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.TransDataService.Tests", "SmartRoom.TransDataService.Tests\SmartRoom.TransDataService.Tests.csproj", "{E7F1B26C-1642-452B-B87A-B62FE67F18D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.DataSimulatorService", "SmartRoom.DataSimulatorService\SmartRoom.DataSimulatorService.csproj", "{7890B375-D72B-49B9-BCD0-9EAC350EBFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{E7F1B26C-1642-452B-B87A-B62FE67F18D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7F1B26C-1642-452B-B87A-B62FE67F18D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7F1B26C-1642-452B-B87A-B62FE67F18D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7890B375-D72B-49B9-BCD0-9EAC350EBFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7890B375-D72B-49B9-BCD0-9EAC350EBFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7890B375-D72B-49B9-BCD0-9EAC350EBFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7890B375-D72B-49B9-BCD0-9EAC350EBFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
