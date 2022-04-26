@@ -15,9 +15,10 @@
             _configuration = configuration;
         }
 
-        public void LoadData()
+        public async Task LoadData()
         {
-            //_rooms = CommonBase.Utils.WebApiTrans.GetAPI<CommonBase.Core.Entities.Room>(_configuration["Services:BaseDataService"], _configuration["ApiKey"]);
+            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<CommonBase.Core.Entities.Room>>($"{_configuration["Services:BaseDataService"]}room", _configuration["ApiKey"]);
+            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<CommonBase.Core.Entities.RoomEquipment>>($"{_configuration["Services:BaseDataService"]}roomequipment", _configuration["ApiKey"]);
         }
     }
 }

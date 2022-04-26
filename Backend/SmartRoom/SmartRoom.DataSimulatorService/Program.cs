@@ -24,6 +24,7 @@ var configBuilder = new ConfigurationBuilder()
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddSingleton<DataSink>(sink);
+builder.Services.AddTransient<DataManager, DataManager>();
 
 builder.Services.AddHostedService<SimulatorService>();
 

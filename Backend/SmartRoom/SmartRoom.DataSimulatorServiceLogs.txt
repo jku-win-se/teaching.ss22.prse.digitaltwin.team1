@@ -1182,3 +1182,53 @@ System.InvalidOperationException: Unable to resolve service for type 'SmartRoom.
 2022-04-26 20:55:03.300 +02:00 [INF] [Simulator] [Stopping Data Generator]
 2022-04-26 20:55:08.297 +02:00 [INF] [Simulator] [Starting Data Generator]
 2022-04-26 20:55:08.299 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-26 21:18:01.580 +02:00 [INF] Starting up
+2022-04-26 21:18:01.607 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:18:01.804 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 21:18:01.806 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 21:18:01.808 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 21:18:01.810 +02:00 [INF] Hosting environment: Development
+2022-04-26 21:18:01.811 +02:00 [INF] Content root path: C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 21:18:11.619 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 21:18:37.946 +02:00 [INF] Starting up
+2022-04-26 21:18:37.981 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:18:38.197 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 21:18:38.199 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 21:18:38.201 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 21:18:38.202 +02:00 [INF] Hosting environment: Development
+2022-04-26 21:18:38.203 +02:00 [INF] Content root path: C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 21:18:47.999 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 21:18:55.586 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 21:19:05.085 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 21:19:35.884 +02:00 [INF] Starting up
+2022-04-26 21:19:35.913 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:20:01.064 +02:00 [INF] Starting up
+2022-04-26 21:20:01.090 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:21:33.216 +02:00 [INF] Starting up
+2022-04-26 21:21:33.241 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:22:09.043 +02:00 [INF] Starting up
+2022-04-26 21:22:09.080 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:23:43.619 +02:00 [INF] Starting up
+2022-04-26 21:23:43.647 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:23:58.654 +02:00 [FTL] Unhandled exception
+System.IO.FileNotFoundException: Could not load file or assembly 'Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'. Das System kann die angegebene Datei nicht finden.
+File name: 'Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'
+   at SmartRoom.CommonBase.Utils.WebApiTrans.GetAPI[T](String uri, String authtoken)
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.Start[TStateMachine](TStateMachine& stateMachine)
+   at SmartRoom.CommonBase.Utils.WebApiTrans.GetAPI[T](String uri, String authtoken)
+   at SmartRoom.DataSimulatorService.Logic.DataManager.LoadData() in C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\Logic\DataManager.cs:line 20
+   at SmartRoom.DataSimulatorService.Logic.SimulatorService.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\Logic\SimulatorService.cs:line 17
+   at Microsoft.Extensions.Hosting.BackgroundService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Microsoft.AspNetCore.Builder.WebApplication.Run(String url)
+   at Program.<Main>$(String[] args) in C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\Program.cs:line 100
+2022-04-26 21:23:58.743 +02:00 [INF] Shut down complete
+2022-04-26 21:28:55.606 +02:00 [INF] Starting up
+2022-04-26 21:28:55.636 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:31:41.155 +02:00 [INF] Starting up
+2022-04-26 21:31:41.185 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 21:32:08.885 +02:00 [INF] Starting up
+2022-04-26 21:32:08.920 +02:00 [INF] [Simulator] [Starting Service]

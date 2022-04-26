@@ -4,14 +4,17 @@
     {
         private Timer _timer = null!;
         private ILogger _logger;
+        private DataManager _dataManager;
 
-        public SimulatorService(ILogger<SimulatorService> logger)
+        public SimulatorService(ILogger<SimulatorService> logger, DataManager dataManager)
         {
             _logger = logger;
+            _dataManager = dataManager;
         }
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("[Simulator] [Starting Service]");
+            _dataManager.LoadData().GetAwaiter().GetResult();
             _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
             return Task.CompletedTask;
         }
