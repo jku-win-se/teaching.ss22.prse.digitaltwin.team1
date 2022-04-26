@@ -25,6 +25,8 @@ var configBuilder = new ConfigurationBuilder()
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddSingleton<DataSink>(sink);
 
+builder.Services.AddHostedService<SimulatorService>();
+
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger);
 

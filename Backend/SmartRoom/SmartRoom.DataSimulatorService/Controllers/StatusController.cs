@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.DataSimulatorService.Logic;
 
 namespace SmartRoom.DataSimulatorService.Controllers
@@ -14,10 +13,16 @@ namespace SmartRoom.DataSimulatorService.Controllers
         {
             _sink = sink;
         }
-        [HttpGet]
-        public ActionResult<string[]> GetBy()
+        [HttpGet("[action]")]
+        public ActionResult<string[]> GetLogs()
         {
             return _sink.Events.Select(s => s.RenderMessage()).ToArray();
+        }
+
+        [HttpGet("[action]")]
+        public ActionResult<string> GetSimulatorStatus()
+        {
+            return _sink.Events.Select(s => s.RenderMessage()).Where(m => m.Contains("[Simulator]")).Last();
         }
     }
 }

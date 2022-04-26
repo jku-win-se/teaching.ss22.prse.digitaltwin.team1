@@ -59,3 +59,1111 @@ System.InvalidOperationException: Unable to resolve service for type 'System.IFo
 2022-04-25 17:39:38.120 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService) in 55.4638ms
 2022-04-25 17:39:38.126 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.CommandController.GetBy (SmartRoom.DataSimulatorService)'
 2022-04-25 17:39:38.131 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Command - - - 200 - application/json;+charset=utf-8 222.1931ms
+2022-04-26 19:05:00.743 +02:00 [INF] Starting up
+2022-04-26 19:05:00.778 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:01.292 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:05:01.296 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:05:01.298 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:05:01.308 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:05:01.309 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:05:05.780 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:10.783 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:15.782 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:20.772 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:25.784 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:30.770 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:35.786 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:40.784 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:45.773 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:50.785 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:05:55.780 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:06:00.771 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:09:27.806 +02:00 [INF] Starting up
+2022-04-26 19:09:28.025 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:09:28.029 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:09:28.035 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:09:28.038 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:09:28.039 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:10:27.849 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:10:32.840 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:10:37.834 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:10:42.845 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:17:36.797 +02:00 [INF] Starting up
+2022-04-26 19:17:37.015 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:17:37.018 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:17:37.021 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:17:37.022 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:17:37.024 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:17:46.831 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:17:51.831 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:17:56.824 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:01.827 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:06.824 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:11.834 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:16.845 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:21.834 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:26.839 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:31.824 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:36.828 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:18:41.831 +02:00 [INF] [Starting Simulation]
+2022-04-26 19:23:43.072 +02:00 [INF] Starting up
+2022-04-26 19:23:43.100 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:23:43.294 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:23:43.296 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:23:43.297 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:23:43.298 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:23:43.299 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:23:53.121 +02:00 [INF] [Simulation starts]
+2022-04-26 19:23:53.123 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:23:58.112 +02:00 [INF] [Simulation starts]
+2022-04-26 19:23:58.115 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:03.106 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:03.109 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:08.109 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:08.111 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:13.110 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:13.113 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:18.119 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:18.121 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:23.108 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:23.110 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:28.110 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:28.112 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:33.114 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:33.116 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:38.117 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:38.120 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:43.112 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:43.114 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:24:48.104 +02:00 [INF] [Simulation starts]
+2022-04-26 19:24:48.107 +02:00 [INF] [Simulation Ends]
+2022-04-26 19:26:44.570 +02:00 [INF] Starting up
+2022-04-26 19:26:44.599 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:26:44.878 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:26:44.881 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:26:44.883 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:26:44.884 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:26:44.885 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:26:54.617 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:26:54.619 +02:00 [INF] [Simulation ends] [1]
+2022-04-26 19:26:59.628 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:27:01.293 +02:00 [INF] [Simulation ends] [2]
+2022-04-26 19:27:04.147 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:04.316 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 169.8847ms
+2022-04-26 19:27:04.612 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:27:04.613 +02:00 [INF] [Simulation ends] [3]
+2022-04-26 19:27:09.617 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:27:09.619 +02:00 [INF] [Simulation ends] [4]
+2022-04-26 19:27:14.613 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:27:14.615 +02:00 [INF] [Simulation ends] [5]
+2022-04-26 19:27:19.603 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:27:19.605 +02:00 [INF] [Simulation ends] [6]
+2022-04-26 19:27:21.119 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:21.124 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 4.8212ms
+2022-04-26 19:27:24.617 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:27:24.619 +02:00 [INF] [Simulation ends] [7]
+2022-04-26 19:27:28.372 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:28.376 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 4.0172ms
+2022-04-26 19:27:29.611 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:27:29.614 +02:00 [INF] [Simulation ends] [8]
+2022-04-26 19:27:32.589 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:32.593 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.6293ms
+2022-04-26 19:27:34.609 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 19:27:34.612 +02:00 [INF] [Simulation ends] [9]
+2022-04-26 19:27:34.787 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:34.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9698ms
+2022-04-26 19:27:39.607 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 19:27:39.609 +02:00 [INF] [Simulation ends] [10]
+2022-04-26 19:27:40.191 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:40.194 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0237ms
+2022-04-26 19:27:40.448 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:40.451 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.2481ms
+2022-04-26 19:27:40.840 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:40.842 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8612ms
+2022-04-26 19:27:42.090 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.093 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.2282ms
+2022-04-26 19:27:42.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.267 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.1675ms
+2022-04-26 19:27:42.454 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.458 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.8225ms
+2022-04-26 19:27:42.612 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.615 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9737ms
+2022-04-26 19:27:42.781 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.784 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.3703ms
+2022-04-26 19:27:42.932 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:42.935 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.1356ms
+2022-04-26 19:27:43.076 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:43.078 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.3611ms
+2022-04-26 19:27:43.240 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:43.247 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 7.2728ms
+2022-04-26 19:27:43.397 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:43.399 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9342ms
+2022-04-26 19:27:44.613 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 19:27:44.616 +02:00 [INF] [Simulation ends] [11]
+2022-04-26 19:27:47.494 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:47.497 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8442ms
+2022-04-26 19:27:47.680 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:47.683 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0978ms
+2022-04-26 19:27:47.840 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:47.843 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.6640ms
+2022-04-26 19:27:48.018 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.021 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.7359ms
+2022-04-26 19:27:48.178 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.180 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8751ms
+2022-04-26 19:27:48.339 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.342 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.7468ms
+2022-04-26 19:27:48.519 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.521 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8288ms
+2022-04-26 19:27:48.683 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.686 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.2743ms
+2022-04-26 19:27:48.855 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:48.858 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8047ms
+2022-04-26 19:27:49.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.023 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0243ms
+2022-04-26 19:27:49.194 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.198 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.4183ms
+2022-04-26 19:27:49.356 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.358 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8019ms
+2022-04-26 19:27:49.522 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.525 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0513ms
+2022-04-26 19:27:49.622 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 19:27:49.623 +02:00 [INF] [Simulation ends] [12]
+2022-04-26 19:27:49.700 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.703 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.5841ms
+2022-04-26 19:27:49.886 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:49.889 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8547ms
+2022-04-26 19:27:50.063 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:50.067 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.5465ms
+2022-04-26 19:27:52.424 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:52.426 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.3663ms
+2022-04-26 19:27:52.607 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:52.610 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.4655ms
+2022-04-26 19:27:52.827 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:52.830 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0321ms
+2022-04-26 19:27:53.036 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.039 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8597ms
+2022-04-26 19:27:53.232 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.236 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.9137ms
+2022-04-26 19:27:53.416 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.419 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.6046ms
+2022-04-26 19:27:53.586 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.599 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 13.8589ms
+2022-04-26 19:27:53.777 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.789 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 11.9280ms
+2022-04-26 19:27:53.970 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:53.973 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.7879ms
+2022-04-26 19:27:54.150 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:54.153 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9009ms
+2022-04-26 19:27:54.348 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:54.351 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0593ms
+2022-04-26 19:27:54.515 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:54.518 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0125ms
+2022-04-26 19:27:54.703 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:54.706 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.5144ms
+2022-04-26 19:27:54.867 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:27:54.870 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.4275ms
+2022-04-26 19:28:05.118 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:05.121 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.4423ms
+2022-04-26 19:28:05.284 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:05.287 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8456ms
+2022-04-26 19:28:05.467 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:05.470 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.7817ms
+2022-04-26 19:28:15.895 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:15.900 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 7.2022ms
+2022-04-26 19:28:40.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:40.853 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 12.6596ms
+2022-04-26 19:28:58.876 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:28:58.879 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.3666ms
+2022-04-26 19:29:07.128 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.131 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.7294ms
+2022-04-26 19:29:07.287 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.289 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9830ms
+2022-04-26 19:29:07.454 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.457 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.4755ms
+2022-04-26 19:29:07.623 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.626 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9918ms
+2022-04-26 19:29:07.787 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.8974ms
+2022-04-26 19:29:07.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:07.972 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.4163ms
+2022-04-26 19:29:08.135 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.138 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.1935ms
+2022-04-26 19:29:08.287 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.289 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9227ms
+2022-04-26 19:29:08.453 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.456 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.1081ms
+2022-04-26 19:29:08.604 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.607 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.0969ms
+2022-04-26 19:29:08.788 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.791 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 2.9710ms
+2022-04-26 19:29:08.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:08.953 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.3763ms
+2022-04-26 19:29:09.131 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:09.134 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.3058ms
+2022-04-26 19:29:09.305 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:29:09.308 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 3.2970ms
+2022-04-26 19:30:20.547 +02:00 [INF] Starting up
+2022-04-26 19:30:20.580 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:30:20.817 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:30:20.819 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:30:20.820 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:30:20.827 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:30:20.848 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:30:30.606 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:30:30.608 +02:00 [INF] [Simulation ends]
+2022-04-26 19:30:35.589 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:30:35.592 +02:00 [INF] [Simulation ends]
+2022-04-26 19:30:40.597 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:30:40.598 +02:00 [INF] [Simulation ends]
+2022-04-26 19:30:45.588 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:30:45.590 +02:00 [INF] [Simulation ends]
+2022-04-26 19:30:50.590 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:30:50.592 +02:00 [INF] [Simulation ends]
+2022-04-26 19:30:55.592 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:30:55.594 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:00.583 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:31:00.585 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:05.585 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:31:05.587 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:10.584 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 19:31:10.587 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:15.600 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 19:31:15.602 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:20.587 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 19:31:20.589 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:25.598 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 19:31:25.601 +02:00 [INF] [Simulation ends]
+2022-04-26 19:31:42.095 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-04-26 19:31:42.207 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 114.4790ms
+2022-04-26 19:39:39.643 +02:00 [INF] Starting up
+2022-04-26 19:39:39.674 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:39:39.937 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:39:39.939 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:39:39.940 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:39:39.941 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:39:39.942 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:39:49.687 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:39:49.688 +02:00 [INF] [Simulation ends]
+2022-04-26 19:39:54.687 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:39:54.689 +02:00 [INF] [Simulation ends]
+2022-04-26 19:39:59.678 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:39:59.680 +02:00 [INF] [Simulation ends]
+2022-04-26 19:40:38.106 +02:00 [INF] Starting up
+2022-04-26 19:40:38.158 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:40:38.634 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:40:38.637 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:40:38.638 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:40:38.640 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:40:38.641 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:40:48.175 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:40:48.177 +02:00 [INF] [Simulation ends]
+2022-04-26 19:40:53.174 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:40:53.177 +02:00 [INF] [Simulation ends]
+2022-04-26 19:40:58.169 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:40:58.172 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:03.171 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:41:03.173 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:08.166 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:41:08.169 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:13.175 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:41:13.177 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:18.173 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:41:18.175 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:23.175 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:41:23.178 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:28.172 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 19:41:28.175 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:33.171 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 19:41:33.174 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:38.164 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 19:41:38.166 +02:00 [INF] [Simulation ends]
+2022-04-26 19:41:43.177 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 19:41:43.179 +02:00 [INF] [Simulation ends]
+2022-04-26 19:42:21.354 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-04-26 19:42:21.590 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 237.1426ms
+2022-04-26 19:42:21.590 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-04-26 19:42:21.601 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11964 application/javascript;+charset=utf-8 10.9815ms
+2022-04-26 19:42:22.137 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-04-26 19:42:22.139 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11964 application/javascript;+charset=utf-8 1.7640ms
+2022-04-26 19:42:22.354 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-04-26 19:42:22.427 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/Status" for actions - SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService),SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService),SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-26 19:42:22.615 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 262.0539ms
+2022-04-26 19:43:07.879 +02:00 [INF] Starting up
+2022-04-26 19:43:07.906 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:43:08.229 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:43:08.232 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:43:08.233 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:43:08.234 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:43:08.235 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:43:17.931 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:43:17.933 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:20.912 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-04-26 19:43:21.152 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 238.2003ms
+2022-04-26 19:43:21.153 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-04-26 19:43:21.166 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11964 application/javascript;+charset=utf-8 13.0857ms
+2022-04-26 19:43:21.225 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-04-26 19:43:21.298 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 73.3075ms
+2022-04-26 19:43:22.920 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:43:22.923 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:27.924 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:43:27.927 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:31.099 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:43:31.109 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:43:31.120 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:43:31.131 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 2.648ms
+2022-04-26 19:43:31.136 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:43:31.142 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'SmartRoom.DataSimulatorService.Logic.SimulatorService' while attempting to activate 'SmartRoom.DataSimulatorService.Controllers.StatusController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method4(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-26 19:43:31.205 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 500 - text/plain;+charset=utf-8 105.8915ms
+2022-04-26 19:43:32.921 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:43:32.924 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:37.917 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:43:37.919 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:42.916 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:43:42.918 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:47.920 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:43:47.921 +02:00 [INF] [Simulation ends]
+2022-04-26 19:43:52.927 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:43:52.930 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:18.055 +02:00 [INF] Starting up
+2022-04-26 19:48:18.091 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:48:18.629 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:48:18.633 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:48:18.636 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:48:18.637 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:48:18.639 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:48:28.114 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:48:28.115 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:33.110 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:48:33.112 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:38.102 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:48:38.109 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:43.108 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:48:43.110 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:44.549 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-04-26 19:48:44.797 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-04-26 19:48:44.799 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 254.9972ms
+2022-04-26 19:48:44.801 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11964 application/javascript;+charset=utf-8 3.8351ms
+2022-04-26 19:48:45.039 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-04-26 19:48:45.121 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 81.4348ms
+2022-04-26 19:48:48.111 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:48:48.113 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:48.991 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:48:49.000 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:48:49.012 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:48:49.026 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:48:49.035 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 13.112ms
+2022-04-26 19:48:49.040 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:48:49.043 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 51.8114ms
+2022-04-26 19:48:53.099 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:48:53.100 +02:00 [INF] [Simulation ends]
+2022-04-26 19:48:58.107 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:48:58.110 +02:00 [INF] [Simulation ends]
+2022-04-26 19:49:01.388 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - -
+2022-04-26 19:49:01.393 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 19:49:01.404 +02:00 [INF] Route matched with {action = "StartSimulator", controller = "Status"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartSimulator() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:49:02.533 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2022-04-26 19:49:02.538 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService) in 1128.6213ms
+2022-04-26 19:49:02.540 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 19:49:02.543 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - - - 0 - application/problem+json;+charset=utf-8 1155.1489ms
+2022-04-26 19:49:03.102 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:49:03.104 +02:00 [INF] [Simulation ends]
+2022-04-26 19:49:08.105 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 19:49:08.107 +02:00 [INF] [Simulation ends]
+2022-04-26 19:49:13.108 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 19:49:13.110 +02:00 [INF] [Simulation ends]
+2022-04-26 19:49:18.105 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 19:49:18.107 +02:00 [INF] [Simulation ends]
+2022-04-26 19:49:23.115 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 19:49:23.118 +02:00 [INF] [Simulation ends]
+2022-04-26 19:50:45.611 +02:00 [INF] Starting up
+2022-04-26 19:50:45.712 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 19:50:45.980 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 19:50:45.984 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 19:50:45.986 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 19:50:45.988 +02:00 [INF] Hosting environment: Development
+2022-04-26 19:50:45.990 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 19:50:47.926 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:50:48.013 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:48.026 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:50:48.042 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:50:48.074 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 37.5257ms
+2022-04-26 19:50:48.077 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:48.081 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 158.1941ms
+2022-04-26 19:50:49.709 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:50:49.714 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:49.718 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:50:49.720 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:50:49.722 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 2.2085ms
+2022-04-26 19:50:49.724 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:49.726 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 17.4862ms
+2022-04-26 19:50:51.108 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:50:51.112 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:51.115 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:50:51.121 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:50:51.122 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 1.8901ms
+2022-04-26 19:50:51.124 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:51.126 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 17.7886ms
+2022-04-26 19:50:54.673 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:50:54.674 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:54.677 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:50:54.682 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:50:54.684 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 2.9376ms
+2022-04-26 19:50:54.687 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:54.689 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 16.8386ms
+2022-04-26 19:50:55.731 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 19:50:55.733 +02:00 [INF] [Simulation ends]
+2022-04-26 19:50:57.530 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:50:57.532 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:57.535 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:50:57.539 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:50:57.542 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 3.4839ms
+2022-04-26 19:50:57.545 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:50:57.548 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 17.8846ms
+2022-04-26 19:51:00.736 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 19:51:00.737 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:05.719 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 19:51:05.724 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:10.724 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 19:51:10.727 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:15.737 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 19:51:15.738 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:20.722 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 19:51:20.724 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:24.344 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:51:24.346 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:24.349 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:51:24.354 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:51:24.356 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 2.3514ms
+2022-04-26 19:51:24.360 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:24.363 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 18.6981ms
+2022-04-26 19:51:25.730 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 19:51:25.732 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:29.940 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:51:29.942 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:29.944 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:51:29.950 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:51:29.953 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 3.002ms
+2022-04-26 19:51:29.955 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:29.957 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 17.7041ms
+2022-04-26 19:51:30.730 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 19:51:30.733 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:31.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 19:51:31.519 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:31.522 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:51:31.527 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 19:51:31.529 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 2.042ms
+2022-04-26 19:51:31.535 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:31.541 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 25.1430ms
+2022-04-26 19:51:35.732 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 19:51:35.734 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:40.729 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 19:51:40.731 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:45.736 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 19:51:45.738 +02:00 [INF] [Simulation ends]
+2022-04-26 19:51:46.839 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - -
+2022-04-26 19:51:46.840 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:46.855 +02:00 [INF] Route matched with {action = "StartSimulator", controller = "Status"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartSimulator() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 19:51:47.991 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2022-04-26 19:51:47.996 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService) in 1137.9655ms
+2022-04-26 19:51:47.998 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 19:51:48.000 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - - - 0 - application/problem+json;+charset=utf-8 1161.9802ms
+2022-04-26 19:51:50.732 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 19:51:50.734 +02:00 [INF] [Simulation ends]
+2022-04-26 20:00:58.161 +02:00 [INF] Starting up
+2022-04-26 20:00:58.196 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:00:58.421 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:00:58.427 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:00:58.429 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:00:58.430 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:00:58.432 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:01:08.214 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:01:08.216 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:13.212 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 20:01:13.213 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:18.069 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-26 20:01:18.170 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 20:01:18.183 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:01:18.195 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-26 20:01:18.214 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 20:01:18.218 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:18.223 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 32.8958ms
+2022-04-26 20:01:18.226 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-26 20:01:18.230 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 164.6023ms
+2022-04-26 20:01:23.216 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 20:01:23.217 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:26.777 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - -
+2022-04-26 20:01:26.782 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 20:01:26.801 +02:00 [INF] Route matched with {action = "StartSimulator", controller = "Status"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartSimulator() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:01:27.938 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2022-04-26 20:01:27.943 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService) in 1139.2768ms
+2022-04-26 20:01:27.946 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 20:01:27.947 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - - - 0 - application/problem+json;+charset=utf-8 1170.3654ms
+2022-04-26 20:01:28.220 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 20:01:28.222 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:33.209 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 20:01:33.211 +02:00 [INF] [Simulation ends]
+2022-04-26 20:01:50.837 +02:00 [INF] Starting up
+2022-04-26 20:01:54.926 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:01:55.187 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:01:55.190 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:01:55.191 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:01:55.192 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:01:55.193 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:01:59.032 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - -
+2022-04-26 20:01:59.141 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 20:01:59.164 +02:00 [INF] Route matched with {action = "StartSimulator", controller = "Status"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] StartSimulator() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:03:21.539 +02:00 [INF] Starting up
+2022-04-26 20:03:21.572 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:03:22.142 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:03:22.148 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:03:22.151 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:03:22.153 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:03:22.155 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:03:31.596 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:03:31.598 +02:00 [INF] [Simulation ends]
+2022-04-26 20:03:36.586 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 20:03:36.588 +02:00 [INF] [Simulation ends]
+2022-04-26 20:03:38.557 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - -
+2022-04-26 20:03:38.645 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 20:03:38.657 +02:00 [INF] Route matched with {action = "StartSimulator", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult StartSimulator() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:03:45.742 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 20:03:45.744 +02:00 [INF] [Simulation ends]
+2022-04-26 20:03:46.585 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 20:03:46.586 +02:00 [INF] [Simulation ends]
+2022-04-26 20:03:46.801 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-04-26 20:03:46.811 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService) in 8146.3039ms
+2022-04-26 20:03:46.813 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.StartSimulator (SmartRoom.DataSimulatorService)'
+2022-04-26 20:03:46.816 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/StartSimulator - - - 0 - - 8262.9382ms
+2022-04-26 20:03:51.595 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 20:03:51.597 +02:00 [INF] [Simulation ends]
+2022-04-26 20:03:56.589 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 20:03:56.591 +02:00 [INF] [Simulation ends]
+2022-04-26 20:04:01.592 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 20:04:01.595 +02:00 [INF] [Simulation ends]
+2022-04-26 20:04:06.583 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 20:04:06.587 +02:00 [INF] [Simulation ends]
+2022-04-26 20:05:37.036 +02:00 [INF] Starting up
+2022-04-26 20:05:37.196 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:05:37.699 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:05:37.702 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:05:37.707 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:05:37.708 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:05:37.713 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:05:47.217 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:05:47.218 +02:00 [INF] [Simulation ends]
+2022-04-26 20:12:49.435 +02:00 [INF] Starting up
+2022-04-26 20:12:49.613 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:12:49.626 +02:00 [INF] [Stopping Simulator Service]
+2022-04-26 20:12:49.974 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:12:49.979 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:12:49.988 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:12:49.994 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:12:49.997 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:12:59.639 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:12:59.640 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:04.633 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 20:13:04.634 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:09.631 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 20:13:09.633 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:14.631 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 20:13:14.633 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:19.637 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 20:13:19.639 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:24.633 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 20:13:24.635 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:29.631 +02:00 [INF] [Simulation starts] [6]
+2022-04-26 20:13:29.633 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:34.632 +02:00 [INF] [Simulation starts] [7]
+2022-04-26 20:13:34.634 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:39.636 +02:00 [INF] [Simulation starts] [8]
+2022-04-26 20:13:39.640 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:44.648 +02:00 [INF] [Simulation starts] [9]
+2022-04-26 20:13:44.649 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:49.636 +02:00 [INF] [Simulation starts] [10]
+2022-04-26 20:13:49.638 +02:00 [INF] [Simulation ends]
+2022-04-26 20:13:54.637 +02:00 [INF] [Simulation starts] [11]
+2022-04-26 20:13:54.638 +02:00 [INF] [Simulation ends]
+2022-04-26 20:18:30.640 +02:00 [INF] Starting up
+2022-04-26 20:18:30.671 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:18:30.892 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:18:30.896 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:18:30.897 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:18:30.898 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:18:30.900 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:18:40.681 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:18:40.682 +02:00 [INF] [Simulation ends]
+2022-04-26 20:18:45.688 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 20:18:45.694 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:03.792 +02:00 [INF] Starting up
+2022-04-26 20:19:03.832 +02:00 [INF] [Starting Simulator Service]
+2022-04-26 20:19:04.281 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:19:04.293 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:19:04.297 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:19:04.298 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:19:04.300 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:19:13.855 +02:00 [INF] [Simulation starts] [0]
+2022-04-26 20:19:13.857 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:18.850 +02:00 [INF] [Simulation starts] [1]
+2022-04-26 20:19:18.852 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:23.851 +02:00 [INF] [Simulation starts] [2]
+2022-04-26 20:19:23.854 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:28.845 +02:00 [INF] [Simulation starts] [3]
+2022-04-26 20:19:28.847 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:33.841 +02:00 [INF] [Simulation starts] [4]
+2022-04-26 20:19:33.847 +02:00 [INF] [Simulation ends]
+2022-04-26 20:19:38.838 +02:00 [INF] [Simulation starts] [5]
+2022-04-26 20:19:38.841 +02:00 [INF] [Simulation ends]
+2022-04-26 20:21:41.520 +02:00 [INF] Starting up
+2022-04-26 20:21:41.553 +02:00 [INF] [Simulator] [Simulator Service]
+2022-04-26 20:21:41.774 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:21:41.777 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:21:41.778 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:21:41.779 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:21:41.780 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:21:51.565 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:21:51.568 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:21:56.561 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:21:56.564 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:01.557 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:01.559 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:06.564 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:06.570 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:11.563 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:11.564 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:14.819 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:14.911 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:14.923 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:14.932 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:14.949 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 19.1932ms
+2022-04-26 20:22:14.952 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:14.957 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 143.5434ms
+2022-04-26 20:22:16.561 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:16.564 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:17.787 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:17.792 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:17.800 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:17.804 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:17.806 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.7407ms
+2022-04-26 20:22:17.809 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:17.814 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 26.6665ms
+2022-04-26 20:22:18.349 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:18.352 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.356 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:18.361 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:18.362 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.8865ms
+2022-04-26 20:22:18.366 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.369 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.1701ms
+2022-04-26 20:22:18.725 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:18.728 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.734 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:18.740 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:18.741 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.6862ms
+2022-04-26 20:22:18.744 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.748 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 22.6867ms
+2022-04-26 20:22:18.924 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:18.926 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.929 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:18.936 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:18.938 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.0678ms
+2022-04-26 20:22:18.940 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:18.943 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.7919ms
+2022-04-26 20:22:19.342 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:19.345 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:19.350 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:19.357 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:19.358 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.9005ms
+2022-04-26 20:22:19.361 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:19.363 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.1474ms
+2022-04-26 20:22:19.694 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:19.697 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:19.702 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:19.708 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:19.710 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.3058ms
+2022-04-26 20:22:19.714 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:19.719 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 24.7257ms
+2022-04-26 20:22:20.011 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:20.013 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.026 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:20.030 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:20.033 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.6311ms
+2022-04-26 20:22:20.036 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.040 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 29.0624ms
+2022-04-26 20:22:20.304 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:20.306 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.309 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:20.315 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:20.318 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 4.1801ms
+2022-04-26 20:22:20.324 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.326 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 23.1403ms
+2022-04-26 20:22:20.615 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:20.617 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.620 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:20.626 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:20.628 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.2281ms
+2022-04-26 20:22:20.630 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.636 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.1014ms
+2022-04-26 20:22:20.862 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:20.864 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.867 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:20.873 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:20.875 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.5503ms
+2022-04-26 20:22:20.878 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:20.883 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.2249ms
+2022-04-26 20:22:21.050 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.052 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.055 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.059 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.061 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.8551ms
+2022-04-26 20:22:21.063 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.067 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.0133ms
+2022-04-26 20:22:21.220 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.222 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.225 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.230 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.233 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.4692ms
+2022-04-26 20:22:21.236 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.239 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.1260ms
+2022-04-26 20:22:21.385 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.387 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.391 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.400 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.402 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.3404ms
+2022-04-26 20:22:21.407 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.411 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 26.1025ms
+2022-04-26 20:22:21.564 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:21.564 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.569 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:21.572 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.576 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.580 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.582 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.1417ms
+2022-04-26 20:22:21.585 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.591 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 27.1236ms
+2022-04-26 20:22:21.743 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.746 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.750 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.755 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.758 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.1813ms
+2022-04-26 20:22:21.762 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.764 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.9950ms
+2022-04-26 20:22:21.914 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:21.916 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.920 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:21.925 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:21.927 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.5451ms
+2022-04-26 20:22:21.930 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:21.932 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.6645ms
+2022-04-26 20:22:22.085 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.088 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.093 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.099 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.101 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.4189ms
+2022-04-26 20:22:22.103 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.107 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.9168ms
+2022-04-26 20:22:22.273 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.275 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.278 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.285 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.287 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.9526ms
+2022-04-26 20:22:22.291 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.292 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.3924ms
+2022-04-26 20:22:22.457 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.460 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.464 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.473 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.475 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.6486ms
+2022-04-26 20:22:22.479 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.482 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 25.4766ms
+2022-04-26 20:22:22.613 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.616 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.619 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.625 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.627 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.5994ms
+2022-04-26 20:22:22.629 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.631 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.3772ms
+2022-04-26 20:22:22.801 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.804 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.808 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.814 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.816 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.2868ms
+2022-04-26 20:22:22.819 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.822 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.3740ms
+2022-04-26 20:22:22.974 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:22.976 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.980 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:22.985 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:22.988 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.7649ms
+2022-04-26 20:22:22.991 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:22.993 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.6680ms
+2022-04-26 20:22:23.156 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:23.158 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.161 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:23.165 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:23.167 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.547ms
+2022-04-26 20:22:23.170 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.174 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.3040ms
+2022-04-26 20:22:23.335 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:23.337 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.341 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:23.345 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:23.346 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.0584ms
+2022-04-26 20:22:23.349 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.353 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.1510ms
+2022-04-26 20:22:23.520 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:23.522 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.525 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:23.529 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:23.530 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.7652ms
+2022-04-26 20:22:23.535 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.538 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.7079ms
+2022-04-26 20:22:23.703 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:23.706 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.709 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:23.714 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:23.717 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.0906ms
+2022-04-26 20:22:23.727 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:23.729 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 26.3462ms
+2022-04-26 20:22:24.216 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:24.218 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:24.222 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:24.227 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:24.229 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.7063ms
+2022-04-26 20:22:24.231 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:24.234 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.4992ms
+2022-04-26 20:22:24.719 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:24.729 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:24.738 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:24.746 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:24.748 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.956ms
+2022-04-26 20:22:24.752 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:24.754 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 35.0529ms
+2022-04-26 20:22:25.059 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:25.061 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.064 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:25.069 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:25.072 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.898ms
+2022-04-26 20:22:25.075 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.078 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.7153ms
+2022-04-26 20:22:25.239 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:25.241 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.244 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:25.249 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:25.251 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.7732ms
+2022-04-26 20:22:25.254 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.256 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.1815ms
+2022-04-26 20:22:25.440 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:25.442 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.445 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:25.452 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:25.455 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.2943ms
+2022-04-26 20:22:25.459 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.461 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.4850ms
+2022-04-26 20:22:25.613 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:25.615 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.619 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:25.630 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:25.636 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 11.4074ms
+2022-04-26 20:22:25.640 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.643 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 30.6362ms
+2022-04-26 20:22:25.841 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:25.843 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.846 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:25.850 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:25.853 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.4159ms
+2022-04-26 20:22:25.856 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:25.860 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.8073ms
+2022-04-26 20:22:26.567 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:26.569 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:31.408 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:31.410 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:31.413 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:31.419 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:31.422 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.7324ms
+2022-04-26 20:22:31.425 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:31.429 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.2037ms
+2022-04-26 20:22:31.568 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:31.570 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:32.696 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:32.698 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:32.703 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:32.707 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:32.710 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.3444ms
+2022-04-26 20:22:32.712 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:32.717 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.1002ms
+2022-04-26 20:22:33.180 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:33.182 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.187 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:33.192 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:33.194 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.9921ms
+2022-04-26 20:22:33.197 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.202 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 22.4487ms
+2022-04-26 20:22:33.405 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:33.407 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.411 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:33.416 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:33.421 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 5.5083ms
+2022-04-26 20:22:33.425 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.430 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 25.1972ms
+2022-04-26 20:22:33.629 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:33.632 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.636 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:33.644 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:33.647 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.9151ms
+2022-04-26 20:22:33.654 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:33.657 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 28.4377ms
+2022-04-26 20:22:36.126 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:36.128 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.132 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:36.138 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:36.140 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.3101ms
+2022-04-26 20:22:36.144 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.147 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 21.2571ms
+2022-04-26 20:22:36.544 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:36.546 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.549 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:36.556 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:36.558 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.822ms
+2022-04-26 20:22:36.560 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.562 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.0226ms
+2022-04-26 20:22:36.568 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:36.570 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:36.730 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:36.732 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.737 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:36.746 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:36.748 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.6411ms
+2022-04-26 20:22:36.752 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.755 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 26.0698ms
+2022-04-26 20:22:36.888 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:36.891 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.893 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:36.898 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:36.900 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.2584ms
+2022-04-26 20:22:36.903 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:36.906 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.8655ms
+2022-04-26 20:22:37.037 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.039 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.042 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.047 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.048 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.5863ms
+2022-04-26 20:22:37.051 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.056 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 18.7312ms
+2022-04-26 20:22:37.197 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.200 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.205 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.208 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.210 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.1464ms
+2022-04-26 20:22:37.213 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.217 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.2661ms
+2022-04-26 20:22:37.376 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.378 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.381 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.386 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.390 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 4.7256ms
+2022-04-26 20:22:37.393 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.395 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.7356ms
+2022-04-26 20:22:37.542 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.545 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.548 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.555 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.559 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.6511ms
+2022-04-26 20:22:37.562 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.564 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 22.0237ms
+2022-04-26 20:22:37.720 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.722 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.725 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.732 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.734 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 3.2079ms
+2022-04-26 20:22:37.740 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.743 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 22.9874ms
+2022-04-26 20:22:37.906 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:37.908 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.911 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:37.919 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:37.921 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.2664ms
+2022-04-26 20:22:37.923 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:37.926 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.8841ms
+2022-04-26 20:22:38.126 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:38.129 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.133 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:38.138 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:38.139 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.6147ms
+2022-04-26 20:22:38.142 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.144 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.9123ms
+2022-04-26 20:22:38.480 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:38.482 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.486 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:38.492 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:38.493 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.78ms
+2022-04-26 20:22:38.496 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.498 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.9626ms
+2022-04-26 20:22:38.862 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:38.864 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.868 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:38.873 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:38.875 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.3017ms
+2022-04-26 20:22:38.877 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:38.881 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.3418ms
+2022-04-26 20:22:39.048 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:39.051 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.054 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:39.060 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:39.061 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 1.7036ms
+2022-04-26 20:22:39.063 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.069 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 20.7421ms
+2022-04-26 20:22:39.229 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:39.240 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.244 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:39.249 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:39.253 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 4.6087ms
+2022-04-26 20:22:39.256 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.258 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 29.7354ms
+2022-04-26 20:22:39.452 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:39.454 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.458 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:39.462 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:39.464 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.0246ms
+2022-04-26 20:22:39.468 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.472 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 19.9285ms
+2022-04-26 20:22:39.654 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - -
+2022-04-26 20:22:39.656 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.658 +02:00 [INF] Route matched with {action = "GetSimulatorStatus", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] GetSimulatorStatus() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-26 20:22:39.663 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-26 20:22:39.665 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService) in 2.01ms
+2022-04-26 20:22:39.668 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetSimulatorStatus (SmartRoom.DataSimulatorService)'
+2022-04-26 20:22:39.671 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetSimulatorStatus - - - 200 - text/plain;+charset=utf-8 17.6052ms
+2022-04-26 20:22:41.569 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:41.571 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:46.573 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:46.576 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:51.570 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:51.576 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:22:56.558 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:22:56.564 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:23:01.571 +02:00 [INF] [Simulator] [Simulation starts]
+2022-04-26 20:23:01.578 +02:00 [INF] [Simulator] [Simulation ends]
