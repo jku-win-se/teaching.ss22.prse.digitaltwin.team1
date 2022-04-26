@@ -20,7 +20,7 @@ namespace SmartRoom.CommonBase.Utils
 
         public GenericCSVWriter(IEnumerable<T> data, string fileName)
         {
-            if(_data is not null) _data = data;
+            if(data is not null) _data = data;
             else throw new ArgumentNullException(nameof(data));
 
             FileName = fileName;
