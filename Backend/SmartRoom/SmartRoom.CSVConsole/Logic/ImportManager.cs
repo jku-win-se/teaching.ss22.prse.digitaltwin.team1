@@ -20,13 +20,76 @@ namespace SmartRoom.CSVConsole.Logic
         public ImportManager(string path)
         {
             _path = path;
-            _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();   
+           
+            ConfigureManager();
         }
 
-        public void ImportCSV ()
+        public async void ImportCSV ()
         {
-            //if (_path == null);
+            try
+            {
+                ImportData();
+            }
+            catch (Exception)
+            {
 
+                throw new Exception("Import fehlgeschlagen");
+            }
+           
+            
+            
+            
+            AddEquipmentToRoom();
+
+            try
+            {
+                foreach (var room in _rooms)
+                {
+                    var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
+                    if (!res.IsSuccessStatusCode) throw new Exception();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+            }
+
+        }
+
+        
+
+        private void AddEquipmentToRoom()
+        {
+            foreach (var roomModel in _roomCap)
+            {
+                var roomEntity = roomModel.GetEntity();
+                var equipments = _ventilator
+                    .Where(v => v.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase))
+                    .Select(v => v.GetEntity()).ToList();
+
+                foreach (var doorInRoom in _doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    equipments.Add(_doors.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity());
+                }
+
+                equipments.AddRange(_window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());
+
+                roomEntity.RoomEquipment.AddRange(equipments);
+                _rooms.Add(roomEntity);
+            }
+
+        }
+
+
+        private void ConfigureManager()
+        {
+            _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();
+            _peopleInRoom = new List<PeopleInRoom>();
+        }
+
+        private void ImportData()
+        {
             using (GenericCSVReader<WindowOpen> reader = new GenericCSVReader<WindowOpen>(@$"{_path}\WindowOpen.csv"))
             {
                 _windowStates = reader.Read();
@@ -72,29 +135,7 @@ namespace SmartRoom.CSVConsole.Logic
                 _window = reader.Read();
             }
 
-            AddEquipmentToRoom();
-        
-        }
-
-        private void AddEquipmentToRoom()
-        {
-            foreach (var roomModel in _roomCap)
-            {
-                var roomEntity = roomModel.GetEntity();
-                var equipments = _ventilator
-                    .Where(v => v.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase))
-                    .Select(v => v.GetEntity()).ToList();
-
-                foreach (var doorInRoom in _doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)))
-                {
-                    equipments.Add(_doors.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity());
-                }
-
-                equipments.AddRange(_window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());
-
-                roomEntity.RoomEquipment.AddRange(equipments);
-                _rooms.Add(roomEntity);
-            }
+       
 
         }
 

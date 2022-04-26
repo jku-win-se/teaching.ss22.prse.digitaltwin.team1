@@ -5,8 +5,6 @@ using SmartRoom.CSVConsole.Logic;
 
 string path = @"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data";
 
-Console.WriteLine("Hello, World!");
-
 Console.Write("Import-File-Pfad angeben: ");
 var input = Console.ReadLine();
 
@@ -19,28 +17,38 @@ foreach (var dir in dirs)
     Console.WriteLine($"{i}: {dir}");
 }
 
-Console.Write($"[J]a wenn der Input gstartet werden soll: ");
-input = Console.ReadLine();
 
-if (input.Equals("j", StringComparison.CurrentCultureIgnoreCase))
+var choose = "";
+do
 {
-    var import = new ImportManager(path);
-    import.ImportCSV();
+    Console.WriteLine($"Was moechten Sie machen?");
 
-    //await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("", window.First(), "");
-    Console.Write($"Import beendet ");
-}
+    Console.WriteLine($"i fuer Import");
+    Console.WriteLine($"e fuer Export");
+    Console.WriteLine($"stop fuer beenden");
+    choose = Console.ReadLine();
 
-//Export
-Console.Write($"[e] wenn der Export gstartet werden soll: ");
-var exp = Console.ReadLine();
-exp = Console.ReadLine();
+    switch (choose)
+    {
+        case "i":
+            var import = new ImportManager(path);
+            import.ImportCSV();
+
+            Console.WriteLine($"Import beendet ");
+            break;
+
+        case "e":
+            var export = new ExportManager();
+            export.ExportCSV();
+
+            Console.WriteLine($"Export beendet ");
+            break;
+
+        default:
+            Console.WriteLine($"keine gueltige Auswahl ");
+            break;
+    }
+
+} while (choose !="stop");
 
 
-if (exp.Equals("e", StringComparison.CurrentCultureIgnoreCase))
-{
-    var export = new ExportManager();
-    export.ExportCSV();
-    
-}
-Console.Write($"Export beendet ");

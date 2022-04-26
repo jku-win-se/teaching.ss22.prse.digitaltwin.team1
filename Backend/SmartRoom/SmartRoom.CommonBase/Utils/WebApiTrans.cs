@@ -30,7 +30,7 @@ namespace SmartRoom.CommonBase.Utils
 
         public static async Task<HttpResponseMessage> PostAPI(string uri, object contentparam, string authtoken = "")
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, uri);
+            //var request = new HttpRequestMessage(HttpMethod.Post, uri);
             HttpResponseMessage response;
 
             using (HttpClient client = new HttpClient())
@@ -40,7 +40,7 @@ namespace SmartRoom.CommonBase.Utils
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Add("ApiKey", authtoken);
                 }
-                response = await client.PostAsJsonAsync(request.RequestUri, contentparam);
+                response = await client.PostAsJsonAsync(uri, contentparam);
             }
 
             return response;
