@@ -1167,3 +1167,18 @@ System.InvalidOperationException: Unable to resolve service for type 'SmartRoom.
 2022-04-26 20:22:56.564 +02:00 [INF] [Simulator] [Simulation ends]
 2022-04-26 20:23:01.571 +02:00 [INF] [Simulator] [Simulation starts]
 2022-04-26 20:23:01.578 +02:00 [INF] [Simulator] [Simulation ends]
+2022-04-26 20:54:43.254 +02:00 [INF] Starting up
+2022-04-26 20:54:43.290 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-26 20:54:43.535 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-26 20:54:43.538 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-26 20:54:43.539 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-26 20:54:43.540 +02:00 [INF] Hosting environment: Development
+2022-04-26 20:54:43.542 +02:00 [INF] Content root path: C:\Users\marku\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-26 20:54:53.312 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 20:54:53.314 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-26 20:54:58.298 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 20:54:58.300 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-26 20:55:03.298 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 20:55:03.300 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-26 20:55:08.297 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-26 20:55:08.299 +02:00 [INF] [Simulator] [Stopping Data Generator]

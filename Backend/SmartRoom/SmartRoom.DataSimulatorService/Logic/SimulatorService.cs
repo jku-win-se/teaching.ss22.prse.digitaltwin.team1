@@ -3,7 +3,6 @@
     public class SimulatorService : BackgroundService
     {
         private Timer _timer = null!;
-        private int _executionCount = 0;
         private ILogger _logger;
 
         public SimulatorService(ILogger<SimulatorService> logger)
@@ -13,7 +12,6 @@
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("[Simulator] [Starting Service]");
-            _executionCount = 0;
             _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
             return Task.CompletedTask;
         }
@@ -21,7 +19,6 @@
         private void RunSimulation(object? state)
         {
             _logger.LogInformation($"[Simulator] [Starting Data Generator]");
-            _executionCount++;
             _logger.LogInformation($"[Simulator] [Stopping Data Generator]");
         }
 
