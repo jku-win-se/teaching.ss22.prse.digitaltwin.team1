@@ -1,6 +1,5 @@
 using Microsoft.OpenApi.Models;
 using Serilog;
-using Serilog.Core;
 using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.DataSimulatorService.Logic;

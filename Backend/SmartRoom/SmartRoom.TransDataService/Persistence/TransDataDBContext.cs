@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Npgsql;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure.Internal;
 using SmartRoom.CommonBase.Core.Entities;
 using System.Data;
 using System.Data.Common;

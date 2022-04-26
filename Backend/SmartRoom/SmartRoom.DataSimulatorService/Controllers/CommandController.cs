@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SmartRoom.DataSimulatorService.Logic;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace SmartRoom.DataSimulatorService.Controllers
 {
@@ -8,16 +6,10 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class CommandController : ControllerBase
     {
-        private DataSink _sink;
-
-        public CommandController(DataSink sink)
+        [HttpGet("[action]/{id}&{stateType}")]
+        public IActionResult ChangeBianry(Guid id, string stateType)
         {
-            _sink = sink;
-        }
-        [HttpGet]
-        public ActionResult<string[]> GetBy()
-        {
-            return _sink.Events.Select(s => s.RenderMessage()).ToArray();
+            return Ok();
         }
     }
 }
