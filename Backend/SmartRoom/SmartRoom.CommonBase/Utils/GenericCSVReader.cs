@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
+using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -8,44 +9,58 @@ namespace SmartRoom.CommonBase.Utils
     {
         List<T> _data = new List<T>();
         private string _fileName;
+        private char _sep;
 
         private SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
 
-        public GenericCSVReader(string fileName)
+        public GenericCSVReader(string fileName, char sep = ';')
         {
             if (!fileName.Contains(".csv")) throw new FormatException("No CSV File!");
             else _fileName = fileName;
+            _sep = sep;
         }
 
         public IEnumerable<T> Read()
         {
             IEnumerable<string> lines = File.ReadLines(_fileName);
-            string[] headers = lines.First().Split(";");
-
+            string[] headers = lines.First().Split(_sep);
+            NumberFormatInfo provider = new NumberFormatInfo();
+            Console.WriteLine($"Reading {lines.Count()} lines from {typeof(T).Name}");
             foreach (var line in lines.Skip(1))
             {
                 var t = new T();
                 foreach (var header in headers)
                 {
-                    int i = Array.IndexOf(headers, headers.Where(h => h.Equals(header)));
+                    int i = Array.IndexOf(headers, header);
                     PropertyInfo? prop = typeof(T).GetProperty(header);
                     Type? type = prop?.PropertyType;
 
-                    if (typeof(int).Equals(type))
+                    if (line.Split(_sep).Length > i)
                     {
-                        prop?.SetValue(t, Convert.ToInt32(line.Split(";")[i]));
-                    }
-                    else if (typeof(DateTime).Equals(type))
-                    {
-                        prop?.SetValue(t, Convert.ToDateTime(line.Split(";")[i]));
-                    }
-                    else if (typeof(bool).Equals(type))
-                    {
-                        prop?.SetValue(t, Convert.ToBoolean(line.Split(";")[i]));
-                    }
-                    else prop?.SetValue(t, line.Split(";")[i]);
-                }
+                        var val = line.Split(_sep)[i];
 
+                        if (typeof(int).Equals(type))
+                        {
+                            prop?.SetValue(t, Convert.ToInt32(val));
+                        }
+                        else if (typeof(DateTime).Equals(type))
+                        {
+                            prop?.SetValue(t, Convert.ToDateTime(val));
+                        }
+                        else if (typeof(bool).Equals(type))
+                        {
+                            prop?.SetValue(t, Convert.ToBoolean(val));
+                        }
+                        else if (typeof(double).Equals(type))
+                        {
+                            if (val.Contains(".")) provider.NumberDecimalSeparator = ".";
+                            else provider.NumberDecimalSeparator = ",";
+
+                            prop?.SetValue(t, Convert.ToDouble(val, provider));
+                        }
+                        else prop?.SetValue(t, line.Split(_sep)[i]);
+                    }
+                }
                 _data.Add(t);
 
             }
