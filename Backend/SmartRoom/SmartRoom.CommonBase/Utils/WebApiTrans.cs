@@ -35,7 +35,7 @@ namespace SmartRoom.CommonBase.Utils
 
             using (HttpClient client = new HttpClient())
             {
-                if (string.IsNullOrEmpty(authtoken))
+                if (!string.IsNullOrEmpty(authtoken))
                 {
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Add("ApiKey", authtoken);
