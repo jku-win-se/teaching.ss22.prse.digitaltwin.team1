@@ -22,6 +22,7 @@
         private void RunSimulation(object? state)
         {
             _logger.LogInformation($"[Simulator] [Starting Data Generator]");
+            _dataManager.GenerateData().GetAwaiter().GetResult();
             _logger.LogInformation($"[Simulator] [Stopping Data Generator]");
         }
 

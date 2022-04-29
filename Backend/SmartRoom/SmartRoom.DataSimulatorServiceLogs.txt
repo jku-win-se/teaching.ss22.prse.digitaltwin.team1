@@ -1232,3 +1232,359 @@ File name: 'Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30
 2022-04-26 21:31:41.185 +02:00 [INF] [Simulator] [Starting Service]
 2022-04-26 21:32:08.885 +02:00 [INF] Starting up
 2022-04-26 21:32:08.920 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 16:02:24.977 +02:00 [INF] Starting up
+2022-04-28 16:02:25.033 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 16:44:15.342 +02:00 [INF] Starting up
+2022-04-28 16:44:15.399 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 16:44:43.294 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 16:44:43.527 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 16:44:43.530 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 16:44:43.531 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 16:44:43.532 +02:00 [INF] Hosting environment: Development
+2022-04-28 16:44:43.533 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 16:44:53.297 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:44:53.298 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:44:58.297 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:44:58.299 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:03.296 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:03.298 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:08.296 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:08.298 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:13.294 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:13.296 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:18.294 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:18.296 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:23.294 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:23.300 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:28.294 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:28.296 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:30.328 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger - -
+2022-04-28 16:45:30.456 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger - - - 301 0 - 130.4099ms
+2022-04-28 16:45:30.460 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-04-28 16:45:30.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js - -
+2022-04-28 16:45:30.951 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js - -
+2022-04-28 16:45:30.951 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-04-28 16:45:30.951 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css - -
+2022-04-28 16:45:30.952 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 491.9131ms
+2022-04-28 16:45:30.958 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 12018 application/javascript;+charset=utf-8 7.7156ms
+2022-04-28 16:45:31.006 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-04-28 16:45:31.006 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-04-28 16:45:31.006 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-04-28 16:45:31.008 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 57.7821ms
+2022-04-28 16:45:31.011 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 61.4245ms
+2022-04-28 16:45:31.013 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css - - - 200 143632 text/css 62.4483ms
+2022-04-28 16:45:31.324 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-04-28 16:45:31.413 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 89.3654ms
+2022-04-28 16:45:33.300 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:33.302 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:38.293 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:38.294 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:43.292 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:43.293 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:46.387 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Status/GetLogs - -
+2022-04-28 16:45:46.397 +02:00 [INF] Executing endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-28 16:45:46.418 +02:00 [INF] Route matched with {action = "GetLogs", controller = "Status"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String[]] GetLogs() on controller SmartRoom.DataSimulatorService.Controllers.StatusController (SmartRoom.DataSimulatorService).
+2022-04-28 16:45:46.434 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2022-04-28 16:45:46.448 +02:00 [INF] Executed action SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService) in 13.2569ms
+2022-04-28 16:45:46.454 +02:00 [INF] Executed endpoint 'SmartRoom.DataSimulatorService.Controllers.StatusController.GetLogs (SmartRoom.DataSimulatorService)'
+2022-04-28 16:45:46.463 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/Status/GetLogs - - - 200 - application/json;+charset=utf-8 76.6516ms
+2022-04-28 16:45:48.293 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:48.296 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:53.293 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:53.294 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:45:58.291 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:45:58.293 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:03.291 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:03.293 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:08.292 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:08.294 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:13.291 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:13.292 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:18.290 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:18.292 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:23.291 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:23.291 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:28.289 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:28.290 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:33.289 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:33.290 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:38.290 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:38.293 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:43.288 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:43.289 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:48.288 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:48.290 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:53.289 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:53.296 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:46:58.287 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:46:58.290 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 16:47:03.287 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 16:47:03.294 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:08:29.101 +02:00 [INF] Starting up
+2022-04-28 20:08:29.151 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:08:56.330 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:08:56.556 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:08:56.558 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:08:56.558 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:08:56.559 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:08:56.560 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:09:06.341 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:29.700 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:09:29.706 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:34.037 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:36.791 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:40.345 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:49.427 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:49.428 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:10:02.131 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:09:55.731 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:10:02.208 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:10:00.585 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:10:00.584 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:09:55.730 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:10:06.578 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:10:44.282 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:10:44.282 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:10:44.967 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:11:04.780 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:11:26.149 +02:00 [INF] Starting up
+2022-04-28 20:11:26.202 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:11:34.088 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:11:34.220 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:11:34.223 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:11:34.225 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:11:34.226 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:11:34.227 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:11:44.110 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:01.799 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:01.843 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:07.032 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:13.312 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:17.526 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:12:35.969 +02:00 [INF] Starting up
+2022-04-28 20:12:36.006 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:12:42.383 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:12:42.509 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:12:42.511 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:12:42.511 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:12:42.512 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:12:42.513 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:12:52.397 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:13:46.698 +02:00 [INF] Starting up
+2022-04-28 20:13:46.836 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:13:53.858 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:13:54.153 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:13:54.161 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:13:54.164 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:13:54.165 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:13:54.166 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:14:03.861 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:20:59.235 +02:00 [INF] Starting up
+2022-04-28 20:20:59.309 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:21:06.000 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:21:06.302 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:21:06.309 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:21:06.313 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:21:06.314 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:21:06.316 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:21:16.005 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:21:23.152 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:21:29.799 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:21:29.800 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:21:32.738 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:21:32.739 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:21:35.485 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:21:37.848 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:21:37.848 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:21:40.317 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:21:41.017 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:23:35.352 +02:00 [INF] Starting up
+2022-04-28 20:23:35.477 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:23:43.178 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:23:43.465 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:23:43.471 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:23:43.473 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:23:43.475 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:23:43.477 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:23:53.181 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:23:58.921 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:23:59.910 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:24:05.060 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:24:05.061 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:24:30.030 +02:00 [INF] Starting up
+2022-04-28 20:24:30.119 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:24:38.084 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:24:38.362 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:24:38.373 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:24:38.377 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:24:38.381 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:24:38.383 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:24:48.099 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:25:03.502 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:25:08.073 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:25:08.108 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:25:08.496 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:25:13.707 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:25:18.678 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:25:18.676 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:25:13.704 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:26:28.890 +02:00 [INF] Starting up
+2022-04-28 20:26:28.973 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:26:36.622 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:26:36.900 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:26:36.906 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:26:36.908 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:26:36.909 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:26:36.910 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:26:46.650 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:28:03.006 +02:00 [INF] Starting up
+2022-04-28 20:28:03.120 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:28:11.734 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:28:12.015 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:28:12.024 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:28:12.028 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:28:12.029 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:28:12.031 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:28:21.752 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:30:23.913 +02:00 [INF] Starting up
+2022-04-28 20:30:24.022 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:30:32.104 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:30:32.453 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:30:32.462 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:30:32.465 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:30:32.466 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:30:32.468 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:30:42.119 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:30:53.716 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:30:53.730 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:07.143 +02:00 [INF] Starting up
+2022-04-28 20:34:07.278 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:34:16.150 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:34:16.453 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:34:16.461 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:34:16.464 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:34:16.465 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:34:16.468 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:34:26.148 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:26.392 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 51,18848034869137]
+2022-04-28 20:34:26.534 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,38202203775841]
+2022-04-28 20:34:26.757 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,65415417692524]
+2022-04-28 20:34:26.920 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,101674403463235]
+2022-04-28 20:34:26.926 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:31.162 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:31.314 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,65889231168487]
+2022-04-28 20:34:31.455 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,1557371289524]
+2022-04-28 20:34:31.626 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,918778023538167]
+2022-04-28 20:34:31.778 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,86970163670701]
+2022-04-28 20:34:31.785 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:36.159 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:36.326 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,30150512260276]
+2022-04-28 20:34:36.471 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,061551466627837]
+2022-04-28 20:34:36.609 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,0991467350226]
+2022-04-28 20:34:36.754 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,35717126193578]
+2022-04-28 20:34:36.759 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:41.163 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:42.967 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,58137689041395]
+2022-04-28 20:34:43.146 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,703369435215293]
+2022-04-28 20:34:43.322 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,02354205844373]
+2022-04-28 20:34:43.477 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,415374158714805]
+2022-04-28 20:34:43.482 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:46.163 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:46.744 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,6359111509827]
+2022-04-28 20:34:47.201 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,54479344558402]
+2022-04-28 20:34:47.361 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,069746307812743]
+2022-04-28 20:34:48.535 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,063882871410595]
+2022-04-28 20:34:48.540 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:51.151 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:51.315 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,653540215205]
+2022-04-28 20:34:51.489 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,889405932841907]
+2022-04-28 20:34:51.668 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,916407253001264]
+2022-04-28 20:34:51.836 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,09365568243795]
+2022-04-28 20:34:51.842 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:34:56.160 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:34:56.320 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 51,000048359643806]
+2022-04-28 20:34:56.484 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,901676279002537]
+2022-04-28 20:34:56.632 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,309752449239095]
+2022-04-28 20:34:56.775 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,64871922735545]
+2022-04-28 20:34:56.780 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:35:01.172 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:35:01.326 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,67199629984541]
+2022-04-28 20:35:01.508 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,067937070047865]
+2022-04-28 20:35:01.656 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,355421562293795]
+2022-04-28 20:35:01.806 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,752728483286873]
+2022-04-28 20:35:01.811 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:35:06.155 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:35:06.452 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,04770307388036]
+2022-04-28 20:35:06.641 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,738222341021366]
+2022-04-28 20:35:06.849 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,716341656615434]
+2022-04-28 20:35:07.019 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,373115233862283]
+2022-04-28 20:35:07.025 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:35:11.163 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:35:11.309 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,31356930883677]
+2022-04-28 20:35:11.508 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,86479752622893]
+2022-04-28 20:35:11.642 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,186443760461383]
+2022-04-28 20:35:11.782 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,606072936099316]
+2022-04-28 20:35:11.789 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:35:16.162 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:35:16.904 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,85982467610403]
+2022-04-28 20:35:17.047 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,232268455282362]
+2022-04-28 20:35:17.192 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,64897980619585]
+2022-04-28 20:35:17.335 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,208372610412738]
+2022-04-28 20:35:17.339 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:35:21.192 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:37:23.532 +02:00 [INF] Starting up
+2022-04-28 20:37:23.625 +02:00 [INF] [Simulator] [Starting Service]
+2022-04-28 20:37:32.002 +02:00 [INF] [DataManager] [data loaded]
+2022-04-28 20:37:32.326 +02:00 [INF] Now listening on: http://localhost:5000
+2022-04-28 20:37:32.335 +02:00 [INF] Now listening on: https://localhost:5001
+2022-04-28 20:37:32.343 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-28 20:37:32.347 +02:00 [INF] Hosting environment: Development
+2022-04-28 20:37:32.352 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-04-28 20:37:42.007 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:37:42.271 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,13028472727089]
+2022-04-28 20:37:42.429 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,142424253385986]
+2022-04-28 20:37:42.834 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,42621346883387]
+2022-04-28 20:37:42.985 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,117577714871555]
+2022-04-28 20:37:42.991 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:37:47.012 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:37:47.169 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,434206887732834]
+2022-04-28 20:37:47.325 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,7053581056847]
+2022-04-28 20:37:47.485 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,914324470957624]
+2022-04-28 20:37:47.623 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,69947646818436]
+2022-04-28 20:37:47.628 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:37:52.015 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:37:52.184 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,60605361974441]
+2022-04-28 20:37:52.330 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,13879709640853]
+2022-04-28 20:37:52.527 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,20169135110309]
+2022-04-28 20:37:52.671 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,610381104900966]
+2022-04-28 20:37:52.673 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:37:57.017 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:37:57.203 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,87810766198417]
+2022-04-28 20:37:57.348 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,243766629260257]
+2022-04-28 20:37:57.496 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,672406013209226]
+2022-04-28 20:37:57.649 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,172814876809856]
+2022-04-28 20:37:57.654 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:38:02.027 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:38:02.220 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 51,11193034731867]
+2022-04-28 20:38:02.362 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,762878385270085]
+2022-04-28 20:38:02.522 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,30487388958693]
+2022-04-28 20:38:02.727 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,00014973696006]
+2022-04-28 20:38:02.733 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:38:07.035 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:38:07.194 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,63526739726543]
+2022-04-28 20:38:07.365 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 25,4502678503797]
+2022-04-28 20:38:07.526 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 27,590134541982767]
+2022-04-28 20:38:07.696 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,205829064260044]
+2022-04-28 20:38:07.703 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:38:12.023 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:38:12.177 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 49,961517861297594]
+2022-04-28 20:38:12.428 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,54323026934963]
+2022-04-28 20:38:12.602 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,0317163776038]
+2022-04-28 20:38:12.756 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 19,46770629374051]
+2022-04-28 20:38:12.761 +02:00 [INF] [Simulator] [Stopping Data Generator]
+2022-04-28 20:38:17.012 +02:00 [INF] [Simulator] [Starting Data Generator]
+2022-04-28 20:38:17.166 +02:00 [INF] [Sensor: 026bdf16-0d67-43ad-9d5d-afef430f1589] [Co2] [Value: 50,14548422603322]
+2022-04-28 20:38:17.352 +02:00 [INF] [Sensor: 19f4ac27-db85-460f-ad6d-f3c5bcb26444] [Temperature] [Value: 24,708338258515646]
+2022-04-28 20:38:17.507 +02:00 [INF] [Sensor: 1c513df8-cb14-4394-b74f-233ff9eac038] [Temperature] [Value: 26,841978554020095]
+2022-04-28 20:38:17.696 +02:00 [INF] [Sensor: 4de0cb8a-71ef-4139-92cd-41684762a733] [Temperature] [Value: 18,012767302370843]
+2022-04-28 20:38:17.703 +02:00 [INF] [Simulator] [Stopping Data Generator]
