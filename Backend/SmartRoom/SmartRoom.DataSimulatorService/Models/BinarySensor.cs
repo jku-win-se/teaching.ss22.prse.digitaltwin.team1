@@ -4,6 +4,7 @@
     {
         public override void RenewData()
         {
+            Value = !Value;
         }
     }
 }

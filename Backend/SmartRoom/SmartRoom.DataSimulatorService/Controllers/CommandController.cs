@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartRoom.DataSimulatorService.Logic;
 
 namespace SmartRoom.DataSimulatorService.Controllers
 {
@@ -6,9 +7,23 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class CommandController : ControllerBase
     {
+        private SensorManager _sensorManager;
+
+        public CommandController(SensorManager sensorManager)
+        {
+            _sensorManager = sensorManager;
+        }
         [HttpGet("[action]/{id}&{stateType}")]
         public IActionResult ChangeBianry(Guid id, string stateType)
         {
+            try
+            {
+                _sensorManager.ChangeState(id, stateType);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
             return Ok();
         }
     }

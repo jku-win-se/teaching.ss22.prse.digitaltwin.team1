@@ -2,15 +2,15 @@
 
 namespace SmartRoom.DataSimulatorService.Logic
 {
-    public class DataManager
+    public class SensorManager
     {
         private IConfiguration _configuration;
-        private ILogger<DataManager> _logger;
+        private ILogger<SensorManager> _logger;
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
         private Dictionary<Guid, Contracts.ISensor[]> _sensors;
 
-        public DataManager(IConfiguration configuration, ILogger<DataManager> logger)
+        public SensorManager(IConfiguration configuration, ILogger<SensorManager> logger)
         {
             _rooms = new List<Room>();
             _roomEquipment = new List<RoomEquipment>();
@@ -19,7 +19,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             _logger = logger;
         }
 
-        public async Task LoadData()
+        public async Task Init()
         {
             _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_configuration["Services:BaseDataService"]}room", _configuration["ApiKey"]);
             _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_configuration["Services:BaseDataService"]}roomequipment", _configuration["ApiKey"]);
@@ -48,9 +48,10 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             List<Task> tasks = new List<Task>();
             Random random = new Random();
+
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                foreach(var sensor in item.Value)
+                foreach (var sensor in item.Value.Where(i => i.GetType().Equals(typeof(Models.MeasureSensor))))
                 {
                     tasks.Add(Task.Run(() =>
                     {
@@ -61,6 +62,18 @@ namespace SmartRoom.DataSimulatorService.Logic
                 }
             }
             Task.WaitAll(tasks.ToArray());
+        }
+
+        public void ChangeState(Guid id, string type)
+        {
+            var sensor = _sensors[id].Where(s => s.Type.Equals(type)).First();
+
+            if(sensor != null)
+            {
+                sensor.RenewData();
+                _logger.LogInformation(" [Act] " + sensor.ToString());
+            }
+            
         }
     }
 }

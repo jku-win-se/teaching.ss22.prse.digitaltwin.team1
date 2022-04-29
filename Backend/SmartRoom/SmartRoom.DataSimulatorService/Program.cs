@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 DataSink sink = new DataSink();
 
 Log.Logger = new LoggerConfiguration()
-  .WriteTo.Console()
   .WriteTo.File(Directory.GetCurrentDirectory() + "Logs.txt", shared: true)
   .WriteTo.Sink(sink)
   .CreateLogger();
@@ -24,7 +23,7 @@ var configBuilder = new ConfigurationBuilder()
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddSingleton<DataSink>(sink);
-builder.Services.AddTransient<DataManager, DataManager>();
+builder.Services.AddSingleton<SensorManager, SensorManager>();
 
 builder.Services.AddHostedService<SimulatorService>();
 
