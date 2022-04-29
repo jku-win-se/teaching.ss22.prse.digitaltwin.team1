@@ -6,70 +6,61 @@ namespace SmartRoom.DataSimulatorService.Logic
     {
         private IConfiguration _configuration;
         private ILogger<DataManager> _logger;
-        private List<CommonBase.Core.Entities.Room> _rooms;
-        private List<CommonBase.Core.Entities.RoomEquipment> _roomEquipment;
-        private Dictionary<Guid, string[]> _binaryStateTypes;
-        private Dictionary<Guid, string[]> _measureStateTypes;
+        private List<Room> _rooms;
+        private List<RoomEquipment> _roomEquipment;
+        private Dictionary<Guid, Contracts.ISensor[]> _sensors;
 
         public DataManager(IConfiguration configuration, ILogger<DataManager> logger)
         {
-            _rooms = new List<CommonBase.Core.Entities.Room>();
-            _roomEquipment = new List<CommonBase.Core.Entities.RoomEquipment>();
-            _binaryStateTypes = new Dictionary<Guid, string[]>();
-            _measureStateTypes = new Dictionary<Guid, string[]>();
+            _rooms = new List<Room>();
+            _roomEquipment = new List<RoomEquipment>();
+            _sensors = new Dictionary<Guid, Contracts.ISensor[]>();
             _configuration = configuration;
             _logger = logger;
         }
 
         public async Task LoadData()
         {
-            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<CommonBase.Core.Entities.Room>>($"{_configuration["Services:BaseDataService"]}room", _configuration["ApiKey"]);
-            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<CommonBase.Core.Entities.RoomEquipment>>($"{_configuration["Services:BaseDataService"]}roomequipment", _configuration["ApiKey"]);
+            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_configuration["Services:BaseDataService"]}room", _configuration["ApiKey"]);
+            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_configuration["Services:BaseDataService"]}roomequipment", _configuration["ApiKey"]);
             _rooms.ForEach(r =>
             {
-                _measureStateTypes.Add(r.Id, CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetTypesBy/{r.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult().ToArray());
+                _sensors.Add(r.Id, CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetTypesBy/{r.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult()
+                    .Select(d => new Models.MeasureSensor
+                    {
+                        Type = d,
+                        Value = CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetRecentBy/{r.Id}&{d}", _configuration["ApiKey"]).GetAwaiter().GetResult().MeasureValue
+                    }).ToArray());
             });
             _roomEquipment.ForEach(re =>
             {
-                _binaryStateTypes.Add(re.Id, CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadBinary/GetTypesBy/{re.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult().ToArray());
+                _sensors.Add(re.Id, CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadBinary/GetTypesBy/{re.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult()
+                    .Select(d => new Models.BinarySensor
+                    {
+                        Type = d,
+                        Value = CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_configuration["Services:TransDataService"]}ReadBinary/GetRecentBy/{re.Id}&{d}", _configuration["ApiKey"]).GetAwaiter().GetResult().BinaryValue
+                    }).ToArray());
             });
-            _logger.LogInformation("[DataManager] [data loaded]");
+            _logger.LogInformation("[DataManager] [BaseData loaded]");
         }
 
-        public async Task GenerateData()
+        public void GenerateData()
         {
-            foreach (var item in _measureStateTypes.Where(m => m.Value.Any()))
-            {
-                foreach (var type in item.Value) 
-                {
-                    var state = await CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetRecentBy/{item.Key}&{type}", _configuration["ApiKey"]);
-                    var val = GenerateMeasureData(state.MeasureValue);
-                    _logger.LogInformation($"[Sensor: {item.Key}] [{type}] [Value: {val}]");
-                }
-            }
-        }
-
-        private double GenerateMeasureData(double val)
-        {
+            List<Task> tasks = new List<Task>();
             Random random = new Random();
-            if (DateTime.Now > DateTime.Parse("09:00") && DateTime.Now < DateTime.Parse("19:00"))
+            foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                if (random.Next(1, 10) > 3)
+                foreach(var sensor in item.Value)
                 {
-                    val += random.NextDouble();
+                    tasks.Add(Task.Run(() =>
+                    {
+                        Thread.Sleep(random.Next(10, 2000));
+                        sensor.RenewData();
+                        _logger.LogInformation(sensor.ToString());
+                    }));
                 }
-                else val -= random.NextDouble();
             }
-            else
-            {
-                if (random.Next(1, 10) > 3)
-                {
-                    val -= random.NextDouble();
-                }
-                else val += random.NextDouble();
-            }
-
-            return val;
+            Task.WaitAll(tasks.ToArray());
         }
     }
 }
