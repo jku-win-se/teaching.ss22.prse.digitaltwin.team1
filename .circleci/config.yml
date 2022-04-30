@@ -128,7 +128,7 @@ jobs:
     steps:
       - azure-cli/install
       - azure-cli/login-with-user:
-          alternate-tenant: false
+          alternate-tenant: true
       - attach_workspace:
           at: ~/project
       - run:
