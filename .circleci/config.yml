@@ -127,8 +127,6 @@ jobs:
     executor: azure-cli/azure-docker
     steps:
       - azure-cli/login-with-service-principal
-      - attach_workspace:
-          at: ~/project
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
