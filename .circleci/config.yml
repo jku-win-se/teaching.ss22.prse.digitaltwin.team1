@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
   heroku: circleci/heroku@1.2.6
+  azure-cli: circleci/azure-cli@1.2.0
 
 jobs:
   # ---------- frontend jobs ----------
@@ -69,24 +70,71 @@ jobs:
           name: Running Tests
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
+      - run:
+          name: Publish
+          command: dotnet publish -c Release -o /WebService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
             - ./Backend
 
-  create_artifacts_backend:
+  build_and_test_TransDataService:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
-      - attach_workspace:
-          at: ~/project
-      - run: ls
+      - checkout
       - run:
-          name: Publish
-          command: dotnet publish -c Release -o /WebService
+          name: Restore
+          command: dotnet restore
+          working_directory: Backend/SmartRoom/SmartRoom.TransDataService
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Backend/SmartRoom/SmartRoom.TransDataService
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: Backend/SmartRoom/SmartRoom.TransDataService.Tests
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./Backend
+
+  build_and_test_DataSimulatorService:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: Backend/SmartRoom/SmartRoom.DataSimulatorService
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Backend/SmartRoom/SmartRoom.DataSimulatorService
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: Backend/SmartRoom/SmartRoom.DataSimulatorService.Tests
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./Backend
+
+  azure_deploy_backend:
+    executor: azure-cli/azure-docker
+    steps:
+      - azure-cli/login-with-service-principal
+      - run:
+          command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
-      - store_artifacts:
-          path: /WebService
+      - run:
+          name: "Deploy Web App to Azure"
+          command: |
+            az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
 
 workflows:
   on_commit:
@@ -97,6 +145,7 @@ workflows:
               only:
                 - main
                 - /^release_.*/   
+                - DataSimulator
       - build_and_test_BaseDataService:
           requires: 
             - build_and_test_CommonBase
@@ -104,13 +153,33 @@ workflows:
             branches:
               only:
                 - main
-                - /^release_.*/ 
+                - /^release_.*/
+                - DataSimulator
+      - build_and_test_TransDataService:
+          requires: 
+            - build_and_test_CommonBase
+          filters:
+            branches:
+              only:
+                - main
+                - /^release_.*/
+                - DataSimulator 
+      - build_and_test_DataSimulatorService:
+          requires: 
+            - build_and_test_TransDataService
+            - build_and_test_BaseDataService
+          filters:
+            branches:
+              only:
+                - main
+                - /^release_.*/
+                - DataSimulator
       - build_and_test_frontend:
           filters:
             branches:
               only:
                 - main
-                - /^release_.*/ 
-      - create_artifacts_backend:
-          requires: 
-            - build_and_test_BaseDataService
+                - /^release_.*/
+      - azure_deploy_backend:
+          requires:
+            - build_and_test_DataSimulatorService
