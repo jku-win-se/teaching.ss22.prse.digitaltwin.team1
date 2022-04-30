@@ -72,12 +72,12 @@ jobs:
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - run:
           name: Publish
-          command: dotnet publish -c Release -o /WebAPIFolder
+          command: dotnet publish -c Release -o /WebService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
-            - WebAPIFolder
+            - ./Backend
 
   build_and_test_TransDataService:
     docker:
