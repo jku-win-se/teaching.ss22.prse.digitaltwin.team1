@@ -124,7 +124,7 @@ jobs:
             - ./Backend
 
   azure_deploy_backend:
-    executor: azure-cli/default
+    executor: azure-cli/azure-docker
     steps:
       - azure-cli/login-with-service-principal
       - attach_workspace:
