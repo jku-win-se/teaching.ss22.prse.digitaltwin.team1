@@ -127,6 +127,8 @@ jobs:
     executor: azure-cli/default
     steps:
       - azure-cli/install
+      - azure-cli/login-with-user:
+          alternate-tenant: false
       - attach_workspace:
           at: ~/project
       - run:
@@ -182,6 +184,6 @@ workflows:
               only:
                 - main
                 - /^release_.*/
-#      - azure_deploy_backend:
-#          requires:
-#            - build_and_test_DataSimulatorService
+      - azure_deploy_backend:
+          requires:
+            - build_and_test_DataSimulatorService
