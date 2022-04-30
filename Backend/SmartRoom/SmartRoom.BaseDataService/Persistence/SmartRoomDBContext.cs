@@ -11,5 +11,15 @@ namespace SmartRoom.BaseDataService.Persistence
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Room>()
+            .HasIndex(p => new { p.Name }).IsUnique();
+
+            modelBuilder.Entity<RoomEquipment>()
+            .HasIndex(p => new { p.Name, p.EquipmentRef }).IsUnique();
+        }
+
     }
 }
