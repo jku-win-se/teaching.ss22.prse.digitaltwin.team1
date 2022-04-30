@@ -10,12 +10,15 @@ var input = Console.ReadLine();
 
 if (!string.IsNullOrEmpty(input)) path = input;
 var dirs = Directory.GetFiles(path);
+Console.WriteLine("Folgende Files wurden im angegebenen Verzeichnis gefunden ");
+Console.WriteLine("--------------------- ");
 int i = 0;
 foreach (var dir in dirs)
 {
     i++;
     Console.WriteLine($"{i}: {dir}");
 }
+Console.WriteLine("--------------------- ");
 
 
 var choose = "";
@@ -38,7 +41,8 @@ do
             break;
 
         case "e":
-            var export = new ExportManager();
+            //ToDo user-abfrage f pfad
+            var export = new ExportManager(path);
             export.ExportCSV();
 
             Console.WriteLine($"Export beendet ");
