@@ -126,9 +126,7 @@ jobs:
   azure_deploy_backend:
     executor: azure-cli/default
     steps:
-      - azure-cli/install
-      - azure-cli/login-with-user:
-          alternate-tenant: true
+      - azure-cli/login-with-service-principal
       - attach_workspace:
           at: ~/project
       - run:
