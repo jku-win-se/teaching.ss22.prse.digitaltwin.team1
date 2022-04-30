@@ -70,10 +70,14 @@ jobs:
           name: Running Tests
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
+      - run:
+          name: Publish
+          command: dotnet publish -c Release -o /WebAPIFolder
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - WebAPIFolder
 
   build_and_test_TransDataService:
     docker:
@@ -120,18 +124,13 @@ jobs:
             - ./Backend
 
   azure_deploy_backend:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    executor: azure-cli/default
     steps:
-      - attach_workspace:
-          at: ~/project
-      - run:
-          name: Publish
-          command: dotnet publish -c Release -o /WebService
-          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - azure-cli/install
       - azure-cli/login-with-user:
           alternate-tenant: false
+      - attach_workspace:
+          at: ~/project
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
