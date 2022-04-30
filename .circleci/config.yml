@@ -132,14 +132,14 @@ jobs:
       - azure-cli/install
       - azure-cli/login-with-user:
           alternate-tenant: false
-      - attach_workspace:
-          at: ~/project
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - run:
           name: "Deploy Web App to Azure"
           command: |
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
 
 workflows:
   on_commit:
@@ -150,6 +150,7 @@ workflows:
               only:
                 - main
                 - /^release_.*/   
+                - DataSimulator
       - build_and_test_BaseDataService:
           requires: 
             - build_and_test_CommonBase
@@ -158,6 +159,7 @@ workflows:
               only:
                 - main
                 - /^release_.*/
+                - DataSimulator
       - build_and_test_TransDataService:
           requires: 
             - build_and_test_CommonBase
@@ -165,7 +167,8 @@ workflows:
             branches:
               only:
                 - main
-                - /^release_.*/ 
+                - /^release_.*/
+                - DataSimulator 
       - build_and_test_DataSimulatorService:
           requires: 
             - build_and_test_TransDataService
@@ -175,12 +178,13 @@ workflows:
               only:
                 - main
                 - /^release_.*/
+                - DataSimulator
       - build_and_test_frontend:
           filters:
             branches:
               only:
                 - main
-                - /^release_.*/ 
+                - /^release_.*/
       - azure_deploy_backend:
           requires:
             - build_and_test_DataSimulatorService
