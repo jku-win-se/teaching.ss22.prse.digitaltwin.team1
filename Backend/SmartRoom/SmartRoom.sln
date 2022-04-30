@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.CSVConsole", "Sma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.DataSimulatorService", "SmartRoom.DataSimulatorService\SmartRoom.DataSimulatorService.csproj", "{F8DC02D2-2C74-49BD-AE53-83879A8D4DAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.DataSimulatorService.Tests", "SmartRoom.DataSimulatorService.Tests\SmartRoom.DataSimulatorService.Tests.csproj", "{EE4B2412-4825-4F37-95C9-D7291A81286C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{F8DC02D2-2C74-49BD-AE53-83879A8D4DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8DC02D2-2C74-49BD-AE53-83879A8D4DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8DC02D2-2C74-49BD-AE53-83879A8D4DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE4B2412-4825-4F37-95C9-D7291A81286C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE4B2412-4825-4F37-95C9-D7291A81286C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4B2412-4825-4F37-95C9-D7291A81286C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE4B2412-4825-4F37-95C9-D7291A81286C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
