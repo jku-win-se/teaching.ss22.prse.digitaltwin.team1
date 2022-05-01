@@ -77,7 +77,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - ./Backend/BaseDataService
 
   build_and_test_TransDataService:
     docker:
@@ -99,7 +99,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - ./Backend/TransDataService
 
   build_and_test_DataSimulatorService:
     docker:
@@ -121,14 +121,14 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - ./Backend/DataSimulatorService
 
   azure_deploy_backend:
     executor: azure-cli/azure-docker
     steps:
       - azure-cli/login-with-service-principal
       - attach_workspace:
-          at: ~/project
+          at: ~/project/Backend/BaseDataService
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
       - run:
