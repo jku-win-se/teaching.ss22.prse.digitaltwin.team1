@@ -73,7 +73,6 @@ jobs:
       - run:
           name: Publish
           command: dotnet publish -c Release -o BaseDataService
-          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
