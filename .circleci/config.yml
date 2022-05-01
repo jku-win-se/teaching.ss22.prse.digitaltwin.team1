@@ -117,24 +117,23 @@ jobs:
   azure_deploy_backend:
     executor: azure-cli/azure-docker
     steps:
-#      - azure-cli/login-with-service-principal
+      - azure-cli/login-with-service-principal
       - attach_workspace:
           at: ~/project
-      - run: ls ./Backend/SmartRoom/SmartRoom.BaseDataService
-#      - run:
-#          command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
-#      - run:
-#          name: "Deploy Web App to Azure"
-#          command: |
-#            az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
-#            cd ~/project/Backend/
-#            git init
-#            git config --global user.email "me@mail.com"
-#            git config --global user.name "yemiwebby"
-#            git add . 
-#            git commit -m "Deployed app"
-#            git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@basedataservice.scm.azurewebsites.net/BaseDataService.git
-#            git push azure master
+      - run:
+          command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
+      - run:
+          name: "Deploy Web App to Azure"
+          command: |
+            az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
+            cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService
+            git init
+            git config --global user.email "me@mail.com"
+            git config --global user.name "yemiwebby"
+            git add . 
+            git commit -m "Deployed app"
+            git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@basedataservice.scm.azurewebsites.net/BaseDataService.git
+            git push azure master
 workflows:
   on_commit:
     jobs:
