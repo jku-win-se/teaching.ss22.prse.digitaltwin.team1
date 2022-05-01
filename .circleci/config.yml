@@ -130,7 +130,7 @@ jobs:
             git init
             git config --global user.email "me@mail.com"
             git config --global user.name "yemiwebby"
-            git add .
+            git add . 
             git commit -m "Deployed app"
             git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@basedataservice.scm.azurewebsites.net/BaseDataService.git
             git push azure master
