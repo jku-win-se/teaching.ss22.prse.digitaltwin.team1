@@ -122,7 +122,7 @@ jobs:
           at: ~/project/Backend
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
-      - run: ls 
+      - run: ls /Backend
 #      - run:
 #          name: "Deploy Web App to Azure"
 #          command: |
