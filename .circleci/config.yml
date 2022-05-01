@@ -127,6 +127,8 @@ jobs:
     executor: azure-cli/azure-docker
     steps:
       - azure-cli/login-with-service-principal
+      - attach_workspace:
+          at: ~/project
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
       - run:
@@ -141,7 +143,6 @@ jobs:
             git commit -m "Deployed app"
             git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@basedataservice.scm.azurewebsites.net/BaseDataService.git
             git push azure master
-          working_directory: Backend/
 workflows:
   on_commit:
     jobs:
