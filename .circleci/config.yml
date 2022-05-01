@@ -77,7 +77,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - ./Backend/SmartRoom/SmartRoom.BaseDataService
   build_and_test_TransDataService:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
@@ -102,7 +102,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend
+            - ./Backend/SmartRoom/SmartRoom.TransDataService
 
   build_and_test_DataSimulatorService:
     docker:
