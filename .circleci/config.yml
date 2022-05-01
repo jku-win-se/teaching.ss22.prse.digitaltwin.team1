@@ -133,8 +133,7 @@ jobs:
             git add . 
             git commit -m "Deployed app"
             git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@basedataservice.scm.azurewebsites.net/BaseDataService.git
-            git pull azure master
-            git push azure master
+            git push azure main:master
 workflows:
   on_commit:
     jobs:
