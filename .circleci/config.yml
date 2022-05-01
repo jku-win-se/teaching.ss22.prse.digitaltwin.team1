@@ -134,6 +134,8 @@ jobs:
           name: "Deploy Web App to Azure"
           command: |
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
+            git remote add azure https://PublishUser_BaseDataService:fya!wcb.veb.cje5FRE@dotnet-core-sample.scm.azurewebsites.net/dotnet-core-sample.git
+            git push azure master
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
 
 workflows:
