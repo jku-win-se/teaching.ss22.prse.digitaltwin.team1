@@ -120,7 +120,7 @@ jobs:
       - azure-cli/login-with-service-principal
       - attach_workspace:
           at: ~/project
-      - run: ls ./Backend
+      - run: ls ./Backend/SmartRoom
 #      - run:
 #          command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
 #      - run:
