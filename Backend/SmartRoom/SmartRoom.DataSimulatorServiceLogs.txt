@@ -6010,3 +6010,227 @@ File name: 'Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30
 2022-04-29 20:38:00.162 +02:00 [INF] [Sensor] [Co2: 48,19793366165289]
 2022-04-29 20:38:00.327 +02:00 [INF] [Sensor] [Temperature: 23,83043433817604]
 2022-04-29 20:38:00.967 +02:00 [INF] [Sensor] [Temperature: 21,251033302696083]
+2022-05-01 16:09:48.902 +02:00 [INF] Starting up
+2022-05-01 16:09:48.935 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 16:10:13.896 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 16:18:08.762 +02:00 [INF] Starting up
+2022-05-01 16:18:08.929 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 16:18:13.799 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 16:21:03.606 +02:00 [INF] Starting up
+2022-05-01 16:21:03.630 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 16:21:07.971 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 16:24:44.858 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 16:24:44.859 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 16:24:44.860 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 16:24:44.860 +02:00 [INF] Hosting environment: Development
+2022-05-01 16:24:44.860 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 17:48:00.549 +02:00 [INF] Starting up
+2022-05-01 17:48:00.590 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 17:48:24.911 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 17:48:58.990 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 17:48:58.992 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 17:48:58.992 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 17:48:58.992 +02:00 [INF] Hosting environment: Development
+2022-05-01 17:48:58.993 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 17:49:10.215 +02:00 [INF] [Sensor] [Temperature: 83,76257462303884]
+2022-05-01 17:49:10.687 +02:00 [INF] [Sensor] [Co2: 105,24814508014414]
+2022-05-01 17:49:10.765 +02:00 [INF] [Sensor] [Temperature: 98,65741775329118]
+2022-05-01 17:49:14.749 +02:00 [INF] [Sensor] [Temperature: 98,8916048708061]
+2022-05-01 17:49:15.480 +02:00 [INF] [Sensor] [Co2: 104,94523352198121]
+2022-05-01 17:49:15.822 +02:00 [INF] [Sensor] [Temperature: 84,25243333307712]
+2022-05-01 17:49:19.699 +02:00 [INF] [Sensor] [Temperature: 99,48360063765082]
+2022-05-01 17:49:19.792 +02:00 [INF] [Sensor] [Temperature: 84,26209829955354]
+2022-05-01 17:49:20.211 +02:00 [INF] [Sensor] [Co2: 105,68010171513939]
+2022-05-01 17:49:25.319 +02:00 [INF] [Sensor] [Temperature: 84,90577597937641]
+2022-05-01 17:49:25.617 +02:00 [INF] [Sensor] [Co2: 106,0689240041102]
+2022-05-01 17:49:25.802 +02:00 [INF] [Sensor] [Temperature: 99,99633655985527]
+2022-05-01 17:49:29.309 +02:00 [INF] [Sensor] [Temperature: 99,8527181942642]
+2022-05-01 17:49:29.944 +02:00 [INF] [Sensor] [Temperature: 85,31721884901074]
+2022-05-01 17:49:30.225 +02:00 [INF] [Sensor] [Co2: 106,8607204672073]
+2022-05-01 17:49:34.334 +02:00 [INF] [Sensor] [Co2: 107,64132705810371]
+2022-05-01 17:49:34.411 +02:00 [INF] [Sensor] [Temperature: 86,25654405905179]
+2022-05-01 17:49:35.463 +02:00 [INF] [Sensor] [Temperature: 99,20696616699541]
+2022-05-01 17:49:39.252 +02:00 [INF] [Sensor] [Co2: 108,2542599912924]
+2022-05-01 17:49:40.504 +02:00 [INF] [Sensor] [Temperature: 86,62395090045813]
+2022-05-01 17:49:40.519 +02:00 [INF] [Sensor] [Temperature: 99,37962094902464]
+2022-05-01 17:51:49.415 +02:00 [INF] Starting up
+2022-05-01 17:51:49.515 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 17:51:53.907 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 17:51:54.085 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 17:51:54.086 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 17:51:54.086 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 17:51:54.087 +02:00 [INF] Hosting environment: Development
+2022-05-01 17:51:54.087 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 17:52:04.540 +02:00 [INF] [Sensor] [Temperature: 88,39470014558891]
+2022-05-01 17:52:04.648 +02:00 [INF] [Sensor] [Co2: 114,54957567673856]
+2022-05-01 17:52:04.834 +02:00 [INF] [Sensor] [Temperature: 66,72114195564635]
+2022-05-01 17:52:09.374 +02:00 [INF] [Sensor] [Temperature: 89,06834817740574]
+2022-05-01 17:52:09.638 +02:00 [INF] [Sensor] [Temperature: 66,01688557486597]
+2022-05-01 17:52:10.429 +02:00 [INF] [Sensor] [Co2: 115,44884961097766]
+2022-05-01 17:52:14.810 +02:00 [INF] [Sensor] [Temperature: 65,65278563414044]
+2022-05-01 17:52:15.282 +02:00 [INF] [Sensor] [Temperature: 89,01484677018144]
+2022-05-01 17:52:15.908 +02:00 [INF] [Sensor] [Co2: 115,64749759984633]
+2022-05-01 17:52:19.732 +02:00 [INF] [Sensor] [Temperature: 66,17765854484195]
+2022-05-01 17:52:19.915 +02:00 [INF] [Sensor] [Temperature: 88,98587394486431]
+2022-05-01 17:52:19.945 +02:00 [INF] [Sensor] [Co2: 115,98193851875078]
+2022-05-01 17:52:25.316 +02:00 [INF] [Sensor] [Temperature: 89,67520365663943]
+2022-05-01 17:52:25.767 +02:00 [INF] [Sensor] [Co2: 116,16766824147187]
+2022-05-01 17:52:25.830 +02:00 [INF] [Sensor] [Temperature: 66,33540710292458]
+2022-05-01 17:52:29.021 +02:00 [INF] [Sensor] [Co2: 116,46241421081537]
+2022-05-01 17:52:29.222 +02:00 [INF] [Sensor] [Temperature: 89,9609213778663]
+2022-05-01 17:52:29.611 +02:00 [INF] [Sensor] [Temperature: 66,03786138415965]
+2022-05-01 17:52:34.691 +02:00 [INF] Starting up
+2022-05-01 17:52:34.719 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 17:52:38.881 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 17:58:46.662 +02:00 [INF] Starting up
+2022-05-01 17:58:46.690 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 17:58:51.376 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:08:05.273 +02:00 [INF] Starting up
+2022-05-01 18:08:05.300 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:08:09.907 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:08:12.238 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 18:08:12.239 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 18:08:12.239 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 18:08:12.239 +02:00 [INF] Hosting environment: Development
+2022-05-01 18:08:12.239 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 18:08:22.176 +02:00 [INF] [Sensor] [Temperature: 75,91335729008037]
+2022-05-01 18:08:22.408 +02:00 [INF] [Sensor] [Temperature: 92,72325023111102]
+2022-05-01 18:08:23.561 +02:00 [INF] [Sensor] [Co2: 109,00040701198424]
+2022-05-01 18:08:27.929 +02:00 [INF] [Sensor] [Co2: 109,02995209759258]
+2022-05-01 18:08:27.991 +02:00 [INF] [Sensor] [Temperature: 76,36006810876691]
+2022-05-01 18:08:28.194 +02:00 [INF] [Sensor] [Temperature: 91,82002128359564]
+2022-05-01 18:09:03.190 +02:00 [INF] Starting up
+2022-05-01 18:09:03.221 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:09:07.603 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:10:36.796 +02:00 [INF] Starting up
+2022-05-01 18:10:36.819 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:10:41.129 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:13:00.905 +02:00 [INF] Starting up
+2022-05-01 18:13:00.932 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:13:05.655 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:13:28.743 +02:00 [INF] Starting up
+2022-05-01 18:13:28.770 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:13:33.074 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:16:21.882 +02:00 [INF] Starting up
+2022-05-01 18:16:21.922 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:16:26.345 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:22:06.711 +02:00 [INF] Starting up
+2022-05-01 18:22:06.739 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:22:11.292 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:22:49.135 +02:00 [INF] Starting up
+2022-05-01 18:22:49.161 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:22:53.441 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:28:54.964 +02:00 [INF] Starting up
+2022-05-01 18:28:54.994 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:28:59.615 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:28:59.756 +02:00 [ERR] One or more errors occurred. (Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.) (Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.)
+2022-05-01 18:28:59.888 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 18:28:59.889 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 18:28:59.889 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 18:28:59.890 +02:00 [INF] Hosting environment: Development
+2022-05-01 18:28:59.890 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 18:29:10.174 +02:00 [INF] [Sensor] [Co2: 108,98129823230722]
+2022-05-01 18:29:11.120 +02:00 [INF] [Sensor] [Temperature: 88,6777258394611]
+2022-05-01 18:29:11.589 +02:00 [INF] [Sensor] [Temperature: 78,57664711990859]
+2022-05-01 18:29:15.389 +02:00 [INF] [Sensor] [Temperature: 89,43645307923016]
+2022-05-01 18:29:16.196 +02:00 [INF] [Sensor] [Temperature: 78,70410139728622]
+2022-05-01 18:29:16.353 +02:00 [INF] [Sensor] [Co2: 109,95223198437415]
+2022-05-01 18:29:31.235 +02:00 [INF] Starting up
+2022-05-01 18:29:31.267 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:29:35.470 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:29:35.606 +02:00 [ERR] One or more errors occurred. (Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.) (Misused header name, 'Content-Type'. Make sure request headers are used with HttpRequestMessage, response headers with HttpResponseMessage, and content headers with HttpContent objects.)
+2022-05-01 18:33:46.225 +02:00 [INF] Starting up
+2022-05-01 18:33:46.311 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:33:50.125 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:34:58.984 +02:00 [ERR] One or more errors occurred. (An error occurred while sending the request.) (An error occurred while sending the request.)
+2022-05-01 18:35:49.704 +02:00 [INF] Starting up
+2022-05-01 18:35:49.747 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:35:54.057 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:37:15.165 +02:00 [ERR] One or more errors occurred. (An error occurred while sending the request.) (An error occurred while sending the request.)
+2022-05-01 18:42:01.525 +02:00 [INF] Starting up
+2022-05-01 18:42:01.552 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:42:26.646 +02:00 [INF] Starting up
+2022-05-01 18:42:26.679 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:42:30.925 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:43:42.933 +02:00 [ERR] One or more errors occurred. (An error occurred while sending the request.) (An error occurred while sending the request.)
+2022-05-01 18:44:04.675 +02:00 [INF] Starting up
+2022-05-01 18:44:04.703 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:44:08.949 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:45:52.250 +02:00 [FTL] Unhandled exception
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Normalerweise darf jede Socketadresse (Protokoll, Netzwerkadresse oder Anschluss) nur jeweils einmal verwendet werden.
+ ---> System.Net.Sockets.SocketException (10048): Normalerweise darf jede Socketadresse (Protokoll, Netzwerkadresse oder Anschluss) nur jeweils einmal verwendet werden.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass30_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.DefaultAddressStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(IEnumerable`1 listenOptions, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Microsoft.AspNetCore.Builder.WebApplication.Run(String url)
+   at Program.<Main>$(String[] args) in C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\Program.cs:line 99
+2022-05-01 18:45:52.314 +02:00 [INF] Shut down complete
+2022-05-01 18:46:36.567 +02:00 [INF] Starting up
+2022-05-01 18:46:36.595 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:46:41.272 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:47:12.967 +02:00 [INF] Starting up
+2022-05-01 18:47:12.991 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:47:17.511 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:49:58.635 +02:00 [INF] Starting up
+2022-05-01 18:49:58.658 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:50:02.920 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:50:13.338 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 18:50:13.339 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 18:50:13.340 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 18:50:13.340 +02:00 [INF] Hosting environment: Development
+2022-05-01 18:50:13.340 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 18:50:52.692 +02:00 [INF] Starting up
+2022-05-01 18:50:52.724 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:50:57.143 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:52:06.001 +02:00 [INF] Starting up
+2022-05-01 18:52:06.024 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:52:10.499 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:56:36.609 +02:00 [INF] Starting up
+2022-05-01 18:56:36.634 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:56:41.195 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:57:29.181 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 18:57:29.183 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 18:57:29.183 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 18:57:29.184 +02:00 [INF] Hosting environment: Development
+2022-05-01 18:57:29.184 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 18:57:39.901 +02:00 [INF] [Sensor] [Co2: 203,3093560891879]
+2022-05-01 18:57:40.446 +02:00 [INF] [Sensor] [Temperature: 143,30596248788896]
+2022-05-01 18:57:40.816 +02:00 [INF] [Sensor] [Temperature: 137,55784404612047]
+2022-05-01 18:57:49.087 +02:00 [INF] Starting up
+2022-05-01 18:57:49.113 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 18:57:53.308 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 18:58:31.723 +02:00 [INF] Starting up
+2022-05-01 18:58:31.747 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 19:28:58.693 +02:00 [INF] Starting up
+2022-05-01 19:28:58.718 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 19:29:23.599 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 19:29:49.773 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-01 19:29:49.774 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-01 19:29:49.774 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 19:29:49.774 +02:00 [INF] Hosting environment: Development
+2022-05-01 19:29:49.775 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-01 19:29:55.705 +02:00 [INF] Starting up
+2022-05-01 19:29:55.732 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 19:30:00.036 +02:00 [INF] [DataManager] [BaseData loaded]

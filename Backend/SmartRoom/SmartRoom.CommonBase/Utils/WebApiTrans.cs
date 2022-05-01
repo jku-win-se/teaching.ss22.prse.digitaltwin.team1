@@ -28,14 +28,13 @@ namespace SmartRoom.CommonBase.Utils
             return new T();
         }
 
-        public static async Task<HttpResponseMessage> PostAPI(string uri, object contentparam, string authtoken = "")
+        public static async Task<HttpResponseMessage> PostAPI<T>(string uri, T contentparam, string authtoken = "")
         {
-            //var request = new HttpRequestMessage(HttpMethod.Post, uri);
             HttpResponseMessage response;
 
             using (HttpClient client = new HttpClient())
             {
-                if (string.IsNullOrEmpty(authtoken))
+                if (!string.IsNullOrEmpty(authtoken))
                 {
                     client.DefaultRequestHeaders.Clear();
                     client.DefaultRequestHeaders.Add("ApiKey", authtoken);

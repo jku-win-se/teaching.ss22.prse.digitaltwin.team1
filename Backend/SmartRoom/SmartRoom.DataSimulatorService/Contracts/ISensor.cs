@@ -3,6 +3,7 @@
     public interface ISensor
     {
         public string Type { get; set; }
-        public void RenewData();
+        public DateTime TimeStamp { get; set; }
+        public void ChangeState();
     }
 }
