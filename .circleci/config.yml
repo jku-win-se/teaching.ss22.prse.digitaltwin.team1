@@ -124,7 +124,7 @@ jobs:
           name: "Deploy Web App to Azure"
           command: |
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
-            cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService/bin/Release/net6.0
+            cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService/bin/Release/net6.0/publish
             ls
             zip -r Release.zip .
             az webapp config appsettings set --resource-group SmartRoom --name BaseDataService --settings WEBSITE_RUN_FROM_PACKAGE="1"
