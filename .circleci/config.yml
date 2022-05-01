@@ -128,7 +128,7 @@ jobs:
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
             cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService/bin/Release/net6.0/
             zip -r Release.zip .
-            ls
+            az webapp deployment source config-zip --resource-group SmartRoom --name BaseDataService --src Release.zip
 #            git init
 #            git config --global user.email "me@mail.com"
 #            git config --global user.name "yemiwebby"
