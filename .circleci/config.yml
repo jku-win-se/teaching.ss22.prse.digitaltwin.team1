@@ -72,12 +72,12 @@ jobs:
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - run:
           name: Publish
-          command: dotnet publish -c Release -o /WebService
+          command: dotnet publish -c Release -o BaseDataService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
-            - ./Backend/BaseDataService
+            - BaseDataService
 
   build_and_test_TransDataService:
     docker:
@@ -96,10 +96,6 @@ jobs:
           name: Running Tests
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.TransDataService.Tests
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - ./Backend/TransDataService
 
   build_and_test_DataSimulatorService:
     docker:
@@ -118,24 +114,20 @@ jobs:
           name: Running Tests
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.DataSimulatorService.Tests
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - ./Backend/DataSimulatorService
 
   azure_deploy_backend:
     executor: azure-cli/azure-docker
     steps:
       - azure-cli/login-with-service-principal
       - attach_workspace:
-          at: ~/project/Backend/BaseDataService
+          at: ~/project
       - run:
           command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
       - run:
           name: "Deploy Web App to Azure"
           command: |
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
-            cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService
+            cd ~/project/BaseDataService/
             git init
             git config --global user.email "me@mail.com"
             git config --global user.name "yemiwebby"
