@@ -14,13 +14,13 @@ namespace SmartRoom.DataSimulatorService.Models
             TimeStamp = state.TimeStamp;
             Type = state.Name;
         }
-        public override void ChangeState()
+        public override void ChangeState(DateTime timeStamp = default)
         {
-            base.ChangeState();
+            base.ChangeState(timeStamp);
             Random random = new Random();
-            if (DateTime.Now > DateTime.Parse("09:00") && DateTime.Now < DateTime.Parse("19:00"))
+            if (TimeStamp > DateTime.Parse("09:00") && TimeStamp < DateTime.Parse("19:00"))
             {
-                if (random.Next(1, 10) > 3)
+                if (random.Next(1, 10) > 4)
                 {
                     Value += random.NextDouble();
                 }
@@ -28,7 +28,7 @@ namespace SmartRoom.DataSimulatorService.Models
             }
             else
             {
-                if (random.Next(1, 10) > 3)
+                if (random.Next(1, 10) > 4)
                 {
                     Value -= random.NextDouble();
                 }

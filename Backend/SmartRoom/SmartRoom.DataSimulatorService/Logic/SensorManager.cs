@@ -86,7 +86,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                         if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
                         while (start < DateTime.UtcNow) 
                         {
-                            sensor.ChangeState();
+                            sensor.ChangeState(start);
                             measureStates.Add(new MeasureState
                             {
                                 EntityRefID = item.Key,
@@ -107,7 +107,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                         if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
                         while (start < DateTime.UtcNow)
                         {
-                            if (random.Next(1, 10) > 8) sensor.ChangeState();
+                            if (random.Next(1, 10) > 8) sensor.ChangeState(start);
                             binaryStates.Add(new BinaryState
                             {
                                 EntityRefID = item.Key,

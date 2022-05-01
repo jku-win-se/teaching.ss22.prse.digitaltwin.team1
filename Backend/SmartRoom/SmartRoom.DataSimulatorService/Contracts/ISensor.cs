@@ -4,6 +4,6 @@
     {
         public string Type { get; set; }
         public DateTime TimeStamp { get; set; }
-        public void ChangeState();
+        public void ChangeState(DateTime dateTime = default);
     }
 }

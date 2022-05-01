@@ -14,9 +14,9 @@ namespace SmartRoom.DataSimulatorService.Models
             TimeStamp = state.TimeStamp;
             Type = state.Name;
         }
-        public override void ChangeState()
+        public override void ChangeState(DateTime timeStamp = default)
         {
-            base.ChangeState();
+            base.ChangeState(timeStamp);
             Value = !Value;
         }
     }
