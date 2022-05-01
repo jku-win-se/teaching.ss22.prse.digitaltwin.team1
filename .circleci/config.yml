@@ -151,7 +151,6 @@ workflows:
               only:
                 - main
                 - /^release_.*/   
-                - DataSimulator
       - build_and_test_BaseDataService:
           requires: 
             - build_and_test_CommonBase
@@ -160,7 +159,6 @@ workflows:
               only:
                 - main
                 - /^release_.*/
-                - DataSimulator
       - build_and_test_TransDataService:
           requires: 
             - build_and_test_CommonBase
@@ -169,7 +167,6 @@ workflows:
               only:
                 - main
                 - /^release_.*/
-                - DataSimulator 
       - build_and_test_DataSimulatorService:
           requires: 
             - build_and_test_TransDataService
@@ -179,7 +176,6 @@ workflows:
               only:
                 - main
                 - /^release_.*/
-                - DataSimulator
       - build_and_test_frontend:
           filters:
             branches:
