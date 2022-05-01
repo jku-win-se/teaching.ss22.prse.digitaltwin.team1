@@ -72,12 +72,12 @@ jobs:
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - run:
           name: Publish
-          command: dotnet publish -c Release -o Backend/SmartRoom/SmartRoom.BaseDataService/Release
+          command: dotnet publish -c Release -o /BaseDataService
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
           paths:
-            - Backend/SmartRoom/SmartRoom.BaseDataService/Release
+            - ./Backend
   build_and_test_TransDataService:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
