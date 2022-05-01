@@ -39,17 +39,17 @@ namespace SmartRoom.TransDataService.Controllers
 
 
         [HttpGet("[action]/{id}&{name}")]
-        public async Task<object> GetChartData(Guid id, string name, int intervall = 5)
+        public async Task<object> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
         {
             if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist with the given ID!");
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
 
-            return await _manager.GetChartData<S>(id, name, intervall);
+            return await _manager.GetChartData<S>(id, name, intervall, daySpan);
         }
 
         [HttpPost("[action]/{name}")]
-        public async Task<object> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5)
+        public async Task<object> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5, int daySpan = 1)
         {
             ids = ids.Where(id => _manager.GetStateTypesByEntityID<S>(id).Result.Any(ms => ms.Equals(name))).ToArray();
 
@@ -57,7 +57,7 @@ namespace SmartRoom.TransDataService.Controllers
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
 
-            return await _manager.GetChartData<S>(ids, name, intervall);
+            return await _manager.GetChartData<S>(ids, name, intervall, daySpan);
         }
     }
 }

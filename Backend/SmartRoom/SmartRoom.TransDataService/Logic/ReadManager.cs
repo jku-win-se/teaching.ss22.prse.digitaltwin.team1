@@ -16,7 +16,7 @@ namespace SmartRoom.TransDataService.Logic
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                return await context.Set<E>().Where(s => s.EntityRefID.Equals(id)).ToArrayAsync();
+                return await context.Set<E>().Where(s => s.EntityRefID.Equals(id)).OrderByDescending(s => s.TimeStamp).Take(500).ToArrayAsync();
             }
         }
 
@@ -34,7 +34,7 @@ namespace SmartRoom.TransDataService.Logic
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).ToArrayAsync();
+                return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).OrderByDescending(s => s.TimeStamp).Take(500).ToArrayAsync();
             }
         }
 
@@ -46,23 +46,28 @@ namespace SmartRoom.TransDataService.Logic
             }
         }
 
-        public async Task<object> GetChartData<E>(Guid id, string name, int intervall) where E : State
+        public async Task<object> GetChartData<E>(Guid id, string name, int intervall, int daySpan) where E : State
         {
-            if (typeof(E).Equals(typeof(MeasureState))) return await GetMeasureChartData(id, name, intervall, typeof(E).Name);
-            else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall, typeof(E).Name);
+            intervall *= daySpan;
+
+            if (typeof(E).Equals(typeof(MeasureState))) return await GetMeasureChartData(id, name, intervall, typeof(E).Name, daySpan);
+            else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall, typeof(E).Name, daySpan);
             else return new();
         }
-        public async Task<object> GetChartData<E>(Guid[] ids, string name, int intervall) where E : State
+        public async Task<object> GetChartData<E>(Guid[] ids, string name, int intervall, int daySpan) where E : State
         {
-            if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(ids, name, intervall, typeof(E).Name);
+            intervall *= daySpan;
+
+            if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(ids, name, intervall, typeof(E).Name, daySpan);
             else return new();
         }
 
-        private async Task<object> GetBinaryChartData(Guid id, string name, int intervall, string type)
+        private async Task<object> GetBinaryChartData(Guid id, string name, int intervall, string type, int daySpan)
         {
             string stmd =
                 $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, bool_or(\"BinaryValue\") " +
                 $"FROM public.\"State\" " +
+                $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' " +
                 $"GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
                 $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
                 $"ORDER BY five_min";
@@ -78,7 +83,7 @@ namespace SmartRoom.TransDataService.Logic
             }
         }
 
-        private async Task<object> GetBinaryChartData(Guid[] ids, string name, int intervall, string type)
+        private async Task<object> GetBinaryChartData(Guid[] ids, string name, int intervall, string type, int daySpan)
         {
             string idStmdChain = "";
 
@@ -92,12 +97,12 @@ namespace SmartRoom.TransDataService.Logic
                 $"Select q.five_min_2, COALESCE(sum(a.count), 0) from " +
                     $"(SELECT time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, Count(DISTINCT \"EntityRefID\") as count, bool_or(\"BinaryValue\") as val " +
                     $"FROM public.\"State\" " +
-                    $"WHERE \"Discriminator\" like '{type}' and \"Name\" like '{name}' and ({idStmdChain})" +
+                    $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' and \"Discriminator\" like '{type}' and \"Name\" like '{name}' and ({idStmdChain})" +
                     $"GROUP BY five_min, \"EntityRefID\" " +
                     $"HAVING bool_or(\"BinaryValue\") = true) AS a " +
                 $"RIGHT OUTER JOIN " +
                     $"(SELECT time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min_2 " +
-                    $"FROM public.\"State\" WHERE \"Discriminator\" like '{type}' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
+                    $"FROM public.\"State\" WHERE \"TimeStamp\" > now() - interval '{daySpan} week' and \"Discriminator\" like '{type}' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
                 $"ON q.five_min_2 = a.five_min " +
                 $"Group By q.five_min_2 " +
                 $"ORDER BY q.five_min_2";
@@ -115,11 +120,12 @@ namespace SmartRoom.TransDataService.Logic
             }
         }
 
-        private async Task<object> GetMeasureChartData(Guid id, string name, int intervall, string type)
+        private async Task<object> GetMeasureChartData(Guid id, string name, int intervall, string type, int daySpan)
         {
             string stmd =
                 $"SELECT \"Discriminator\", \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"MeasureValue\") " +
                 $"FROM public.\"State\" " +
+                $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' " +
                 $"GROUP BY five_min, \"Discriminator\", \"Name\", \"EntityRefID\" " +
                 $"HAVING \"Discriminator\" like '{type}' and \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
                 $"ORDER BY five_min";

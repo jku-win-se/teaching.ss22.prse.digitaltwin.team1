@@ -6234,3 +6234,6 @@ System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address 
 2022-05-01 19:29:55.705 +02:00 [INF] Starting up
 2022-05-01 19:29:55.732 +02:00 [INF] [Simulator] [Starting Service]
 2022-05-01 19:30:00.036 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-01 19:41:30.455 +02:00 [INF] Starting up
+2022-05-01 19:41:30.488 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-01 19:41:35.350 +02:00 [INF] [DataManager] [BaseData loaded]
