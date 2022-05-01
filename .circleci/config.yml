@@ -72,7 +72,7 @@ jobs:
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
       - run:
           name: Publish
-          command: dotnet publish -c Release -o /BaseDataService
+          command: dotnet publish -c Release
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - persist_to_workspace:
           root: ~/project
@@ -120,8 +120,6 @@ jobs:
       - azure-cli/login-with-service-principal
       - attach_workspace:
           at: ~/project
-      - run:
-          command: az webapp deployment source show --resource-group SmartRoom --name BaseDataService
       - run:
           name: "Deploy Web App to Azure"
           command: |
