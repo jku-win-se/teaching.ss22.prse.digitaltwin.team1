@@ -126,7 +126,7 @@ jobs:
           name: "Deploy Web App to Azure"
           command: |
             az webapp deployment source config-local-git --resource-group SmartRoom --name BaseDataService
-            cd ~/project/Backend/
+            cd ~/project/Backend/SmartRoom/SmartRoom.BaseDataService/
             git init
             git config --global user.email "me@mail.com"
             git config --global user.name "yemiwebby"
