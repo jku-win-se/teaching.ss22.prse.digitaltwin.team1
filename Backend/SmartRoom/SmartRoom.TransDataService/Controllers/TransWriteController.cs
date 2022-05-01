@@ -17,7 +17,7 @@ namespace SmartRoom.TransDataService.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> AddBinaryState(BinaryState state)
+        public async Task<IActionResult> AddBinaryState(BinaryState[] state)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace SmartRoom.TransDataService.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> AddMeasureState(MeasureState state)
+        public async Task<IActionResult> AddMeasureState(MeasureState[] state)
         {
             try
             {
