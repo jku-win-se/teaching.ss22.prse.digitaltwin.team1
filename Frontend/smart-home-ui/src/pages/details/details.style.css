@@ -20,11 +20,9 @@
 }
 
 .infoboard-height {
-  height: 20vh;
-  background-color: grey;
 }
 .control-height {
-  height: 50vh;
+  height: 35vh;
   background-color: green;
 }
 
