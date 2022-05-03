@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
+    <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
+    <Folder Include="Contracts\" />
   </ItemGroup>
 
 </Project>

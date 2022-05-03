@@ -12,7 +12,7 @@ namespace SmartRoom.CSVConsole.Models
         {
             return new BinaryState
             {
-                BinaryValue = isOn,
+                Value = isOn,
                 TimeStamp = Timestamp,
                 Name = typeof(VentilatorOn).Name
             };

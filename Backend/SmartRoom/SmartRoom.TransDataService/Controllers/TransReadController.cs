@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.TransDataService.Logic;
 
 namespace SmartRoom.TransDataService.Controllers
@@ -10,7 +11,7 @@ namespace SmartRoom.TransDataService.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public abstract class TransReadController<S> : ControllerBase where S : State
+    public abstract class TransReadController<S> : ControllerBase where S : class, IState, new()
     {
         private ReadManager _manager;
         public TransReadController(ReadManager manager)

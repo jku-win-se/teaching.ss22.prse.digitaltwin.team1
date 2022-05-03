@@ -2,7 +2,7 @@
 
 namespace SmartRoom.CSVConsole.Models
 {
-    public interface IBaseModel<E> where E : EntityObject
+    public interface IBaseModel<E> where E : new()
     {
         public E GetEntity();
 

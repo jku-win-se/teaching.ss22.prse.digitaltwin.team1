@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SmartRoom.TransDataService.Persistence;
@@ -11,9 +12,10 @@ using SmartRoom.TransDataService.Persistence;
 namespace SmartRoom.TransDataService.Migrations
 {
     [DbContext(typeof(TransDataDBContext))]
-    partial class TransDataDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220503201402_addedKeyToState")]
+    partial class addedKeyToState
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

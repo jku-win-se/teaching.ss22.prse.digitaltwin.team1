@@ -1,9 +1,15 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.DataSimulatorService.Contracts;
+using SmartRoom.DataSimulatorService.Models;
 
 namespace SmartRoom.DataSimulatorService.Logic
 {
     public class SensorManager
     {
+        private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
+        private string _transDataServiceURL => _configuration["Services:TransDataService"];
+        private string _apiKey => _configuration["ApiKey"];
+
         private IConfiguration _configuration;
         private ILogger<SensorManager> _logger;
         private List<Room> _rooms;
@@ -21,20 +27,20 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public async Task Init()
         {
-            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_configuration["Services:BaseDataService"]}room", _configuration["ApiKey"]);
-            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_configuration["Services:BaseDataService"]}roomequipment", _configuration["ApiKey"]);
+            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
+            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_baseDataServiceURL}roomequipment", _apiKey);
             _rooms.ForEach(r =>
             {
-                _sensors.Add(r.Id, 
-                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetTypesBy/{r.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult()
-                    .Select(d => new Models.MeasureSensor(CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_configuration["Services:TransDataService"]}ReadMeasure/GetRecentBy/{r.Id}&{d}", _configuration["ApiKey"]).GetAwaiter().GetResult()))
+                _sensors.Add(r.Id,
+                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadMeasure/GetTypesBy/{r.Id}", _apiKey).GetAwaiter().GetResult()
+                    .Select(d => new Models.MeasureSensor(CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_transDataServiceURL}ReadMeasure/GetRecentBy/{r.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _roomEquipment.ForEach(re =>
             {
-                _sensors.Add(re.Id, 
-                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_configuration["Services:TransDataService"]}ReadBinary/GetTypesBy/{re.Id}", _configuration["ApiKey"]).GetAwaiter().GetResult()
-                    .Select(d => new Models.BinarySensor(CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_configuration["Services:TransDataService"]}ReadBinary/GetRecentBy/{re.Id}&{d}", _configuration["ApiKey"]).GetAwaiter().GetResult()))
+                _sensors.Add(re.Id,
+                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadBinary/GetTypesBy/{re.Id}", _apiKey).GetAwaiter().GetResult()
+                    .Select(d => new Models.BinarySensor(CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _logger.LogInformation("[DataManager] [BaseData loaded]");
@@ -66,67 +72,49 @@ namespace SmartRoom.DataSimulatorService.Logic
             List<BinaryState> binaryStates = new List<BinaryState>();
 
             List<Task> tasks = new List<Task>();
-            Random random = new Random();
 
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                Models.MeasureSensor?[] measureSensors = item.Value.Where(i => i.GetType().Equals(typeof(Models.MeasureSensor))).ToArray().Any()
-                    ? item.Value.Where(i => i.GetType().Equals(typeof(Models.MeasureSensor))).Select(s => s as Models.MeasureSensor).ToArray()
-                    : new Models.MeasureSensor[0];
+                MeasureSensor?[] measureSensors = item.Value.Where(i => i.GetType().Equals(typeof(MeasureSensor))).ToArray().Any()
+                    ? item.Value.Where(i => i.GetType().Equals(typeof(MeasureSensor))).Select(s => s as MeasureSensor).ToArray()
+                    : new MeasureSensor[0];
 
-                Models.BinarySensor?[] binarySensors = item.Value.Where(i => i.GetType().Equals(typeof(Models.BinarySensor))).ToArray().Any()
-                    ? item.Value.Where(i => i.GetType().Equals(typeof(Models.BinarySensor))).Select(s => s as Models.BinarySensor).ToArray()
-                    : new Models.BinarySensor[0];
+                BinarySensor?[] binarySensors = item.Value.Where(i => i.GetType().Equals(typeof(BinarySensor))).ToArray().Any()
+                    ? item.Value.Where(i => i.GetType().Equals(typeof(BinarySensor))).Select(s => s as BinarySensor).ToArray()
+                    : new BinarySensor[0];
 
                 foreach (var sensor in measureSensors)
                 {
-                    tasks.Add(Task.Run(() =>
-                    {
-                        DateTime start = DateTime.UtcNow.AddHours(-12);
-                        if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
-                        while (start < DateTime.UtcNow) 
-                        {
-                            sensor.ChangeState(start);
-                            measureStates.Add(new MeasureState
-                            {
-                                EntityRefID = item.Key,
-                                MeasureValue = sensor.Value,
-                                Name = sensor.Type,
-                                TimeStamp = start
-                            });
-                            start = start.AddMinutes(2);
-                        }                      
-                    }));
+                    tasks.Add(Task.Run(() => Task.Run(() => measureStates.AddRange(GenerateMissingDataForSensor<MeasureState, MeasureSensor, double>(sensor!, item.Key)))));
                 }
 
                 foreach (var sensor in binarySensors)
                 {
-                    tasks.Add(Task.Run(() =>
-                    {
-                        DateTime start = DateTime.UtcNow.AddHours(-12);
-                        if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
-                        while (start < DateTime.UtcNow)
-                        {
-                            if (random.Next(1, 10) > 8) sensor.ChangeState(start);
-                            binaryStates.Add(new BinaryState
-                            {
-                                EntityRefID = item.Key,
-                                BinaryValue = sensor.Value,
-                                Name = sensor.Type,
-                                TimeStamp = start
-                            });
-                            start = start.AddMinutes(2);
-                        }
-                    }));
+                    tasks.Add(Task.Run(() => binaryStates.AddRange(GenerateMissingDataForSensor<BinaryState, BinarySensor, bool>(sensor!, item.Key))));
                 }
             }
+
             Task.WaitAll(tasks.ToArray());
             tasks.Clear();
 
             if (binaryStates.Any())
-                tasks.Add(CommonBase.Utils.WebApiTrans.PostAPI($"{_configuration["Services:TransDataService"]}TransWrite/AddBinaryState", binaryStates.ToArray(), _configuration["ApiKey"]));
-            if (measureStates.Any())
-                tasks.Add(CommonBase.Utils.WebApiTrans.PostAPI($"{_configuration["Services:TransDataService"]}TransWrite/AddMeasureState", measureStates.ToArray(), _configuration["ApiKey"]));
+            {
+                tasks.Add(Task.Run(async () =>
+                {
+                    await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddBinaryState", binaryStates.ToArray(), _apiKey);
+                    _logger.LogInformation($"[Simulator] [Added {binaryStates.Count()} BinaryStates]");
+                }));
+            }
+
+            if (measureStates.Any()) 
+            {
+                tasks.Add(Task.Run(async () =>
+                {
+                    await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", measureStates.ToArray(), _apiKey);
+                    _logger.LogInformation($"[Simulator] [Added {measureStates.Count()} MeasureStates]");
+                }));
+            }
+             
             try
             {
                 Task.WaitAll(tasks.ToArray());
@@ -136,7 +124,6 @@ namespace SmartRoom.DataSimulatorService.Logic
 
                 _logger.LogError(e.Message);
             }
-
         }
 
         public void ChangeState(Guid id, string type)
@@ -146,8 +133,33 @@ namespace SmartRoom.DataSimulatorService.Logic
             if (sensor != null)
             {
                 sensor.ChangeState();
-                _logger.LogInformation(" [Act]" + sensor.ToString());
+                _logger.LogInformation(" [Actor]" + sensor.ToString());
             }
+        }
+
+        private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor, Guid key) where SE : Sensor<T> where ST : State<T>, new()
+        {
+            List<ST> sTs = new List<ST>();
+            DateTime start = DateTime.UtcNow.AddHours(-12);
+            Random random = new Random();   
+
+            if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
+            while (start < DateTime.UtcNow)
+            {
+                if (sTs is BinaryState && random.Next(1, 10) > 8) sensor.ChangeState(start);
+                else if (sTs is MeasureState) sensor.ChangeState(start);
+                
+                sTs.Add(new ST
+                {
+                    EntityRefID = key,
+                    Name = sensor.Type,
+                    TimeStamp = start,
+                    Value = sensor.Value,
+                });
+                start = start.AddMinutes(2);
+            }
+
+            return sTs;
         }
     }
 }

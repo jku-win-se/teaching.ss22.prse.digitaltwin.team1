@@ -6278,3 +6278,123 @@ System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address 
 2022-05-01 20:53:14.942 +02:00 [INF] [Sensor] [Co2: 207,54959163697808]
 2022-05-01 20:53:15.796 +02:00 [INF] [Sensor] [Temperature: 137,9315734830437]
 2022-05-01 20:53:15.843 +02:00 [INF] [Sensor] [Temperature: 143,54668582235036]
+2022-05-03 19:32:17.613 +02:00 [INF] Starting up
+2022-05-03 19:32:17.671 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:32:46.308 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:32:51.453 +02:00 [INF] [Simulator] [Added 599 BinaryStates]
+2022-05-03 19:32:51.613 +02:00 [INF] [Simulator] [Added 599 BinaryStates]
+2022-05-03 19:32:51.915 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:32:51.917 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:32:51.917 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:32:51.918 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:32:51.918 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:33:02.143 +02:00 [INF] [Sensor] [Co2: 209,65545395660214]
+2022-05-03 19:33:02.530 +02:00 [INF] [Sensor] [Temperature: 135,24503167075525]
+2022-05-03 19:33:03.620 +02:00 [INF] [Sensor] [Temperature: 139,10286275010185]
+2022-05-03 19:33:06.851 +02:00 [INF] [Sensor] [Temperature: 138,59872916139759]
+2022-05-03 19:33:07.377 +02:00 [INF] [Sensor] [Co2: 210,62912637072805]
+2022-05-03 19:33:07.516 +02:00 [INF] [Sensor] [Temperature: 135,4267016985537]
+2022-05-03 19:33:11.736 +02:00 [INF] [Sensor] [Temperature: 138,2666108115471]
+2022-05-03 19:33:12.266 +02:00 [INF] [Sensor] [Temperature: 134,82147747076155]
+2022-05-03 19:33:12.608 +02:00 [INF] [Sensor] [Co2: 211,4144199546936]
+2022-05-03 19:33:42.393 +02:00 [INF] Starting up
+2022-05-03 19:33:42.431 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:33:46.921 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:33:47.153 +02:00 [INF] [Simulator] [Added 3 MeasureState]
+2022-05-03 19:33:47.302 +02:00 [INF] [Simulator] [Added 371 BinaryStates]
+2022-05-03 19:33:47.456 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:33:47.458 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:33:47.458 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:33:47.459 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:33:47.459 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:33:58.001 +02:00 [INF] [Sensor] [Co2: 210,74675657953318]
+2022-05-03 19:33:59.040 +02:00 [INF] [Sensor] [Temperature: 134,95115390905028]
+2022-05-03 19:33:59.230 +02:00 [INF] [Sensor] [Temperature: 139,86654474255602]
+2022-05-03 19:34:02.666 +02:00 [INF] Starting up
+2022-05-03 19:34:02.691 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:34:07.061 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:34:07.292 +02:00 [INF] [Simulator] [Added 3 MeasureState]
+2022-05-03 19:34:07.292 +02:00 [INF] [Simulator] [Added 3 BinaryStates]
+2022-05-03 19:34:07.461 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:34:07.462 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:34:07.462 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:34:07.463 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:34:07.463 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:34:23.334 +02:00 [INF] Starting up
+2022-05-03 19:34:23.365 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:34:27.637 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:34:27.852 +02:00 [INF] [Simulator] [Added 3 MeasureStates]
+2022-05-03 19:34:27.856 +02:00 [INF] [Simulator] [Added 3 BinaryStates]
+2022-05-03 19:34:28.002 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:34:28.004 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:34:28.004 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:34:28.005 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:34:28.005 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:34:38.461 +02:00 [INF] [Sensor] [Co2: 209,7696873844429]
+2022-05-03 19:34:38.868 +02:00 [INF] [Sensor] [Temperature: 137,01373293192583]
+2022-05-03 19:34:39.331 +02:00 [INF] [Sensor] [Temperature: 140,0193060423151]
+2022-05-03 19:34:43.327 +02:00 [INF] [Sensor] [Co2: 209,67330525705498]
+2022-05-03 19:34:44.045 +02:00 [INF] [Sensor] [Temperature: 139,65330476731478]
+2022-05-03 19:34:44.076 +02:00 [INF] [Sensor] [Temperature: 137,18750346568982]
+2022-05-03 19:34:48.191 +02:00 [INF] [Sensor] [Temperature: 140,05578144742003]
+2022-05-03 19:34:49.577 +02:00 [INF] [Sensor] [Temperature: 136,4633035277636]
+2022-05-03 19:34:49.671 +02:00 [INF] [Sensor] [Co2: 210,64166299933842]
+2022-05-03 19:34:53.471 +02:00 [INF] [Sensor] [Co2: 211,1050707810436]
+2022-05-03 19:34:54.075 +02:00 [INF] [Sensor] [Temperature: 137,15883827666661]
+2022-05-03 19:34:54.745 +02:00 [INF] [Sensor] [Temperature: 141,05380785197517]
+2022-05-03 19:34:58.265 +02:00 [INF] [Sensor] [Temperature: 138,12924879250698]
+2022-05-03 19:34:58.265 +02:00 [INF] [Sensor] [Temperature: 140,30043302645927]
+2022-05-03 19:34:59.743 +02:00 [INF] [Sensor] [Co2: 211,3116302039147]
+2022-05-03 19:35:03.271 +02:00 [INF] [Sensor] [Temperature: 138,25189518860648]
+2022-05-03 19:35:04.420 +02:00 [INF] [Sensor] [Co2: 211,0420384990482]
+2022-05-03 19:35:04.515 +02:00 [INF] [Sensor] [Temperature: 139,7151055538095]
+2022-05-03 19:35:08.178 +02:00 [INF] [Sensor] [Co2: 212,00885991979874]
+2022-05-03 19:35:08.599 +02:00 [INF] [Sensor] [Temperature: 137,27676974177547]
+2022-05-03 19:35:09.633 +02:00 [INF] [Sensor] [Temperature: 140,36561231999207]
+2022-05-03 19:35:14.593 +02:00 [INF] [Sensor] [Temperature: 139,42051198303213]
+2022-05-03 19:35:14.625 +02:00 [INF] [Sensor] [Temperature: 137,26419495703794]
+2022-05-03 19:35:14.839 +02:00 [INF] [Sensor] [Co2: 211,3533867027038]
+2022-05-03 19:35:18.128 +02:00 [INF] [Sensor] [Co2: 210,52092655132228]
+2022-05-03 19:35:18.207 +02:00 [INF] [Sensor] [Temperature: 137,01375216260828]
+2022-05-03 19:35:18.582 +02:00 [INF] [Sensor] [Temperature: 140,274976192574]
+2022-05-03 19:35:23.996 +02:00 [INF] [Sensor] [Co2: 210,3510990116147]
+2022-05-03 19:35:24.321 +02:00 [INF] [Sensor] [Temperature: 137,8300068449614]
+2022-05-03 19:35:24.586 +02:00 [INF] [Sensor] [Temperature: 139,78211685830559]
+2022-05-03 19:35:28.543 +02:00 [INF] [Sensor] [Co2: 210,92808094141745]
+2022-05-03 19:35:29.508 +02:00 [INF] [Sensor] [Temperature: 137,49633613570987]
+2022-05-03 19:35:29.819 +02:00 [INF] [Sensor] [Temperature: 139,98293957795096]
+2022-05-03 19:35:33.288 +02:00 [INF] [Sensor] [Co2: 211,1832566640543]
+2022-05-03 19:35:34.081 +02:00 [INF] [Sensor] [Temperature: 137,3903110284788]
+2022-05-03 19:35:34.297 +02:00 [INF] [Sensor] [Temperature: 140,49379969553337]
+2022-05-03 19:35:38.695 +02:00 [INF] [Sensor] [Co2: 211,72643138831978]
+2022-05-03 19:35:38.898 +02:00 [INF] [Sensor] [Temperature: 139,83781449268866]
+2022-05-03 19:35:39.520 +02:00 [INF] [Sensor] [Temperature: 136,94665317107507]
+2022-05-03 19:35:43.326 +02:00 [INF] [Sensor] [Temperature: 138,8851723740351]
+2022-05-03 19:49:14.346 +02:00 [INF] Starting up
+2022-05-03 19:49:14.369 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:49:17.866 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:49:18.007 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:49:18.009 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:49:18.009 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:49:18.010 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:49:18.010 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:50:23.728 +02:00 [INF] Starting up
+2022-05-03 19:50:23.752 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-03 19:50:28.195 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-03 19:50:28.415 +02:00 [INF] [Simulator] [Added 27 MeasureStates]
+2022-05-03 19:50:28.487 +02:00 [INF] [Simulator] [Added 27 BinaryStates]
+2022-05-03 19:50:28.630 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-03 19:50:28.631 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-03 19:50:28.631 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-03 19:50:28.631 +02:00 [INF] Hosting environment: Development
+2022-05-03 19:50:28.632 +02:00 [INF] Content root path: C:\Users\marku\Source\Repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-03 19:50:38.646 +02:00 [INF] [Sensor] [Co2: 210,99435885293954]
+2022-05-03 19:50:38.987 +02:00 [INF] [Sensor] [Temperature: 138,87781098126484]
+2022-05-03 19:50:39.654 +02:00 [INF] [Sensor] [Temperature: 140,61119248747823]
+2022-05-03 19:50:44.622 +02:00 [INF] [Sensor] [Co2: 210,01296964051355]
+2022-05-03 19:50:44.916 +02:00 [INF] [Sensor] [Temperature: 139,97098515554194]
+2022-05-03 19:50:45.259 +02:00 [INF] [Sensor] [Temperature: 138,57213522599022]
+2022-05-03 19:50:48.869 +02:00 [INF] [Sensor] [Co2: 209,28976221789137]
+2022-05-03 19:50:49.055 +02:00 [INF] [Sensor] [Temperature: 137,9596336690802]
+2022-05-03 19:50:50.347 +02:00 [INF] [Sensor] [Temperature: 139,75897194827724]
+2022-05-03 19:50:53.548 +02:00 [INF] [Sensor] [Temperature: 138,78285234571302]

@@ -1,11 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-
-namespace SmartRoom.CommonBase.Core.Entities
+﻿namespace SmartRoom.CommonBase.Core.Entities
 {
-    public class MeasureState : State
+    public class MeasureState : State<double>
     {
-        [Required]
-        public double MeasureValue { get; set; }
     }
 }

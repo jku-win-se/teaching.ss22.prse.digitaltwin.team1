@@ -12,7 +12,7 @@ namespace SmartRoom.CSVConsole.Models
         {
             return new MeasureState
             {
-                MeasureValue = NOPeopleInRoom,
+                Value = NOPeopleInRoom,
                 Name = typeof(PeopleInRoom).Name,
                 TimeStamp = Timestamp
             };

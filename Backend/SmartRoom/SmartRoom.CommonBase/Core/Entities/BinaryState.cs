@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 
 namespace SmartRoom.CommonBase.Core.Entities
 {
-    public class BinaryState : State
+    public class BinaryState : State<bool>
     {
-        [Required]
-        public bool BinaryValue { get; set; }
     }
 }

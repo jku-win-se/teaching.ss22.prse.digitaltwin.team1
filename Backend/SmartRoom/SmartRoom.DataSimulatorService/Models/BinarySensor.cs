@@ -10,7 +10,7 @@ namespace SmartRoom.DataSimulatorService.Models
         }   
         public BinarySensor(BinaryState state)
         {
-            Value = state.BinaryValue;
+            Value = state.Value;
             TimeStamp = state.TimeStamp;
             Type = state.Name;
         }

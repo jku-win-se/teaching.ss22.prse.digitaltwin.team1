@@ -14,7 +14,6 @@ namespace SmartRoom.TransDataService.Persistence
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<State>().HasDiscriminator().IsComplete(false);
         }
 
         public List<T> RawSqlQuery<T>(string query, Func<DbDataReader, T> map)

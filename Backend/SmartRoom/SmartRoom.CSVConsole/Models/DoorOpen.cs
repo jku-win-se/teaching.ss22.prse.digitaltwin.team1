@@ -12,7 +12,7 @@ namespace SmartRoom.CSVConsole.Models
         {
             return new BinaryState
             {
-                BinaryValue = isOpen,
+                Value = isOpen,
                 Name = typeof(DoorOpen).Name,
                 TimeStamp = Timestamp
             };

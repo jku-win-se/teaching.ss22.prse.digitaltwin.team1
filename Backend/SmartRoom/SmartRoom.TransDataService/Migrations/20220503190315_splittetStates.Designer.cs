@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SmartRoom.TransDataService.Persistence;
@@ -11,9 +12,10 @@ using SmartRoom.TransDataService.Persistence;
 namespace SmartRoom.TransDataService.Migrations
 {
     [DbContext(typeof(TransDataDBContext))]
-    partial class TransDataDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220503190315_splittetStates")]
+    partial class splittetStates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,10 +27,6 @@ namespace SmartRoom.TransDataService.Migrations
             modelBuilder.Entity("SmartRoom.CommonBase.Core.Entities.BinaryState", b =>
                 {
                     b.Property<Guid>("EntityRefID")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -47,10 +45,6 @@ namespace SmartRoom.TransDataService.Migrations
             modelBuilder.Entity("SmartRoom.CommonBase.Core.Entities.MeasureState", b =>
                 {
                     b.Property<Guid>("EntityRefID")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")

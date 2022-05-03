@@ -10,7 +10,7 @@ namespace SmartRoom.DataSimulatorService.Models
         }
         public MeasureSensor(MeasureState state)
         {
-            Value = state.MeasureValue;
+            Value = state.Value;
             TimeStamp = state.TimeStamp;
             Type = state.Name;
         }

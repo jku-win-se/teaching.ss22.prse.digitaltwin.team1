@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 
@@ -12,7 +13,7 @@ namespace SmartRoom.TransDataService.Logic
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task addState<E>(E[] state) where E : State
+        public async Task addState<E>(E[] state) where E : class, IState
         {
             await Task.Run(() =>
             {
