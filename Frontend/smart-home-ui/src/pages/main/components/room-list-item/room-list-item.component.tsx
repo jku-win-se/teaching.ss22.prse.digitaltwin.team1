@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "./room-list-item.styles.css";
 import 'react-circular-progressbar/dist/styles.css';
+import DeleteDialog from "../delete-dialog/delete-dialog.component";
 
 export interface IRoomListItemProps {
     roomName: string;
@@ -138,13 +139,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                         <Edit fontSize="large" />
                     </IconButton>
 
-                    <IconButton aria-label="edit room"
-                        onClick={() => {
-                            alert('delete clicked');
-                        }}
-                    >
-                        <Delete fontSize="large" />
-                    </IconButton>
+                    <DeleteDialog />
                 </Grid>
             </Grid>
         </div>
