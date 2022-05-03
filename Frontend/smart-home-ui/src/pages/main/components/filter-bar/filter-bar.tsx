@@ -1,5 +1,5 @@
-import { Box, Tabs, Tab } from "@mui/material";
-import React, { useState } from "react";
+import { Box, Tab, Tabs } from "@mui/material";
+import React from "react";
 
 export default function FilterBar() {
     const [value, setValue] = React.useState('1');

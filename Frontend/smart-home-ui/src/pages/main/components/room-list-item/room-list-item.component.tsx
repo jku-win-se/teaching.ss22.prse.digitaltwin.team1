@@ -1,11 +1,13 @@
-import { Delete, Edit } from "@mui/icons-material";
-import { IconButton, SvgIconProps } from "@mui/material";
 import * as Muicon from "@mui/icons-material";
+import { Edit } from "@mui/icons-material";
+import { IconButton, SvgIconProps } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import React from 'react';
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import "./room-list-item.styles.css";
 import 'react-circular-progressbar/dist/styles.css';
+import { useNavigate } from 'react-router-dom';
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
+import "./room-list-item.styles.css";
 
 export interface IRoomListItemProps {
     roomName: string;
@@ -35,8 +37,15 @@ function co2Color(props: number) {
 }
 
 export default function RoomListItem(props: IRoomListItemProps) {
+    const navigate = useNavigate();
+
     return (
-        <div className="list">
+        <div
+            className="list"
+            onClick={() => navigate('details/:roomid')}
+            style={{ cursor: 'pointer' }}
+        >
+
             <Grid
                 container
                 spacing={2}
@@ -140,6 +149,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     </IconButton>
 
                     <DeleteDialog />
+
                 </Grid>
             </Grid>
         </div>

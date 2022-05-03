@@ -1,6 +1,6 @@
-import { Box, Grid, Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
+import { Box, Button, Grid } from "@mui/material";
 import * as React from "react";
 import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
