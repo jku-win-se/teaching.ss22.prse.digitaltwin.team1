@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.DataSimulatorService.Logic;
 
 namespace SmartRoom.DataSimulatorService.Controllers
@@ -16,13 +17,27 @@ namespace SmartRoom.DataSimulatorService.Controllers
         [HttpGet("[action]")]
         public ActionResult<string[]> GetLogs()
         {
-            return _sink.Events.Select(s => s.RenderMessage()).ToArray();
+            try
+            {
+                return Ok(_sink.Events.Select(s => s.RenderMessage()).ToArray());
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
 
         [HttpGet("[action]")]
         public ActionResult<string> GetSimulatorStatus()
         {
-            return _sink.Events.Select(s => s.RenderMessage()).Where(m => m.Contains("[Simulator]")).Last();
+            try
+            {
+                return Ok(_sink.Events.Select(s => s.RenderMessage()).Where(m => m.Contains("[Simulator]")).Last());
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
     }
 }

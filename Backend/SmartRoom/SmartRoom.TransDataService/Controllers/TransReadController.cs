@@ -2,6 +2,7 @@
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.TransDataService.Logic;
+using SmartRoom.CommonBase.Core.Exceptions;
 
 namespace SmartRoom.TransDataService.Controllers
 {
@@ -22,22 +23,41 @@ namespace SmartRoom.TransDataService.Controllers
         [HttpGet("[action]/{id}")]
         public async Task<ActionResult<S[]>> GetBy(Guid id)
         {
-            return await _manager.GetStatesByEntityID<S>(id);
+            try
+            {
+                return await _manager.GetStatesByEntityID<S>(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
-
 
         [HttpGet("[action]/{id}&{name}")]
         public async Task<ActionResult<S>> GetRecentBy(Guid id, string name)
         {
-            return await _manager.GetRecentStateByEntityID<S>(id, name);
+            try
+            {
+                return await _manager.GetRecentStateByEntityID<S>(id, name);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
 
         [HttpGet("[action]/{id}")]
         public async Task<ActionResult<string[]>> GetTypesBy(Guid id)
         {
-            return await _manager.GetStateTypesByEntityID<S>(id);
+            try
+            {
+                return await _manager.GetStateTypesByEntityID<S>(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
-
 
         [HttpGet("[action]/{id}&{name}")]
         public async Task<object> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
@@ -45,8 +65,15 @@ namespace SmartRoom.TransDataService.Controllers
             if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist with the given ID!");
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
+            try
+            {
+                return await _manager.GetChartData<S>(id, name, intervall, daySpan);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
 
-            return await _manager.GetChartData<S>(id, name, intervall, daySpan);
         }
 
         [HttpPost("[action]/{name}")]
@@ -57,8 +84,14 @@ namespace SmartRoom.TransDataService.Controllers
             if (!ids.Any()) return BadRequest("Parameter *name* does not exsist with the given IDs!");
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
-
-            return await _manager.GetChartData<S>(ids, name, intervall, daySpan);
+            try
+            {
+                return await _manager.GetChartData<S>(ids, name, intervall, daySpan);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
     }
 }

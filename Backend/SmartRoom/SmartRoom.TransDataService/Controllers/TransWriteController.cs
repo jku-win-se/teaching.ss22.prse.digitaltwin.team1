@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.TransDataService.Logic;
 
 namespace SmartRoom.TransDataService.Controllers
@@ -23,10 +23,9 @@ namespace SmartRoom.TransDataService.Controllers
             {
                 await _manager.addState(state);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e);
-                throw;
+                return BadRequest(Messages.UNEXPECTED);
             }
             return Ok();
         }
@@ -39,10 +38,9 @@ namespace SmartRoom.TransDataService.Controllers
             {
                 await _manager.addState(state);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e);
-                throw;
+                return BadRequest(Messages.UNEXPECTED);
             }
             return Ok();
         }

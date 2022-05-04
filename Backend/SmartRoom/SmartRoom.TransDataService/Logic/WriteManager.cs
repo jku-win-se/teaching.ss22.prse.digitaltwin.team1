@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Contracts;
-using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 
 namespace SmartRoom.TransDataService.Logic

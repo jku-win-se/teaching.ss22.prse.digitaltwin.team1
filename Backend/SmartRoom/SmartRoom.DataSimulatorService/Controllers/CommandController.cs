@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.DataSimulatorService.Logic;
 
 namespace SmartRoom.DataSimulatorService.Controllers
@@ -22,7 +23,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
             }
             catch (Exception)
             {
-                return BadRequest();
+                return BadRequest(Messages.UNEXPECTED);
             }
             return Ok();
         }

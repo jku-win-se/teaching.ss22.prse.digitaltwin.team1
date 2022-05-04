@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.CommonBase.Logic.Contracts;
 
 namespace SmartRoom.CommonBase.Web
@@ -15,14 +16,27 @@ namespace SmartRoom.CommonBase.Web
         [HttpGet]
         public virtual async Task<ActionResult<IEnumerable<E>>> GetAll()
         {
-            return Ok(await _entityManager.Get());
+            try
+            {
+                return Ok(await _entityManager.Get());
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
 
         [HttpGet("{id}")]
         public virtual async Task<ActionResult<E>> Get(Guid id)
         {
-            var res = await _entityManager.GetBy(id);
-            return Ok(res);
+            try
+            {
+                return Ok(await _entityManager.GetBy(id));
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
         }
 
         [HttpPost]
@@ -34,7 +48,7 @@ namespace SmartRoom.CommonBase.Web
             }
             catch (Exception)
             {
-                return BadRequest();
+                return BadRequest(Messages.UNEXPECTED);
             }
             return Ok();
         }
@@ -48,7 +62,7 @@ namespace SmartRoom.CommonBase.Web
             }
             catch (Exception)
             {
-                return BadRequest();
+                return BadRequest(Messages.UNEXPECTED);
             }
 
             return Ok();
@@ -57,7 +71,15 @@ namespace SmartRoom.CommonBase.Web
         [HttpDelete("{id}")]
         public virtual async Task<IActionResult> Delete(Guid id)
         {
-            await _entityManager.Delete(id);
+            try
+            {
+                await _entityManager.Delete(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
+
             return Ok();
         }
     }
