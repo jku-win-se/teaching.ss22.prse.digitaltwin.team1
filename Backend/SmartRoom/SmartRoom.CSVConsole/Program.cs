@@ -41,7 +41,6 @@ do
             break;
 
         case "e":
-            //ToDo user-abfrage f pfad
             var export = new ExportManager(path);
             export.ExportCSV();
 
