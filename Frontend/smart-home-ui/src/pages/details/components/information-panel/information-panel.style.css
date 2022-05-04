@@ -4,7 +4,9 @@
   text-align: start;
   margin: auto;
 }
+
 @media only screen and (max-width: 1000px) {
+
   div#LightbulbOutlined,
   div#SensorDoorOutlined,
   div#SensorWindowOutlined,

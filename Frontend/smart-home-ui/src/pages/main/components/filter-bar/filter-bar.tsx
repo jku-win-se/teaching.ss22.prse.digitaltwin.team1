@@ -1,19 +1,15 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import React from "react";
-import { EnumType } from "typescript";
-import { RoomTypeIcon } from "../../../../enums/roomTypeIcon.enum";
+import { Building } from "../../../../enums/building.enum";
 
-function createTabs(roomTypes: EnumType) {
-    for (const value in roomTypes) {
-        <Tab label={value} />
-    }
-}
+interface IFilterBarProps { changeFilterValue(newValue: string): void }
 
-export default function FilterBar() {
-    const [value, setValue] = React.useState('1');
+export default function FilterBar(props: IFilterBarProps) {
+    const [value, setValue] = React.useState(1);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleChange = (event: React.SyntheticEvent, newValue: keyof typeof Building) => {
         setValue(newValue);
+        props.changeFilterValue(Building[newValue])
     };
 
     return (
@@ -27,11 +23,9 @@ export default function FilterBar() {
                     allowScrollButtonsMobile
                     aria-label="scrollable force tabs example"
                 >
-                    <Tab label="All Rooms" />
-                    <Tab label="Science Park 5" />
-                    <Tab label="Science Park 2" />
-                    <Tab label="Kepler Hall" />
-                    createTabs(RoomType)
+                    {Object.entries(Building).map((val) => (
+                        <Tab key={val[0]} value={+val[0]} label={val[1]} />
+                    ))}
                 </Tabs>
             </Box>
         </div>

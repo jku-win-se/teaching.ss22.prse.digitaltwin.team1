@@ -2,7 +2,6 @@ import * as Muicon from "@mui/icons-material";
 import { Edit } from "@mui/icons-material";
 import { IconButton, SvgIconProps } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { height, maxWidth, minWidth } from "@mui/system";
 import React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -109,7 +108,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 borderRadius: "50%",
               }}
             >
-              <text
+              <div
                 style={{
                   margin: "auto",
                   whiteSpace: "pre-line",
@@ -118,7 +117,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 }}
               >
                 {props.coValue} <br /> ppm
-              </text>
+              </div>
             </div>
             co2 value
           </Grid>
@@ -145,7 +144,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 })}
               />
             </div>
-            <div>
+            <div style={{ textAlign: "center" }}>
               {props.currentPeople}/{props.maxPeople} People
             </div>
           </Grid>
