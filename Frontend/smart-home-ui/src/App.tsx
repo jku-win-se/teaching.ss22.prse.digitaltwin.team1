@@ -1,10 +1,9 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Main } from "./pages/main/main.page";
-import { Details } from "./pages/details/details.page";
-import CssBaseline from "@mui/material/CssBaseline";
 import "@fontsource/poppins";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Details } from "./pages/details/details.page";
+import { Main } from "./pages/main/main.page";
 
 function App() {
   return (
