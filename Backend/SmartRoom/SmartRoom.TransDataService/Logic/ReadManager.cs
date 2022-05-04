@@ -67,7 +67,7 @@ namespace SmartRoom.TransDataService.Logic
         {
             string stmd =
                 $"SELECT \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, bool_or(\"Value\") " +
-                $"FROM public.\"{type}\" " +
+                $"FROM public.\"{type}s\" " +
                 $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' " +
                 $"GROUP BY five_min, \"Name\", \"EntityRefID\" " +
                 $"HAVING \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
@@ -78,8 +78,8 @@ namespace SmartRoom.TransDataService.Logic
                 return context.RawSqlQuery(stmd,
                     d => new
                     {
-                        TimeStamp = d[3],
-                        Value = d[4]
+                        TimeStamp = d[2],
+                        Value = d[3]
                     });
             }
         }
@@ -97,13 +97,13 @@ namespace SmartRoom.TransDataService.Logic
             string stmd =
                 $"Select q.five_min_2, COALESCE(sum(a.count), 0) from " +
                     $"(SELECT time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, Count(DISTINCT \"EntityRefID\") as count, bool_or(\"Value\") as val " +
-                    $"FROM public.\"{type}\" " +
+                    $"FROM public.\"{type}s\" " +
                     $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' and \"Name\" like '{name}' and ({idStmdChain})" +
                     $"GROUP BY five_min, \"EntityRefID\" " +
                     $"HAVING bool_or(\"Value\") = true) AS a " +
                 $"RIGHT OUTER JOIN " +
                     $"(SELECT time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min_2 " +
-                    $"FROM public.\"{type}\" WHERE \"TimeStamp\" > now() - interval '{daySpan} week' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
+                    $"FROM public.\"{type}s\" WHERE \"TimeStamp\" > now() - interval '{daySpan} week' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
                 $"ON q.five_min_2 = a.five_min " +
                 $"Group By q.five_min_2 " +
                 $"ORDER BY q.five_min_2";
@@ -125,7 +125,7 @@ namespace SmartRoom.TransDataService.Logic
         {
             string stmd =
                 $"SELECT \"Name\", \"EntityRefID\", time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min, avg(\"Value\") " +
-                $"FROM public.\"{type}\" " +
+                $"FROM public.\"{type}s\" " +
                 $"WHERE \"TimeStamp\" > now() - interval '{daySpan} day' " +
                 $"GROUP BY five_min, \"Name\", \"EntityRefID\" " +
                 $"HAVING \"Name\" like '{name}' and \"EntityRefID\" = '{id}'" +
@@ -136,8 +136,8 @@ namespace SmartRoom.TransDataService.Logic
                 return context.RawSqlQuery(stmd,
                     d => new
                     {
-                        TimeStamp = d[3],
-                        Value = d[4]
+                        TimeStamp = d[2],
+                        Value = d[3]
                     });
             }
         }

@@ -85,12 +85,17 @@ namespace SmartRoom.DataSimulatorService.Logic
 
                 foreach (var sensor in measureSensors)
                 {
-                    tasks.Add(Task.Run(() => Task.Run(() => measureStates.AddRange(GenerateMissingDataForSensor<MeasureState, MeasureSensor, double>(sensor!, item.Key)))));
+                    tasks.Add(Task.Run(() =>
+                    {
+                        var data = GenerateMissingDataForSensor<MeasureState, MeasureSensor, double>(sensor!, item.Key);
+                        if (data.Any()) lock(measureStates) measureStates.AddRange(data);
+                    }));
                 }
 
                 foreach (var sensor in binarySensors)
                 {
-                    tasks.Add(Task.Run(() => binaryStates.AddRange(GenerateMissingDataForSensor<BinaryState, BinarySensor, bool>(sensor!, item.Key))));
+                    var data = GenerateMissingDataForSensor<BinaryState, BinarySensor, bool>(sensor!, item.Key);
+                    if (data.Any()) lock (binaryStates) binaryStates.AddRange(data);
                 }
             }
 
@@ -106,7 +111,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 }));
             }
 
-            if (measureStates.Any()) 
+            if (measureStates.Any())
             {
                 tasks.Add(Task.Run(async () =>
                 {
@@ -114,7 +119,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                     _logger.LogInformation($"[Simulator] [Added {measureStates.Count()} MeasureStates]");
                 }));
             }
-             
+
             try
             {
                 Task.WaitAll(tasks.ToArray());
@@ -141,14 +146,14 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             List<ST> sTs = new List<ST>();
             DateTime start = DateTime.UtcNow.AddHours(-12);
-            Random random = new Random();   
+            Random random = new Random();
 
             if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
             while (start < DateTime.UtcNow)
             {
-                if (sTs is BinaryState && random.Next(1, 10) > 8) sensor.ChangeState(start);
-                else if (sTs is MeasureState) sensor.ChangeState(start);
-                
+                if (typeof(ST).Equals(typeof(BinaryState)) && random.Next(1, 10) > 8) sensor.ChangeState(start);
+                else if (typeof(ST).Equals(typeof(MeasureState))) sensor.ChangeState(start);
+
                 sTs.Add(new ST
                 {
                     EntityRefID = key,

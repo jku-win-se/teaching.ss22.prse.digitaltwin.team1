@@ -6398,3 +6398,54 @@ System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address 
 2022-05-03 19:50:49.055 +02:00 [INF] [Sensor] [Temperature: 137,9596336690802]
 2022-05-03 19:50:50.347 +02:00 [INF] [Sensor] [Temperature: 139,75897194827724]
 2022-05-03 19:50:53.548 +02:00 [INF] [Sensor] [Temperature: 138,78285234571302]
+2022-05-04 09:04:30.939 +02:00 [INF] Starting up
+2022-05-04 09:04:30.984 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:04:40.877 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:05:44.006 +02:00 [INF] Starting up
+2022-05-04 09:05:44.059 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:05:52.413 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:07:12.272 +02:00 [INF] Starting up
+2022-05-04 09:07:12.312 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:09:17.637 +02:00 [INF] Starting up
+2022-05-04 09:09:17.672 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:09:22.337 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:09:59.444 +02:00 [INF] Starting up
+2022-05-04 09:09:59.500 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:10:04.627 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:14:22.365 +02:00 [INF] Starting up
+2022-05-04 09:14:22.414 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:14:26.938 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:15:06.390 +02:00 [INF] [Simulator] [Added 1180 BinaryStates]
+2022-05-04 09:15:06.678 +02:00 [INF] [Simulator] [Added 1377 MeasureStates]
+2022-05-04 09:15:10.319 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-04 09:15:10.320 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-04 09:15:10.320 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 09:15:10.320 +02:00 [INF] Hosting environment: Development
+2022-05-04 09:15:10.320 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-04 09:15:18.569 +02:00 [INF] Starting up
+2022-05-04 09:15:18.612 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:15:23.123 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:27:28.461 +02:00 [INF] Starting up
+2022-05-04 09:27:28.501 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:27:33.528 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:31:06.312 +02:00 [INF] Starting up
+2022-05-04 09:31:06.347 +02:00 [INF] [Simulator] [Starting Service]
+2022-05-04 09:31:11.170 +02:00 [INF] [DataManager] [BaseData loaded]
+2022-05-04 09:31:11.357 +02:00 [INF] [Simulator] [Added 90 BinaryStates]
+2022-05-04 09:31:11.583 +02:00 [INF] [Simulator] [Added 619 MeasureStates]
+2022-05-04 09:31:11.711 +02:00 [INF] Now listening on: http://localhost:5000
+2022-05-04 09:31:11.712 +02:00 [INF] Now listening on: https://localhost:5001
+2022-05-04 09:31:11.712 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 09:31:11.712 +02:00 [INF] Hosting environment: Development
+2022-05-04 09:31:11.712 +02:00 [INF] Content root path: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.DataSimulatorService\
+2022-05-04 09:31:21.716 +02:00 [INF] [Sensor] [Temperature: 17,676821645865054]
+2022-05-04 09:31:21.786 +02:00 [INF] [Sensor] [Temperature: 16,30081152397816]
+2022-05-04 09:31:22.122 +02:00 [INF] [Sensor] [Temperature: 17,39674532966933]
+2022-05-04 09:31:22.142 +02:00 [INF] [Sensor] [Co2: 79,43697439933887]
+2022-05-04 09:31:22.229 +02:00 [INF] [Sensor] [Co2: 3,549200010481456]
+2022-05-04 09:31:22.331 +02:00 [INF] [Sensor] [Temperature: 18,583590376656048]
+2022-05-04 09:31:22.500 +02:00 [INF] [Sensor] [Co2: 75,05336971871485]
+2022-05-04 09:31:22.511 +02:00 [INF] [Sensor] [Co2: 76,53689895979838]
+2022-05-04 09:31:22.582 +02:00 [INF] [Sensor] [Test: 0,7064910403873601]
+2022-05-04 09:31:22.882 +02:00 [INF] [Sensor] [Co2: 55,14293999671853]
+2022-05-04 09:31:23.575 +02:00 [INF] [Sensor] [Temperature: 16,84018668174748]
