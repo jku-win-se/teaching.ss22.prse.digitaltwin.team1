@@ -6,12 +6,14 @@ import React from 'react';
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
+import { RoomType } from "../../../../enums/roomType.enum";
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
 import "./room-list-item.styles.css";
 
 export interface IRoomListItemProps {
+    roomId: string;
     roomName: string;
-    roomIcon: keyof typeof Muicon;
+    roomIcon: string;
     building: string;
     coValue: number;
     currentPeople: number;
@@ -26,14 +28,24 @@ const Icon = ({
     return IconComponent ? <IconComponent {...rest} /> : null;
 };
 
-function co2Color(props: number) {
-    if (props < 800) {
+function co2Color(value: number) {
+    if (value < 800) {
         return "#71CCAB";
     }
-    if (props > 1000) {
-        return "#FF5252"
+    if (value > 1000) {
+        return "#FF5252";
     }
     return "#FFEE4D";
+}
+
+function roomType(type: string) {
+    if (type == "Lab") {
+        return RoomType.Lab;
+    }
+    if (type == "LectureRoom") {
+        return RoomType.LectureRoom;
+    }
+    return RoomType.MeetingRoom;
 }
 
 export default function RoomListItem(props: IRoomListItemProps) {
@@ -42,7 +54,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
     return (
         <div
             className="list"
-            onClick={() => navigate('details/:roomid')}
+            onClick={() => navigate('details/:' + props.roomId)}
             style={{ cursor: 'pointer' }}
         >
 
@@ -60,7 +72,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     alignContent={"center"}
                     marginLeft={4}
                 >
-                    <Icon fontSize="large" name={props.roomIcon}></Icon>
+                    <Icon fontSize="large" name={roomType(props.roomIcon)}></Icon>
                 </Grid>
 
                 <Grid
@@ -96,7 +108,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
                         <text style={{
                             margin: "auto",
                             whiteSpace: "pre-line",
-                            textAlign: "center"
+                            textAlign: "center",
+                            fontWeight: "bold"
                         }}>
                             {props.coValue} <br /> ppm
                         </text>

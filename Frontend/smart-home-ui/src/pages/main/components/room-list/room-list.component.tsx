@@ -7,8 +7,9 @@ export default function RoomList(props: IRoomListProps) {
     return (
         <div >
             <RoomListItem
+                roomId="3fa85f64-5717-4562-b3fc-2c963f66afa6"
                 roomName="S5 103"
-                roomIcon="ScienceOutlined"
+                roomIcon="Lab"
                 building="Science Park 5"
                 coValue={500}
                 currentPeople={23}
@@ -16,8 +17,9 @@ export default function RoomList(props: IRoomListProps) {
             />
 
             <RoomListItem
+                roomId=""
                 roomName="S5 102"
-                roomIcon="MeetingRoomOutlined"
+                roomIcon="MeetingRoom"
                 building="Science Park 5"
                 coValue={900}
                 currentPeople={6}
@@ -25,8 +27,9 @@ export default function RoomList(props: IRoomListProps) {
             />
 
             <RoomListItem
+                roomId=""
                 roomName="HS 18"
-                roomIcon="SchoolOutlined"
+                roomIcon="LectureRoom"
                 building="Kepler Hall"
                 coValue={1700}
                 currentPeople={0}
