@@ -23,5 +23,24 @@ namespace SmartRoom.CommonBase.Tests
 
             Assert.Equal(expString, cypher.Decrypt(encrString));    
         }
+        [Fact]
+        public void Encrypt_ValidDecrString_ExpEncryptedString()
+            //ToDo
+        {
+            var cypher = new Aes256Cipher("sfShK7FHmK8kYU62EDhb3FhUQL4fXKhYINTYaeHjf6U=");
+            var decrString = "1!$Sonderzeichen%";
+            var expString = "XrOYnGAPkoTh4lB5zRdAAMWOEwZMgqD6kq7tXdI9JB5NhkL9khk/O6klzgBLLs9h";
+
+            Assert.Equal(expString, cypher.Encrypt(decrString));
+        }
+
+        public void GenerateNewKey_Empty_ExpNewKey()
+        {
+            //ToDo
+        }
+
+
+
+
     }
 }
