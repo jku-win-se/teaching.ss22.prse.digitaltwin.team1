@@ -1,0 +1,20 @@
+.add-edit-dialog-sub-header {
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+}
+
+.add-edit-dialog-header {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 660px) {
+  .add-edit-dialog-padding {
+    padding: 0.6rem;
+  }
+  .add-edit-dialog-name {
+    max-width: 464px;
+    width: 100%;
+  }
+}

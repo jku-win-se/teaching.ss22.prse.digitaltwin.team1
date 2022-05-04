@@ -80,7 +80,9 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={sService.returnValueForMeasure(Measure.CO2Value)}
+            value={sService
+              .returnValueForMeasure(Measure.Co2)
+              .toLocaleString(undefined, { maximumFractionDigits: 1 })}
             unit="ppm"
             icon="Co2Outlined"
           ></InformationPanelItem>

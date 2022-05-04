@@ -1,5 +1,5 @@
 export enum Measure {
   Temperature = "Temperature",
-  CO2Value = "CO2Value",
+  Co2 = "Co2",
   People = "People",
 }

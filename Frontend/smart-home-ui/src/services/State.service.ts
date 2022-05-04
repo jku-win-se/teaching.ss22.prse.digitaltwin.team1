@@ -52,11 +52,17 @@ export class StateService {
         this.states.push(await response.json());
       })
     );
+    console.log(this.states);
   }
 
   returnValueForMeasure(measure: Measure) {
+    console.log(
+      this.states.filter((s) => s.name === measure)[0]
+        ? this.states.filter((s) => s.name === measure)[0].value
+        : "-"
+    );
     return this.states.filter((s) => s.name === measure)[0]
-      ? this.states.filter((s) => s.name === measure)[0].measureValue
+      ? this.states.filter((s) => s.name === measure)[0].value
       : "-";
   }
 }
