@@ -9,8 +9,16 @@ export interface IMainProps { }
 
 export function Main(props: IMainProps) {
   return (
-    <Box sx={{ flexGrow: 1, height: "100vh" }}>
-      <Grid container spacing={2}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        height: "100vh"
+      }}
+    >
+      <Grid
+        container
+        spacing={2}
+      >
         <Grid
           className="grid-bg"
           item

@@ -17,6 +17,7 @@ export default function DeleteDialog() {
 
     const handleClose = () => {
         setOpen(false);
+        //TODO: delete Room
     };
 
     return (

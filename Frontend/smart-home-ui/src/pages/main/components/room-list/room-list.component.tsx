@@ -1,9 +1,7 @@
 import RoomListItem from "../room-list-item/room-list-item.component";
 import "./room-list.styles.css";
 
-export interface IRoomListProps { }
-
-export default function RoomList(props: IRoomListProps) {
+export default function RoomList() {
     return (
         <div >
             <RoomListItem

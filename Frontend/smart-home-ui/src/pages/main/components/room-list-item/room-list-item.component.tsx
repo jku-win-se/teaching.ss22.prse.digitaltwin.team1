@@ -2,11 +2,12 @@ import * as Muicon from "@mui/icons-material";
 import { Edit } from "@mui/icons-material";
 import { IconButton, SvgIconProps } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { height, maxWidth, minWidth } from "@mui/system";
 import React from 'react';
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
-import { RoomType } from "../../../../enums/roomType.enum";
+import { RoomTypeIcon } from "../../../../enums/roomTypeIcon.enum";
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
 import "./room-list-item.styles.css";
 
@@ -39,25 +40,24 @@ function co2Color(value: number) {
 }
 
 function roomType(type: string) {
-    if (type == "Lab") {
-        return RoomType.Lab;
+    if (type === "Lab") {
+        return RoomTypeIcon.Lab;
     }
-    if (type == "LectureRoom") {
-        return RoomType.LectureRoom;
+    if (type === "LectureRoom") {
+        return RoomTypeIcon.LectureRoom;
     }
-    return RoomType.MeetingRoom;
+    return RoomTypeIcon.MeetingRoom;
 }
 
 export default function RoomListItem(props: IRoomListItemProps) {
     const navigate = useNavigate();
 
+
+    //TODO: styles into css
     return (
         <div
             className="list"
-            onClick={() => navigate('details/:' + props.roomId)}
-            style={{ cursor: 'pointer' }}
         >
-
             <Grid
                 container
                 spacing={2}
@@ -67,83 +67,91 @@ export default function RoomListItem(props: IRoomListItemProps) {
             >
                 <Grid
                     item
-                    xs={1}
+                    xs={10}
                     container
                     alignContent={"center"}
                     marginLeft={4}
+                    onClick={() => navigate('details/:' + props.roomId)}
+                    style={{ cursor: 'pointer' }}
                 >
-                    <Icon fontSize="large" name={roomType(props.roomIcon)}></Icon>
-                </Grid>
+                    <Grid
+                        item
+                        xs={1}
+                        container
+                        alignContent={"center"}
+                        marginLeft={4}
+                    >
+                        <Icon fontSize="large" name={roomType(props.roomIcon)}></Icon>
+                    </Grid>
 
-                <Grid
-                    item
-                    xs
-                    container
-                    alignContent={"center"}
-                >
-                    <div className="room-font-size">
-                        {props.roomName}
-                    </div>
+                    <Grid
+                        item
+                        xs
+                        container
+                        alignContent={"center"}
+                    >
+                        <div className="room-font-size">
+                            {props.roomName}
+                        </div>
 
-                    {props.building}
+                        {props.building}
 
-                </Grid>
+                    </Grid>
 
-                <Grid item xs={4}></Grid>
+                    <Grid item xs={4}></Grid>
 
-                <Grid
-                    item
-                    xs={1}
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    <div style={{
-                        display: "flex",
-                        width: "80px",
-                        height: "80px",
-                        backgroundColor: co2Color(props.coValue),
-                        borderRadius: "50%"
-                    }}>
-                        <text style={{
-                            margin: "auto",
-                            whiteSpace: "pre-line",
-                            textAlign: "center",
-                            fontWeight: "bold"
-                        }}>
-                            {props.coValue} <br /> ppm
-                        </text>
-                    </div>
-                    co2 value
-                </Grid>
+                    <Grid
+                        item
+                        xs={1}
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <div
+                            style={{
+                                display: "flex",
+                                width: 80,
+                                height: 80,
+                                backgroundColor: co2Color(props.coValue),
+                                borderRadius: "50%"
+                            }}
+                        >
+                            <text style={{
+                                margin: "auto",
+                                whiteSpace: "pre-line",
+                                textAlign: "center",
+                                fontWeight: "bold"
+                            }}>
+                                {props.coValue} <br /> ppm
+                            </text>
+                        </div>
+                        co2 value
+                    </Grid>
 
-                <Grid item xs={0.5}></Grid>
+                    <Grid item xs={0.5}></Grid>
 
-                <Grid
-                    item
-                    xs={1}
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    <div style={{
-                        display: "flex",
-                        width: "80px",
-                        height: "80px"
-                    }}>
-                        <CircularProgressbar
-                            strokeWidth={10}
-                            value={(props.currentPeople / props.maxPeople) * 100}
-                            minValue={0}
-                            maxValue={100}
-                            text={((props.currentPeople / props.maxPeople) * 100) + '%'}
-                            styles={buildStyles({
-                                textColor: "black",
-                                pathColor: "#66B5D6"
-                            })}
-                        />
-                    </div>
-                    <div>{props.currentPeople}/{props.maxPeople} People</div>
+                    <Grid
+                        item
+                        xs={1}
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <div className="additional-info">
+                            <CircularProgressbar
+                                strokeWidth={10}
+                                value={(props.currentPeople / props.maxPeople) * 100}
+                                minValue={0}
+                                maxValue={100}
+                                text={((props.currentPeople / props.maxPeople) * 100) + '%'}
+                                styles={buildStyles({
+                                    textColor: "black",
+                                    pathColor: "#66B5D6"
+                                })}
+                            />
+                        </div>
+                        <div>{props.currentPeople}/{props.maxPeople} People</div>
+                    </Grid>
                 </Grid>
 
                 <Grid
