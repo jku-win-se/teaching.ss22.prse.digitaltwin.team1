@@ -8,7 +8,7 @@ import AddEditDialog from "./components/add-edit-dialog/add-edit-dialog.componen
 import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
 
-export interface IMainProps {}
+export interface IMainProps { }
 
 var roomCopy: IRoom[] = [];
 
