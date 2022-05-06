@@ -21,8 +21,8 @@ export default function DeleteDialog() {
     };
 
     return (
-        <div>
-            <IconButton aria-label="edit room" onClick={handleClickOpen}>
+        <div >
+            <IconButton aria-label="edit room" onClick={handleClickOpen} >
                 <Delete fontSize="large" />
             </IconButton>
             <Dialog
