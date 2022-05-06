@@ -61,7 +61,6 @@ export default function RoomListItem(props: IRoomListItemProps) {
         setOpen(false);
     };
 
-    //TODO: styles into css
     return (
         <div className="list">
             <Grid
@@ -110,10 +109,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
                         alignItems="center"
                     >
                         <div
+                            id="co2"
                             className="co2-indicator"
                             style={{ backgroundColor: co2Color(props.coValue) }}
                         >
-                            <div className="co2-value">
+                            <div id="co2-text" className="co2-value">
                                 {props.coValue} <br /> ppm
                             </div>
                         </div>
@@ -150,7 +150,14 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     </Grid>
                 </Grid>
 
-                <Grid item xs container justifyContent="center" alignItems="center">
+                <Grid
+                    item
+                    xs
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    marginRight={"20px"}
+                >
                     <IconButton aria-label="edit room" onClick={handleClickOpen}>
                         <Edit fontSize="large" />
                     </IconButton>

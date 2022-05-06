@@ -15,9 +15,21 @@
 
 .co2-indicator {
     display: flex;
-    width: 80px;
-    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    aspect-ratio: 1 / 1;
     border-radius: 40px;
+}
+
+@media only screen and (max-width: 1300px) {
+    div#co2 {
+        min-width: 6vw;
+        min-height: 6vw;
+    }
+
+    div#co2-text {
+        font-size: 1.2vw;
+    }
 }
 
 .co2-value {
@@ -36,4 +48,8 @@
 
 .clickable {
     cursor: pointer;
+}
+
+.icons-right-side {
+    margin-right: 30px;
 }
