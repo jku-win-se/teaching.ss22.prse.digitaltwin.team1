@@ -1,3 +1,4 @@
+import { Building } from "../enums/building.enum";
 import { Equipment } from "../enums/equipment.enum";
 import { IRoom } from "../models/IRoom";
 
@@ -15,6 +16,8 @@ export class RoomService {
 
   selectedRoom: IRoom | undefined = undefined;
 
+  allRooms: IRoom[] = [];
+
   private addHeaders() {
     const requestHeaders: HeadersInit = new Headers();
     requestHeaders.append("Content-Type", "application/json");
@@ -28,8 +31,9 @@ export class RoomService {
       headers: new Headers(this.addHeaders()),
       method: "GET",
     });
-
-    return (await response.json()) as IRoom[];
+    this.allRooms = (await response.json()) as IRoom[];
+    console.log(this.allRooms);
+    return this.allRooms;
   }
 
   async getById(id: String): Promise<IRoom> {
@@ -44,5 +48,11 @@ export class RoomService {
   getEquipmentNumber(type: Equipment) {
     return this.selectedRoom?.roomEquipment.filter((re) => re.name !== type)
       .length;
+  }
+
+  filterByBuilding(building: string) {
+    return building === Building[1]
+      ? this.allRooms
+      : this.allRooms.filter((val, idx, arr) => val.building === building);
   }
 }
