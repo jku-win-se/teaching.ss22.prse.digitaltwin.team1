@@ -127,7 +127,7 @@ export default function AddEditDialog({
               <RadioGroup
                 defaultValue={
                   Object.keys(RoomType)[
-                    Object.values(RoomType).indexOf("Science Lab" as any)
+                  Object.values(RoomType).indexOf("Science Lab" as any)
                   ]
                 }
               >

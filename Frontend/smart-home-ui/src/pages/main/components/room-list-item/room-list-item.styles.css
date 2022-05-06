@@ -1,6 +1,5 @@
 .list {
     height: auto;
-
     background: #FFFFFF;
     box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(25, 25, 25, 0.25);
     border-radius: 4px;
@@ -21,15 +20,20 @@
     border-radius: 40px;
 }
 
-@media only screen and (max-width: 1300px) {
-    div#co2 {
-        min-width: 6vw;
-        min-height: 6vw;
-    }
+.people-indicator-mobile {
+    margin-top: 30px;
+    margin-left: 48px;
+}
 
-    div#co2-text {
-        font-size: 1.2vw;
-    }
+.co2-indicator-mobile {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.co2-background {
+    text-align: center;
+    height: 35px;
+    border-radius: 100px;
 }
 
 .co2-value {
@@ -41,9 +45,7 @@
 }
 
 .people-indicator {
-    display: flex;
     width: 80px;
-    height: 80px;
 }
 
 .clickable {
@@ -52,4 +54,39 @@
 
 .icons-right-side {
     margin-right: 30px;
+}
+
+@media only screen and (max-width: 1300px) {
+    div#co2 {
+        min-width: 6vw;
+        min-height: 6vw;
+    }
+
+    div#co2-text {
+        font-size: 1.2vw;
+    }
+}
+
+/* ausgeblendet bis 650 */
+@media only screen and (max-width: 900px) {
+
+    div#roomIcon,
+    div#indicators,
+    div#buttonsDesktop,
+    div#spacerDesktop {
+        display: none;
+    }
+}
+
+/* eingeblendet bis 651 */
+@media only screen and (min-width: 901px) {
+
+    div#test,
+    div#buttonsMobile,
+    div#peopleMobile,
+    div#co2Mobile,
+    div#spacerMobile {
+        display: none;
+        visibility: hidden;
+    }
 }

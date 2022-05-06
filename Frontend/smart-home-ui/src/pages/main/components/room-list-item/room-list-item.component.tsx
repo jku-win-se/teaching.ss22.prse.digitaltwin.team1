@@ -61,6 +61,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
         setOpen(false);
     };
 
+
     return (
         <div className="list">
             <Grid
@@ -80,6 +81,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     onClick={() => navigate("details/" + props.roomId)}
                 >
                     <Grid
+                        id="roomIcon"
                         item
                         xs={1}
                         container
@@ -91,7 +93,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
 
                     <Grid
                         item
-                        xs
+                        xs={2}
+                        sm
                         container
                         alignContent={"center"}
                     >
@@ -102,6 +105,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     <Grid item xs={4}></Grid>
 
                     <Grid
+                        id="indicators"
                         item
                         xs={1}
                         container
@@ -122,9 +126,42 @@ export default function RoomListItem(props: IRoomListItemProps) {
                         </div>
                     </Grid>
 
-                    <Grid item xs={0.5}></Grid>
+                    <Grid
+                        id="spacerMobile"
+                        item
+                        xs={2}
+                        sm={1}
+                    >
+                    </Grid>
 
                     <Grid
+                        id="co2Mobile"
+                        className="co2-indicator-mobile"
+                        container
+                        xs
+                        justifyContent={"right"}
+                    >
+                        <Grid
+                            className="co2-background"
+                            container
+                            alignContent={"center"}
+                            justifyContent={"center"}
+                            style={{ backgroundColor: co2Color(props.coValue) }}
+                        >
+                            {props.coValue} ppm
+                        </Grid>
+                    </Grid>
+
+                    <Grid
+                        id="spacerDesktop"
+                        item
+                        xs={1}
+                        sm={0.5}
+                    >
+                    </Grid>
+
+                    <Grid
+                        id="indicators"
                         item
                         xs={1}
                         container
@@ -141,8 +178,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
                                 styles={buildStyles({
                                     textColor: "black",
                                     pathColor: "#66B5D6",
-                                })}
-                            />
+                                })} />
                         </div>
                         <div className="indicator-text">
                             {props.currentPeople}/{props.maxPeople} People
@@ -150,7 +186,15 @@ export default function RoomListItem(props: IRoomListItemProps) {
                     </Grid>
                 </Grid>
 
+                <div
+                    id="peopleMobile"
+                    className="people-indicator-mobile"
+                >
+                    {props.currentPeople}/{props.maxPeople} People
+                </div>
+
                 <Grid
+                    id="buttonsDesktop"
                     item
                     xs
                     container
@@ -164,8 +208,32 @@ export default function RoomListItem(props: IRoomListItemProps) {
 
                     <DeleteDialog />
                 </Grid>
+
+                <Grid
+                    id="buttonsMobile"
+                    item
+                    xs
+                    container
+                    justifyContent="right"
+                    alignItems="right"
+                    marginRight={"40px"}
+                >
+                    <IconButton aria-label="edit room" onClick={handleClickOpen}>
+                        <Edit fontSize="large" />
+                    </IconButton>
+
+                    <DeleteDialog />
+                    <Grid
+                        item
+                        xs={0.5}
+                        sm={1}
+                    >
+                    </Grid>
+                </Grid>
             </Grid>
+
             <AddEditDialog handleClose={handleClose} open={open}></AddEditDialog>
-        </div>
+        </div >
     );
 }
+

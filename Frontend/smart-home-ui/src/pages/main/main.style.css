@@ -9,12 +9,10 @@
 
 .filter-height {
   height: 10vh;
-  /*background-color: grey;*/
 }
 
 .roomlist-height {
   height: 50vh;
-  /*background-color: green;*/
   align-self: center;
 }
 
@@ -24,4 +22,27 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.fab {
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+}
+
+/* ausgeblendet bis 650 */
+@media only screen and (max-width: 900px) {
+  div#addRoomButton {
+    display: none;
+  }
+}
+
+/* eingeblendet bis 651 */
+@media only screen and (min-width: 901px) {
+  div#addFab {
+    display: none;
+  }
 }

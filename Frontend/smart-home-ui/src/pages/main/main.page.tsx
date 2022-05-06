@@ -1,12 +1,13 @@
 import AddIcon from "@mui/icons-material/Add";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Fab, Grid } from "@mui/material";
 import * as React from "react";
 import { Building } from "../../enums/building.enum";
 import { IRoom } from "../../models/IRoom";
 import AddEditDialog from "./components/add-edit-dialog/add-edit-dialog.component";
 import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
+import "./main.style.css";
 
 export interface IMainProps { }
 
@@ -114,11 +115,19 @@ export function Main(props: IMainProps) {
     <Box
       sx={{
         flexGrow: 1,
-        height: "100vh",
+        height: "100vh"
       }}
     >
-      <Grid container spacing={2}>
-        <Grid className="grid-bg" item xs={10} sx={{ margin: "auto" }}>
+      <Grid
+        container
+        spacing={2}
+      >
+        <Grid
+          className="grid-bg"
+          item
+          xs={10}
+          sx={{ margin: "auto" }}
+        >
           <h1 className="header-font-size">Smartrooms</h1>
         </Grid>
 
@@ -131,11 +140,16 @@ export function Main(props: IMainProps) {
           justifyContent="flex-start"
           alignContent={"center"}
         >
-          <Grid item xs={10} sx={{ margin: "auto 0" }}>
+          <Grid
+            item
+            xs={10}
+            sx={{ margin: "auto 0" }}
+          >
             <FilterBar changeFilterValue={changeFilterValue} />
           </Grid>
 
           <Grid
+            id="addRoomButton"
             item
             xs={2}
             container
@@ -154,11 +168,34 @@ export function Main(props: IMainProps) {
           </Grid>
         </Grid>
 
-        <Grid className="roomlist-height" item xs={10} sx={{ margin: "auto" }}>
+        <Grid
+          className="roomlist-height"
+          item
+          xs={10}
+          sx={{ margin: "auto" }}
+        >
           <RoomList rooms={rooms} />
         </Grid>
       </Grid>
+
+      <Grid
+        id="addFab"
+        container
+        item
+        xs
+        justifyContent="flex-end"
+        alignContent={"center"}
+      >
+        <Fab
+          className="fab"
+          color="primary"
+          onClick={handleClickOpen}
+        >
+          <AddIcon />
+        </Fab>
+      </Grid>
+
       <AddEditDialog handleClose={handleClose} open={open}></AddEditDialog>
-    </Box>
+    </Box >
   );
 }
