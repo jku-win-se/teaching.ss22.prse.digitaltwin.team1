@@ -1,20 +1,34 @@
-﻿using SmartRoom.DataSimulatorService.Contracts;
+﻿using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.DataSimulatorService.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Models
 {
     public abstract class Sensor<T> : ISensor
     {
-        public T? Value { get; set; }
-        public string Type { get; set; } = string.Empty;
-        public DateTime TimeStamp { get; set; }
+        public Sensor(EventHandler handler, State<T> state)
+        {
+            State = state;
+            StateUpdated += handler;
+        }
+        public State<T> State { get; private set; } = new State<T>();
         public virtual void ChangeState(DateTime timeStamp = default) 
         {
-            if(timeStamp == default) TimeStamp = DateTime.UtcNow;
-            TimeStamp = timeStamp;
+            if(timeStamp == default) State.TimeStamp = DateTime.UtcNow;
+            State.TimeStamp = timeStamp;
+            OnStateUpdate();
         }
         public override string ToString()
         {
-            return $"[Sensor] [{Type}: {Value}]";
+            return $"[Sensor] [{State.Name}: {State.Value}]";
         }
+        protected virtual void OnStateUpdate() 
+        {
+            EventHandler? handler = StateUpdated;
+            if (handler != null)
+            {
+                handler(this, EventArgs.Empty);
+            }
+        }
+        public event EventHandler? StateUpdated;
     }
 }

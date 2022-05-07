@@ -4,20 +4,13 @@ namespace SmartRoom.DataSimulatorService.Models
 {
     public class BinarySensor : Sensor<bool>
     {
-        public BinarySensor()
-        {
-
-        }   
-        public BinarySensor(BinaryState state)
-        {
-            Value = state.Value;
-            TimeStamp = state.TimeStamp;
-            Type = state.Name;
+        public BinarySensor(EventHandler handler, BinaryState state) : base(handler, state)
+        { 
         }
         public override void ChangeState(DateTime timeStamp = default)
         {
             base.ChangeState(timeStamp);
-            Value = !Value;
+            State.Value = !State.Value;
         }
     }
 }

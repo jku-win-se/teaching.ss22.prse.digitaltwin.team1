@@ -4,35 +4,28 @@ namespace SmartRoom.DataSimulatorService.Models
 {
     public class MeasureSensor : Sensor<double>
     {
-        public MeasureSensor()
+        public MeasureSensor(EventHandler handler, MeasureState state) : base(handler, state)
         {
-
-        }
-        public MeasureSensor(MeasureState state)
-        {
-            Value = state.Value;
-            TimeStamp = state.TimeStamp;
-            Type = state.Name;
         }
         public override void ChangeState(DateTime timeStamp = default)
         {
             base.ChangeState(timeStamp);
             Random random = new Random();
-            if (TimeStamp > DateTime.Parse("09:00") && TimeStamp < DateTime.Parse("19:00"))
+            if (State.TimeStamp > DateTime.Parse("09:00") && State.TimeStamp < DateTime.Parse("19:00"))
             {
                 if (random.Next(1, 10) > 4)
                 {
-                    Value += random.NextDouble();
+                    State.Value += random.NextDouble();
                 }
-                else Value -= random.NextDouble();
+                else State.Value -= random.NextDouble();
             }
             else
             {
                 if (random.Next(1, 10) > 4)
                 {
-                    Value -= random.NextDouble();
+                    State.Value -= random.NextDouble();
                 }
-                else Value += random.NextDouble();
+                else State.Value += random.NextDouble();
             }
         }
     }

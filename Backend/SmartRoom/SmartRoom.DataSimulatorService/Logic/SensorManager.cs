@@ -14,13 +14,13 @@ namespace SmartRoom.DataSimulatorService.Logic
         private ILogger<SensorManager> _logger;
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
-        private Dictionary<Guid, Contracts.ISensor[]> _sensors;
+        private Dictionary<Guid, ISensor[]> _sensors;
 
         public SensorManager(IConfiguration configuration, ILogger<SensorManager> logger)
         {
             _rooms = new List<Room>();
             _roomEquipment = new List<RoomEquipment>();
-            _sensors = new Dictionary<Guid, Contracts.ISensor[]>();
+            _sensors = new Dictionary<Guid, ISensor[]>();
             _configuration = configuration;
             _logger = logger;
         }
@@ -33,14 +33,14 @@ namespace SmartRoom.DataSimulatorService.Logic
             {
                 _sensors.Add(r.Id,
                     CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadMeasure/GetTypesBy/{r.Id}", _apiKey).GetAwaiter().GetResult()
-                    .Select(d => new Models.MeasureSensor(CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_transDataServiceURL}ReadMeasure/GetRecentBy/{r.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
+                    .Select(d => new Models.MeasureSensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_transDataServiceURL}ReadMeasure/GetRecentBy/{r.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _roomEquipment.ForEach(re =>
             {
                 _sensors.Add(re.Id,
                     CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadBinary/GetTypesBy/{re.Id}", _apiKey).GetAwaiter().GetResult()
-                    .Select(d => new Models.BinarySensor(CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
+                    .Select(d => new Models.BinarySensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _logger.LogInformation("[DataManager] [BaseData loaded]");
@@ -53,13 +53,12 @@ namespace SmartRoom.DataSimulatorService.Logic
 
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                foreach (var sensor in item.Value.Where(i => i.GetType().Equals(typeof(Models.MeasureSensor))))
+                foreach (var sensor in item.Value.Where(i => i.GetType().Equals(typeof(MeasureSensor))))
                 {
                     tasks.Add(Task.Run(() =>
                     {
                         Thread.Sleep(random.Next(10, 2000));
                         sensor.ChangeState();
-                        _logger.LogInformation(sensor.ToString());
                     }));
                 }
             }
@@ -68,35 +67,35 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public void GenerateMissingData()
         {
-            List<MeasureState> measureStates = new List<MeasureState>();
-            List<BinaryState> binaryStates = new List<BinaryState>();
+            List<MeasureState> measureStates = new();
+            List<BinaryState> binaryStates = new();
+            List<MeasureSensor> measureSensors = new();
+            List<BinarySensor> binarySensors = new();
 
             List<Task> tasks = new List<Task>();
 
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                MeasureSensor?[] measureSensors = item.Value.Where(i => i.GetType().Equals(typeof(MeasureSensor))).ToArray().Any()
-                    ? item.Value.Where(i => i.GetType().Equals(typeof(MeasureSensor))).Select(s => s as MeasureSensor).ToArray()
-                    : new MeasureSensor[0];
+                measureSensors.AddRange(GetSensors<MeasureSensor>(item.Value)!);
+                binarySensors.AddRange(GetSensors<BinarySensor>(item.Value)!);
+            }
 
-                BinarySensor?[] binarySensors = item.Value.Where(i => i.GetType().Equals(typeof(BinarySensor))).ToArray().Any()
-                    ? item.Value.Where(i => i.GetType().Equals(typeof(BinarySensor))).Select(s => s as BinarySensor).ToArray()
-                    : new BinarySensor[0];
-
-                foreach (var sensor in measureSensors)
+            foreach (var sensor in measureSensors)
+            {
+                tasks.Add(Task.Run(() =>
                 {
-                    tasks.Add(Task.Run(() =>
-                    {
-                        var data = GenerateMissingDataForSensor<MeasureState, MeasureSensor, double>(sensor!, item.Key);
-                        if (data.Any()) lock(measureStates) measureStates.AddRange(data);
-                    }));
-                }
+                    var data = GenerateMissingDataForSensor<MeasureState, MeasureSensor, double>(sensor!);
+                    if (data.Any()) lock (measureStates) measureStates.AddRange(data);
+                }));
+            }
 
-                foreach (var sensor in binarySensors)
+            foreach (var sensor in binarySensors)
+            {
+                tasks.Add(Task.Run(() =>
                 {
-                    var data = GenerateMissingDataForSensor<BinaryState, BinarySensor, bool>(sensor!, item.Key);
+                    var data = GenerateMissingDataForSensor<BinaryState, BinarySensor, bool>(sensor!);
                     if (data.Any()) lock (binaryStates) binaryStates.AddRange(data);
-                }
+                }));
             }
 
             Task.WaitAll(tasks.ToArray());
@@ -133,22 +132,21 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public void ChangeState(Guid id, string type)
         {
-            var sensor = _sensors[id].Where(s => s.Type.Equals(type)).First();
+            var sensor = _sensors[id].Select(s => s as BinarySensor).Where(s => s!.State.Name.Equals(type)).First();
 
             if (sensor != null)
             {
                 sensor.ChangeState();
-                _logger.LogInformation(" [Actor]" + sensor.ToString());
             }
         }
 
-        private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor, Guid key) where SE : Sensor<T> where ST : State<T>, new()
+        private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
         {
             List<ST> sTs = new List<ST>();
             DateTime start = DateTime.UtcNow.AddHours(-12);
             Random random = new Random();
 
-            if (start < sensor!.TimeStamp) start = sensor.TimeStamp;
+            if (start < sensor!.State.TimeStamp) start = sensor.State.TimeStamp;
             while (start < DateTime.UtcNow)
             {
                 if (typeof(ST).Equals(typeof(BinaryState)) && random.Next(1, 10) > 8) sensor.ChangeState(start);
@@ -156,15 +154,26 @@ namespace SmartRoom.DataSimulatorService.Logic
 
                 sTs.Add(new ST
                 {
-                    EntityRefID = key,
-                    Name = sensor.Type,
+                    EntityRefID = sensor.State.EntityRefID,
+                    Name = sensor.State.Name,
                     TimeStamp = start,
-                    Value = sensor.Value,
+                    Value = sensor.State.Value,
                 });
                 start = start.AddMinutes(2);
             }
 
             return sTs;
+        }
+
+        private void StateUpdated(object sender, EventArgs e)
+        {
+            _logger.LogInformation(sender.ToString());
+        }
+
+        private T?[] GetSensors<T>(ISensor[] sensors) where T : class,  ISensor
+        {
+            if(sensors.Any()) return sensors.Where(i => i.GetType().Equals(typeof(T))).Select(s => s as T).ToArray();
+            else return Array.Empty<T>();
         }
     }
 }
