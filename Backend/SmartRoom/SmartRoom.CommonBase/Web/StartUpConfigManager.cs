@@ -29,17 +29,10 @@ namespace SmartRoom.CommonBase.Web
 
             _app.MapControllers().RequireCors(_policyName);
 
-            if (_app.Environment.IsDevelopment())
-            {
-                _app.UseSwagger();
-                _app.UseSwaggerUI();
-            }
-            else
-            {
-                _app.UseSwagger();
-                _app.UseSwaggerUI();
-                _app.UseMiddleware<ApiKeyManager>();
-            }
+            _app.UseSwagger();
+            _app.UseSwaggerUI();
+
+            if (!_app.Environment.IsDevelopment()) _app.UseMiddleware<ApiKeyManager>();
         }
 
         private static OpenApiSecurityScheme GetSwaggerSecurityDefinition()
