@@ -25,12 +25,9 @@
 }
 
 .fab {
-  margin: 0px;
-  top: auto;
-  right: 20px;
-  bottom: 20px;
-  left: auto;
-  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  position: fixed !important;
 }
 
 /* ausgeblendet bis 650 */
@@ -42,7 +39,7 @@
 
 /* eingeblendet bis 651 */
 @media only screen and (min-width: 901px) {
-  div#addFab {
+  button#addFab {
     display: none;
   }
 }

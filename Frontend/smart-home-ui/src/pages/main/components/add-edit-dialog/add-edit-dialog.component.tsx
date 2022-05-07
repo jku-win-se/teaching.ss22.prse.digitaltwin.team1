@@ -39,7 +39,6 @@ export default function AddEditDialog({
   return (
     <div>
       <Dialog
-        style={{ maxHeight: "770px" }}
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -127,7 +126,7 @@ export default function AddEditDialog({
               <RadioGroup
                 defaultValue={
                   Object.keys(RoomType)[
-                  Object.values(RoomType).indexOf("Science Lab" as any)
+                    Object.values(RoomType).indexOf("Science Lab" as any)
                   ]
                 }
               >
@@ -150,11 +149,13 @@ export default function AddEditDialog({
                     setBuilding(event.target.value)
                   }
                 >
-                  {Object.entries(Building).map((val) => (
-                    <MenuItem key={val[0]} value={val[0]}>
-                      {val[1] as string}
-                    </MenuItem>
-                  ))}
+                  {Object.entries(Building)
+                    .slice(1)
+                    .map((val) => (
+                      <MenuItem key={val[0]} value={val[0]}>
+                        {val[1] as string}
+                      </MenuItem>
+                    ))}
                 </Select>
               </FormControl>
             </Grid>

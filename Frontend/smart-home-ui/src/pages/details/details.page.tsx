@@ -3,12 +3,15 @@ import * as React from "react";
 import { IRoom } from "../../models/IRoom";
 import { RoomService } from "../../services/Room.service";
 import InformationPanel from "./components/information-panel/information-panel.component";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./details.style.css";
+import { useNavigate } from "react-router-dom";
 
 export interface IDetailsProps {}
 
 export function Details(props: IDetailsProps) {
   const [room, setRoom] = React.useState<IRoom>();
+  const navigate = useNavigate();
   React.useEffect(() => {
     async function fetchData() {
       const rService = RoomService.getInstance();
@@ -20,7 +23,15 @@ export function Details(props: IDetailsProps) {
     <Box sx={{ flexGrow: 1, height: "100vh" }}>
       <Grid container spacing={2}>
         <Grid className="grid-bg" item sm={12} md={6}>
-          <h1 className="header-font-size">Dashboard</h1>
+          <div className="header-container">
+            <ArrowBackIcon
+              onClick={() => navigate("/")}
+              fontSize="large"
+              className="header-icon-size"
+            ></ArrowBackIcon>
+            <h1 className="header-font-size">Dashboard</h1>
+          </div>
+
           <Grid
             className="infoboard-height"
             item
