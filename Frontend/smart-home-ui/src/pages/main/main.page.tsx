@@ -99,7 +99,7 @@ export function Main(props: IMainProps) {
     if (newValue === Building[1]) {
       setRooms(roomCopy);
     } else {
-      setRooms(roomCopy.filter((val, idx, arr) => val.building === newValue));
+      setRooms(roomCopy.filter((val) => val.building === newValue));
     }
   };
 
