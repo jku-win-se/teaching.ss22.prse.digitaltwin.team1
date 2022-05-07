@@ -15,7 +15,7 @@
         {
             _logger.LogInformation("[Simulator] [Starting Service]");
             _sensorManager.Init().GetAwaiter().GetResult();
-            _sensorManager.GenerateMissingData();
+            _sensorManager.GenerateMissingData().GetAwaiter().GetResult();
             _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
             return Task.CompletedTask;
         }

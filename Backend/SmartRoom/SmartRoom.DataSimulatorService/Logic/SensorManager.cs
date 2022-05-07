@@ -49,7 +49,6 @@ namespace SmartRoom.DataSimulatorService.Logic
         public void GenerateData()
         {
             List<Task> tasks = new List<Task>();
-            Random random = new Random();
 
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
@@ -57,7 +56,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 {
                     tasks.Add(Task.Run(() =>
                     {
-                        Thread.Sleep(random.Next(10, 2000));
+                        Thread.Sleep(new Random().Next(10, 4800));
                         sensor.ChangeState();
                     }));
                 }
@@ -65,7 +64,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             Task.WaitAll(tasks.ToArray());
         }
 
-        public void GenerateMissingData()
+        public async Task GenerateMissingData()
         {
             List<MeasureState> measureStates = new();
             List<BinaryState> binaryStates = new();
@@ -76,8 +75,8 @@ namespace SmartRoom.DataSimulatorService.Logic
 
             foreach (var item in _sensors.Where(m => m.Value.Any()))
             {
-                measureSensors.AddRange(GetSensors<MeasureSensor>(item.Value)!);
-                binarySensors.AddRange(GetSensors<BinarySensor>(item.Value)!);
+                measureSensors.AddRange(GetConcreteSensors<MeasureSensor>(item.Value)!);
+                binarySensors.AddRange(GetConcreteSensors<BinarySensor>(item.Value)!);
             }
 
             foreach (var sensor in measureSensors)
@@ -99,33 +98,14 @@ namespace SmartRoom.DataSimulatorService.Logic
             }
 
             Task.WaitAll(tasks.ToArray());
-            tasks.Clear();
-
-            if (binaryStates.Any())
-            {
-                tasks.Add(Task.Run(async () =>
-                {
-                    await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddBinaryState", binaryStates.ToArray(), _apiKey);
-                    _logger.LogInformation($"[Simulator] [Added {binaryStates.Count()} BinaryStates]");
-                }));
-            }
-
-            if (measureStates.Any())
-            {
-                tasks.Add(Task.Run(async () =>
-                {
-                    await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", measureStates.ToArray(), _apiKey);
-                    _logger.LogInformation($"[Simulator] [Added {measureStates.Count()} MeasureStates]");
-                }));
-            }
 
             try
             {
-                Task.WaitAll(tasks.ToArray());
+                if (binaryStates.Any()) await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddBinaryState", binaryStates.ToArray(), _apiKey);
+                if (measureStates.Any()) await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", measureStates.ToArray(), _apiKey);
             }
             catch (Exception e)
             {
-
                 _logger.LogError(e.Message);
             }
         }
@@ -134,10 +114,7 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             var sensor = _sensors[id].Select(s => s as BinarySensor).Where(s => s!.State.Name.Equals(type)).First();
 
-            if (sensor != null)
-            {
-                sensor.ChangeState();
-            }
+            if (sensor != null) sensor.ChangeState();
         }
 
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
@@ -170,7 +147,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             _logger.LogInformation(sender.ToString());
         }
 
-        private T?[] GetSensors<T>(ISensor[] sensors) where T : class,  ISensor
+        private T?[] GetConcreteSensors<T>(ISensor[] sensors) where T : class,  ISensor
         {
             if(sensors.Any()) return sensors.Where(i => i.GetType().Equals(typeof(T))).Select(s => s as T).ToArray();
             else return Array.Empty<T>();
