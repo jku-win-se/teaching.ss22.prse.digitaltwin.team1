@@ -28,6 +28,7 @@ namespace SmartRoom.CommonBase.Web
         [HttpPost]
         public virtual async Task<ActionResult> Post([FromBody] E entity)
         {
+            if (entity == null) return BadRequest();
             try
             {
                 await _entityManager.Add(entity);
@@ -42,6 +43,7 @@ namespace SmartRoom.CommonBase.Web
         [HttpPut]
         public virtual async Task<IActionResult> Put([FromBody] E entity)
         {
+            if (entity == null) return BadRequest();
             try
             {
                 await _entityManager.Update(entity);
