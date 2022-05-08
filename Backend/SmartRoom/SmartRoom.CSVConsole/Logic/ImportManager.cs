@@ -32,7 +32,7 @@ namespace SmartRoom.CSVConsole.Logic
             _window = new List<Window>();
         }
 
-        public async void ImportCSV ()
+        public async Task ImportCSV ()
         {
             try
             {

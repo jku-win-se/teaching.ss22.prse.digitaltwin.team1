@@ -10,7 +10,7 @@ namespace SmartRoom.CSVConsole.Logic
         {   
             if (!string.IsNullOrEmpty(path)) _path = path;
         }
-        public async void ExportCSV()
+        public async Task ExportCSV()
         {
             var exp = await WebApiTrans.GetAPI<List< SmartRoom.CommonBase.Core.Entities.RoomEquipment>>("https://basedataservice.azurewebsites.net/api/RoomEquipment", "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
