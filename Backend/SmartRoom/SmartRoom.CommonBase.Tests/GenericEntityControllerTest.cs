@@ -3,7 +3,6 @@ using Moq;
 using SmartRoom.CommonBase.Logic.Contracts;
 using SmartRoom.CommonBase.Tests.Models;
 using SmartRoom.CommonBase.Web;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,9 +20,9 @@ namespace SmartRoom.CommonBase.Tests
 
             var controller = new GenericEntityController<TestEntity>(mockManager.Object);
 
-            var res = (IEnumerable<TestEntity>)((await controller.GetAll()).Result as OkObjectResult)!.Value;
+            var res = (IEnumerable<TestEntity>)((await controller.GetAll()).Result as OkObjectResult)!.Value!;
 
-            Assert.Equal(2, res.Count());
+            Assert.Equal(2, res!.Count());
         }
 
         [Fact]
@@ -36,7 +35,7 @@ namespace SmartRoom.CommonBase.Tests
 
             var controller = new GenericEntityController<TestEntity>(mockManager.Object);
 
-            var res = (TestEntity)((await controller.Get(id)).Result as OkObjectResult)!.Value;
+            var res = (TestEntity)((await controller.Get(id)).Result as OkObjectResult)!.Value!;
 
             Assert.Equal(GetTestEntities()[0], res);
         }
@@ -67,7 +66,7 @@ namespace SmartRoom.CommonBase.Tests
 
             var res = await controller.Post(null!);
 
-            Assert.IsType<BadRequestResult>(res);
+            Assert.IsType<BadRequestObjectResult>(res);
         }
 
         [Fact]
@@ -96,7 +95,7 @@ namespace SmartRoom.CommonBase.Tests
 
             var res = await controller.Put(null!);
 
-            Assert.IsType<BadRequestResult>(res);
+            Assert.IsType<BadRequestObjectResult>(res);
         }
 
         [Fact]

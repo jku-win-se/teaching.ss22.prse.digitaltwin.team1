@@ -11,7 +11,7 @@ namespace SmartRoom.CommonBase.Tests.Models
 
         public int CompareTo(TestEntity? other)
         {
-            if(Id.Equals(other!.Id)) return 0;
+            if(GetHashCode().Equals(other?.GetHashCode())) return 0;
             else return 1;
         }
 
@@ -19,6 +19,11 @@ namespace SmartRoom.CommonBase.Tests.Models
         {
             if(obj is not TestEntity) return false;
             else return CompareTo((TestEntity) obj!) == 0;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id.GetHashCode(), TestDate.GetHashCode());
         }
     }
 }
