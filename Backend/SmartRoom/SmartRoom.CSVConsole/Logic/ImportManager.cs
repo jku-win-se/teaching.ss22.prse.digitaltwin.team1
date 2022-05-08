@@ -5,7 +5,7 @@ namespace SmartRoom.CSVConsole.Logic
 {
     public class ImportManager
     {
-        private string _path;
+        private string _path = string.Empty;
         private IEnumerable<WindowOpen> _windowStates;
         private IEnumerable<Door> _doors;
         private IEnumerable<DoorConnectsRoom> _doorConnectsRoom;
@@ -13,14 +13,23 @@ namespace SmartRoom.CSVConsole.Logic
         private IEnumerable<PeopleInRoom> _peopleInRoom;
         private IEnumerable<Room> _roomCap;
         private IEnumerable<Ventilator> _ventilator;
-        private IEnumerable<VentilatorOn> _ventilatorOn;
+        private  IEnumerable<VentilatorOn> _ventilatorOn;
         private IEnumerable<Window> _window;
-        private List<SmartRoom.CommonBase.Core.Entities.Room> _rooms;
+        private List<CommonBase.Core.Entities.Room> _rooms;
 
         public ImportManager(string path)
         {
             _path = path;
-            ConfigureManager();
+            _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();
+            _peopleInRoom = new List<PeopleInRoom>();
+            _windowStates = new List<WindowOpen>();
+            _doors = new List<Door>();
+            _doorConnectsRoom = new List<DoorConnectsRoom>();
+            _doorOpen = new List<DoorOpen>();
+            _roomCap = new List<Room>();
+            _ventilator = new List<Ventilator>();
+            _ventilatorOn = new List<VentilatorOn>();
+            _window = new List<Window>();
         }
 
         public async void ImportCSV ()
@@ -74,20 +83,6 @@ namespace SmartRoom.CSVConsole.Logic
             }
 
         }
-
-        private void ConfigureManager()
-        {
-            _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();
-            _peopleInRoom = new List<PeopleInRoom>();
-            _windowStates = new List<WindowOpen>();
-            _doors = new List<Door>();
-            _doorConnectsRoom = new List<DoorConnectsRoom>();
-            _doorOpen = new List<DoorOpen>();
-            _roomCap = new List<Room>();
-            _ventilator = new List<Ventilator>();
-            _ventilatorOn = new List<VentilatorOn>();
-            _window = new List<Window>();
-    }
 
         private void ImportData()
         {
