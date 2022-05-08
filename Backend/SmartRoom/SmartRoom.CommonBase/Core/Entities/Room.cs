@@ -2,11 +2,11 @@
 
 namespace SmartRoom.CommonBase.Core.Entities
 {
+
     public class Room : EntityObject
     {
         [Required]
-        public int PeopleCount { get; set; }
-        [Required]
+        public int PeopleCount { get; set; }   
         public string Name { get; set; } = string.Empty;
         public int Size { get; set; }
         public string RoomType { get; set; } = "Unknown";

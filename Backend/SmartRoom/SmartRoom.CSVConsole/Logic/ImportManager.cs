@@ -20,7 +20,6 @@ namespace SmartRoom.CSVConsole.Logic
         public ImportManager(string path)
         {
             _path = path;
-           
             ConfigureManager();
         }
 
@@ -36,9 +35,6 @@ namespace SmartRoom.CSVConsole.Logic
                 throw new Exception("Import fehlgeschlagen");
             }
            
-            
-            
-            
             AddEquipmentToRoom();
 
             try
@@ -54,11 +50,9 @@ namespace SmartRoom.CSVConsole.Logic
 
                 throw new Exception("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
             }
-
         }
 
         
-
         private void AddEquipmentToRoom()
         {
             foreach (var roomModel in _roomCap)
@@ -81,12 +75,19 @@ namespace SmartRoom.CSVConsole.Logic
 
         }
 
-
         private void ConfigureManager()
         {
             _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();
             _peopleInRoom = new List<PeopleInRoom>();
-        }
+            _windowStates = new List<WindowOpen>();
+            _doors = new List<Door>();
+            _doorConnectsRoom = new List<DoorConnectsRoom>();
+            _doorOpen = new List<DoorOpen>();
+            _roomCap = new List<Room>();
+            _ventilator = new List<Ventilator>();
+            _ventilatorOn = new List<VentilatorOn>();
+            _window = new List<Window>();
+    }
 
         private void ImportData()
         {
@@ -134,10 +135,6 @@ namespace SmartRoom.CSVConsole.Logic
             {
                 _window = reader.Read();
             }
-
-       
-
         }
-
     }
 }

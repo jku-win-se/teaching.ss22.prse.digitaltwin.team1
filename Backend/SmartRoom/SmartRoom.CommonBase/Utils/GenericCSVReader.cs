@@ -15,6 +15,7 @@ namespace SmartRoom.CommonBase.Utils
 
         public GenericCSVReader(string fileName, char sep = ';')
         {
+            if (string.IsNullOrEmpty(fileName)) throw new ArgumentNullException();
             if (!fileName.Contains(".csv")) throw new FormatException("No CSV File!");
             else _fileName = fileName;
             _sep = sep;

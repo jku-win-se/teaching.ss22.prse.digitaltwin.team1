@@ -37,12 +37,12 @@ namespace SmartRoom.CommonBase.Logic
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public virtual async Task<E> GetBy(Guid id)
+        public async Task<E> GetBy(Guid id)
         {
             return await GetRepo().GetBy(id);
         }
 
-        public virtual async Task<E[]> Get()
+        public async Task<E[]> Get()
         {
             var dat = await GetRepo().Get();
             return dat;
