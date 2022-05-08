@@ -67,6 +67,10 @@ jobs:
           command: dotnet build -c Release
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService
       - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
+      - run:
           name: Running Tests
           command: dotnet test
           working_directory: Backend/SmartRoom/SmartRoom.BaseDataService.Tests
