@@ -1,0 +1,17 @@
+.information-panel-header {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+  text-align: start;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  div#LightbulbOutlined,
+  div#SensorDoorOutlined,
+  div#SensorWindowOutlined,
+  div#AcUnitOutlined {
+    display: none;
+    visibility: hidden;
+  }
+}

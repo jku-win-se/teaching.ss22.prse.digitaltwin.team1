@@ -1,0 +1,5 @@
+.room-font-size {
+    font-weight: bold;
+    font-size: clamp(1rem, 10vw, 2rem);
+    width: 100%;
+}

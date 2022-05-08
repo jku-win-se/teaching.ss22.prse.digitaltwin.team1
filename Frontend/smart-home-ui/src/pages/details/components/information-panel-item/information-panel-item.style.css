@@ -1,0 +1,9 @@
+.information-panel-text {
+  font-size: clamp(1rem, 2.7vw, 1.5rem);
+  margin-left: 1rem;
+}
+.information-panel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

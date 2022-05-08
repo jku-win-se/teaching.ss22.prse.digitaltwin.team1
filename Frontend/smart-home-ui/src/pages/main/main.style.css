@@ -1,0 +1,45 @@
+.grid-bg {
+  width: inherit;
+}
+
+.header-font-size {
+  font-weight: bold;
+  font-size: clamp(1.5rem, 7vw, 3.5rem);
+}
+
+.filter-height {
+  height: 10vh;
+}
+
+.roomlist-height {
+  height: 50vh;
+  align-self: center;
+}
+
+.menu_box_body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.fab {
+  right: 25px;
+  bottom: 25px;
+  position: fixed !important;
+}
+
+/* ausgeblendet bis 650 */
+@media only screen and (max-width: 900px) {
+  div#addRoomButton {
+    display: none;
+  }
+}
+
+/* eingeblendet bis 651 */
+@media only screen and (min-width: 901px) {
+  button#addFab {
+    display: none;
+  }
+}
