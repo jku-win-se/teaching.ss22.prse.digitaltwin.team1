@@ -93,7 +93,7 @@ export function Main(props: IMainProps) {
 
   React.useEffect(() => {
     roomCopy = rooms;
-  }, []);
+  });
 
   const changeFilterValue = (newValue: string) => {
     if (newValue === Building[1]) {

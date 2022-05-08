@@ -18,9 +18,9 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
+import "./add-edit-dialog.styles.css";
 import { RoomType } from "../../../../enums/roomType.enum";
 import { Building } from "../../../../enums/building.enum";
-import "./add-edit-dialog.styles.css";
 
 export interface IAddEditDialogProps {
   open: boolean;
