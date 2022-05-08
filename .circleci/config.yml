@@ -6,7 +6,7 @@ orbs:
 
 jobs:
   # ---------- frontend jobs ----------
-  build_and_test_frontend:
+  build_frontend:
     docker:
       - image: cimg/node:17.2.0
     steps:
@@ -14,9 +14,6 @@ jobs:
       - node/install-packages:
           app-dir: ./Frontend/smart-home-ui
           pkg-manager: npm
-      - run:
-          command: cd Frontend/smart-home-ui && npm test
-          name: Run tests
       - run:
           command: cd Frontend/smart-home-ui && npm run build
           name: Build app
@@ -180,7 +177,7 @@ workflows:
               only:
                 - main
                 - /^release_.*/
-      - build_and_test_frontend:
+      - build_frontend:
           filters:
             branches:
               only:
