@@ -7,7 +7,7 @@ namespace SmartRoom.CommonBase.Web
 {
     public class GenericEntityController<E> : ControllerBase where E : EntityObject
     {
-        readonly IGenericEntityManager<E> _entityManager;
+        private readonly IGenericEntityManager<E> _entityManager;
         public GenericEntityController(IGenericEntityManager<E> entityManager)
         {
             _entityManager = entityManager;

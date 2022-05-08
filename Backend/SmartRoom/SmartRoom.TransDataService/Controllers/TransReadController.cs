@@ -14,7 +14,7 @@ namespace SmartRoom.TransDataService.Controllers
     [ApiController]
     public abstract class TransReadController<S> : ControllerBase where S : class, IState, new()
     {
-        private ReadManager _manager;
+        private readonly ReadManager _manager;
         public TransReadController(ReadManager manager)
         {
             _manager = manager;

@@ -10,11 +10,12 @@ namespace SmartRoom.DataSimulatorService.Logic
         private string _transDataServiceURL => _configuration["Services:TransDataService"];
         private string _apiKey => _configuration["ApiKey"];
 
+        private readonly Dictionary<Guid, ISensor[]> _sensors;
+        private readonly ILogger<SensorManager> _logger;
+       
         private IConfiguration _configuration;
-        private ILogger<SensorManager> _logger;
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
-        private Dictionary<Guid, ISensor[]> _sensors;
 
         public SensorManager(IConfiguration configuration, ILogger<SensorManager> logger)
         {

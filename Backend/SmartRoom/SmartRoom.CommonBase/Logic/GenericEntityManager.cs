@@ -5,7 +5,7 @@ namespace SmartRoom.CommonBase.Logic
 {
     public class GenericEntityManager<E> : Contracts.IGenericEntityManager<E> where E : EntityObject
     {
-        readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         public GenericEntityManager(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;

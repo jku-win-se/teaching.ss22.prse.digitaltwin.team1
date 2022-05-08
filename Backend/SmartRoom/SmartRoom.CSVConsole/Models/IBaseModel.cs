@@ -1,8 +1,6 @@
-﻿using SmartRoom.CommonBase.Core.Entities;
-
-namespace SmartRoom.CSVConsole.Models
+﻿namespace SmartRoom.CSVConsole.Models
 {
-    public interface IBaseModel<E> where E : new()
+    public interface IBaseModel<out E> where E : new()
     {
         public E GetEntity();
 

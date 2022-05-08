@@ -6,7 +6,7 @@ namespace SmartRoom.TransDataService.Logic
 {
     public class WriteManager
     {
-        private IDbContextFactory<TransDataDBContext> _dbContextFactory;
+        private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;

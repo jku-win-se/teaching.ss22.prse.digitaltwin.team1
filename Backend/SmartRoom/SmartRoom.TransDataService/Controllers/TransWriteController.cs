@@ -9,7 +9,7 @@ namespace SmartRoom.TransDataService.Controllers
     [ApiController]
     public class TransWriteController : ControllerBase
     {
-        private WriteManager _manager;
+        private readonly WriteManager _manager;
         public TransWriteController(WriteManager manager)
         {
             _manager = manager;

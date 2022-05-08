@@ -8,7 +8,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class StatusController : ControllerBase
     {
-        private DataSink _sink;
+        private readonly DataSink _sink;
 
         public StatusController(DataSink sink)
         {

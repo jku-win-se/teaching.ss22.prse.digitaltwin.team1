@@ -3,7 +3,7 @@
 
 using SmartRoom.CSVConsole.Logic;
 
-string path = @"C:\Daten\Git\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data";
+string path = Directory.GetCurrentDirectory();
 
 Console.Write("Import-File-Pfad angeben: ");
 var input = Console.ReadLine();
@@ -35,14 +35,14 @@ do
     {
         case "i":
             var import = new ImportManager(path);
-            import.ImportCSV();
+            import?.ImportCSV();
 
             Console.WriteLine($"Import beendet ");
             break;
 
         case "e":
             var export = new ExportManager(path);
-            export.ExportCSV();
+            export?.ExportCSV();
 
             Console.WriteLine($"Export beendet ");
             break;

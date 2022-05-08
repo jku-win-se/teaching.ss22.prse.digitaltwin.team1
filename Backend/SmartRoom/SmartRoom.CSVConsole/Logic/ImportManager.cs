@@ -11,12 +11,12 @@ namespace SmartRoom.CSVConsole.Logic
         private IEnumerable<Room> _roomCap;
         private IEnumerable<Ventilator> _ventilator;
         private IEnumerable<Window> _window;
-        private List<CommonBase.Core.Entities.Room> _rooms;
+        private readonly List<CommonBase.Core.Entities.Room> _rooms;
 
         public ImportManager(string path)
         {
             _path = path;
-            _rooms = new List<SmartRoom.CommonBase.Core.Entities.Room>();
+            _rooms = new List<CommonBase.Core.Entities.Room>();
             _doors = new List<Door>();
             _doorConnectsRoom = new List<DoorConnectsRoom>();
             _roomCap = new List<Room>();

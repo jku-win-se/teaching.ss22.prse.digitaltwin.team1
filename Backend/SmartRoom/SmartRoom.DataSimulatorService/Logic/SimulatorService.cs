@@ -3,8 +3,8 @@
     public class SimulatorService : BackgroundService
     {
         private Timer _timer = null!;
-        private ILogger _logger;
-        private SensorManager _sensorManager;
+        private readonly ILogger _logger;
+        private readonly SensorManager _sensorManager;
 
         public SimulatorService(ILogger<SimulatorService> logger, SensorManager dataManager)
         {

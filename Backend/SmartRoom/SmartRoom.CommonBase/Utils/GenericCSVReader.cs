@@ -8,8 +8,8 @@ namespace SmartRoom.CommonBase.Utils
     public class GenericCSVReader<T> : IDisposable where T : new()
     {
         List<T> _data = new List<T>();
-        private string _fileName;
-        private char _sep;
+        private readonly string _fileName;
+        private readonly char _sep;
 
         private SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
 

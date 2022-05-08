@@ -8,7 +8,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class CommandController : ControllerBase
     {
-        private SensorManager _sensorManager;
+        private readonly SensorManager _sensorManager;
 
         public CommandController(SensorManager sensorManager)
         {

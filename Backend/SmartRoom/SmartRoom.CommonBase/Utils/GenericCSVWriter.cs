@@ -6,7 +6,7 @@ namespace SmartRoom.CommonBase.Utils
     public class GenericCSVWriter<T> : IDisposable
     {
         private IEnumerable<T> _data;
-        private SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
+        private readonly SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
         private string? _fileName;
         public string? FileName
         {
