@@ -10,7 +10,7 @@
             {
                 if (from.GetType().GetProperties().Any(p => p.Name == prop.Name))
                 {
-                    var x = from.GetType().GetProperties().Where(p => p.Name == prop.Name).First();
+                    var x = from.GetType().GetProperties().First(p => p.Name == prop.Name);
                     if (prop.CanWrite) prop.SetValue(to, x.GetValue(from));
                 }
             }

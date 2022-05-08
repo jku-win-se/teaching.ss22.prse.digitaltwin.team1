@@ -32,7 +32,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
         {
             try
             {
-                return Ok(_sink.Events.Select(s => s.RenderMessage()).Where(m => m.Contains("[Simulator]")).Last());
+                return Ok(_sink.Events.Select(s => s.RenderMessage()).Last(m => m.Contains("[Simulator]")));
             }
             catch (Exception)
             {

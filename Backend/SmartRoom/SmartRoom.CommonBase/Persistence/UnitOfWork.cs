@@ -35,7 +35,7 @@ namespace SmartRoom.CommonBase.Persistence
 
         public R? GetRepo<R>()
         {
-            return (R?)this.GetType().GetProperties().Where(p => p.PropertyType.Equals(typeof(R))).FirstOrDefault()?.GetValue(this);
+            return (R?)this.GetType().GetProperties().FirstOrDefault(p => p.PropertyType.Equals(typeof(R)))?.GetValue(this);
         }
     }
 }

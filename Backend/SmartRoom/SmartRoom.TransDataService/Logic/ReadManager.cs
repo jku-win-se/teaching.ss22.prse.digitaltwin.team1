@@ -27,7 +27,7 @@ namespace SmartRoom.TransDataService.Logic
             {
                 var data = context.Set<E>().Where(s => s.EntityRefID.Equals(id) && s.Name.Equals(name));
 
-                return await data.Where(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp))).FirstAsync();
+                return await data.FirstAsync(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp)));
             }
         }
 
