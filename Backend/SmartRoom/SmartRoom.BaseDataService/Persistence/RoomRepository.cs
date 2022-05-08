@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Persistence;
-using SmartRoom.CommonBase.Persistence.Contracts;
 
 namespace SmartRoom.BaseDataService.Persistence
 {
-    public class RoomRepository : GenericEntityRepository<Room> , IGenericEntityRepository<Room>
+    public class RoomRepository : GenericEntityRepository<Room>
     {
         public RoomRepository(SmartRoomDBContext context) : base(context)
         {

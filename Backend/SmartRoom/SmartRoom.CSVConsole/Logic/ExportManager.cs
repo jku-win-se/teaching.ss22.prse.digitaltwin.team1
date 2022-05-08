@@ -4,7 +4,7 @@ namespace SmartRoom.CSVConsole.Logic
 {
     public class ExportManager
     {
-        private string _path = string.Empty;
+        private readonly string _path = string.Empty;
         
         public ExportManager(string path)
         {   
