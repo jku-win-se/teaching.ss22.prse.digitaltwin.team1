@@ -65,7 +65,7 @@ namespace SmartRoom.CSVConsole.Logic
 
                 foreach (var doorInRoom in _doorConnectsRoom.Where(d => d.Room_ID.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)))
                 {
-                    equipments.Add(_doors.Where(d => d.ID.Equals(doorInRoom.Door_ID)).First().GetEntity());
+                    equipments.Add(_doors.First(d => d.ID.Equals(doorInRoom.Door_ID)).GetEntity());
                 }
 
                 equipments.AddRange(_window.Where(w => w.Room_Id.Equals(roomModel.name, StringComparison.CurrentCultureIgnoreCase)).Select(w => w.GetEntity()).ToList());

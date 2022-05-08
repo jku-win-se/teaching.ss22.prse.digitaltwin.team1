@@ -9,7 +9,7 @@ namespace SmartRoom.CommonBase.Utils
 
         public Aes256Cipher(string key)
         {
-            if (string.IsNullOrWhiteSpace(key)) throw new NullReferenceException("The key is empty");
+            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentNullException("The key is empty");
             _key = Convert.FromBase64String(key);
         }
 

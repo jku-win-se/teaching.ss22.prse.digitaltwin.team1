@@ -12,7 +12,7 @@ namespace SmartRoom.CommonBase.Tests
         [Fact]
         public void Aes256CipherCtor_EmptyString_NullReferenceException()
         {
-            Assert.Throws<NullReferenceException>( () => new Aes256Cipher(""));
+            Assert.Throws<ArgumentNullException>( () => new Aes256Cipher(""));
         }
 
         [Fact]

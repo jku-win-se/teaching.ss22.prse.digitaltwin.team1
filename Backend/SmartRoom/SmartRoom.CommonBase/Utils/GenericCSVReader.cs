@@ -10,8 +10,7 @@ namespace SmartRoom.CommonBase.Utils
         List<T> _data = new List<T>();
         private readonly string _fileName;
         private readonly char _sep;
-
-        private SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
+        private readonly SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
 
         public GenericCSVReader(string fileName, char sep = ';')
         {
@@ -71,8 +70,6 @@ namespace SmartRoom.CommonBase.Utils
 
         #region IDisposable Support
         private bool _disposedValue = false;
-        //public IEnumerable<SmartRoom.CSVConsole.Models.WindowOpen> windowStates;
-
         public void Dispose() => Dispose(true);
 
         protected virtual void Dispose(bool disposing)

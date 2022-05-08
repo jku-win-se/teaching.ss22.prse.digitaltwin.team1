@@ -12,8 +12,8 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         private readonly Dictionary<Guid, ISensor[]> _sensors;
         private readonly ILogger<SensorManager> _logger;
-       
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
+
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
 
