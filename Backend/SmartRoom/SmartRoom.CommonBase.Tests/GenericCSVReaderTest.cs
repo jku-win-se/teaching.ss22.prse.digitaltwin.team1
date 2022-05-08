@@ -25,11 +25,10 @@ namespace SmartRoom.CommonBase.Tests
             Assert.Throws<FormatException>(() => new GenericCSVReader<Object>("Test")); 
         }
 
-        //Todo zweites CSV-File mit Kommas anstatt Semicolons => Ctor-Test
         [Fact]
         public void Read_ValidCSVFile_ValidResult()
         {
-            string path = Directory.GetCurrentDirectory();
+            string path = "/root/project/Backend/SmartRoom/SmartRoom.CommonBase.Tests/bin/Release/net6.0";
             ICollection<CSVTestModel> result;
             using (GenericCSVReader<CSVTestModel> reader = new GenericCSVReader<CSVTestModel>(@$"{path}\Data\TestFile.csv"))
             {
@@ -45,8 +44,6 @@ namespace SmartRoom.CommonBase.Tests
                 Room_Id = "Room101",
                 Temperature = 27.5
             })==0);
-
-
         }
     }
 }
