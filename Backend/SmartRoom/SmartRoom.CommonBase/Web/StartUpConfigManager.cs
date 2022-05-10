@@ -66,9 +66,10 @@ namespace SmartRoom.CommonBase.Web
         {
             opt.AddPolicy(name: _policyName, builder =>
             {
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
+                builder.WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
             });
         }
         public static IConfigurationRoot GetConfigBuilder()

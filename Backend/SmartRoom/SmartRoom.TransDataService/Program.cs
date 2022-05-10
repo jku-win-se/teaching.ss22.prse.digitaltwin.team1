@@ -18,6 +18,7 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddTransient<ReadManager, ReadManager>();
 builder.Services.AddTransient<WriteManager, WriteManager>();
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 builder.Services.AddCors(opt => StartUpConfigManager.SetAllowAnyCorsOptions(opt));
@@ -26,6 +27,11 @@ builder.Services.AddSwaggerGen(options => StartUpConfigManager.SetSwaggerOptions
 
 WebApplication app = builder.Build();
 StartUpConfigManager startUpManager = new(app);
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 startUpManager.ConfigureApp();
+
+app.MapHub<SensorHub>("/hub");
 
 app.Run();
