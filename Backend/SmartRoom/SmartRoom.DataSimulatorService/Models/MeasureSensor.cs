@@ -11,22 +11,25 @@ namespace SmartRoom.DataSimulatorService.Models
         {
             base.ChangeState(timeStamp);
             Random random = new Random();
-            if (State.TimeStamp > DateTime.Parse("09:00") && State.TimeStamp < DateTime.Parse("19:00"))
-            {
-                if (random.Next(1, 10) > 4)
-                {
-                    State.Value += random.NextDouble();
-                }
-                else State.Value -= random.NextDouble();
-            }
+            double rnd = random.NextDouble();
+
+            if (State.Value <= 18 && State.Name.Equals("Temperature")) rnd *= 1;
+            else if (State.Value >= 30 && State.Name.Equals("Temperature")) rnd *= -1;
+            else if (State.Value <= 50 && State.Name.Equals("Co2")) rnd += random.Next(1, 10);
+            else if (State.Value >= 3000 && State.Name.Equals("Co2")) rnd -= random.Next(1, 10);
             else
             {
-                if (random.Next(1, 10) > 4)
+                if (State.TimeStamp > DateTime.Parse("08:00") && State.TimeStamp < DateTime.Parse("20:00"))
                 {
-                    State.Value -= random.NextDouble();
+                    if (random.Next(1, 10) < 4) rnd *= -1;
                 }
-                else State.Value += random.NextDouble();
+                else 
+                {
+                    if (random.Next(1, 10) > 4) rnd *= -1;
+                }
             }
+
+            State.Value += rnd;
         }
     }
 }

@@ -121,7 +121,7 @@ namespace SmartRoom.DataSimulatorService.Logic
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
         {
             List<ST> sTs = new List<ST>();
-            DateTime start = DateTime.UtcNow.AddHours(-12);
+            DateTime start = DateTime.UtcNow.AddHours(-72);
             Random random = new Random();
 
             if (start < sensor!.State.TimeStamp) start = sensor.State.TimeStamp;
