@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.TransDataService.Persistence;
 
@@ -17,17 +16,24 @@ namespace SmartRoom.TransDataService.Logic
             _hub = hub;
         }
 
-        public async Task addState<E>(E[] state) where E : class, IState
+        public async Task addState<E>(E[] states) where E : class, IState
         {
-            await Task.Run(() =>
+
+            using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
-                using (var context = _dbContextFactory.CreateDbContext())
-                {
-                    context.AddRange(state);
-                    context.SaveChanges();
-                }             
-            });
-            await _hub.Clients.All.SendAsync("SensorData", state.Last());
-        } 
+                context.AddRange(states);
+                context.SaveChanges();
+            }
+            await NewStates(states);
+        }
+        private async Task NewStates(IState[] states)
+        {
+            var distStates = states.DistinctBy(s => s.EntityRefID + s.Name);
+            foreach (var s in distStates)
+            {
+                var latestState = states.Where(st => st.EntityRefID.Equals(s.EntityRefID) && st.Name.Equals(s.Name)).OrderBy(st => st.TimeStamp).Last();
+                await _hub.Clients.All.SendAsync($"Sensor/{latestState.EntityRefID}/{latestState.Name}", latestState);
+            }
+        }
     }
 }
