@@ -49,6 +49,11 @@ export class RoomService {
     return this.selectedRoom?.roomEquipment.filter((re) => re.name !== type)
       .length;
   }
+  getEquipmentNumberByTypeAndID(roomID: string, type: Equipment) {
+    return this.allRooms
+      .filter((room) => room.id === roomID)[0]
+      .roomEquipment.filter((re) => re.name !== type).length;
+  }
 
   filterByBuilding(building: string) {
     return building === Building[1]

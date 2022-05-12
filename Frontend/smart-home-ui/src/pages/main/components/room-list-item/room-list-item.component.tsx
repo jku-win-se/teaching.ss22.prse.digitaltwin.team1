@@ -210,7 +210,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
         </Grid>
       </Grid>
 
-      <AddEditDialog handleClose={handleClose} open={open}></AddEditDialog>
+      <AddEditDialog
+        editMode={true}
+        handleClose={handleClose}
+        open={open}
+      ></AddEditDialog>
     </div>
   );
 }
