@@ -1,4 +1,5 @@
 import { Measure } from "../enums/measure.enum";
+import { IChartData } from "../models/IChartData";
 import { Istate } from "../models/IState";
 
 export class StateService {
@@ -53,6 +54,17 @@ export class StateService {
       })
     );
     console.log(this.states);
+  }
+  async getMeasureChartData(roomID: string, name: string) {
+    const response = await fetch(
+      this.BASE_URL + "/ReadMeasure/GetChartData/" + roomID + "&" + name,
+      {
+        headers: new Headers(this.addHeaders()),
+        method: "GET",
+      }
+    );
+
+    return (await response.json()) as IChartData[];
   }
 
   returnValueForMeasure(measure: Measure) {
