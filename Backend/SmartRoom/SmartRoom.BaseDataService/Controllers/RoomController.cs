@@ -3,6 +3,7 @@ using SmartRoom.BaseDataService.Models;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.CommonBase.Logic.Contracts;
+using SmartRoom.CommonBase.Utils;
 using SmartRoom.CommonBase.Web;
 
 namespace SmartRoom.BaseDataService.Controllers
@@ -14,13 +15,59 @@ namespace SmartRoom.BaseDataService.Controllers
         public RoomController(IGenericEntityManager<Room> entityManager) : base(entityManager)
         {
         }
-        [HttpPost]
-        public async Task<ActionResult> Post([FromBody] SpecialRoomModelForOurFEDev entity)
+
+        [HttpGet("Models")]
+        public async Task<ActionResult<IEnumerable<SpecialRoomModelForOurFEDev>>> GetModels()
         {
-            if (entity == null) return BadRequest(Messages.PARAMTER_NULL);
             try
             {
-                await _entityManager.Add(entity.GetRoom());
+                return Ok((await _entityManager.Get()).Select(r => new SpecialRoomModelForOurFEDev(r)));
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
+        }
+
+        [HttpPost("Models")]
+        public async Task<ActionResult> PostModel([FromBody] SpecialRoomModelForOurFEDev model)
+        {
+            if (model == null) return BadRequest(Messages.PARAMTER_NULL);
+            try
+            {
+                await _entityManager.Add(model.GetRoom());
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
+            return Ok();
+        }
+
+        [HttpPut("Models")]
+        public async Task<ActionResult> PutModel([FromBody] SpecialRoomModelForOurFEDev model)
+        {
+            if (model == null) return BadRequest(Messages.PARAMTER_NULL);
+            try
+            {
+                var roomToUpdate = await _entityManager.GetBy(model.Id);
+                var newRoom = model.GetRoom();             
+
+                foreach (var re in model.RoomEquipmentDict)
+                {
+                    var count = roomToUpdate.RoomEquipment.Where(rre => rre.Name.Equals(re.Key)).Count();
+                    while (count > re.Value)
+                    {
+                        roomToUpdate.RoomEquipment.Remove(roomToUpdate.RoomEquipment.Where(rre => rre.Name.Equals(re.Key)).Last());
+                        count--;
+                    }
+                    if (count < re.Value) 
+                    {
+                        roomToUpdate.RoomEquipment.AddRange(newRoom.RoomEquipment.Where(rre => rre.Name.Equals(re.Key)).Take(re.Value - count));
+                    }
+                }
+                GenericMapper.MapObjects(roomToUpdate, model);
+                await _entityManager.Update(roomToUpdate);
             }
             catch (Exception)
             {

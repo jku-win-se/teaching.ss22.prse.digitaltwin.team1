@@ -55,7 +55,6 @@ namespace SmartRoom.CommonBase.Logic
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

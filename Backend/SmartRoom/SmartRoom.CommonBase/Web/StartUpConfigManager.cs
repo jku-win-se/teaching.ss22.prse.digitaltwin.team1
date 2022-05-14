@@ -66,7 +66,8 @@ namespace SmartRoom.CommonBase.Web
         {
             opt.AddPolicy(name: _policyName, builder =>
             {
-                builder.WithOrigins("http://localhost:4200")
+                builder.WithOrigins("http://localhost:4200",
+                    "http://localhost:3000")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials();
