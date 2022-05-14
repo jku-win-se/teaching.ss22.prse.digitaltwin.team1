@@ -17,6 +17,8 @@ namespace SmartRoom.DataSimulatorService.Models
             else if (State.Value >= 30 && State.Name.Equals("Temperature")) rnd *= -1;
             else if (State.Value <= 50 && State.Name.Equals("Co2")) rnd += random.Next(1, 10);
             else if (State.Value >= 3000 && State.Name.Equals("Co2")) rnd -= random.Next(1, 10);
+            else if (State.Value <= 0 && State.Name.Equals("PeopleInRoom")) rnd = random.Next(0, 2);
+            else if (State.Value >= 50 && State.Name.Equals("PeopleInRoom")) rnd = random.Next(-1, 1);
             else
             {
                 if (State.TimeStamp > DateTime.Parse("08:00") && State.TimeStamp < DateTime.Parse("20:00"))
@@ -28,8 +30,11 @@ namespace SmartRoom.DataSimulatorService.Models
                     if (random.Next(1, 10) > 4) rnd *= -1;
                 }
             }
-
-            State.Value += rnd;
+            if (State.Name.Equals("PeopleInRoom"))
+            {
+                State.Value += Math.Round(rnd, 0);
+            }
+            else State.Value += rnd;
         }
     }
 }

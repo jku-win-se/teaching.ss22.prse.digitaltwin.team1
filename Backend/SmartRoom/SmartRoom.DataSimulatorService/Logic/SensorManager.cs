@@ -47,10 +47,12 @@ namespace SmartRoom.DataSimulatorService.Logic
             });
             _roomEquipment.ForEach(re =>
             {
-                _sensors.Add(re.Id,
-                    _binaryTypes[re.Name]
-                    .Select(d => new Models.BinarySensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
-                    .ToArray());
+                if (_binaryTypes.ContainsKey(re.Name))
+                {
+                    _sensors.Add(re.Id, _binaryTypes[re.Name]
+                        .Select(d => new Models.BinarySensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
+                        .ToArray());
+                }
             });
             _logger.LogInformation("[DataManager] [BaseData loaded]");
         }
@@ -156,9 +158,9 @@ namespace SmartRoom.DataSimulatorService.Logic
             _logger.LogInformation(sender.ToString());
         }
 
-        private T?[] GetConcreteSensors<T>(ISensor[] sensors) where T : class,  ISensor
+        private T?[] GetConcreteSensors<T>(ISensor[] sensors) where T : class, ISensor
         {
-            if(sensors.Any()) return sensors.Where(i => i.GetType().Equals(typeof(T))).Select(s => s as T).ToArray();
+            if (sensors.Any()) return sensors.Where(i => i.GetType().Equals(typeof(T))).Select(s => s as T).ToArray();
             else return Array.Empty<T>();
         }
     }
