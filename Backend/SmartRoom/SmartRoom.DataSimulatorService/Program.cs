@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 DataSink sink = new();
 
 Log.Logger = new LoggerConfiguration()
-  .WriteTo.File(Directory.GetCurrentDirectory() + "Logs.txt", shared: true)
   .WriteTo.Sink(sink)
   .CreateLogger();
 
