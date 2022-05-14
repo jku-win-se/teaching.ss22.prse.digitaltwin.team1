@@ -24,8 +24,10 @@
             var timer = new System.Timers.Timer(TimeSpan.FromMinutes(10).TotalMilliseconds) { AutoReset = false };
             timer.Elapsed += (s, e) => StopService();
             timer.Enabled = true;
+
             _logger.LogInformation("[Simulator] [Running]");
             StartTimer();
+
             return Task.CompletedTask;
         }
 
@@ -38,7 +40,7 @@
         private void StartTimer() 
         {
             if (_timer == null) _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
-            else if (!_timerIsOn) _timer.Change(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
+            else if (!_timerIsOn) _timer.Change(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60));
             _timerIsOn = true;
         }
 

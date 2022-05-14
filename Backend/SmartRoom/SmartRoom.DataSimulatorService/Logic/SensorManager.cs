@@ -21,6 +21,7 @@ namespace SmartRoom.DataSimulatorService.Logic
         private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
         private string _transDataServiceURL => _configuration["Services:TransDataService"];
         private string _apiKey => _configuration["ApiKey"];
+        private bool _loadingBaseData;
 
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
@@ -36,6 +37,7 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public async Task Init()
         {
+            _loadingBaseData = true;
             _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
             _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_baseDataServiceURL}roomequipment", _apiKey);
             _rooms.ForEach(r =>
@@ -67,7 +69,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 {
                     tasks.Add(Task.Run(() =>
                     {
-                        Thread.Sleep(new Random().Next(10, 4800));
+                        Thread.Sleep(new Random().Next(10, 59000));
                         sensor.ChangeState();
                     }));
                 }
@@ -119,6 +121,10 @@ namespace SmartRoom.DataSimulatorService.Logic
             {
                 _logger.LogError(e.Message);
             }
+            finally
+            {
+                _loadingBaseData = false;
+            }
         }
 
         public void ChangeState(Guid id, string type)
@@ -137,7 +143,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             if (start < sensor!.State.TimeStamp) start = sensor.State.TimeStamp;
             while (start < DateTime.UtcNow)
             {
-                if (typeof(ST).Equals(typeof(BinaryState)) && random.Next(1, 10) > 8) sensor.ChangeState(start);
+                if (typeof(ST).Equals(typeof(BinaryState)) && random.Next(1, 20) > 18) sensor.ChangeState(start);
                 else if (typeof(ST).Equals(typeof(MeasureState))) sensor.ChangeState(start);
 
                 sTs.Add(new ST
@@ -155,6 +161,11 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         private void StateUpdated(object sender, EventArgs e)
         {
+            if (!_loadingBaseData && sender is MeasureSensor)
+            {
+                var res = CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", new State<double>[] {((MeasureSensor)sender).State}, _apiKey).GetAwaiter().GetResult();
+                _logger.LogInformation(res.StatusCode.ToString());
+            }
             _logger.LogInformation(sender.ToString());
         }
 
