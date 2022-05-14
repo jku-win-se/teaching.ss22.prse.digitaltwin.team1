@@ -9,10 +9,12 @@ namespace SmartRoom.DataSimulatorService.Controllers
     public class StatusController : ControllerBase
     {
         private readonly DataSink _sink;
+        private readonly IHostApplicationLifetime _host;
 
-        public StatusController(DataSink sink)
+        public StatusController(DataSink sink, IHostApplicationLifetime host)
         {
             _sink = sink;
+            _host = host;
         }
         [HttpGet("[action]")]
         public ActionResult<string[]> GetLogs()
@@ -33,6 +35,20 @@ namespace SmartRoom.DataSimulatorService.Controllers
             try
             {
                 return Ok(_sink.Events.Select(s => s.RenderMessage()).Last(m => m.Contains("[Simulator]")));
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult StopService()
+        {
+            try
+            {
+                _host.StopApplication();
+                return Ok();
             }
             catch (Exception)
             {
