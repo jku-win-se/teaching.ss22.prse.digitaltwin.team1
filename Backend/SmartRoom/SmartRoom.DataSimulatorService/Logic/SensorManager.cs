@@ -6,13 +6,21 @@ namespace SmartRoom.DataSimulatorService.Logic
 {
     public class SensorManager
     {
-        private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
-        private string _transDataServiceURL => _configuration["Services:TransDataService"];
-        private string _apiKey => _configuration["ApiKey"];
+        private readonly Dictionary<string, string[]> _binaryTypes = new Dictionary<string, string[]>
+        {
+            {"Ventilator", new string[] {"IsOn"}},
+            {"Light", new string[] {"IsOn"}},
+            {"Window", new string[] {"IsOpen"}},
+            {"Door", new string[] {"IsOpen"}},
+        };
+        private readonly string[] _measureTypes = new string[] { "Temperature", "Co2", "PeopleInRoom" };
 
         private readonly Dictionary<Guid, ISensor[]> _sensors;
         private readonly ILogger<SensorManager> _logger;
         private readonly IConfiguration _configuration;
+        private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
+        private string _transDataServiceURL => _configuration["Services:TransDataService"];
+        private string _apiKey => _configuration["ApiKey"];
 
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
@@ -33,14 +41,14 @@ namespace SmartRoom.DataSimulatorService.Logic
             _rooms.ForEach(r =>
             {
                 _sensors.Add(r.Id,
-                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadMeasure/GetTypesBy/{r.Id}", _apiKey).GetAwaiter().GetResult()
+                    _measureTypes
                     .Select(d => new Models.MeasureSensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_transDataServiceURL}ReadMeasure/GetRecentBy/{r.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _roomEquipment.ForEach(re =>
             {
                 _sensors.Add(re.Id,
-                    CommonBase.Utils.WebApiTrans.GetAPI<List<string>>($"{_transDataServiceURL}ReadBinary/GetTypesBy/{re.Id}", _apiKey).GetAwaiter().GetResult()
+                    _binaryTypes[re.Name]
                     .Select(d => new Models.BinarySensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
                     .ToArray());
             });

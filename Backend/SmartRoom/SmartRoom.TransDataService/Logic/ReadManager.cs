@@ -21,12 +21,12 @@ namespace SmartRoom.TransDataService.Logic
             }
         }
 
-        public async Task<E> GetRecentStateByEntityID<E>(Guid id, string name) where E : class, IState
+        public async Task<E> GetRecentStateByEntityID<E>(Guid id, string name) where E : class, IState, new()
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
                 var data = context.Set<E>().Where(s => s.EntityRefID.Equals(id) && s.Name.Equals(name));
-
+                if(!data.Any()) return new E { EntityRefID = id, Name = name, TimeStamp = DateTime.MinValue};
                 return await data.FirstAsync(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp)));
             }
         }
