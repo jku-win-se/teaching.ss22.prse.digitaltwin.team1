@@ -10,18 +10,11 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             Events.Add(logEvent);
 
-            if (logEvent.RenderMessage().Contains("[Act] [Sensor]"))
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[{logEvent.Timestamp}] [{logEvent.Level}] {logEvent.RenderMessage()}");
-            }
-            else if (logEvent.RenderMessage().Contains("[Sensor]")) 
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"[{logEvent.Timestamp}] [{logEvent.Level}] {logEvent.RenderMessage()}");
-            }
-            else Console.WriteLine($"[{logEvent.Timestamp}] [{logEvent.Level}] {logEvent.RenderMessage()}");
-            Console.ForegroundColor = ConsoleColor.White;
+            if (logEvent.RenderMessage().Contains("[Act] [Sensor]")) Console.ForegroundColor = ConsoleColor.Green;
+            else if (logEvent.RenderMessage().Contains("[Sensor]")) Console.ForegroundColor = ConsoleColor.Yellow;
+            else Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine($"[{logEvent.Timestamp}] [{logEvent.Level}] {logEvent.RenderMessage()}");
         }
     }
 }
