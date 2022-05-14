@@ -164,7 +164,6 @@ namespace SmartRoom.DataSimulatorService.Logic
             if (!_loadingBaseData && sender is MeasureSensor)
             {
                 var res = CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", new State<double>[] {((MeasureSensor)sender).State}, _apiKey).GetAwaiter().GetResult();
-                _logger.LogInformation(res.StatusCode.ToString());
             }
             _logger.LogInformation(sender.ToString());
         }

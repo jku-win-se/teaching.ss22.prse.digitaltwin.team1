@@ -15,7 +15,6 @@ namespace SmartRoom.DataSimulatorService.Models
         {
             if(timeStamp == default) State.TimeStamp = DateTime.UtcNow;
             else State.TimeStamp = timeStamp;
-            OnStateUpdate();
         }
         public override string ToString()
         {

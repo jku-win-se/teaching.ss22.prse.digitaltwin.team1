@@ -35,6 +35,7 @@ namespace SmartRoom.DataSimulatorService.Models
                 State.Value += Math.Round(rnd, 0);
             }
             else State.Value += rnd;
+            OnStateUpdate();
         }
     }
 }

@@ -21,7 +21,7 @@
             _logger.LogInformation("[Simulator] [Generating Missing Data]");
             _sensorManager.GenerateMissingData().GetAwaiter().GetResult();
 
-            var timer = new System.Timers.Timer(TimeSpan.FromMinutes(10).TotalMilliseconds) { AutoReset = false };
+            var timer = new System.Timers.Timer(TimeSpan.FromMinutes(5).TotalMilliseconds) { AutoReset = false };
             timer.Elapsed += (s, e) => StopService();
             timer.Enabled = true;
 
@@ -39,7 +39,7 @@
 
         private void StartTimer() 
         {
-            if (_timer == null) _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5));
+            if (_timer == null) _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60));
             else if (!_timerIsOn) _timer.Change(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60));
             _timerIsOn = true;
         }
