@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Contracts;
+using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 
 namespace SmartRoom.TransDataService.Logic
@@ -9,11 +10,14 @@ namespace SmartRoom.TransDataService.Logic
     {
         private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         private readonly IHubContext<SensorHub> _hub;
+        private readonly SecurityManager _securityManager;
 
-        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub)
+        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub, SecurityManager securityManager)
         {
+            
             _dbContextFactory = dbContextFactory;
             _hub = hub;
+            _securityManager = securityManager;
         }
 
         public async Task addState<E>(E[] states) where E : class, IState
@@ -25,7 +29,10 @@ namespace SmartRoom.TransDataService.Logic
                 context.SaveChanges();
             }
             await NewStates(states);
+            await _securityManager.CheckTemperaturesAndSendAlarm(states.Where(s => s.Name.Equals("Temperature")).Select(s=> s as MeasureState));
         }
+
+
         private async Task NewStates(IState[] states)
         {
             var distStates = states.DistinctBy(s => s.EntityRefID + s.Name);
