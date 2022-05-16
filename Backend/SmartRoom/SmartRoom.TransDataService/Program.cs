@@ -18,6 +18,7 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddTransient<ReadManager, ReadManager>();
 builder.Services.AddTransient<WriteManager, WriteManager>();
+builder.Services.AddTransient<SecurityManager, SecurityManager>();
 builder.Services.AddSignalR();
 
 builder.Services.AddControllers();

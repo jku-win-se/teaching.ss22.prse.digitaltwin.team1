@@ -16,8 +16,7 @@ namespace SmartRoom.TransDataService.Logic
             _hub = hub;
             _configuration = configuration;
         }
-
-       
+ 
         public async Task CheckTemperaturesAndSendAlarm(IEnumerable<MeasureState?> tempStates)
         {
             if (!tempStates.Any()) return;
@@ -25,10 +24,9 @@ namespace SmartRoom.TransDataService.Logic
             tempStates.Where(s => s?.Value >= 70).ToList()
                 .ForEach(async s =>
                 {
-                    await _hub.Clients.All.SendAsync("$Alarm", s);
-                    await OpenAllDoorsOfRoom(s);
+                    await _hub.Clients.All.SendAsync("Alarm", s);
+                    //await OpenAllDoorsOfRoom(s);
                 }
-
             ));
         }
 
@@ -36,7 +34,6 @@ namespace SmartRoom.TransDataService.Logic
         {
             var rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
             var doors = rooms.First(r => r.Id.Equals(s?.EntityRefID)).RoomEquipment.Where(rq => rq.Name.Equals("Door"));
-
         }
     }
 }
