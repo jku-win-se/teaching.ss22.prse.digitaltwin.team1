@@ -28,7 +28,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
             return Ok();
         }
 
-        [HttpGet("[action]/{id}&{stateType}")]
+        [HttpGet("[action]/{roomId}&{stateType}&{val}")]
         public IActionResult SetAllBianriesForRoomByStateType(Guid roomId, string stateType, bool val)
         {
             try

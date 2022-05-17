@@ -134,9 +134,10 @@ namespace SmartRoom.DataSimulatorService.Logic
         }
         public void SetAllBinariesByRoom(Guid id, string type, bool val)
         {
-            _rooms.First(r => r.Id.Equals(id))?.RoomEquipment.ForEach(r =>
+            _rooms.First(r => r.Id.Equals(id))?.RoomEquipment.Where(re => re.Name.Equals(type)).ToList().ForEach(re =>
             {
-                _sensors[r.Id].Select(s => s as BinarySensor).First(s => s!.State.Name.Equals(type))?.ChangeState(val);
+                var ses = _sensors[re.Id].Select(s => s as BinarySensor);
+                if(ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
             });
         }
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
