@@ -8,16 +8,15 @@ namespace SmartRoom.TransDataService.Logic
 {
     public class WriteManager
     {
+        private readonly StateActions _stateActions;
         private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         private readonly IHubContext<SensorHub> _hub;
-        private readonly SecurityManager _securityManager;
 
-        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub, SecurityManager securityManager)
+        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub, StateActions stateActions)
         {
-            
+            _stateActions = stateActions;
             _dbContextFactory = dbContextFactory;
             _hub = hub;
-            _securityManager = securityManager;
         }
 
         public async Task addState<E>(E[] states) where E : class, IState
@@ -29,9 +28,8 @@ namespace SmartRoom.TransDataService.Logic
                 context.SaveChanges();
             }
             await NewStates(states);
-            await _securityManager.CheckTemperaturesAndSendAlarm(states.Where(s => s.Name.Equals("Temperature")).Select(s=> s as MeasureState));
+            _stateActions.RunActions(states);
         }
-
 
         private async Task NewStates(IState[] states)
         {

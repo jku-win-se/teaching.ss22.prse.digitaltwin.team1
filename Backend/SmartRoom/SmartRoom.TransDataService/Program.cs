@@ -16,11 +16,22 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
+builder.Services.AddSingleton<StateActions>(x =>
+{
+    return new StateActionsBuilder(x.GetRequiredService<IServiceProvider>())
+    .SecurityActions()
+    .EnergySavingActions()
+    .AirQualityActions()
+    .Build();
+});
+
 builder.Services.AddTransient<ReadManager, ReadManager>();
 builder.Services.AddTransient<WriteManager, WriteManager>();
 builder.Services.AddTransient<SecurityManager, SecurityManager>();
-builder.Services.AddSignalR();
+builder.Services.AddTransient<EnergySavingManager, EnergySavingManager>();
+builder.Services.AddTransient<AirQualityManager, AirQualityManager>();
 
+builder.Services.AddSignalR();
 builder.Services.AddControllers();
 builder.Services.AddCors(opt => StartUpConfigManager.SetAllowAnyCorsOptions(opt));
 builder.Services.AddEndpointsApiExplorer();

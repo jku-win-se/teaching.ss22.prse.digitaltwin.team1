@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.TransDataService.Logic
@@ -16,12 +17,13 @@ namespace SmartRoom.TransDataService.Logic
             _hub = hub;
             _configuration = configuration;
         }
- 
-        public async Task CheckTemperaturesAndSendAlarm(IEnumerable<MeasureState?> tempStates)
+
+        public async void CheckTemperaturesAndSendAlarm(IEnumerable<IState?> states)
         {
-            if (!tempStates.Any()) return;
+            if (!states.Any()) return;
+
             await Task.Run(() =>
-            tempStates.Where(s => s?.Value >= 70).ToList()
+             states.Where(s => s!.Name.Equals("Temperature")).Select(s => s as MeasureState).Where(s => s?.Value >= 70).ToList()
                 .ForEach(async s =>
                 {
                     await _hub.Clients.All.SendAsync("Alarm", s);

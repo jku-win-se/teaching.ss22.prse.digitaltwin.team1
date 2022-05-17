@@ -27,5 +27,19 @@ namespace SmartRoom.DataSimulatorService.Controllers
             }
             return Ok();
         }
+
+        [HttpGet("[action]/{id}&{stateType}")]
+        public IActionResult SetAllBianriesForRoomByStateType(Guid roomId, string stateType, bool val)
+        {
+            try
+            {
+                _sensorManager.ChangeState(roomId, stateType, val);
+            }
+            catch (Exception)
+            {
+                return BadRequest(Messages.UNEXPECTED);
+            }
+            return Ok();
+        }
     }
 }
