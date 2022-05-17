@@ -33,7 +33,7 @@ namespace SmartRoom.DataSimulatorService.Controllers
         {
             try
             {
-                _sensorManager.ChangeState(roomId, stateType, val);
+                _sensorManager.SetAllBinariesByRoom(roomId, stateType, val);
             }
             catch (Exception)
             {
