@@ -7,7 +7,6 @@ namespace SmartRoom.TransDataService.Logic
     public class SecurityManager
     {
         private readonly IHubContext<SensorHub> _hub;
-
         private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
         private string _dataSimulatorURL => _configuration["Services:DataSimulatorService"];
         private string _apiKey => _configuration["ApiKey"];
@@ -35,9 +34,7 @@ namespace SmartRoom.TransDataService.Logic
 
         private async Task OpenAllDoorsOfRoom(MeasureState? s)
         {
-            var rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
-            var room = rooms.First(r => r.Id.Equals(s?.EntityRefID));
-            await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{room.Id}&Door&true", _apiKey);
+            await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{s?.EntityRefID}&Door&true", _apiKey);
         }
     }
 }
