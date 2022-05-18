@@ -103,7 +103,7 @@ namespace SmartRoom.TransDataService.Logic
                     $"HAVING bool_or(\"Value\") = true) AS a " +
                 $"RIGHT OUTER JOIN " +
                     $"(SELECT time_bucket('{intervall} minutes', \"TimeStamp\") AS five_min_2 " +
-                    $"FROM public.\"{type}s\" WHERE \"TimeStamp\" > now() - interval '{daySpan} week' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
+                    $"FROM public.\"{type}s\" WHERE \"TimeStamp\" > now() - interval '{daySpan} day' and \"Name\" like '{name}' and ({idStmdChain}) GROUP BY five_min_2) as q " +
                 $"ON q.five_min_2 = a.five_min " +
                 $"Group By q.five_min_2 " +
                 $"ORDER BY q.five_min_2";
