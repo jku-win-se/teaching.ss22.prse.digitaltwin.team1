@@ -9,6 +9,7 @@ namespace SmartRoom.TransDataService.Logic
         private readonly IHubContext<SensorHub> _hub;
 
         private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
+        private string _dataSimulatorURL => _configuration["Services:DataSimulatorService"];
         private string _apiKey => _configuration["ApiKey"];
         private readonly IConfiguration _configuration;
 
@@ -27,7 +28,7 @@ namespace SmartRoom.TransDataService.Logic
                 .ForEach(async s =>
                 {
                     await _hub.Clients.All.SendAsync("Alarm", s);
-                    //await OpenAllDoorsOfRoom(s);
+                    await OpenAllDoorsOfRoom(s);
                 }
             ));
         }
@@ -35,7 +36,8 @@ namespace SmartRoom.TransDataService.Logic
         private async Task OpenAllDoorsOfRoom(MeasureState? s)
         {
             var rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
-            var doors = rooms.First(r => r.Id.Equals(s?.EntityRefID)).RoomEquipment.Where(rq => rq.Name.Equals("Door"));
+            var room = rooms.First(r => r.Id.Equals(s?.EntityRefID));
+            await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{room.Id}&Door&true", _apiKey);
         }
     }
 }
