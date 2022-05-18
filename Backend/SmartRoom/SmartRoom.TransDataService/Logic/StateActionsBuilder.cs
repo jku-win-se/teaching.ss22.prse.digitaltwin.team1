@@ -25,11 +25,15 @@ namespace SmartRoom.TransDataService.Logic
         public StateActionsBuilder EnergySavingActions()
         {
             _energySavingManager = _serviceProvider.GetService<EnergySavingManager>()!;
+            _actions += _energySavingManager.TurnLightsOnPeopleInRoom;
+            _actions += _energySavingManager.TurnLightsOffNoPeopleInRoom;
+            _actions += _energySavingManager.TurnDevicesOffNoPeopleInRoom;
             return this;
         }
         public StateActionsBuilder AirQualityActions()
         {
             _airQualityManager = _serviceProvider.GetService<AirQualityManager>()!;
+            _actions += _airQualityManager.CheckCo2ImporveAitQuality;
             return this;
         }
 
