@@ -7,6 +7,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./details.style.css";
 import { useNavigate } from "react-router-dom";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
+import PeopleChart from "./components/people-chart/people-chart.component";
 
 export interface IDetailsProps {}
 
@@ -52,7 +53,7 @@ export function Details(props: IDetailsProps) {
             <TempAndCo2Chart room={room}></TempAndCo2Chart>
           </Grid>
           <Grid item className="chart-height" xs={10}>
-            <div></div>
+            <PeopleChart room={room}></PeopleChart>
           </Grid>
           <Grid item className="chart-height" xs={10}>
             <div></div>

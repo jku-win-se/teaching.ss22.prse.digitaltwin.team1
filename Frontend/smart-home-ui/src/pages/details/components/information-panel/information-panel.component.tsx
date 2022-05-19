@@ -38,7 +38,9 @@ export default function InformationPanel(props: IInformationPanelProps) {
           <InformationPanelItem
             isLoading={isLoading}
             value={
-              sService.returnValueForMeasure(Measure.People) +
+              sService
+                .returnValueForMeasure(Measure.PeopleInRoom)
+                .toLocaleString(undefined, { maximumFractionDigits: 0 }) +
               "/" +
               props.room?.size
             }

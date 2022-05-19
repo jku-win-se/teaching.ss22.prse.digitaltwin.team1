@@ -19,9 +19,10 @@ import { Measure } from "../../../../enums/measure.enum";
 import { IRoom } from "../../../../models/IRoom";
 import { Skeleton } from "@mui/material";
 
-export interface ITempAndCo2ChartProps {
+export interface IPeopleChartProps {
   room: IRoom | undefined;
 }
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -32,7 +33,7 @@ ChartJS.register(
   Legend,
   TimeSeriesScale
 );
-const sService = StateService.getInstance();
+
 export const options: ChartOptions = {
   responsive: true,
   interaction: {
@@ -62,28 +63,19 @@ export const options: ChartOptions = {
   },
 };
 
-export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
+const sService = StateService.getInstance();
+
+export default function PeopleChart(props: IPeopleChartProps) {
   const [chartData, setChartData] = React.useState({
     labels: [] as any[],
     datasets: [
       {
-        label: "Temperature",
-        cubicInterpolationMode: "monotone",
-        tension: 0.4,
+        label: "amount of people inside",
         data: [] as any[],
-        borderColor: "#5BA755",
+        borderColor: "#66B5D6",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
         yAxisID: "y",
-        pointRadius: 0,
-      },
-      {
-        label: "CO2 Value",
-        cubicInterpolationMode: "monotone",
-        tension: 0.4,
-        data: [] as any[],
-        borderColor: "#D95C4C",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-        yAxisID: "y1",
+        stepped: true,
         pointRadius: 0,
       },
     ],
@@ -92,33 +84,21 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
   const [loading, setLoading] = React.useState(true);
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timer>();
   async function fetchData(roomID: string) {
-    console.log("Update Temperature");
-    const Temperature = await sService.getMeasureChartData(
+    console.log("Update PeopleInRoom");
+    const PeopleInRoom = await sService.getMeasureChartData(
       roomID,
-      Measure.Temperature
+      Measure.PeopleInRoom
     );
-    const Co2 = await sService.getMeasureChartData(roomID, Measure.Co2);
     setChartData({
-      labels: Co2.map((val) => new Date(val.timeStamp)),
+      labels: PeopleInRoom.map((val) => new Date(val.timeStamp)),
       datasets: [
         {
-          label: "Temperature",
-          cubicInterpolationMode: "monotone",
-          tension: 0.4,
-          data: Temperature.map((val) => val.value),
-          borderColor: "#5BA755",
+          label: "amount of people inside",
+          data: PeopleInRoom.map((val) => val.value),
+          borderColor: "#66B5D6",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
           yAxisID: "y",
-          pointRadius: 0,
-        },
-        {
-          label: "CO2 Value",
-          cubicInterpolationMode: "monotone",
-          tension: 0.4,
-          data: Co2.map((val) => val.value),
-          borderColor: "#D95C4C",
-          backgroundColor: "rgba(53, 162, 235, 0.5)",
-          yAxisID: "y1",
+          stepped: true,
           pointRadius: 0,
         },
       ],
@@ -142,7 +122,6 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
       clearInterval(intervalId!);
     };
   }, []);
-
   if (loading) {
     return (
       <Skeleton
@@ -178,7 +157,7 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
               title: {
                 display: true,
                 align: "start",
-                text: "Temperature and CO2 Values",
+                text: "People",
                 font: {
                   size: 20,
                 },
@@ -212,24 +191,12 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
                   display: true,
                 },
                 title: {
-                  text: "CO2 [ppm]",
+                  text: "People",
                   display: true,
                 },
                 type: "linear",
                 display: true,
                 position: "left" as const,
-              },
-              y1: {
-                title: {
-                  text: "Temperature [°C]",
-                  display: true,
-                },
-                type: "linear",
-                display: true,
-                position: "right" as const,
-                grid: {
-                  drawOnChartArea: false,
-                },
               },
             },
           }}
