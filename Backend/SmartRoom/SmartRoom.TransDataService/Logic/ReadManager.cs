@@ -113,8 +113,8 @@ namespace SmartRoom.TransDataService.Logic
                 var res = context.RawSqlQuery(stmd,
                     d => new
                     {
-                        res1 = d[0],
-                        res2 = d[1]
+                        TimeStamp = d[0],
+                        Value = d[1]
                     });
 
                 return res;
