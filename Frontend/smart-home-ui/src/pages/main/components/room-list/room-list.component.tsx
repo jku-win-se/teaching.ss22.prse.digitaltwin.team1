@@ -1,4 +1,7 @@
+import React from "react";
+import { Measure } from "../../../../enums/measure.enum";
 import { IRoom } from "../../../../models/IRoom";
+import { StateService } from "../../../../services/State.service";
 import RoomListItem from "../room-list-item/room-list-item.component";
 import "./room-list.styles.css";
 
@@ -14,9 +17,9 @@ export default function RoomList(props: IRoomListProps) {
                     roomName={room.name}
                     roomIcon={room.roomType}
                     building={room.building}
-                    coValue={500}
-                    currentPeople={23}
-                    maxPeople={room.size}
+                    //coValue={500}
+                    //currentPeople={25}
+                    maxPeople={room.peopleCount}
                 />
             ))}
         </div>

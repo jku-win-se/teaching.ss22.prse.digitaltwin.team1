@@ -30,6 +30,13 @@
   position: fixed !important;
 }
 
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
 /* ausgeblendet bis 650 */
 @media only screen and (max-width: 900px) {
   div#addRoomButton {
