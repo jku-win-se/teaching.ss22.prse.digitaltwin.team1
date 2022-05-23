@@ -17,10 +17,29 @@ const rService = RoomService.getInstance();
 
 export default function InformationPanel(props: IInformationPanelProps) {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [currPeopleInRoom, setCurrPeopleInRoom] = React.useState("-");
+  const [currCO2Value, setCurrCO2Value] = React.useState("-");
+  const [currTemperature, setCurrTemperature] = React.useState("-");
 
   React.useEffect(() => {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
+      setCurrPeopleInRoom(
+        sService
+          .returnValueForMeasureAndRoomID(Measure.PeopleInRoom, props.room!.id)
+          .toLocaleString(undefined, { maximumFractionDigits: 0 })
+      );
+
+      setCurrCO2Value(
+        sService
+          .returnValueForMeasureAndRoomID(Measure.Co2, props.room!.id)
+          .toLocaleString(undefined, { maximumFractionDigits: 1 })
+      );
+      setCurrTemperature(
+        sService
+          .returnValueForMeasureAndRoomID(Measure.Temperature, props.room!.id)
+          .toLocaleString(undefined, { maximumFractionDigits: 0 })
+      );
       setIsLoading(false);
     }
     if (props.room !== undefined) {
@@ -37,22 +56,14 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={
-              sService
-                .returnValueForMeasure(Measure.PeopleInRoom)
-                .toLocaleString(undefined, { maximumFractionDigits: 0 }) +
-              "/" +
-              props.room?.size
-            }
+            value={currPeopleInRoom + "/" + props.room?.peopleCount}
             icon="GroupOutlined"
           ></InformationPanelItem>
         </Grid>
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={sService
-              .returnValueForMeasure(Measure.Temperature)
-              .toLocaleString(undefined, { maximumFractionDigits: 0 })}
+            value={currTemperature}
             unit="°C"
             icon="ThermostatOutlined"
           ></InformationPanelItem>
@@ -82,9 +93,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={sService
-              .returnValueForMeasure(Measure.Co2)
-              .toLocaleString(undefined, { maximumFractionDigits: 1 })}
+            value={currCO2Value}
             unit="ppm"
             icon="Co2Outlined"
           ></InformationPanelItem>

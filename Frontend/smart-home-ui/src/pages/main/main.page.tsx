@@ -2,25 +2,22 @@ import AddIcon from "@mui/icons-material/Add";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import { Box, Button, CircularProgress, Fab, Grid } from "@mui/material";
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import { Building } from "../../enums/building.enum";
 import { IRoom } from "../../models/IRoom";
 import { RoomService } from "../../services/Room.service";
-import { StateService } from "../../services/State.service";
 import AddEditDialog from "./components/add-edit-dialog/add-edit-dialog.component";
 import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
 import "./main.style.css";
 
-export interface IMainProps { }
+export interface IMainProps {}
 
+const rService = RoomService.getInstance();
 
 export function Main(props: IMainProps) {
-  const [rooms, setRooms] = React.useState<IRoom[]>([])
+  const [rooms, setRooms] = React.useState<IRoom[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-
-  const rService = RoomService.getInstance();
 
   React.useEffect(() => {
     async function fetchData() {
@@ -28,7 +25,7 @@ export function Main(props: IMainProps) {
       setRooms(r);
       setIsLoading(false);
     }
-    fetchData()
+    fetchData();
   }, []);
 
   const changeFilterValue = (newValue: string) => {
@@ -54,16 +51,8 @@ export function Main(props: IMainProps) {
         height: "100vh",
       }}
     >
-      <Grid
-        container
-        spacing={2}
-      >
-        <Grid
-          className="grid-bg"
-          item
-          xs={10}
-          sx={{ margin: "auto" }}
-        >
+      <Grid container spacing={2}>
+        <Grid className="grid-bg" item xs={10} sx={{ margin: "auto" }}>
           <h1 className="header-font-size">Smartrooms</h1>
         </Grid>
 
@@ -76,11 +65,7 @@ export function Main(props: IMainProps) {
           justifyContent="flex-start"
           alignContent={"center"}
         >
-          <Grid
-            item
-            xs={10}
-            sx={{ margin: "auto 0" }}
-          >
+          <Grid item xs={10} sx={{ margin: "auto 0" }}>
             <FilterBar changeFilterValue={changeFilterValue} />
           </Grid>
 
@@ -104,7 +89,7 @@ export function Main(props: IMainProps) {
           </Grid>
         </Grid>
 
-        {isLoading ?
+        {isLoading ? (
           <Grid
             className="progress-bar"
             item
@@ -114,7 +99,7 @@ export function Main(props: IMainProps) {
           >
             <CircularProgress />
           </Grid>
-          :
+        ) : (
           <Grid
             className="roomlist-height"
             item
@@ -123,8 +108,7 @@ export function Main(props: IMainProps) {
           >
             <RoomList rooms={rooms} />
           </Grid>
-        }
-
+        )}
       </Grid>
 
       <Fab
@@ -141,6 +125,6 @@ export function Main(props: IMainProps) {
         handleClose={handleClose}
         open={open}
       ></AddEditDialog>
-    </Box >
+    </Box>
   );
 }

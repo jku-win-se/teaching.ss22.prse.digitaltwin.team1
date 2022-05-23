@@ -36,6 +36,7 @@ export class StateService {
     return (await response.json()) as string[];
   }
   async getInitialMeasureById(roomID: string) {
+    this.states = [];
     const stateNames = await this.getMeasureTypesById(roomID);
     await Promise.all(
       stateNames.map(async (stateName) => {
@@ -53,7 +54,6 @@ export class StateService {
         this.states.push(await response.json());
       })
     );
-    console.log(this.states);
   }
   async getMeasureChartData(roomID: string, name: string) {
     const response = await fetch(
@@ -67,14 +67,16 @@ export class StateService {
     return (await response.json()) as IChartData[];
   }
 
-  returnValueForMeasure(measure: Measure) {
+  returnValueForMeasureAndRoomID(measure: Measure, roomID: string) {
     console.log(
-      this.states.filter((s) => s.name === measure)[0]
-        ? this.states.filter((s) => s.name === measure)[0].value
-        : "-"
+      this.states.filter((s) => s.name === measure && s.entityRefID === roomID)
     );
-    return this.states.filter((s) => s.name === measure)[0]
-      ? this.states.filter((s) => s.name === measure)[0].value
+    return this.states.filter(
+      (s) => s.name === measure && s.entityRefID === roomID
+    )[0]
+      ? this.states.filter(
+          (s) => s.name === measure && s.entityRefID === roomID
+        )[0].value
       : "-";
   }
 }

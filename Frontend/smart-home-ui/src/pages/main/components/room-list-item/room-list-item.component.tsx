@@ -50,10 +50,14 @@ function roomType(type: string) {
   }
   return RoomTypeIcon.MeetingRoom;
 }
+const sService = StateService.getInstance();
 
 export default function RoomListItem(props: IRoomListItemProps) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+
+  const [currPeopleInRoom, setCurrPeopleInRoom] = React.useState("-");
+  const [currCO2Value, setCurrCO2Value] = React.useState("-");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,15 +67,29 @@ export default function RoomListItem(props: IRoomListItemProps) {
     setOpen(false);
   };
 
-  const sService = StateService.getInstance();
   React.useEffect(() => {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
+
+      setCurrCO2Value(
+        sService
+          .returnValueForMeasureAndRoomID(Measure.Co2, props.roomId)
+          .toLocaleString(undefined, { maximumFractionDigits: 1 })
+      );
+      setCurrPeopleInRoom(
+        sService
+          .returnValueForMeasureAndRoomID(Measure.PeopleInRoom, props.roomId)
+          .toLocaleString(undefined, { maximumFractionDigits: 0 })
+      );
     }
     if (props.roomId !== undefined) {
       fetchData(props.roomId);
     }
   }, [props.roomId]);
+
+  const renderCo2 = () => {
+    return currCO2Value;
+  };
 
   return (
     <div className="list">
@@ -120,10 +138,14 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <div
               id="co2"
               className="co2-indicator"
-              style={{ backgroundColor: co2Color(Math.round(Number(sService.returnValueForMeasure(Measure.Co2)))) }}
+              style={{
+                backgroundColor: co2Color(
+                  isNaN(Number(currCO2Value)) ? 0 : Number(currCO2Value)
+                ),
+              }}
             >
               <div id="co2-text" className="co2-value">
-                {Math.round(Number(sService.returnValueForMeasure(Measure.Co2)))} <br /> ppm
+                {renderCo2()} <br /> ppm
               </div>
             </div>
             <div className="indicator-text">co2 value</div>
@@ -143,9 +165,13 @@ export default function RoomListItem(props: IRoomListItemProps) {
               container
               alignContent={"center"}
               justifyContent={"center"}
-              style={{ backgroundColor: co2Color(Math.round(Number(sService.returnValueForMeasure(Measure.Co2)))) }}
+              style={{
+                backgroundColor: co2Color(
+                  isNaN(Number(currCO2Value)) ? 0 : Number(currCO2Value)
+                ),
+              }}
             >
-              {Math.round(Number(sService.returnValueForMeasure(Measure.Co2)))} ppm
+              {renderCo2()} ppm
             </Grid>
           </Grid>
 
@@ -162,12 +188,20 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <div className="people-indicator">
               <CircularProgressbar
                 strokeWidth={10}
-                value={Number(sService.returnValueForMeasure(Measure.PeopleInRoom))}
+                value={
+                  isNaN(Number(currPeopleInRoom)) ? 0 : Number(currPeopleInRoom)
+                }
                 minValue={0}
                 maxValue={props.maxPeople}
                 text={
-                  (Math.round(Number(sService.returnValueForMeasure(Measure.PeopleInRoom))) == props.maxPeople) ? "100%" :
-                    Math.round((Number(sService.returnValueForMeasure(Measure.PeopleInRoom)) / props.maxPeople) * 100) + "%"
+                  (
+                    ((isNaN(Number(currPeopleInRoom))
+                      ? 0
+                      : Number(currPeopleInRoom)) /
+                      props.maxPeople) *
+                    100
+                  ).toLocaleString(undefined, { maximumFractionDigits: 0 }) +
+                  "%"
                 }
                 styles={buildStyles({
                   textColor: "black",
@@ -176,13 +210,13 @@ export default function RoomListItem(props: IRoomListItemProps) {
               />
             </div>
             <div className="indicator-text">
-              {Math.round(Number(sService.returnValueForMeasure(Measure.PeopleInRoom)))}/{props.maxPeople} People
+              {currPeopleInRoom}/{props.maxPeople} People
             </div>
           </Grid>
         </Grid>
 
         <div id="peopleMobile" className="people-indicator-mobile">
-          {Math.round(Number(sService.returnValueForMeasure(Measure.PeopleInRoom)))}/{props.maxPeople} People
+          {currPeopleInRoom}/{props.maxPeople} People
         </div>
 
         <Grid

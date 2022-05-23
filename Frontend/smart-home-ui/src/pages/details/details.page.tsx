@@ -5,7 +5,7 @@ import { RoomService } from "../../services/Room.service";
 import InformationPanel from "./components/information-panel/information-panel.component";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./details.style.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import PeopleChart from "./components/people-chart/people-chart.component";
 
@@ -14,10 +14,11 @@ export interface IDetailsProps {}
 export function Details(props: IDetailsProps) {
   const [room, setRoom] = React.useState<IRoom>();
   const navigate = useNavigate();
+  const { roomid } = useParams();
   React.useEffect(() => {
     async function fetchData() {
       const rService = RoomService.getInstance();
-      setRoom(await rService.getById("19f4ac27-db85-460f-ad6d-f3c5bcb26444"));
+      setRoom(await rService.getById(roomid!));
     }
     fetchData();
   }, []);
