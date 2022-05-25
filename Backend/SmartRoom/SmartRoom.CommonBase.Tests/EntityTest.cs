@@ -25,16 +25,16 @@ namespace SmartRoom.CommonBase.Tests
         [InlineData("Id")]
         public void MeasureState_PropertyNames_Exist(string name)
         {
-            Assert.NotNull(typeof(BinaryState).GetProperties().First(p => p.Name.Equals(name)));
+            Assert.NotNull(typeof(MeasureState).GetProperties().First(p => p.Name.Equals(name)));
         }
-        //ToDo Check Propnames for all classes
+        //ToDo Check Propnames for all classes (Room, RoomEquipment)
 
         [Fact]
         public void MeasureState_EmtyCtor_ValidObject()
         {
             Assert.NotNull(new BinaryState());
         }
-        //ToDo Check all emty ctors
+        //ToDo Check all emty ctors (measurestates, Room, RoomEquipment, State<object>)
 
 
     }
