@@ -17,7 +17,7 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
-builder.Services.AddSingleton(new ServiceRoutesManager(configBuilder));
+builder.Services.AddSingleton<ServiceRoutesManager, ServiceRoutesManager>();
 
 builder.Services.AddSingleton<StateActions>(x =>
 {
