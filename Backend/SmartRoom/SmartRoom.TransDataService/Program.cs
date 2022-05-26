@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using SmartRoom.CommonBase.Transfer;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.TransDataService.Logic;
 using SmartRoom.TransDataService.Persistence;
@@ -16,6 +17,8 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
+builder.Services.AddSingleton(new ServiceRoutesManager(configBuilder));
+
 builder.Services.AddSingleton<StateActions>(x =>
 {
     return new StateActionsBuilder(x.GetRequiredService<IServiceProvider>())
@@ -26,6 +29,7 @@ builder.Services.AddSingleton<StateActions>(x =>
 });
 
 builder.Services.AddTransient<ReadManager, ReadManager>();
+builder.Services.AddTransient<DataSimulatorContext, DataSimulatorContext>();
 builder.Services.AddTransient<WriteManager, WriteManager>();
 builder.Services.AddTransient<SecurityManager, SecurityManager>();
 builder.Services.AddTransient<EnergySavingManager, EnergySavingManager>();

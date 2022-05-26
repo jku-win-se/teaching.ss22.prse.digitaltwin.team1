@@ -1,21 +1,19 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Transfer;
 
 namespace SmartRoom.TransDataService.Logic
 {
     public class SecurityManager
     {
         private readonly IHubContext<SensorHub> _hub;
-        private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
-        private string _dataSimulatorURL => _configuration["Services:DataSimulatorService"];
-        private string _apiKey => _configuration["ApiKey"];
-        private readonly IConfiguration _configuration;
+        private readonly DataSimulatorContext _dataSimulatorContext;
 
-        public SecurityManager(IHubContext<SensorHub> hub, IConfiguration configuration)
+        public SecurityManager(IHubContext<SensorHub> hub, DataSimulatorContext dataSimulatorContext)
         {
             _hub = hub;
-            _configuration = configuration;
+            _dataSimulatorContext = dataSimulatorContext;
         }
 
         public async void CheckTemperaturesAndSendAlarm(IEnumerable<IState?> states)
@@ -27,14 +25,14 @@ namespace SmartRoom.TransDataService.Logic
                 .ForEach(async s =>
                 {
                     await _hub.Clients.All.SendAsync("Alarm", s);
-                    await OpenAllDoorsOfRoom(s);
+                    await OpenAllDoorsOfRoom(s!);
                 }
             ));
         }
 
-        private async Task OpenAllDoorsOfRoom(MeasureState? s)
+        private async Task OpenAllDoorsOfRoom(MeasureState s)
         {
-            await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{s?.EntityRefID}&Door&true", _apiKey);
+            await _dataSimulatorContext.SetAllBinariesForRoomByEqipmentType(s.EntityRefID, "Door", true);
         }
     }
 }
