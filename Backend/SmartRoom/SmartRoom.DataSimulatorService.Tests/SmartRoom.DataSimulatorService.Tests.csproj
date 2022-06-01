@@ -24,4 +24,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartRoom.DataSimulatorService\SmartRoom.DataSimulatorService.csproj" />
+  </ItemGroup>
+
 </Project>
