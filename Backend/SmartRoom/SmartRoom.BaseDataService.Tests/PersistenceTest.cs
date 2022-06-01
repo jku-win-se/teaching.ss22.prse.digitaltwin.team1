@@ -38,7 +38,6 @@ namespace SmartRoom.BaseDataService.Tests
             Assert.Equal(1, roomRepo?.Get().GetAwaiter().GetResult().First().RoomEquipment.Count);
         }
 
-
         private SmartRoomUOW GetInMemoryUOW()
         {
             DbContextOptions<SmartRoomDBContext> options;
