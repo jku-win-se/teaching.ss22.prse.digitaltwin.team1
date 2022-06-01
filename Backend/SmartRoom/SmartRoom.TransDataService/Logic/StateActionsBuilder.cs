@@ -33,7 +33,7 @@ namespace SmartRoom.TransDataService.Logic
         public StateActionsBuilder AirQualityActions()
         {
             _airQualityManager = _serviceProvider.GetService<AirQualityManager>()!;
-            _actions += _airQualityManager.CheckCo2ImporveAitQuality;
+            _actions += _airQualityManager.CheckCo2ImporveAirQuality;
             return this;
         }
 

@@ -13,7 +13,7 @@ namespace SmartRoom.TransDataService.Logic
         }
 
         //Air Quality: Open window + activate fan if co2 values are > 1000 parts per million (ppm).
-        public async void CheckCo2ImporveAitQuality(IEnumerable<IState> states) 
+        public async void CheckCo2ImporveAirQuality(IEnumerable<IState> states) 
         {
             if (!states.Any()) return;
 
