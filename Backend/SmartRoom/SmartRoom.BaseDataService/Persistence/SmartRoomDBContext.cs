@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartRoom.BaseDataService.Persistence.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.BaseDataService.Persistence

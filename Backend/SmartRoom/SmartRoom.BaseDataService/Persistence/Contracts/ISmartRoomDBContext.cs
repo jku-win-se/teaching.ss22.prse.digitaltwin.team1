@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Entities;
 
-namespace SmartRoom.BaseDataService.Persistence
+namespace SmartRoom.BaseDataService.Persistence.Contracts
 {
     public interface ISmartRoomDBContext
     {

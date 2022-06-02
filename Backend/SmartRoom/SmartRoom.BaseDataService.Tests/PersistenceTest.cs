@@ -44,7 +44,7 @@ namespace SmartRoom.BaseDataService.Tests
             var builder = new DbContextOptionsBuilder<SmartRoomDBContext>();
             builder.UseInMemoryDatabase("TestDB");
             options = builder.Options;
-            SmartRoomDBContext context = new (options);
+            SmartRoomDBContext context = new SmartRoomDBContext(options);
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
