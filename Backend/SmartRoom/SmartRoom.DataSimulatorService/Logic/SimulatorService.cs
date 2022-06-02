@@ -1,6 +1,8 @@
-﻿namespace SmartRoom.DataSimulatorService.Logic
+﻿using SmartRoom.DataSimulatorService.Logic.Contracts;
+
+namespace SmartRoom.DataSimulatorService.Logic
 {
-    public class SimulatorService : BackgroundService
+    public class SimulatorService : BackgroundService, ISimulatorService
     {
         private Timer _timer = null!;
         private readonly ILogger _logger;
@@ -37,7 +39,7 @@
             _host.StopApplication();
         }
 
-        private void StartTimer() 
+        private void StartTimer()
         {
             if (_timer == null) _timer = new Timer(RunSimulation, null, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60));
             else if (!_timerIsOn) _timer.Change(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60));

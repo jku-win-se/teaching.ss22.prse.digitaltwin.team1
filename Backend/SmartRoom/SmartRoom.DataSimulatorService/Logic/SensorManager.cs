@@ -1,11 +1,12 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Transfer.Contracts;
-using SmartRoom.DataSimulatorService.Contracts;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 using SmartRoom.DataSimulatorService.Models;
+using SmartRoom.DataSimulatorService.Models.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Logic
 {
-    public class SensorManager
+    public class SensorManager : ISensorManager
     {
         private readonly Dictionary<string, string[]> _binaryTypes = new Dictionary<string, string[]>
         {
@@ -138,7 +139,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             _rooms.First(r => r.Id.Equals(id))?.RoomEquipment.Where(re => re.Name.Equals(type)).ToList().ForEach(re =>
             {
                 var ses = _sensors[re.Id].Select(s => s as BinarySensor);
-                if(ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
+                if (ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
             });
         }
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
@@ -170,7 +171,7 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             if (!_loadingBaseData && sender is MeasureSensor)
             {
-                _transDataServiceContext.AddMeasureStates(new State<double>[] {((MeasureSensor)sender).State}).GetAwaiter().GetResult();
+                _transDataServiceContext.AddMeasureStates(new State<double>[] { ((MeasureSensor)sender).State }).GetAwaiter().GetResult();
             }
             _logger.LogInformation(sender.ToString());
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Exceptions;
-using SmartRoom.DataSimulatorService.Logic;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Controllers
 {
@@ -8,10 +8,10 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class CommandController : ControllerBase
     {
-        private readonly SensorManager _sensorManager;
+        private readonly ISensorManager _sensorManager;
         private readonly IHostApplicationLifetime _host;
 
-        public CommandController(SensorManager sensorManager, IHostApplicationLifetime host)
+        public CommandController(ISensorManager sensorManager, IHostApplicationLifetime host)
         {
             _sensorManager = sensorManager;
             _host = host;

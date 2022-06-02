@@ -1,9 +1,9 @@
-﻿using Serilog.Core;
-using Serilog.Events;
+﻿using Serilog.Events;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Logic
 {
-    public class DataSink : ILogEventSink
+    public class DataSink : IDataSink
     {
         public List<LogEvent> Events { get; set; } = new List<LogEvent>();
         public void Emit(LogEvent logEvent)

@@ -1,4 +1,4 @@
-﻿namespace SmartRoom.DataSimulatorService.Contracts
+﻿namespace SmartRoom.DataSimulatorService.Models.Contracts
 {
     public interface ISensor
     {

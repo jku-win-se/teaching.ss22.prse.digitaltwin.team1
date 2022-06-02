@@ -1,5 +1,5 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.DataSimulatorService.Contracts;
+using SmartRoom.DataSimulatorService.Models.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Models
 {

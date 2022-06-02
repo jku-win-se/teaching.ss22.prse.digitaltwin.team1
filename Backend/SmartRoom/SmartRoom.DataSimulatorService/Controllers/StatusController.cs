@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Exceptions;
-using SmartRoom.DataSimulatorService.Logic;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Controllers
 {
@@ -8,9 +8,9 @@ namespace SmartRoom.DataSimulatorService.Controllers
     [ApiController]
     public class StatusController : ControllerBase
     {
-        private readonly DataSink _sink;
+        private readonly IDataSink _sink;
 
-        public StatusController(DataSink sink)
+        public StatusController(IDataSink sink)
         {
             _sink = sink;
         }
