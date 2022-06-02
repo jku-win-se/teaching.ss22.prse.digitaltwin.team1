@@ -1,9 +1,10 @@
 ﻿using Microsoft.Win32.SafeHandles;
+using SmartRoom.CommonBase.Utils.Contracts;
 using System.Runtime.InteropServices;
 
 namespace SmartRoom.CommonBase.Utils
 {
-    public class GenericCSVWriter<T> : IDisposable
+    public class GenericCSVWriter<T> : IGenericCSVWriter
     {
         private IEnumerable<T> _data;
         private readonly SafeHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
@@ -11,16 +12,16 @@ namespace SmartRoom.CommonBase.Utils
         public string? FileName
         {
             get { return _fileName; }
-            private set 
+            private set
             {
-                if (string.IsNullOrEmpty(value)) _fileName =$"{_data.First()?.GetType().Name}_{DateTime.Now.ToShortDateString()}.csv";
+                if (string.IsNullOrEmpty(value)) _fileName = $"{_data.First()?.GetType().Name}_{DateTime.Now.ToShortDateString()}.csv";
                 else _fileName = value;
             }
-        } 
+        }
 
         public GenericCSVWriter(IEnumerable<T> data, string fileName)
         {
-            if(data is not null) _data = data;
+            if (data is not null) _data = data;
             else throw new ArgumentNullException(nameof(data));
 
             FileName = fileName;
@@ -37,7 +38,7 @@ namespace SmartRoom.CommonBase.Utils
         {
             List<string> lines = new List<string>();
             string headLine = "";
-            
+
 
             var header = _data.First()!.GetType().GetProperties().ToArray();
 

@@ -1,11 +1,12 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Transfer.Contracts;
 
 namespace SmartRoom.CommonBase.Transfer
 {
-    public class BaseDataServiceContext
+    public class BaseDataServiceContext : IBaseDataServiceContext
     {
-        private readonly ServiceRoutesManager _serviceRoutes;
-        public BaseDataServiceContext(ServiceRoutesManager serviceRoutes)
+        private readonly IServiceRoutesManager _serviceRoutes;
+        public BaseDataServiceContext(IServiceRoutesManager serviceRoutes)
         {
             _serviceRoutes = serviceRoutes;
         }

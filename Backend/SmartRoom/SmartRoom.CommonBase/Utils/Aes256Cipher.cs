@@ -1,9 +1,10 @@
-﻿using System.Security.Cryptography;
+﻿using SmartRoom.CommonBase.Utils.Contracts;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace SmartRoom.CommonBase.Utils
 {
-    public class Aes256Cipher
+    public class Aes256Cipher : IAes256Cipher
     {
         private readonly byte[] _key;
 

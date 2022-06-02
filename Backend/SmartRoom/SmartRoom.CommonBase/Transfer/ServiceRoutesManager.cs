@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
+using SmartRoom.CommonBase.Transfer.Contracts;
 
 namespace SmartRoom.CommonBase.Transfer
 {
-    public class ServiceRoutesManager
+    public class ServiceRoutesManager : IServiceRoutesManager
     {
         private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
         private string _transDataServiceURL => _configuration["Services:TransDataService"];

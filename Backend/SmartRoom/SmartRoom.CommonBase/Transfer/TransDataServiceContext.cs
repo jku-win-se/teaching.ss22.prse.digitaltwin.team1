@@ -1,16 +1,17 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Transfer.Contracts;
 
 namespace SmartRoom.CommonBase.Transfer
 {
-    public class TransDataServiceContext
+    public class TransDataServiceContext : ITransDataServiceContext
     {
-        private readonly ServiceRoutesManager _serviceRoutes;
-        public TransDataServiceContext(ServiceRoutesManager serviceRoutes)
+        private readonly IServiceRoutesManager _serviceRoutes;
+        public TransDataServiceContext(IServiceRoutesManager serviceRoutes)
         {
             _serviceRoutes = serviceRoutes;
         }
 
-        public async Task<MeasureState> GetRecentMeasureStateBy(Guid entityId, string measureType) 
+        public async Task<MeasureState> GetRecentMeasureStateBy(Guid entityId, string measureType)
         {
             return await Utils.WebApiTrans.GetAPI<MeasureState>($"{_serviceRoutes.TransDataService}ReadMeasure/GetRecentBy/{entityId}&{measureType}",
                 _serviceRoutes.ApiKey);

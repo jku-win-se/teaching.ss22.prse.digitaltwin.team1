@@ -1,5 +1,5 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.DataSimulatorService.Contracts;
 using SmartRoom.DataSimulatorService.Models;
 
@@ -18,15 +18,15 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         private readonly Dictionary<Guid, ISensor[]> _sensors;
         private readonly ILogger<SensorManager> _logger;
-        private readonly TransDataServiceContext _transDataServiceContext;
-        private readonly BaseDataServiceContext _baseDataServiceContext;
+        private readonly ITransDataServiceContext _transDataServiceContext;
+        private readonly IBaseDataServiceContext _baseDataServiceContext;
 
         private bool _loadingBaseData;
 
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
 
-        public SensorManager(ILogger<SensorManager> logger, TransDataServiceContext transDataServiceContext, BaseDataServiceContext baseDataServiceContext)
+        public SensorManager(ILogger<SensorManager> logger, ITransDataServiceContext transDataServiceContext, IBaseDataServiceContext baseDataServiceContext)
         {
             _rooms = new List<Room>();
             _roomEquipment = new List<RoomEquipment>();

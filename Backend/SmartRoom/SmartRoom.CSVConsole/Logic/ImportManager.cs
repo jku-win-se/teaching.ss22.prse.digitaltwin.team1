@@ -1,4 +1,5 @@
 ﻿using SmartRoom.CommonBase.Utils;
+using SmartRoom.CommonBase.Utils.Contracts;
 using SmartRoom.CSVConsole.Models;
 
 namespace SmartRoom.CSVConsole.Logic
@@ -78,27 +79,27 @@ namespace SmartRoom.CSVConsole.Logic
 
         private void ImportData()
         {
-            using (GenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{_path}\Door.csv"))
+            using (IGenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{_path}\Door.csv"))
             {
                 _doors = reader.Read();
             }
 
-            using (GenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{_path}\Door_Connects_Room.csv"))
+            using (IGenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{_path}\Door_Connects_Room.csv"))
             {
                 _doorConnectsRoom = reader.Read();
             }
 
-            using (GenericCSVReader<Room> reader = new GenericCSVReader<Room>(@$"{_path}\Room.csv"))
+            using (IGenericCSVReader<Room> reader = new GenericCSVReader<Room>(@$"{_path}\Room.csv"))
             {
                 _roomCap = reader.Read();
             }
 
-            using (GenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@$"{_path}\Ventilator.csv"))
+            using (IGenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@$"{_path}\Ventilator.csv"))
             {
                 _ventilator = reader.Read();
             }
 
-            using (GenericCSVReader<Window> reader = new GenericCSVReader<Window>(@$"{_path}\Window.csv"))
+            using (IGenericCSVReader<Window> reader = new GenericCSVReader<Window>(@$"{_path}\Window.csv"))
             {
                 _window = reader.Read();
             }

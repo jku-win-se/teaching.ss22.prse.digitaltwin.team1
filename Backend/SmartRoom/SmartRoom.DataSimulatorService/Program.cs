@@ -1,5 +1,6 @@
 using Serilog;
 using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.DataSimulatorService.Logic;
 
@@ -13,12 +14,12 @@ Log.Logger = new LoggerConfiguration()
 builder.Services.AddSingleton<IConfiguration>(StartUpConfigManager.GetConfigBuilder());
 builder.Services.AddSingleton<DataSink>(sink);
 builder.Services.AddSingleton<SensorManager, SensorManager>();
-builder.Services.AddSingleton<ServiceRoutesManager, ServiceRoutesManager>();
+builder.Services.AddSingleton<IServiceRoutesManager, ServiceRoutesManager>();
 
 builder.Services.AddHostedService<SimulatorService>();
 
-builder.Services.AddTransient<TransDataServiceContext, TransDataServiceContext>();
-builder.Services.AddTransient<BaseDataServiceContext, BaseDataServiceContext>();
+builder.Services.AddTransient<ITransDataServiceContext, TransDataServiceContext>();
+builder.Services.AddTransient<IBaseDataServiceContext, BaseDataServiceContext>();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger);

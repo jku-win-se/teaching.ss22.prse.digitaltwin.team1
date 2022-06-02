@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
@@ -9,9 +9,9 @@ namespace SmartRoom.TransDataService.Logic
     public class SecurityManager : ISecurityManager
     {
         private readonly IHubContext<SensorHub> _hub;
-        private readonly DataSimulatorContext _dataSimulatorContext;
+        private readonly IDataSimulatorContext _dataSimulatorContext;
 
-        public SecurityManager(IHubContext<SensorHub> hub, DataSimulatorContext dataSimulatorContext)
+        public SecurityManager(IHubContext<SensorHub> hub, IDataSimulatorContext dataSimulatorContext)
         {
             _hub = hub;
             _dataSimulatorContext = dataSimulatorContext;

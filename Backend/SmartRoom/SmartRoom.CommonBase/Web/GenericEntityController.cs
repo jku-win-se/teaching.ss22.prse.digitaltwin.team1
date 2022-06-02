@@ -2,10 +2,11 @@
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Exceptions;
 using SmartRoom.CommonBase.Logic.Contracts;
+using SmartRoom.CommonBase.Web.Contracts;
 
 namespace SmartRoom.CommonBase.Web
 {
-    public class GenericEntityController<E> : ControllerBase where E : EntityObject
+    public class GenericEntityController<E> : ControllerBase, IGenericEntityController<E> where E : EntityObject
     {
         protected readonly IGenericEntityManager<E> _entityManager;
         public GenericEntityController(IGenericEntityManager<E> entityManager)

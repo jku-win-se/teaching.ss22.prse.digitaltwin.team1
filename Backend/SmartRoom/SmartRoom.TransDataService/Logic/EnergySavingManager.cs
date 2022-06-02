@@ -1,6 +1,6 @@
 ﻿using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
@@ -8,8 +8,8 @@ namespace SmartRoom.TransDataService.Logic
     public class EnergySavingManager : IEnergySavingManager
     {
         private readonly IReadManager _readManager;
-        private readonly DataSimulatorContext _dataSimulatorContext;
-        public EnergySavingManager(IReadManager readManager, DataSimulatorContext dataSimulatorContext)
+        private readonly IDataSimulatorContext _dataSimulatorContext;
+        public EnergySavingManager(IReadManager readManager, IDataSimulatorContext dataSimulatorContext)
         {
             _readManager = readManager;
             _dataSimulatorContext = dataSimulatorContext;

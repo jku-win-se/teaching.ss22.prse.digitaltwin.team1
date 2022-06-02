@@ -1,14 +1,14 @@
 ﻿using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
 {
     public class AirQualityManager : IAirQualityManager
     {
-        private readonly DataSimulatorContext _dataSimulatorContext;
-        public AirQualityManager(DataSimulatorContext dataSimulatorContext)
+        private readonly IDataSimulatorContext _dataSimulatorContext;
+        public AirQualityManager(IDataSimulatorContext dataSimulatorContext)
         {
             _dataSimulatorContext = dataSimulatorContext;
         }

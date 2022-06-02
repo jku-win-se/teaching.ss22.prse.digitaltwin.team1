@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.TransDataService.Logic;
 using SmartRoom.TransDataService.Logic.Contracts;
@@ -18,7 +19,7 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 });
 
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
-builder.Services.AddSingleton<ServiceRoutesManager, ServiceRoutesManager>();
+builder.Services.AddSingleton<IServiceRoutesManager, ServiceRoutesManager>();
 
 builder.Services.AddSingleton<IStateActions>(x =>
 {
@@ -30,7 +31,7 @@ builder.Services.AddSingleton<IStateActions>(x =>
 });
 
 builder.Services.AddTransient<IReadManager, ReadManager>();
-builder.Services.AddTransient<DataSimulatorContext, DataSimulatorContext>();
+builder.Services.AddTransient<IDataSimulatorContext, DataSimulatorContext>();
 builder.Services.AddTransient<IWriteManager, WriteManager>();
 builder.Services.AddTransient<ISecurityManager, SecurityManager>();
 builder.Services.AddTransient<IEnergySavingManager, EnergySavingManager>();
@@ -43,7 +44,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => StartUpConfigManager.SetSwaggerOptions(options));
 
 WebApplication app = builder.Build();
-StartUpConfigManager startUpManager = new(app);
+IStartUpConfigManager startUpManager = new StartUpConfigManager(app);
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

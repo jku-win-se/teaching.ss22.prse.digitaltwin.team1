@@ -9,7 +9,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SmartRoom.CommonBase.Web
 {
-    public class StartUpConfigManager
+    public class StartUpConfigManager : IStartUpConfigManager
     {
         private readonly WebApplication _app;
         private const string _policyName = "CorsPolicy";
