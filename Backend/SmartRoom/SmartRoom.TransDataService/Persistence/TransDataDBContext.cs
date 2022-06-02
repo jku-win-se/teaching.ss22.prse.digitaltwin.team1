@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.TransDataService.Persistence.Contracts;
 using System.Data;
 using System.Data.Common;
 
 namespace SmartRoom.TransDataService.Persistence
 {
-    public class TransDataDBContext : DbContext
+    public class TransDataDBContext : DbContext, ITransDataDBContext
     {
         public DbSet<MeasureState> MeasureStates => Set<MeasureState>();
         public DbSet<BinaryState> BinaryStates => Set<BinaryState>();

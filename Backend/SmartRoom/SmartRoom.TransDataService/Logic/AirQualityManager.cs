@@ -1,10 +1,11 @@
 ﻿using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Transfer;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class AirQualityManager
+    public class AirQualityManager : IAirQualityManager
     {
         private readonly DataSimulatorContext _dataSimulatorContext;
         public AirQualityManager(DataSimulatorContext dataSimulatorContext)
@@ -13,7 +14,7 @@ namespace SmartRoom.TransDataService.Logic
         }
 
         //Air Quality: Open window + activate fan if co2 values are > 1000 parts per million (ppm).
-        public async void CheckCo2ImporveAirQuality(IEnumerable<IState> states) 
+        public async void CheckCo2ImporveAirQuality(IEnumerable<IState> states)
         {
             if (!states.Any()) return;
 
@@ -22,12 +23,12 @@ namespace SmartRoom.TransDataService.Logic
                 .ForEach(async s =>
                 {
                     await OpenWindowsByState(s!);
-                    await RunFansByState(s!);    
+                    await RunFansByState(s!);
                 }
             ));
         }
 
-        public async Task OpenWindowsByState(IState s) 
+        public async Task OpenWindowsByState(IState s)
         {
             await _dataSimulatorContext.SetAllBinariesForRoomByEqipmentType(s.EntityRefID, "Window", true);
         }

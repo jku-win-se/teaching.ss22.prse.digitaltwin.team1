@@ -1,14 +1,15 @@
 ﻿using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Transfer;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class EnergySavingManager
+    public class EnergySavingManager : IEnergySavingManager
     {
-        private readonly ReadManager _readManager;
+        private readonly IReadManager _readManager;
         private readonly DataSimulatorContext _dataSimulatorContext;
-        public EnergySavingManager(ReadManager readManager, DataSimulatorContext dataSimulatorContext)
+        public EnergySavingManager(IReadManager readManager, DataSimulatorContext dataSimulatorContext)
         {
             _readManager = readManager;
             _dataSimulatorContext = dataSimulatorContext;
@@ -16,7 +17,7 @@ namespace SmartRoom.TransDataService.Logic
         //Energy Saving: Turn lights on if there are people in the room.
         public void TurnLightsOnPeopleInRoom(IEnumerable<IState> states)
         {
-            if (DateTime.Now.Hour <= 8 || DateTime.Now.Hour >= 19) 
+            if (DateTime.Now.Hour <= 8 || DateTime.Now.Hour >= 19)
             {
                 states.Where(s => s.Name.Equals("PeopleInRoom")).Select(s => s as MeasureState)
                 .Where(s => s?.Value > 0 &&

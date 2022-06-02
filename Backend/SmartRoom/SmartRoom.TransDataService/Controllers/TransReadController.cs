@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Contracts;
-using SmartRoom.TransDataService.Logic;
+using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Exceptions;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Controllers
 {
-    public class ReadMeasureController : TransReadController<MeasureState> { public ReadMeasureController(ReadManager manager) : base(manager) { } }
-    public class ReadBinaryController : TransReadController<BinaryState> { public ReadBinaryController(ReadManager manager) : base(manager) { } }
+    public class ReadMeasureController : TransReadController<MeasureState> { public ReadMeasureController(IReadManager manager) : base(manager) { } }
+    public class ReadBinaryController : TransReadController<BinaryState> { public ReadBinaryController(IReadManager manager) : base(manager) { } }
 
 
     [Route("api/[controller]")]
     [ApiController]
     public abstract class TransReadController<S> : ControllerBase where S : class, IState, new()
     {
-        private readonly ReadManager _manager;
-        public TransReadController(ReadManager manager)
+        private readonly IReadManager _manager;
+        public TransReadController(IReadManager manager)
         {
             _manager = manager;
         }

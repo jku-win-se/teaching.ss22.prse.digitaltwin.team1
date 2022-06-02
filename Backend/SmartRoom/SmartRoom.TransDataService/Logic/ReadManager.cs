@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.TransDataService.Logic.Contracts;
 using SmartRoom.TransDataService.Persistence;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class ReadManager
+    public class ReadManager : IReadManager
     {
         private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         public ReadManager(IDbContextFactory<TransDataDBContext> dbContextFactory)
@@ -26,7 +27,7 @@ namespace SmartRoom.TransDataService.Logic
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
                 var data = context.Set<E>().Where(s => s.EntityRefID.Equals(id) && s.Name.Equals(name));
-                if(!data.Any()) return new E { EntityRefID = id, Name = name, TimeStamp = DateTime.MinValue};
+                if (!data.Any()) return new E { EntityRefID = id, Name = name, TimeStamp = DateTime.MinValue };
                 return await data.FirstAsync(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp)));
             }
         }
@@ -90,7 +91,7 @@ namespace SmartRoom.TransDataService.Logic
 
             foreach (var id in ids)
             {
-                if(id == ids.Last()) idStmdChain += $"\"EntityRefID\" = '{id}'";
+                if (id == ids.Last()) idStmdChain += $"\"EntityRefID\" = '{id}'";
                 else idStmdChain += $"\"EntityRefID\" = '{id}' or ";
             }
 

@@ -3,6 +3,7 @@ using Npgsql;
 using SmartRoom.CommonBase.Transfer;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.TransDataService.Logic;
+using SmartRoom.TransDataService.Logic.Contracts;
 using SmartRoom.TransDataService.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,7 @@ builder.Services.AddDbContextFactory<TransDataDBContext>(options =>
 builder.Services.AddSingleton<IConfiguration>(configBuilder);
 builder.Services.AddSingleton<ServiceRoutesManager, ServiceRoutesManager>();
 
-builder.Services.AddSingleton<StateActions>(x =>
+builder.Services.AddSingleton<IStateActions>(x =>
 {
     return new StateActionsBuilder(x.GetRequiredService<IServiceProvider>())
     .SecurityActions()
@@ -28,12 +29,12 @@ builder.Services.AddSingleton<StateActions>(x =>
     .Build();
 });
 
-builder.Services.AddTransient<ReadManager, ReadManager>();
+builder.Services.AddTransient<IReadManager, ReadManager>();
 builder.Services.AddTransient<DataSimulatorContext, DataSimulatorContext>();
-builder.Services.AddTransient<WriteManager, WriteManager>();
-builder.Services.AddTransient<SecurityManager, SecurityManager>();
-builder.Services.AddTransient<EnergySavingManager, EnergySavingManager>();
-builder.Services.AddTransient<AirQualityManager, AirQualityManager>();
+builder.Services.AddTransient<IWriteManager, WriteManager>();
+builder.Services.AddTransient<ISecurityManager, SecurityManager>();
+builder.Services.AddTransient<IEnergySavingManager, EnergySavingManager>();
+builder.Services.AddTransient<IAirQualityManager, AirQualityManager>();
 
 builder.Services.AddSignalR();
 builder.Services.AddControllers();

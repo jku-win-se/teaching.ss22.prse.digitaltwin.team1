@@ -2,10 +2,11 @@
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Transfer;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class SecurityManager
+    public class SecurityManager : ISecurityManager
     {
         private readonly IHubContext<SensorHub> _hub;
         private readonly DataSimulatorContext _dataSimulatorContext;

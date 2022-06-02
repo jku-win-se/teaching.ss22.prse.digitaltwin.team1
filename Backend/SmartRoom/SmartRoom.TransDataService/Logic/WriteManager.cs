@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Contracts;
-using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.TransDataService.Logic.Contracts;
 using SmartRoom.TransDataService.Persistence;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class WriteManager
+    public class WriteManager : IWriteManager
     {
-        private readonly StateActions _stateActions;
+        private readonly IStateActions _stateActions;
         private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         private readonly IHubContext<SensorHub> _hub;
 
-        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub, StateActions stateActions)
+        public WriteManager(IDbContextFactory<TransDataDBContext> dbContextFactory, IHubContext<SensorHub> hub, IStateActions stateActions)
         {
             _stateActions = stateActions;
             _dbContextFactory = dbContextFactory;
