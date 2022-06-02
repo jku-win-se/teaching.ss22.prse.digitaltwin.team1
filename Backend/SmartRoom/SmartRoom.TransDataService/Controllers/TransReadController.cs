@@ -25,7 +25,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetStatesByEntityID<S>(id);
+                return Ok(await _manager.GetStatesByEntityID<S>(id));
             }
             catch (Exception)
             {
@@ -38,7 +38,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetRecentStateByEntityID<S>(id, name);
+                return Ok(await _manager.GetRecentStateByEntityID<S>(id, name));
             }
             catch (Exception)
             {
@@ -51,7 +51,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetStateTypesByEntityID<S>(id);
+                return Ok(await _manager.GetStateTypesByEntityID<S>(id));
             }
             catch (Exception)
             {
@@ -67,7 +67,7 @@ namespace SmartRoom.TransDataService.Controllers
             if (intervall == 0) intervall = 5;
             try
             {
-                return await _manager.GetChartData<S>(id, name, intervall, daySpan);
+                return Ok(await _manager.GetChartData<S>(id, name, intervall, daySpan));
             }
             catch (Exception)
             {
@@ -86,7 +86,7 @@ namespace SmartRoom.TransDataService.Controllers
             if (intervall == 0) intervall = 5;
             try
             {
-                return await _manager.GetChartData<S>(ids, name, intervall, daySpan);
+                return Ok(await _manager.GetChartData<S>(ids, name, intervall, daySpan));
             }
             catch (Exception)
             {
