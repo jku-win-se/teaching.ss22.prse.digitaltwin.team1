@@ -28,7 +28,7 @@ namespace SmartRoom.TransDataService.Tests
         }
 
         [Fact]
-        public async Task GetAll_ValidResult()
+        public async Task GetByEntityId_ValidEntityId_ValidResult()
         {
             var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
             var mockManager = new Mock<IReadManager>();
@@ -37,6 +37,34 @@ namespace SmartRoom.TransDataService.Tests
             var controller = new ReadBinaryController(mockManager.Object);
 
             var res = (IEnumerable<BinaryState>)((await controller.GetBy(id)).Result as OkObjectResult)!.Value!;
+
+            Assert.Single(res!);
+        }
+
+        [Fact]
+        public async Task GetRecent_ValidParams_ValidResult()
+        {
+            var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetRecentStateByEntityID<BinaryState>(It.IsAny<Guid>(), It.IsAny<string>()))!.ReturnsAsync(GetTestStates().FirstOrDefault(s => s.Id.Equals(id) && s.Name.Equals("isTriggerd")));
+
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = (BinaryState) ((await controller.GetRecentBy(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
+
+            Assert.NotNull(res);
+        }
+
+        [Fact]
+        public async Task GetStateTypes_ValidParams_ValidResult()
+        {
+            var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd"});
+
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = (string[])((await controller.GetTypesBy(id)).Result as OkObjectResult)!.Value!;
 
             Assert.Single(res!);
         }

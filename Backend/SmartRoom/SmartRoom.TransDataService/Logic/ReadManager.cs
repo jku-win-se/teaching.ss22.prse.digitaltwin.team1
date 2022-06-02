@@ -32,14 +32,6 @@ namespace SmartRoom.TransDataService.Logic
             }
         }
 
-        public async Task<E[]> GetStatesByTimeSpan<E>(DateTime from, DateTime to) where E : class, IState
-        {
-            using (var context = await _dbContextFactory.CreateDbContextAsync())
-            {
-                return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).OrderByDescending(s => s.TimeStamp).Take(500).ToArrayAsync();
-            }
-        }
-
         public async Task<string[]> GetStateTypesByEntityID<E>(Guid id) where E : class, IState
         {
             using (var context = await _dbContextFactory.CreateDbContextAsync())
