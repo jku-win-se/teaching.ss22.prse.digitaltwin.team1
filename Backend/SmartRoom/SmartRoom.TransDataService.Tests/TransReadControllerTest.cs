@@ -50,7 +50,7 @@ namespace SmartRoom.TransDataService.Tests
 
             var controller = new ReadBinaryController(mockManager.Object);
 
-            var res = (BinaryState) ((await controller.GetRecentBy(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
+            var res = (BinaryState)((await controller.GetRecentBy(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
 
             Assert.NotNull(res);
         }
@@ -60,13 +60,93 @@ namespace SmartRoom.TransDataService.Tests
         {
             var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
             var mockManager = new Mock<IReadManager>();
-            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd"});
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd" });
 
             var controller = new ReadBinaryController(mockManager.Object);
 
             var res = (string[])((await controller.GetTypesBy(id)).Result as OkObjectResult)!.Value!;
 
             Assert.Single(res!);
+        }
+
+        [Fact]
+        public async Task GetStateChartData_ValidParams_ValidResult()
+        {
+            var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd" });
+            mockManager.Setup(m => m.GetChartData<BinaryState>(It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))!
+                .ReturnsAsync(new List<object>
+                {
+                    new
+                    {
+                        TimeStamp = new DateTime(),
+                        Value = true
+                    }
+                });
+
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = ((await controller.GetChartData(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
+
+            Assert.NotNull(res!);
+        }
+
+        [Fact]
+        public async Task GetChartData_NotExistingName_ThrowsException()
+        {
+            var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd" });
+            mockManager.Setup(m => m.GetChartData<BinaryState>(It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))!
+                .ReturnsAsync(new List<object>
+                {
+                    new
+                    {
+                        TimeStamp = new DateTime(),
+                        Value = true
+                    }
+                });
+
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = (await controller.GetChartData(id, "test")).Result;
+
+            Assert.IsType<BadRequestObjectResult>(res!);
+        }
+
+        [Fact]
+        public async Task GetChartData_ValidParamsMultiIds_ValidResult()
+        {
+            var id = new Guid[]
+            {
+                new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa8")
+            };
+
+            var mockManager = new Mock<IReadManager>();
+
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>()))!.ReturnsAsync(new string[] { "isTriggerd" });
+            mockManager.Setup(m => m.GetChartData<BinaryState>(It.IsAny<Guid[]>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))!
+                .ReturnsAsync(new List<object>
+                {
+                    new
+                    {
+                        TimeStamp = new DateTime(),
+                        Value = 100.021
+                    },
+                    new
+                    {
+                        TimeStamp = new DateTime(),
+                        Value = 10.021
+                    }
+                });
+
+            var controller = new ReadBinaryController(mockManager.Object);
+            var t = await controller.GetChartData(id, "isTriggerd");
+            var res = ((await controller.GetChartData(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
+
+            Assert.NotNull(res!);
         }
 
 

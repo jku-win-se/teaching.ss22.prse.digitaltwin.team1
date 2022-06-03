@@ -60,7 +60,7 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpGet("[action]/{id}&{name}")]
-        public async Task<object> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
+        public async Task<ActionResult<object>> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
         {
             if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist with the given ID!");
             if (intervall < 0) intervall *= -1;
@@ -77,7 +77,7 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpPost("[action]/{name}")]
-        public async Task<object> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5, int daySpan = 1)
+        public async Task<ActionResult<object>> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5, int daySpan = 1)
         {
             ids = ids.Where(id => _manager.GetStateTypesByEntityID<S>(id).Result.Any(ms => ms.Equals(name))).ToArray();
 
