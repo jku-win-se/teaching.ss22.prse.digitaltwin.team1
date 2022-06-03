@@ -46,7 +46,7 @@ export default function InformationPanelItem(
     return (
       <div className="information-panel-wrapper">
         <Icon
-          sx={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)" }}
+          sx={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", color: props.color }}
           name={props.icon}
         ></Icon>
         <p className="information-panel-text">

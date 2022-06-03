@@ -52,12 +52,12 @@ export class RoomService {
   getEquipmentNumberByTypeAndID(roomID: string, type: Equipment) {
     return this.allRooms
       .filter((room) => room.id === roomID)[0]
-      .roomEquipment.filter((re) => re.name !== type).length;
+      .roomEquipment.filter((re) => re.name === type).length;
   }
 
   filterByBuilding(building: string) {
     return building === Building[1]
       ? this.allRooms
-      : this.allRooms.filter((val, idx, arr) => val.building === building);
+      : this.allRooms.filter((val) => val.building === building);
   }
 }

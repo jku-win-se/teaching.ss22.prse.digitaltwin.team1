@@ -8,6 +8,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import { Measure } from "../../../../enums/measure.enum";
 import { RoomTypeIcon } from "../../../../enums/roomTypeIcon.enum";
+import { IWSData } from "../../../../models/IWSData";
 import { StateService } from "../../../../services/State.service";
 import AddEditDialog from "../add-edit-dialog/add-edit-dialog.component";
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
@@ -56,8 +57,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
-  const [currPeopleInRoom, setCurrPeopleInRoom] = React.useState("-");
-  const [currCO2Value, setCurrCO2Value] = React.useState("-");
+  const [people, setPeople] = React.useState<IWSData>();
+  const [co2, setCo2] = React.useState<IWSData>();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -71,25 +72,15 @@ export default function RoomListItem(props: IRoomListItemProps) {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
 
-      setCurrCO2Value(
-        sService
-          .returnValueForMeasureAndRoomID(Measure.Co2, props.roomId)
-          .toLocaleString(undefined, { maximumFractionDigits: 1 })
+      setPeople(
+        sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID, 0)
       );
-      setCurrPeopleInRoom(
-        sService
-          .returnValueForMeasureAndRoomID(Measure.PeopleInRoom, props.roomId)
-          .toLocaleString(undefined, { maximumFractionDigits: 0 })
-      );
+      setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID, 1));
     }
     if (props.roomId !== undefined) {
       fetchData(props.roomId);
     }
   }, [props.roomId]);
-
-  const renderCo2 = () => {
-    return currCO2Value;
-  };
 
   return (
     <div className="list">
@@ -140,12 +131,12 @@ export default function RoomListItem(props: IRoomListItemProps) {
               className="co2-indicator"
               style={{
                 backgroundColor: co2Color(
-                  isNaN(Number(currCO2Value)) ? 0 : Number(currCO2Value)
+                  isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
                 ),
               }}
             >
               <div id="co2-text" className="co2-value">
-                {renderCo2()} <br /> ppm
+                {co2?.value} <br /> ppm
               </div>
             </div>
             <div className="indicator-text">co2 value</div>
@@ -167,11 +158,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
               justifyContent={"center"}
               style={{
                 backgroundColor: co2Color(
-                  isNaN(Number(currCO2Value)) ? 0 : Number(currCO2Value)
+                  isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
                 ),
               }}
             >
-              {renderCo2()} ppm
+              {co2?.value} ppm
             </Grid>
           </Grid>
 
@@ -188,16 +179,14 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <div className="people-indicator">
               <CircularProgressbar
                 strokeWidth={10}
-                value={
-                  isNaN(Number(currPeopleInRoom)) ? 0 : Number(currPeopleInRoom)
-                }
+                value={isNaN(Number(people?.value)) ? 0 : Number(people?.value)}
                 minValue={0}
                 maxValue={props.maxPeople}
                 text={
                   (
-                    ((isNaN(Number(currPeopleInRoom))
+                    ((isNaN(Number(people?.value))
                       ? 0
-                      : Number(currPeopleInRoom)) /
+                      : Number(people?.value)) /
                       props.maxPeople) *
                     100
                   ).toLocaleString(undefined, { maximumFractionDigits: 0 }) +
@@ -210,13 +199,13 @@ export default function RoomListItem(props: IRoomListItemProps) {
               />
             </div>
             <div className="indicator-text">
-              {currPeopleInRoom}/{props.maxPeople} People
+              {people?.value}/{props.maxPeople} People
             </div>
           </Grid>
         </Grid>
 
         <div id="peopleMobile" className="people-indicator-mobile">
-          {currPeopleInRoom}/{props.maxPeople} People
+          {people?.value}/{props.maxPeople} People
         </div>
 
         <Grid

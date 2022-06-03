@@ -2,7 +2,9 @@ import Grid from "@mui/material/Grid";
 import * as React from "react";
 import { Equipment } from "../../../../enums/equipment.enum";
 import { Measure } from "../../../../enums/measure.enum";
+import { IMeasureState } from "../../../../models/IMeasureState";
 import { IRoom } from "../../../../models/IRoom";
+import { IWSData } from "../../../../models/IWSData";
 import { RoomService } from "../../../../services/Room.service";
 import { StateService } from "../../../../services/State.service";
 import InformationPanelItem from "../information-panel-item/information-panel-item.component";
@@ -17,35 +19,56 @@ const rService = RoomService.getInstance();
 
 export default function InformationPanel(props: IInformationPanelProps) {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [currPeopleInRoom, setCurrPeopleInRoom] = React.useState("-");
-  const [currCO2Value, setCurrCO2Value] = React.useState("-");
-  const [currTemperature, setCurrTemperature] = React.useState("-");
-
+  const [temp, setTemp] = React.useState<IWSData>();
+  const [people, setPeople] = React.useState<IWSData>();
+  const [co2, setCo2] = React.useState<IWSData>();
   React.useEffect(() => {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
-      setCurrPeopleInRoom(
-        sService
-          .returnValueForMeasureAndRoomID(Measure.PeopleInRoom, props.room!.id)
-          .toLocaleString(undefined, { maximumFractionDigits: 0 })
+      const temp = sService.returnWSDataForMeasure(
+        Measure.Temperature,
+        roomID,
+        0
       );
-
-      setCurrCO2Value(
-        sService
-          .returnValueForMeasureAndRoomID(Measure.Co2, props.room!.id)
-          .toLocaleString(undefined, { maximumFractionDigits: 1 })
+      const people = sService.returnWSDataForMeasure(
+        Measure.PeopleInRoom,
+        roomID,
+        0
       );
-      setCurrTemperature(
-        sService
-          .returnValueForMeasureAndRoomID(Measure.Temperature, props.room!.id)
-          .toLocaleString(undefined, { maximumFractionDigits: 0 })
-      );
+      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID, 1);
+      setTemp(temp);
+      setPeople(people);
+      setCo2(co2);
+      getWSData(setTemp, temp.entityRef, temp.name, 0);
+      getWSData(setPeople, people.entityRef, people.name, 0);
+      getWSData(setCo2, co2.entityRef, co2.name, 1);
       setIsLoading(false);
     }
     if (props.room !== undefined) {
       fetchData(props.room.id);
     }
   }, [props.room]);
+
+  const getWSData = (
+    setData: React.Dispatch<React.SetStateAction<IWSData | undefined>>,
+    entityRef: string,
+    name: string,
+    fractionalDigits: number
+  ) => {
+    console.log("Getting WS Data");
+    sService.hubConnection.on(
+      "Sensor/" + entityRef + "/" + name,
+      (data: IMeasureState) => {
+        setData({
+          name: name,
+          value: data.value.toLocaleString(undefined, {
+            maximumFractionDigits: fractionalDigits,
+          }),
+          entityRef: entityRef,
+        });
+      }
+    );
+  };
 
   return (
     <div>
@@ -56,14 +79,14 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={currPeopleInRoom + "/" + props.room?.peopleCount}
+            value={people?.value + "/" + props.room?.peopleCount}
             icon="GroupOutlined"
           ></InformationPanelItem>
         </Grid>
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={currTemperature}
+            value={temp?.value}
             unit="°C"
             icon="ThermostatOutlined"
           ></InformationPanelItem>
@@ -73,6 +96,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
             isLoading={isLoading}
             value={rService.getEquipmentNumber(Equipment.Window)}
             icon="SensorWindowOutlined"
+            color="#AE619D"
           ></InformationPanelItem>
         </Grid>
         <Grid id="SensorWindowOutlined" item xs={4} sm={4} md={3}>
@@ -80,6 +104,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
             isLoading={isLoading}
             value={rService.getEquipmentNumber(Equipment.Ventilator)}
             icon="AcUnitOutlined"
+            color="#BFCE52"
           ></InformationPanelItem>
         </Grid>
         <Grid item xs={4} sm={4} md={3}>
@@ -93,7 +118,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={currCO2Value}
+            value={co2?.value}
             unit="ppm"
             icon="Co2Outlined"
           ></InformationPanelItem>
@@ -103,6 +128,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
             isLoading={isLoading}
             value={rService.getEquipmentNumber(Equipment.Window)}
             icon="SensorDoorOutlined"
+            color="#0084BB"
           ></InformationPanelItem>
         </Grid>
         <Grid id="LightbulbOutlined" item xs={4} sm={4} md={3}>
@@ -110,6 +136,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
             isLoading={isLoading}
             value={rService.getEquipmentNumber(Equipment.Window)}
             icon="LightbulbOutlined"
+            color="#F1BC3F"
           ></InformationPanelItem>
         </Grid>
         <Grid item xs={4} sm={4} md={3}>
