@@ -126,7 +126,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid id="SensorDoorOutlined" item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={rService.getEquipmentNumber(Equipment.Window)}
+            value={rService.getEquipmentNumber(Equipment.Door)}
             icon="SensorDoorOutlined"
             color="#0084BB"
           ></InformationPanelItem>
@@ -134,7 +134,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid id="LightbulbOutlined" item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={rService.getEquipmentNumber(Equipment.Window)}
+            value={rService.getEquipmentNumber(Equipment.Light)}
             icon="LightbulbOutlined"
             color="#F1BC3F"
           ></InformationPanelItem>

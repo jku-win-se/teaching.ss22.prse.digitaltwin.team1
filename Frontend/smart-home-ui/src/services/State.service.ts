@@ -3,6 +3,7 @@ import { IChartData } from "../models/IChartData";
 import { IMeasureState } from "../models/IMeasureState";
 import * as signalR from "@microsoft/signalr";
 import { IWSData } from "../models/IWSData";
+import { IBinaryState } from "../models/IBinaryState";
 
 export class StateService {
   private static instance: StateService;
@@ -88,6 +89,44 @@ export class StateService {
     );
 
     return (await response.json()) as IChartData[];
+  }
+
+  async getBinaryChartData(rqIds: string[], stateName: string) {
+    const response = await fetch(
+      this.BASE_URL + "ReadBinary/GetChartData/" + stateName,
+      {
+        headers: new Headers(this.addHeaders()),
+        method: "Post",
+        body: JSON.stringify(rqIds),
+      }
+    );
+
+    return (await response.json()) as IChartData[];
+  }
+
+  async getValueForStateNameAndEquipment(
+    roomEquipmentID: string,
+    name: string
+  ) {
+    const response = await fetch(
+      this.BASE_URL + "ReadBinary/GetRecentBy/" + roomEquipmentID + "&" + name,
+      {
+        headers: new Headers(this.addHeaders()),
+        method: "GET",
+      }
+    );
+    return (await response.json()) as IBinaryState;
+  }
+
+  async getStateNamesForEquipment(roomEquipmentID: string) {
+    const response = await fetch(
+      this.BASE_URL + "ReadBinary/GetTypesBy/" + roomEquipmentID,
+      {
+        headers: new Headers(this.addHeaders()),
+        method: "GET",
+      }
+    );
+    return (await response.json()) as string[];
   }
 
   returnWSDataForMeasure(

@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import PeopleChart from "./components/people-chart/people-chart.component";
 import { StateService } from "../../services/State.service";
+import SensorChart from "./components/sensor-chart/sensor-chart.component";
 
 export interface IDetailsProps {}
 
@@ -20,8 +21,10 @@ export function Details(props: IDetailsProps) {
     const rService = RoomService.getInstance();
     const sService = StateService.getInstance();
     async function fetchData() {
+      const r = await rService.getById(roomid!);
       sService.establishWsConnection();
-      setRoom(await rService.getById(roomid!));
+      await rService.addStatesForRoomEquipment();
+      setRoom(r);
     }
     fetchData();
     return () => {
@@ -64,7 +67,7 @@ export function Details(props: IDetailsProps) {
             <PeopleChart room={room}></PeopleChart>
           </Grid>
           <Grid item className="chart-height" xs={10}>
-            <div></div>
+            <SensorChart room={room} />
           </Grid>
         </Grid>
       </Grid>

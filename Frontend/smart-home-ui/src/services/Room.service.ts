@@ -1,6 +1,9 @@
 import { Building } from "../enums/building.enum";
 import { Equipment } from "../enums/equipment.enum";
 import { IRoom } from "../models/IRoom";
+import { IRoomEquipment } from "../models/IRoomEquipment";
+import { asyncForEach } from "../utils/asyncForEach";
+import { StateService } from "./State.service";
 
 export class RoomService {
   private static instance: RoomService;
@@ -36,17 +39,35 @@ export class RoomService {
     return this.allRooms;
   }
 
+  async addStatesForRoomEquipment() {
+    const sService = StateService.getInstance();
+    await asyncForEach<IRoomEquipment>(
+      this.selectedRoom!.roomEquipment,
+      async (rq) => {
+        const states = await sService.getStateNamesForEquipment(rq.id);
+        await asyncForEach<string>(states, async (state) => {
+          const stateValue = await sService.getValueForStateNameAndEquipment(
+            rq.id,
+            state
+          );
+          rq.state.push(stateValue);
+        });
+      }
+    );
+    console.log(this.selectedRoom);
+  }
   async getById(id: String): Promise<IRoom> {
     const response = await fetch(this.BASE_URL + "/" + id, {
       headers: new Headers(this.addHeaders()),
       method: "GET",
     });
     this.selectedRoom = (await response.json()) as IRoom;
+    this.selectedRoom.roomEquipment.forEach((rq) => (rq.state = []));
     return this.selectedRoom;
   }
 
   getEquipmentNumber(type: Equipment) {
-    return this.selectedRoom?.roomEquipment.filter((re) => re.name !== type)
+    return this.selectedRoom?.roomEquipment.filter((re) => re.name === type)
       .length;
   }
   getEquipmentNumberByTypeAndID(roomID: string, type: Equipment) {
@@ -59,5 +80,11 @@ export class RoomService {
     return building === Building[1]
       ? this.allRooms
       : this.allRooms.filter((val) => val.building === building);
+  }
+
+  getEquipmentByName(equipment: Equipment) {
+    return this.selectedRoom?.roomEquipment.filter(
+      (rq) => rq.name === equipment
+    )!;
   }
 }
