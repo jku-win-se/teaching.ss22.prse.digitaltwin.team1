@@ -43,7 +43,22 @@ namespace SmartRoom.CommonBase.Tests
             Assert.NotNull(typeof(Room).GetProperties().First(p => p.Name.Equals(name)));
         }
 
-        //ToDo Check Propnames for all classes (RoomEquipment)
+        [Theory]
+        [InlineData("Name")]
+        [InlineData("RoomID")]
+        [InlineData("EquipmentRef")]
+        [InlineData("Id")]
+
+        public void RoomEquipment_PropertyNames_Exist(string name)
+        {
+            Assert.NotNull(typeof(RoomEquipment).GetProperties().First(p => p.Name.Equals(name)));
+        }
+
+
+
+
+
+
 
         [Fact]
         public void MeasureState_EmtyCtor_ValidObject()
