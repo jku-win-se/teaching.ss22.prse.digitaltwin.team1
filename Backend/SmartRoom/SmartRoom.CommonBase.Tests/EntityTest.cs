@@ -54,14 +54,8 @@ namespace SmartRoom.CommonBase.Tests
             Assert.NotNull(typeof(RoomEquipment).GetProperties().First(p => p.Name.Equals(name)));
         }
 
-
-
-
-
-
-
         [Fact]
-        public void MeasureState_EmtyCtor_ValidObject()
+        public void BinaryState_EmtyCtor_ValidObject()
         {
             Assert.NotNull(new BinaryState());
         }
@@ -71,7 +65,22 @@ namespace SmartRoom.CommonBase.Tests
         {
             Assert.NotNull(new Room());
         }
-        //ToDo Check all emty ctors (measurestates, Room, RoomEquipment, State<object>)
+
+        [Fact]
+        public void MeasureState_EmtyCtor_ValidObject()
+        {
+            Assert.NotNull(new MeasureState());
+        }
+
+        [Fact]
+        public void State_EmtyCtor_ValidObject()
+        {
+            Assert.NotNull(new State<object>());
+        }
+        //ToDo Check all emty ctors (State<object>)
+
+
+
 
 
 
