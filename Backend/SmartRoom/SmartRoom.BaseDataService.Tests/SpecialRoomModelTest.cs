@@ -30,7 +30,7 @@ namespace SmartRoom.BaseDataService.Tests
 
 
         //ToDo check ctor with room
-        //ToDo review
+        //ToDo wo ist der unteschied zu SpecialRoomModelForOurFEDev_EmtyCtor_ValidObject() ?
         [Fact]
         public void SpecialRoom_Ctor_Room_ok()
         {
@@ -40,7 +40,7 @@ namespace SmartRoom.BaseDataService.Tests
 
 
         //ToDo check GetRoom
-        //ToDo review
+        //ToDo zusätlich muss auch getestet werden ob die Werte des Models korrekt übertragen werden (SpecialRoomModelForOurFEDev mit {Id = new Guid(),....})
         [Fact]
         public void SpecialRoom_GetRoom_Ok()
         {
