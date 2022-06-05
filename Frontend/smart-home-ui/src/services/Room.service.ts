@@ -1,5 +1,6 @@
 import { Building } from "../enums/building.enum";
 import { Equipment } from "../enums/equipment.enum";
+import { IError } from "../models/IError";
 import { IRoom } from "../models/IRoom";
 import { IRoomEquipment } from "../models/IRoomEquipment";
 import { asyncForEach } from "../utils/asyncForEach";
@@ -86,5 +87,49 @@ export class RoomService {
     return this.selectedRoom?.roomEquipment.filter(
       (rq) => rq.name === equipment
     )!;
+  }
+
+  async delete(roomID: string) {
+    const response = await fetch(this.BASE_URL + "/" + roomID, {
+      headers: new Headers(this.addHeaders()),
+      method: "DELETE",
+    });
+    const err: IError = {
+      error: response.ok,
+      text: response.statusText,
+      status: response.status,
+    };
+    return err;
+  }
+
+  async AddOrChange(
+    id: string,
+    peopleCount: number,
+    name: string,
+    size: number,
+    roomType: string,
+    building: string,
+    roomEquipmentDict: { [key: string]: number },
+    change: boolean = false
+  ) {
+    const response = await fetch(this.BASE_URL + "/Models", {
+      headers: new Headers(this.addHeaders()),
+      method: change ? "PUT" : "POST",
+      body: JSON.stringify({
+        id,
+        peopleCount,
+        name,
+        size,
+        roomType,
+        building,
+        roomEquipmentDict,
+      }),
+    });
+    const err: IError = {
+      error: response.ok,
+      text: response.statusText,
+      status: response.status,
+    };
+    return err;
   }
 }
