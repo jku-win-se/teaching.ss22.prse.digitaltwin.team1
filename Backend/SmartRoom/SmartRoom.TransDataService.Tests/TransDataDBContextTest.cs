@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Moq;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.TransDataService.Persistence;
 using System;
