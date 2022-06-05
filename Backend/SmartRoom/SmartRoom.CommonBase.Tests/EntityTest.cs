@@ -77,13 +77,5 @@ namespace SmartRoom.CommonBase.Tests
         {
             Assert.NotNull(new State<object>());
         }
-        //ToDo Check all emty ctors (State<object>)
-
-
-
-
-
-
-
     }
 }
