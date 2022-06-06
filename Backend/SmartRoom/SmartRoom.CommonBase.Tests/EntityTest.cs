@@ -1,4 +1,5 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -17,6 +18,27 @@ namespace SmartRoom.CommonBase.Tests
             Assert.NotNull(typeof(BinaryState).GetProperties().First(p => p.Name.Equals(name)));
         }
 
+        public void BinaryState_Properties_Ok()
+        {
+            var timeStamp = DateTime.Now;
+            var entityRefId = new Guid("026bdf16-0d67-43ad-9d5d-afef430f1589");
+            var name = "test";
+            var id = new System.Guid("026bdf16-0d67-43ad-9d5d-afef430f1584");
+            var value = true;
+
+            var state = new BinaryState 
+            {
+                EntityRefID = entityRefId,
+                Id = id,
+                Name = name,
+                TimeStamp = timeStamp,
+                Value = value
+            };
+
+            Assert.Equal(timeStamp, state.TimeStamp);
+            //ToDo
+        }
+
         [Theory]
         [InlineData("Name")]
         [InlineData("EntityRefID")]
@@ -28,6 +50,7 @@ namespace SmartRoom.CommonBase.Tests
         {
             Assert.NotNull(typeof(MeasureState).GetProperties().First(p => p.Name.Equals(name)));
         }
+        //ToDo Properties_Ok
 
         [Theory]
         [InlineData("Name")]
@@ -42,6 +65,7 @@ namespace SmartRoom.CommonBase.Tests
         {
             Assert.NotNull(typeof(Room).GetProperties().First(p => p.Name.Equals(name)));
         }
+        //ToDo Properties_Ok
 
         [Theory]
         [InlineData("Name")]
@@ -53,6 +77,7 @@ namespace SmartRoom.CommonBase.Tests
         {
             Assert.NotNull(typeof(RoomEquipment).GetProperties().First(p => p.Name.Equals(name)));
         }
+        //ToDo Properties_Ok
 
         [Fact]
         public void BinaryState_EmtyCtor_ValidObject()
