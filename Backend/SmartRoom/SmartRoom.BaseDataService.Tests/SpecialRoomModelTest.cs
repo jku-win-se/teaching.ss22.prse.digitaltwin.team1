@@ -21,25 +21,27 @@ namespace SmartRoom.BaseDataService.Tests
         }
 
         [Fact]
-        public void SpecialRoomModelForOurFEDev_EmtyCtor_ValidObject()
+        public void Ctor_Empty_ValidObject()
         {
             Assert.NotNull(new SpecialRoomModelForOurFEDev());
         }
 
-        //ToDo wo ist der unteschied zu SpecialRoomModelForOurFEDev_EmtyCtor_ValidObject() ?
-        [Fact]
-        public void SpecialRoom_Ctor_Room_ok()
-        {
-            var room = new SpecialRoomModelForOurFEDev();
-            Assert.NotNull(room);
-        }
-
         //ToDo zusätlich muss auch getestet werden ob die Werte des Models korrekt übertragen werden (SpecialRoomModelForOurFEDev mit {Id = new Guid(),....})
         [Fact]
-        public void SpecialRoom_GetRoom_Ok()
+        public void GetRoom_ValidRoomObj()
         {
-            var room = new SpecialRoomModelForOurFEDev();
-            Assert.NotNull(room.GetRoom());
+            var roomModel = new SpecialRoomModelForOurFEDev
+            {
+                Name = "nametest",
+                Building = "buildingtest",
+                Id = new System.Guid("026bdf16-0d67-43ad-9d5d-afef430f1589"),
+                RoomEquipmentDict = new System.Collections.Generic.Dictionary<string, int>(),
+                PeopleCount = 4,
+                RoomType = "labor",
+                Size = 20
+            };
+            var room = roomModel.GetRoom();
+            Assert.Equal(room.Id,roomModel.Id);
         }
 
     }
