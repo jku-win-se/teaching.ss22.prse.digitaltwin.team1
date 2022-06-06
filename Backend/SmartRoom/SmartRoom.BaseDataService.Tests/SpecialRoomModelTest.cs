@@ -40,7 +40,9 @@ namespace SmartRoom.BaseDataService.Tests
                 RoomType = "labor",
                 Size = 20
             };
+
             var room = roomModel.GetRoom();
+
             Assert.Equal(room.Id,roomModel.Id);
             Assert.Equal(room.Name,roomModel.Name);
             Assert.Equal(room.Building, roomModel.Building);
