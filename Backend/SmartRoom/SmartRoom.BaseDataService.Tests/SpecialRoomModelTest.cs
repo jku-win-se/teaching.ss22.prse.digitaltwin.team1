@@ -26,7 +26,7 @@ namespace SmartRoom.BaseDataService.Tests
             Assert.NotNull(new SpecialRoomModelForOurFEDev());
         }
 
-        //ToDo zusätlich muss auch getestet werden ob die Werte des Models korrekt übertragen werden (SpecialRoomModelForOurFEDev mit {Id = new Guid(),....})
+  
         [Fact]
         public void GetRoom_ValidRoomObj()
         {
