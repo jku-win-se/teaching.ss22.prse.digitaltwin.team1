@@ -57,14 +57,18 @@ export class RoomService {
     );
     console.log(this.selectedRoom);
   }
-  async getById(id: String): Promise<IRoom> {
+  async getById(id: String, persistant: boolean = true): Promise<IRoom> {
     const response = await fetch(this.BASE_URL + "/" + id, {
       headers: new Headers(this.addHeaders()),
       method: "GET",
     });
-    this.selectedRoom = (await response.json()) as IRoom;
-    this.selectedRoom.roomEquipment.forEach((rq) => (rq.state = []));
-    return this.selectedRoom;
+    if (persistant) {
+      this.selectedRoom = (await response.json()) as IRoom;
+      this.selectedRoom.roomEquipment.forEach((rq) => (rq.state = []));
+      return this.selectedRoom;
+    } else {
+      return (await response.json()) as IRoom;
+    }
   }
 
   getEquipmentNumber(type: Equipment) {

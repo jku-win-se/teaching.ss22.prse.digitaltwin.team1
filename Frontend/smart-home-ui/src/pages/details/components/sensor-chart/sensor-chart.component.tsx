@@ -118,13 +118,13 @@ export default function SensorChart(props: ISensorChartProps) {
     LightsChartData: IChartData[],
     VentilatorsChartData: IChartData[]
   ) => {
-    if (WindowsChartData !== []) {
+    if (WindowsChartData.length !== 0) {
       return WindowsChartData.map((w) => w.timeStamp);
-    } else if (DoorsChartData !== []) {
+    } else if (DoorsChartData.length !== 0) {
       return DoorsChartData.map((d) => d.timeStamp);
-    } else if (LightsChartData !== []) {
+    } else if (LightsChartData.length !== 0) {
       return LightsChartData.map((l) => l.timeStamp);
-    } else if (VentilatorsChartData !== []) {
+    } else if (VentilatorsChartData.length !== 0) {
       return VentilatorsChartData.map((v) => v.timeStamp);
     } else {
       return [];
@@ -136,7 +136,6 @@ export default function SensorChart(props: ISensorChartProps) {
     const Ventilators = rService.getEquipmentByName(Equipment.Ventilator);
     const Windows = rService.getEquipmentByName(Equipment.Window);
     const Lights = rService.getEquipmentByName(Equipment.Light);
-    console.log(Windows[0].state[0].name);
     let WindowsChartData: IChartData[] = [];
     let DoorsChartData: IChartData[] = [];
     var VentilatorsChartData: IChartData[] = [];
@@ -165,7 +164,7 @@ export default function SensorChart(props: ISensorChartProps) {
         Ventilators[0].state[0].name
       );
     }
-    console.log(WindowsChartData);
+    console.log(LightsChartData);
     console.log(
       getLabels(
         WindowsChartData,

@@ -25,23 +25,21 @@ export default function InformationPanel(props: IInformationPanelProps) {
   React.useEffect(() => {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
-      const temp = sService.returnWSDataForMeasure(
-        Measure.Temperature,
-        roomID,
-        0
-      );
+      const temp = sService.returnWSDataForMeasure(Measure.Temperature, roomID);
       const people = sService.returnWSDataForMeasure(
         Measure.PeopleInRoom,
-        roomID,
-        0
+        roomID
       );
-      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID, 1);
+      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
       setTemp(temp);
       setPeople(people);
       setCo2(co2);
-      getWSData(setTemp, temp.entityRef, temp.name, 0);
-      getWSData(setPeople, people.entityRef, people.name, 0);
-      getWSData(setCo2, co2.entityRef, co2.name, 1);
+      removeWSListener(temp.entityRef, temp.name);
+      removeWSListener(people.entityRef, people.name);
+      removeWSListener(co2.entityRef, co2.name);
+      getWSData(setTemp, temp.entityRef, temp.name);
+      getWSData(setPeople, people.entityRef, people.name);
+      getWSData(setCo2, co2.entityRef, co2.name);
       setIsLoading(false);
     }
     if (props.room !== undefined) {
@@ -49,11 +47,19 @@ export default function InformationPanel(props: IInformationPanelProps) {
     }
   }, [props.room]);
 
+  React.useEffect(() => {
+    return () => {
+      console.log("unmount");
+      removeWSListener(temp!.entityRef, temp!.name);
+      removeWSListener(people!.entityRef, people!.name);
+      removeWSListener(co2!.entityRef, co2!.name);
+    };
+  }, []);
+
   const getWSData = (
     setData: React.Dispatch<React.SetStateAction<IWSData | undefined>>,
     entityRef: string,
-    name: string,
-    fractionalDigits: number
+    name: string
   ) => {
     console.log("Getting WS Data");
     sService.hubConnection.on(
@@ -61,13 +67,15 @@ export default function InformationPanel(props: IInformationPanelProps) {
       (data: IMeasureState) => {
         setData({
           name: name,
-          value: data.value.toLocaleString(undefined, {
-            maximumFractionDigits: fractionalDigits,
-          }),
+          value: data.value.toString(),
           entityRef: entityRef,
         });
       }
     );
+  };
+
+  const removeWSListener = (entityRef: string, name: string) => {
+    sService.hubConnection.off("Sensor/" + entityRef + "/" + name);
   };
 
   return (
@@ -79,14 +87,22 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={people?.value + "/" + props.room?.peopleCount}
+            value={
+              Number(people?.value).toLocaleString(undefined, {
+                maximumFractionDigits: 0,
+              }) +
+              "/" +
+              props.room?.peopleCount
+            }
             icon="GroupOutlined"
           ></InformationPanelItem>
         </Grid>
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={temp?.value}
+            value={Number(temp?.value).toLocaleString(undefined, {
+              maximumFractionDigits: 1,
+            })}
             unit="°C"
             icon="ThermostatOutlined"
           ></InformationPanelItem>
@@ -118,7 +134,9 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={co2?.value}
+            value={Number(co2?.value).toLocaleString(undefined, {
+              maximumFractionDigits: 1,
+            })}
             unit="ppm"
             icon="Co2Outlined"
           ></InformationPanelItem>

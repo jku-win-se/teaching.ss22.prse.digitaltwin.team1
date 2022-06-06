@@ -8,7 +8,6 @@ import "./details.style.css";
 import { useNavigate, useParams } from "react-router-dom";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import PeopleChart from "./components/people-chart/people-chart.component";
-import { StateService } from "../../services/State.service";
 import SensorChart from "./components/sensor-chart/sensor-chart.component";
 
 export interface IDetailsProps {}
@@ -19,18 +18,12 @@ export function Details(props: IDetailsProps) {
   const { roomid } = useParams();
   React.useEffect(() => {
     const rService = RoomService.getInstance();
-    const sService = StateService.getInstance();
     async function fetchData() {
       const r = await rService.getById(roomid!);
-      sService.establishWsConnection();
       await rService.addStatesForRoomEquipment();
       setRoom(r);
     }
     fetchData();
-    return () => {
-      console.log("Disconnecting");
-      sService.closeWsConnection();
-    };
   }, []);
   return (
     <Box sx={{ flexGrow: 1, height: "100vh" }}>

@@ -129,11 +129,7 @@ export class StateService {
     return (await response.json()) as string[];
   }
 
-  returnWSDataForMeasure(
-    measure: Measure,
-    roomID: string,
-    fractionalDigits: number
-  ) {
+  returnWSDataForMeasure(measure: Measure, roomID: string) {
     console.log(this.states);
     const measureState = this.states.filter(
       (s) => s.name === measure && s.entityRefID === roomID
@@ -141,9 +137,7 @@ export class StateService {
     if (measureState) {
       return {
         name: measureState.name,
-        value: measureState.value.toLocaleString(undefined, {
-          maximumFractionDigits: fractionalDigits,
-        }),
+        value: measureState.value.toString(),
         entityRef: measureState.entityRefID,
       } as IWSData;
     } else {

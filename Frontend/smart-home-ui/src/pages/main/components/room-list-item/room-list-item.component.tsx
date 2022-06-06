@@ -32,16 +32,6 @@ const Icon = ({
   return IconComponent ? <IconComponent {...rest} /> : null;
 };
 
-function co2Color(value: number) {
-  if (value < 800) {
-    return "#71CCAB";
-  }
-  if (value > 1000) {
-    return "#FF5252";
-  }
-  return "#FFEE4D";
-}
-
 function roomType(type: string) {
   if (type === "Lab") {
     return RoomTypeIcon.Lab;
@@ -68,14 +58,23 @@ export default function RoomListItem(props: IRoomListItemProps) {
     setOpen(false);
   };
 
+  const co2Color = (value: number) => {
+    console.log(value);
+    if (value < 800) {
+      return "#71CCAB";
+    }
+    if (value > 1000) {
+      return "#FF5252";
+    }
+    return "#FFEE4D";
+  };
+
   React.useEffect(() => {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
 
-      setPeople(
-        sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID, 0)
-      );
-      setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID, 1));
+      setPeople(sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID));
+      setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID));
     }
     if (props.roomId !== undefined) {
       fetchData(props.roomId);
@@ -136,7 +135,10 @@ export default function RoomListItem(props: IRoomListItemProps) {
               }}
             >
               <div id="co2-text" className="co2-value">
-                {co2?.value} <br /> ppm
+                {Number(co2?.value).toLocaleString(undefined, {
+                  maximumFractionDigits: 1,
+                })}{" "}
+                <br /> ppm
               </div>
             </div>
             <div className="indicator-text">co2 value</div>
@@ -199,7 +201,10 @@ export default function RoomListItem(props: IRoomListItemProps) {
               />
             </div>
             <div className="indicator-text">
-              {people?.value}/{props.maxPeople} People
+              {Number(people?.value).toLocaleString(undefined, {
+                maximumFractionDigits: 0,
+              })}
+              /{props.maxPeople} People
             </div>
           </Grid>
         </Grid>
