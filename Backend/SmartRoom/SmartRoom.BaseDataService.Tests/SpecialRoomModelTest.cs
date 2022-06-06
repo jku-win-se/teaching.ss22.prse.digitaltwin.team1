@@ -42,6 +42,11 @@ namespace SmartRoom.BaseDataService.Tests
             };
             var room = roomModel.GetRoom();
             Assert.Equal(room.Id,roomModel.Id);
+            Assert.Equal(room.Name,roomModel.Name);
+            Assert.Equal(room.Building, roomModel.Building);
+            Assert.Equal(room.PeopleCount, roomModel.PeopleCount);
+            Assert.Equal(room.RoomType, roomModel.RoomType);
+            Assert.Equal(room.Size, roomModel.Size);
         }
 
     }
