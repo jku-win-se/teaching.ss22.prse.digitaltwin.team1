@@ -6,11 +6,11 @@ namespace SmartRoom.DataSimulatorService.Logic
     {
         private Timer _timer = null!;
         private readonly ILogger _logger;
-        private readonly SensorManager _sensorManager;
+        private readonly ISensorManager _sensorManager;
         private readonly IHostApplicationLifetime _host;
         private bool _timerIsOn;
 
-        public SimulatorService(ILogger<SimulatorService> logger, SensorManager dataManager, IHostApplicationLifetime host)
+        public SimulatorService(ILogger<SimulatorService> logger, ISensorManager dataManager, IHostApplicationLifetime host)
         {
             _logger = logger;
             _sensorManager = dataManager;
