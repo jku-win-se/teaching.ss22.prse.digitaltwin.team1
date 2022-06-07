@@ -3,7 +3,7 @@ using SmartRoom.CommonBase.Persistence.Contracts;
 
 namespace SmartRoom.CommonBase.Persistence
 {
-    public abstract class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private bool _disposedValue;
         public readonly DbContext _context;

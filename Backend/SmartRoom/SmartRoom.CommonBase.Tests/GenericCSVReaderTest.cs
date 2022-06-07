@@ -25,7 +25,7 @@ namespace SmartRoom.CommonBase.Tests
             Assert.Throws<FormatException>(() => new GenericCSVReader<Object>("Test")); 
         }
 
-        //[Fact] ToDo
+        //[Fact]
         //public void Read_ValidCSVFile_ValidResult()
         //{
         //    string path = "/root/project/Backend/SmartRoom/SmartRoom.CommonBase.Tests/bin/Release/net6.0";
