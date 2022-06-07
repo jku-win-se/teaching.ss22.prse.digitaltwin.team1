@@ -4,11 +4,21 @@ using SmartRoom.CommonBase.Tests.Models;
 using SmartRoom.CommonBase.Persistence;
 using Xunit;
 using System.Threading.Tasks;
+using Moq;
 
 namespace SmartRoom.CommonBase.Tests
 {
     public class GenericRepositoryTest
     {
+
+        [Fact]
+        public void Ctor_ValidParam_ValidObject()
+        {
+            var mock = new Mock<DbContext>();
+            var repo = new GenericEntityRepository<TestEntity>(mock.Object);
+
+            Assert.NotNull(repo);
+        }
 
         [Fact]
         public void GetRepo_ExistingType_ConcreteRepository()
