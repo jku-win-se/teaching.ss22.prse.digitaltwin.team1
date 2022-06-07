@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 #nullable disable
 
@@ -6,6 +7,7 @@ namespace SmartRoom.BaseDataService.Migrations
 {
     public partial class addedUnitIndexes : Migration
     {
+        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateIndex(
@@ -20,7 +22,7 @@ namespace SmartRoom.BaseDataService.Migrations
                 columns: new[] { "Name", "EquipmentRef" },
                 unique: true);
         }
-
+        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(

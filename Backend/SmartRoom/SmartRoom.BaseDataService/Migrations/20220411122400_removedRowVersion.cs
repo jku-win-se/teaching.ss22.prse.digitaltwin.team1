@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -7,6 +8,7 @@ namespace SmartRoom.BaseDataService.Migrations
 {
     public partial class removedRowVersion : Migration
     {
+        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -17,7 +19,7 @@ namespace SmartRoom.BaseDataService.Migrations
                 name: "RowVersion",
                 table: "RoomEquipments");
         }
-
+        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<byte[]>(

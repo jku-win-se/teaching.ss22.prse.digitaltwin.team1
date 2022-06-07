@@ -21,12 +21,17 @@ namespace SmartRoom.BaseDataService.Tests
         }
 
         [Fact]
+        public void Ctor_ValidRoom_ValidObject()
+        {
+            Assert.NotNull(new SpecialRoomModelForOurFEDev(new CommonBase.Core.Entities.Room()));
+        }
+
+        [Fact]
         public void Ctor_Empty_ValidObject()
         {
             Assert.NotNull(new SpecialRoomModelForOurFEDev());
         }
 
-  
         [Fact]
         public void GetRoom_ValidRoomObj()
         {

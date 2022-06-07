@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 #nullable disable
 
@@ -6,6 +7,7 @@ namespace SmartRoom.TransDataService.Migrations
 {
     public partial class splittetStates : Migration
     {
+        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -50,7 +52,7 @@ namespace SmartRoom.TransDataService.Migrations
 
             migrationBuilder.Sql("SELECT create_hypertable('public.\"BinaryStates\"', 'TimeStamp');");
         }
-
+        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
