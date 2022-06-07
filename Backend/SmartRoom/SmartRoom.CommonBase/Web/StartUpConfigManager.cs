@@ -35,7 +35,7 @@ namespace SmartRoom.CommonBase.Web
             if (!_app.Environment.IsDevelopment()) _app.UseMiddleware<ApiKeyManager>();
         }
 
-        private static OpenApiSecurityScheme GetSwaggerSecurityDefinition()
+        public static OpenApiSecurityScheme GetSwaggerSecurityDefinition()
         {
             return new OpenApiSecurityScheme
             {
@@ -45,7 +45,7 @@ namespace SmartRoom.CommonBase.Web
             };
         }
 
-        private static OpenApiSecurityRequirement GetOpenApiSecurityRequirement()
+        public static OpenApiSecurityRequirement GetOpenApiSecurityRequirement()
         {
             return new OpenApiSecurityRequirement()
             {
