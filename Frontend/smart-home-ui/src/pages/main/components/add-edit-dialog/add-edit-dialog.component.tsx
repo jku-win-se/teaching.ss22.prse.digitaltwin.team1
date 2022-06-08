@@ -21,9 +21,13 @@ import {
 import "./add-edit-dialog.styles.css";
 import { RoomType } from "../../../../enums/roomType.enum";
 import { Building } from "../../../../enums/building.enum";
+import { RoomService } from "../../../../services/Room.service";
+import { Equipment } from "../../../../enums/equipment.enum";
+import { IError } from "../../../../models/IError";
 
 export interface IAddEditDialogProps {
   editMode: boolean;
+  id?: string;
   name?: string;
   roomType?: string;
   building?: string;
@@ -35,16 +39,21 @@ export interface IAddEditDialogProps {
   noOfLights?: number;
   open: boolean;
   handleClose(): void;
+  triggerReload(): void;
 }
+const rService = RoomService.getInstance();
 
 export default function AddEditDialog({
   handleClose,
   open,
+  id,
+  triggerReload,
+  editMode,
 }: IAddEditDialogProps) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [building, setBuilding] = React.useState("");
-  const [roomType, setRoomType] = React.useState(RoomType.ScienceLab as string);
+  const [roomType, setRoomType] = React.useState(Object.keys(RoomType)[0]);
   const [name, setName] = React.useState("");
   const [noOfVents, setNoOfVents] = React.useState(0);
   const [noOfPeople, setNoOfPeople] = React.useState(0);
@@ -52,11 +61,34 @@ export default function AddEditDialog({
   const [noOfWindows, setNoOfWindows] = React.useState(0);
   const [noOfLights, setNoOfLights] = React.useState(0);
   const [size, setSize] = React.useState(0);
+  const [err, setErr] = React.useState<IError>({
+    error: false,
+    text: "",
+    status: 200,
+  });
 
   React.useEffect(() => {
+    async function fetchData(id: string) {
+      const room = await rService.getById(id);
+      console.log(room);
+      setBuilding(room.building);
+      setRoomType(room.roomType);
+      setName(room.name);
+      setNoOfVents(rService.getEquipmentNumber(Equipment.Ventilator) || 0);
+      setNoOfPeople(room.peopleCount);
+      setNoOfDoors(rService.getEquipmentNumber(Equipment.Door) || 0);
+      setNoOfWindows(rService.getEquipmentNumber(Equipment.Window) || 0);
+      setNoOfLights(rService.getEquipmentNumber(Equipment.Light) || 0);
+      setSize(room.size);
+    }
+    if (id) {
+      fetchData(id);
+    }
+
     return () => {
+      console.log("Destruction");
       setBuilding("");
-      setRoomType(RoomType.ScienceLab as string);
+      setRoomType(RoomType.Lab);
       setName("");
       setNoOfVents(0);
       setNoOfPeople(0);
@@ -66,6 +98,30 @@ export default function AddEditDialog({
       setSize(0);
     };
   }, []);
+
+  const save = async () => {
+    const err = await rService.addOrChange(
+      id,
+      noOfPeople,
+      name,
+      size,
+      roomType,
+      building,
+      {
+        [Equipment.Ventilator]: noOfVents,
+        [Equipment.Door]: noOfDoors,
+        [Equipment.Window]: noOfWindows,
+        [Equipment.Light]: noOfLights,
+      },
+      editMode
+    );
+    console.log(err);
+    setErr(err);
+    if (!err.error) {
+      triggerReload();
+      handleClose();
+    }
+  };
   return (
     <div>
       <Dialog
@@ -78,7 +134,8 @@ export default function AddEditDialog({
           className="add-edit-dialog-header"
           id="responsive-dialog-title"
         >
-          <ClearIcon></ClearIcon> Add a new Smart Room
+          <ClearIcon onClick={handleClose}></ClearIcon>{" "}
+          {editMode ? "Edit" : "Add"} a Smart Room
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2}>
@@ -192,13 +249,14 @@ export default function AddEditDialog({
                 onChange={(event, value) => {
                   console.log(Object.entries(RoomType));
                   console.log(value);
+                  console.log(RoomType[value as keyof typeof RoomType]);
                   setRoomType(value);
                 }}
               >
                 {Object.entries(RoomType).map((val) => (
                   <FormControlLabel
-                    key={val[1] as string}
-                    value={val[1] as string}
+                    key={val[0]}
+                    value={val[0]}
                     control={<Radio />}
                     label={val[1] as string}
                   />
@@ -223,6 +281,10 @@ export default function AddEditDialog({
                     ))}
                 </Select>
               </FormControl>
+
+              {err.error ? (
+                <h4 className="add-edit-err">{`${err.status}: ${err.text}`}</h4>
+              ) : null}
             </Grid>
           </Grid>
         </DialogContent>
@@ -230,7 +292,7 @@ export default function AddEditDialog({
           <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={save} autoFocus>
             Save
           </Button>
         </DialogActions>

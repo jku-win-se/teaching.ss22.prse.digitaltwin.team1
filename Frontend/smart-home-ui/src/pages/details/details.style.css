@@ -17,11 +17,6 @@
   }
 }
 
-.control-height {
-  height: 35vh;
-  background-color: green;
-}
-
 .header-container {
   display: flex;
   align-items: center;

@@ -1,15 +1,18 @@
-import * as Muicon from "@mui/icons-material";
 import { Edit } from "@mui/icons-material";
-import { IconButton, SvgIconProps } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "../../../../components/icon/icon.component";
+import { Building } from "../../../../enums/building.enum";
 import { Measure } from "../../../../enums/measure.enum";
-import { RoomTypeIcon } from "../../../../enums/roomTypeIcon.enum";
+import { RoomType } from "../../../../enums/roomType.enum";
 import { IWSData } from "../../../../models/IWSData";
 import { StateService } from "../../../../services/State.service";
+import { getCO2Color } from "../../../../utils/getCO2Color";
+import { getRoomTypeIcon } from "../../../../utils/getRoomTypeIcon";
 import AddEditDialog from "../add-edit-dialog/add-edit-dialog.component";
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
 import "./room-list-item.styles.css";
@@ -22,25 +25,9 @@ export interface IRoomListItemProps {
   //coValue: number;
   //currentPeople: number;
   maxPeople: number;
+  triggerReload: () => void;
 }
 
-const Icon = ({
-  name,
-  ...rest
-}: { name: keyof typeof Muicon } & SvgIconProps) => {
-  const IconComponent = Muicon[name];
-  return IconComponent ? <IconComponent {...rest} /> : null;
-};
-
-function roomType(type: string) {
-  if (type === "Lab") {
-    return RoomTypeIcon.Lab;
-  }
-  if (type === "LectureRoom") {
-    return RoomTypeIcon.LectureRoom;
-  }
-  return RoomTypeIcon.MeetingRoom;
-}
 const sService = StateService.getInstance();
 
 export default function RoomListItem(props: IRoomListItemProps) {
@@ -56,17 +43,6 @@ export default function RoomListItem(props: IRoomListItemProps) {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const co2Color = (value: number) => {
-    console.log(value);
-    if (value < 800) {
-      return "#71CCAB";
-    }
-    if (value > 1000) {
-      return "#FF5252";
-    }
-    return "#FFEE4D";
   };
 
   React.useEffect(() => {
@@ -107,12 +83,15 @@ export default function RoomListItem(props: IRoomListItemProps) {
             alignContent={"center"}
             marginLeft={4}
           >
-            <Icon fontSize="large" name={roomType(props.roomIcon)}></Icon>
+            <Icon
+              fontSize="large"
+              name={getRoomTypeIcon(props.roomIcon as keyof typeof RoomType)}
+            ></Icon>
           </Grid>
 
           <Grid item xs={2} sm container alignContent={"center"}>
             <div className="room-font-size">{props.roomName}</div>
-            {props.building}
+            {Building[props.building as keyof typeof Building]}
           </Grid>
 
           <Grid item xs={4}></Grid>
@@ -129,15 +108,17 @@ export default function RoomListItem(props: IRoomListItemProps) {
               id="co2"
               className="co2-indicator"
               style={{
-                backgroundColor: co2Color(
+                backgroundColor: getCO2Color(
                   isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
                 ),
               }}
             >
               <div id="co2-text" className="co2-value">
-                {Number(co2?.value).toLocaleString(undefined, {
-                  maximumFractionDigits: 1,
-                })}{" "}
+                {isNaN(Number(co2?.value))
+                  ? "-"
+                  : Number(co2?.value).toLocaleString(undefined, {
+                      maximumFractionDigits: 1,
+                    })}{" "}
                 <br /> ppm
               </div>
             </div>
@@ -159,7 +140,7 @@ export default function RoomListItem(props: IRoomListItemProps) {
               alignContent={"center"}
               justifyContent={"center"}
               style={{
-                backgroundColor: co2Color(
+                backgroundColor: getCO2Color(
                   isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
                 ),
               }}
@@ -201,9 +182,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
               />
             </div>
             <div className="indicator-text">
-              {Number(people?.value).toLocaleString(undefined, {
-                maximumFractionDigits: 0,
-              })}
+              {isNaN(Number(people?.value))
+                ? "-"
+                : Number(people?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 0,
+                  })}
               /{props.maxPeople} People
             </div>
           </Grid>
@@ -246,12 +229,15 @@ export default function RoomListItem(props: IRoomListItemProps) {
           <Grid item xs={0.5} sm={1}></Grid>
         </Grid>
       </Grid>
-
-      <AddEditDialog
-        editMode={true}
-        handleClose={handleClose}
-        open={open}
-      ></AddEditDialog>
+      {open ? (
+        <AddEditDialog
+          editMode={true}
+          handleClose={handleClose}
+          open={open}
+          id={props.roomId}
+          triggerReload={props.triggerReload}
+        ></AddEditDialog>
+      ) : null}
     </div>
   );
 }

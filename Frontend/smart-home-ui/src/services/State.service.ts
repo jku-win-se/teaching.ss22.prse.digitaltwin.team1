@@ -87,8 +87,11 @@ export class StateService {
         method: "GET",
       }
     );
-
-    return (await response.json()) as IChartData[];
+    if (response.status === 200) {
+      return (await response.json()) as IChartData[];
+    } else {
+      return [];
+    }
   }
 
   async getBinaryChartData(rqIds: string[], stateName: string) {
@@ -143,5 +146,25 @@ export class StateService {
     } else {
       return { name: "", value: "-", entityRef: "" } as IWSData;
     }
+  }
+  async changeSensorBinaryState(
+    entityRef: string,
+    value: boolean,
+    name: string,
+    stateId: string
+  ) {
+    await fetch(this.BASE_URL + "TransWrite/AddBinaryState", {
+      method: "Post",
+      body: JSON.stringify([
+        {
+          id: stateId,
+          value: value,
+          name: name,
+          entityRefID: entityRef,
+          timeStamp: new Date().toISOString(),
+        },
+      ]),
+      headers: new Headers(this.addHeaders()),
+    });
   }
 }

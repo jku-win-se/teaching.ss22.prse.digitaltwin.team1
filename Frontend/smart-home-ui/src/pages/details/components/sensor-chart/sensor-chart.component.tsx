@@ -10,6 +10,7 @@ import {
   Legend,
   ChartOptions,
   TimeSeriesScale,
+  TimeScale,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
@@ -32,7 +33,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  TimeSeriesScale
+  TimeSeriesScale,
+  TimeScale
 );
 
 export const options: ChartOptions = {
@@ -141,28 +143,36 @@ export default function SensorChart(props: ISensorChartProps) {
     var VentilatorsChartData: IChartData[] = [];
     var LightsChartData: IChartData[] = [];
     if (Doors.length !== 0) {
-      DoorsChartData = await sService.getBinaryChartData(
-        Doors.map((d) => d.id),
-        Doors[0].state[0].name
-      );
+      if (Doors[0].state.length !== 0) {
+        DoorsChartData = await sService.getBinaryChartData(
+          Doors.map((d) => d.id),
+          Doors[0].state[0].name
+        );
+      }
     }
     if (Windows.length !== 0) {
-      WindowsChartData = await sService.getBinaryChartData(
-        Windows.map((w) => w.id),
-        Windows[0].state[0].name
-      );
+      if (Windows[0].state.length !== 0) {
+        WindowsChartData = await sService.getBinaryChartData(
+          Windows.map((w) => w.id),
+          Windows[0].state[0].name
+        );
+      }
     }
     if (Lights.length !== 0) {
-      LightsChartData = await sService.getBinaryChartData(
-        Lights.map((l) => l.id),
-        Lights[0].state[0].name
-      );
+      if (Lights[0].state.length !== 0) {
+        LightsChartData = await sService.getBinaryChartData(
+          Lights.map((l) => l.id),
+          Lights[0].state[0].name
+        );
+      }
     }
     if (Ventilators.length !== 0) {
-      VentilatorsChartData = await sService.getBinaryChartData(
-        Ventilators.map((v) => v.id),
-        Ventilators[0].state[0].name
-      );
+      if (Ventilators[0].state.length !== 0) {
+        VentilatorsChartData = await sService.getBinaryChartData(
+          Ventilators.map((v) => v.id),
+          Ventilators[0].state[0].name
+        );
+      }
     }
     console.log(LightsChartData);
     console.log(
@@ -285,7 +295,7 @@ export default function SensorChart(props: ISensorChartProps) {
                   drawBorder: true,
                   display: false,
                 },
-                type: "timeseries",
+                type: "time",
                 adapters: {
                   date: {
                     locale: de,

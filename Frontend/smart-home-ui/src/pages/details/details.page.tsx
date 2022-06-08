@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import PeopleChart from "./components/people-chart/people-chart.component";
 import SensorChart from "./components/sensor-chart/sensor-chart.component";
+import ControlArea from "./components/control-area/control-area.component";
 
 export interface IDetailsProps {}
 
@@ -48,8 +49,8 @@ export function Details(props: IDetailsProps) {
               <InformationPanel room={room}></InformationPanel>
             </div>
           </Grid>
-          <Grid className="control-height" item xs={10} sx={{ margin: "auto" }}>
-            <div></div>
+          <Grid item xs={10} sx={{ margin: "auto" }}>
+            <ControlArea room={room} />
           </Grid>
         </Grid>
         <Grid className="grid-bg" item sm={12} md={6}>

@@ -19,21 +19,24 @@ export function Main(props: IMainProps) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
+  const fetchData = async () => {
+    const r = await rService.getAll();
+    setRooms(r);
+    setIsLoading(false);
+  };
+
   React.useEffect(() => {
-    async function fetchData() {
-      const r = await rService.getAll();
-      setRooms(r);
-      setIsLoading(false);
-    }
     fetchData();
   }, []);
 
-  const changeFilterValue = (newValue: string) => {
-    if (newValue === Building[1]) {
-      setRooms(rService.allRooms);
-    } else {
-      setRooms(rService.allRooms.filter((val) => val.building === newValue));
-    }
+  const changeFilterValue = (newValue: keyof typeof Building) => {
+    console.log(newValue);
+    setRooms(rService.filterByBuilding(newValue));
+  };
+
+  const triggerReload = async () => {
+    setIsLoading(true);
+    await fetchData();
   };
 
   const handleClickOpen = () => {
@@ -106,7 +109,7 @@ export function Main(props: IMainProps) {
             xs={10}
             sx={{ margin: "auto" }}
           >
-            <RoomList rooms={rooms} />
+            <RoomList triggerReload={triggerReload} rooms={rooms} />
           </Grid>
         )}
       </Grid>
@@ -124,6 +127,7 @@ export function Main(props: IMainProps) {
         editMode={false}
         handleClose={handleClose}
         open={open}
+        triggerReload={triggerReload}
       ></AddEditDialog>
     </Box>
   );

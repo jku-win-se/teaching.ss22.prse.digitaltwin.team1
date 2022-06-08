@@ -81,8 +81,8 @@ export class RoomService {
       .roomEquipment.filter((re) => re.name === type).length;
   }
 
-  filterByBuilding(building: string) {
-    return building === Building[1]
+  filterByBuilding(building: keyof typeof Building) {
+    return building === "AR"
       ? this.allRooms
       : this.allRooms.filter((val) => val.building === building);
   }
@@ -106,8 +106,8 @@ export class RoomService {
     return err;
   }
 
-  async AddOrChange(
-    id: string,
+  async addOrChange(
+    id: string | undefined,
     peopleCount: number,
     name: string,
     size: number,
@@ -130,7 +130,7 @@ export class RoomService {
       }),
     });
     const err: IError = {
-      error: response.ok,
+      error: !response.ok,
       text: response.statusText,
       status: response.status,
     };

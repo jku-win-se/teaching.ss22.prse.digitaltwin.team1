@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid";
 import * as React from "react";
+import { Building } from "../../../../enums/building.enum";
 import { Equipment } from "../../../../enums/equipment.enum";
 import { Measure } from "../../../../enums/measure.enum";
 import { IMeasureState } from "../../../../models/IMeasureState";
@@ -80,17 +81,17 @@ export default function InformationPanel(props: IInformationPanelProps) {
 
   return (
     <div>
-      <h3 className="information-panel-header">
-        {props.room?.building} {props.room?.name}
-      </h3>
+      <h3 className="information-panel-header">{props.room?.name}</h3>
       <Grid container spacing={0}>
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
             value={
-              Number(people?.value).toLocaleString(undefined, {
-                maximumFractionDigits: 0,
-              }) +
+              (isNaN(Number(people?.value))
+                ? "-"
+                : Number(people?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 0,
+                  })) +
               "/" +
               props.room?.peopleCount
             }
@@ -100,9 +101,13 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={Number(temp?.value).toLocaleString(undefined, {
-              maximumFractionDigits: 1,
-            })}
+            value={
+              isNaN(Number(temp?.value))
+                ? "-"
+                : Number(temp?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 1,
+                  })
+            }
             unit="°C"
             icon="ThermostatOutlined"
           ></InformationPanelItem>
@@ -126,7 +131,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value="62"
+            value={props.room?.size}
             unit="&#13217;"
             icon="StraightenOutlined"
           ></InformationPanelItem>
@@ -134,11 +139,17 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={Number(co2?.value).toLocaleString(undefined, {
-              maximumFractionDigits: 1,
-            })}
+            value={
+              isNaN(Number(co2?.value))
+                ? "-"
+                : Number(co2?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 1,
+                  })
+            }
             unit="ppm"
             icon="Co2Outlined"
+            numericValue={Number(co2?.value)}
+            dynamic={true}
           ></InformationPanelItem>
         </Grid>
         <Grid id="SensorDoorOutlined" item xs={4} sm={4} md={3}>
@@ -160,7 +171,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
         <Grid item xs={4} sm={4} md={3}>
           <InformationPanelItem
             isLoading={isLoading}
-            value={props.room?.name}
+            value={Building[props.room?.building as keyof typeof Building]}
             icon="InfoOutlined"
           ></InformationPanelItem>
         </Grid>
