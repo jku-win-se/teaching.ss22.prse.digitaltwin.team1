@@ -4,6 +4,7 @@ using Serilog.Events;
 using Serilog.Parsing;
 using SmartRoom.DataSimulatorService.Controllers;
 using SmartRoom.DataSimulatorService.Logic.Contracts;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -30,6 +31,19 @@ namespace SmartRoom.DataSimulatorService.Tests
 
             Assert.IsType<OkObjectResult>(res);
             Assert.Single((IEnumerable<string>)(res as OkObjectResult)!.Value!);
+        }
+
+        [Fact]
+        public void GetLogs_ThrowException_BadRequest()
+        {
+            var mock = new Mock<IDataSink>();
+            mock.Setup(d => d.Events).Throws<Exception>();
+            Serilog.Log.Information("Test");
+
+            var cont = new StatusController(mock.Object);
+            var res = cont.GetLogs().Result;
+
+            Assert.IsType<BadRequestObjectResult>(res);
         }
     }
 }

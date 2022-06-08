@@ -42,6 +42,18 @@ namespace SmartRoom.TransDataService.Tests
         }
 
         [Fact]
+        public async Task GetByEntityId_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetStatesByEntityID<BinaryState>(It.IsAny<Guid>())).Throws<Exception>();
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = await controller.GetBy(new Guid());
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
+        }
+
+        [Fact]
         public async Task GetRecent_ValidParams_ValidResult()
         {
             var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
@@ -56,6 +68,18 @@ namespace SmartRoom.TransDataService.Tests
         }
 
         [Fact]
+        public async Task GetRecent_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetRecentStateByEntityID<BinaryState>(It.IsAny<Guid>(), It.IsAny<string>())).Throws<Exception>();
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = await controller.GetRecentBy(new Guid(), "isTriggerd");
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
+        }
+
+        [Fact]
         public async Task GetStateTypes_ValidParams_ValidResult()
         {
             var id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
@@ -67,6 +91,18 @@ namespace SmartRoom.TransDataService.Tests
             var res = (string[])((await controller.GetTypesBy(id)).Result as OkObjectResult)!.Value!;
 
             Assert.Single(res!);
+        }
+
+        [Fact]
+        public async Task GetStateTypes_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetStateTypesByEntityID<BinaryState>(It.IsAny<Guid>())).Throws<Exception>();
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = await controller.GetTypesBy(new Guid());
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
         }
 
         [Fact]
@@ -116,6 +152,18 @@ namespace SmartRoom.TransDataService.Tests
         }
 
         [Fact]
+        public async Task GetChartData_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetChartData<BinaryState>(It.IsAny<Guid>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>())).Throws<Exception>();
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = await controller.GetChartData(new Guid(), "test", 0, 0);
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
+        }
+
+        [Fact]
         public async Task GetChartData_ValidParamsMultiIds_ValidResult()
         {
             var id = new Guid[]
@@ -147,6 +195,18 @@ namespace SmartRoom.TransDataService.Tests
             var res = ((await controller.GetChartData(id, "isTriggerd")).Result as OkObjectResult)!.Value!;
 
             Assert.NotNull(res!);
+        }
+
+        [Fact]
+        public async Task GetChartDataMultIds_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IReadManager>();
+            mockManager.Setup(m => m.GetChartData<BinaryState>(It.IsAny<Guid[]>(), It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>())).Throws<Exception>();
+            var controller = new ReadBinaryController(mockManager.Object);
+
+            var res = await controller.GetChartData(GetTestStates().Select(s => s.Id).ToArray(), "test", 0, 0);
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
         }
 
 

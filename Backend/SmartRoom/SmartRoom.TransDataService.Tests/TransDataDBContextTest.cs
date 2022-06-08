@@ -40,7 +40,6 @@ namespace SmartRoom.TransDataService.Tests
             Assert.ThrowsAny<Exception>(() => context.RawSqlQuery("", d => new BinaryState()));
         }
 
-
         private async Task<TransDataDBContext> GetInMemoryDBContext()
         {
             DbContextOptions<TransDataDBContext> options;
