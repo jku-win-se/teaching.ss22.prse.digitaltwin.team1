@@ -3,6 +3,7 @@ using Moq;
 using SmartRoom.CommonBase.Logic.Contracts;
 using SmartRoom.CommonBase.Tests.Models;
 using SmartRoom.CommonBase.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +27,18 @@ namespace SmartRoom.CommonBase.Tests
         }
 
         [Fact]
+        public async Task GetAll_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
+            mockManager.Setup(m => m.Get()).Throws<Exception>();
+            var controller = new GenericEntityController<TestEntity>(mockManager.Object);
+
+            var res = await controller.GetAll();
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
+        }
+
+        [Fact]
         public async Task GetById_ValidId_ValidResult()
         {
             var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
@@ -38,6 +51,18 @@ namespace SmartRoom.CommonBase.Tests
             var res = (TestEntity)((await controller.Get(id)).Result as OkObjectResult)!.Value!;
 
             Assert.Equal(GetTestEntities()[0], res);
+        }
+
+        [Fact]
+        public async Task GetById_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
+            mockManager.Setup(m => m.GetBy(It.IsAny<Guid>())).Throws<Exception>();
+            var controller = new GenericEntityController<TestEntity>(mockManager.Object);
+
+            var res = await controller.Get(new Guid());
+
+            Assert.IsType<BadRequestObjectResult>(res.Result);
         }
 
         [Fact]
@@ -56,6 +81,7 @@ namespace SmartRoom.CommonBase.Tests
 
             Assert.IsType<OkResult>(res);
         }
+
         [Fact]
         public async Task Add_Null_BadRequest()
         {
@@ -65,6 +91,18 @@ namespace SmartRoom.CommonBase.Tests
             mockManager.Setup(m => m.Add(null!)).Returns(Task.CompletedTask).Verifiable();
 
             var res = await controller.Post(null!);
+
+            Assert.IsType<BadRequestObjectResult>(res);
+        }
+
+        [Fact]
+        public async Task Add_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
+            mockManager.Setup(m => m.Add(It.IsAny<TestEntity>())).Throws<Exception>();
+            var controller = new GenericEntityController<TestEntity>(mockManager.Object);
+
+            var res = await controller.Post(new TestEntity());
 
             Assert.IsType<BadRequestObjectResult>(res);
         }
@@ -99,6 +137,18 @@ namespace SmartRoom.CommonBase.Tests
         }
 
         [Fact]
+        public async Task Update_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
+            mockManager.Setup(m => m.Update(It.IsAny<TestEntity>())).Throws<Exception>();
+            var controller = new GenericEntityController<TestEntity>(mockManager.Object);
+
+            var res = await controller.Put(new TestEntity());
+
+            Assert.IsType<BadRequestObjectResult>(res);
+        }
+
+        [Fact]
         public async Task Delete_ValidGuid_OkResult()
         {
             var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
@@ -110,6 +160,18 @@ namespace SmartRoom.CommonBase.Tests
             var res = await controller.Delete(id);
 
             Assert.IsType<OkResult>(res);
+        }
+
+        [Fact]
+        public async Task Delete_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<TestEntity>>();
+            mockManager.Setup(m => m.Delete(It.IsAny<Guid>())).Throws<Exception>();
+            var controller = new GenericEntityController<TestEntity>(mockManager.Object);
+
+            var res = await controller.Delete(new Guid());
+
+            Assert.IsType<BadRequestObjectResult>(res);
         }
 
         private List<TestEntity> GetTestEntities()
