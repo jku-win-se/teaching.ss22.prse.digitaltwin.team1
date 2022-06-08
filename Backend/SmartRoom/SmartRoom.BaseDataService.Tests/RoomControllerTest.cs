@@ -34,6 +34,18 @@ namespace SmartRoom.BaseDataService.Tests
         }
 
         [Fact]
+        public async Task GetModels_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<Room>>();
+            mockManager.Setup(m => m.Get()).Throws<Exception>();
+           var controller = new RoomController(mockManager.Object);
+
+            var res = (await controller.GetModels()).Result;
+
+            Assert.IsType<BadRequestObjectResult>(res);
+        }
+
+        [Fact]
         public async Task PostModel_ValidModel_Ok()
         {
             var model = new SpecialRoomModelForOurFEDev();
@@ -53,6 +65,18 @@ namespace SmartRoom.BaseDataService.Tests
         }
 
         [Fact]
+        public async Task PostModel_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<Room>>();
+            mockManager.Setup(m => m.Add(It.IsAny<Room>())).Throws<Exception>();
+            var controller = new RoomController(mockManager.Object);
+
+            var res = await controller.PostModel(new SpecialRoomModelForOurFEDev());
+
+            Assert.IsType<BadRequestObjectResult>(res);
+        }
+
+        [Fact]
         public async Task PutModel_ValidModel_Ok()
         {
             var model = new SpecialRoomModelForOurFEDev 
@@ -60,7 +84,7 @@ namespace SmartRoom.BaseDataService.Tests
                 Id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                 RoomEquipmentDict = new Dictionary<string, int> 
                 {
-                    {"Test", 2}
+                    {"Test", 3}
                 }
             };
             var modelRemove = new SpecialRoomModelForOurFEDev
@@ -68,7 +92,7 @@ namespace SmartRoom.BaseDataService.Tests
                 Id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                 RoomEquipmentDict = new Dictionary<string, int>
                 {
-                    {"Test", 2}
+                    {"Test", 1}
                 }
             };
             var mockManager = new Mock<IGenericEntityManager<Room>>();
@@ -87,6 +111,18 @@ namespace SmartRoom.BaseDataService.Tests
             var controller = new RoomController(mockManager.Object);
 
             Assert.IsType<BadRequestObjectResult>(await controller.PutModel(null!));
+        }
+
+        [Fact]
+        public async Task PutModel_ThrowException_BadRequest()
+        {
+            var mockManager = new Mock<IGenericEntityManager<Room>>();
+            mockManager.Setup(m => m.Update(It.IsAny<Room>())).Throws<Exception>();
+            var controller = new RoomController(mockManager.Object);
+
+            var res = await controller.PutModel(new SpecialRoomModelForOurFEDev());
+
+            Assert.IsType<BadRequestObjectResult>(res);
         }
 
         private Room[] GetRoomsTestData()
