@@ -100,26 +100,27 @@ export default function AddEditDialog({
   }, []);
 
   const save = async () => {
+    let err: IError = { error: false, text: "", status: 200 };
     if (name === "") {
-      setErr({
+      err = {
         error: true,
         text: "Name is required",
         status: 400,
-      });
+      };
     } else if (size === 0) {
-      setErr({
+      err = {
         error: true,
         text: "Size is required",
         status: 400,
-      });
+      };
     } else if (noOfPeople === 0) {
-      setErr({
+      err = {
         error: true,
         text: "Number of people is required",
         status: 400,
-      });
+      };
     } else {
-      const err = await rService.addOrChange(
+      err = await rService.addOrChange(
         id,
         noOfPeople,
         name,
@@ -134,10 +135,9 @@ export default function AddEditDialog({
         },
         editMode
       );
-      console.log(err);
-      setErr(err);
     }
-
+    console.log(err);
+    setErr(err);
     if (!err.error) {
       triggerReload();
       handleClose();
