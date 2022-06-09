@@ -22,8 +22,6 @@ export interface IRoomListItemProps {
   roomName: string;
   roomIcon: string;
   building: string;
-  //coValue: number;
-  //currentPeople: number;
   maxPeople: number;
   triggerReload: () => void;
 }
@@ -117,8 +115,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 {isNaN(Number(co2?.value))
                   ? "-"
                   : Number(co2?.value).toLocaleString(undefined, {
-                      maximumFractionDigits: 1,
-                    })}{" "}
+                    maximumFractionDigits: 1,
+                  })}{" "}
                 <br /> ppm
               </div>
             </div>
@@ -185,8 +183,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
               {isNaN(Number(people?.value))
                 ? "-"
                 : Number(people?.value).toLocaleString(undefined, {
-                    maximumFractionDigits: 0,
-                  })}
+                  maximumFractionDigits: 0,
+                })}
               /{props.maxPeople} People
             </div>
           </Grid>
@@ -209,7 +207,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <Edit fontSize="large" />
           </IconButton>
 
-          <DeleteDialog />
+          <DeleteDialog
+            roomId={props.roomId}
+            triggerReload={props.triggerReload}
+            handleClose={handleClose}
+          />
         </Grid>
 
         <Grid
@@ -225,7 +227,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <Edit fontSize="large" />
           </IconButton>
 
-          <DeleteDialog />
+          <DeleteDialog
+            roomId={props.roomId}
+            triggerReload={props.triggerReload}
+            handleClose={handleClose}
+          />
           <Grid item xs={0.5} sm={1}></Grid>
         </Grid>
       </Grid>
