@@ -19,8 +19,6 @@ export default function RoomList(props: IRoomListProps) {
           roomName={room.name}
           roomIcon={room.roomType}
           building={room.building}
-          //coValue={500}
-          //currentPeople={25}
           maxPeople={room.peopleCount}
         />
       ))}
