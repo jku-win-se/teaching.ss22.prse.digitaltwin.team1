@@ -157,7 +157,7 @@ export default function ControlUnit(props: IControlUnitProps) {
                 .length
             }
             minValue={0}
-            maxValue={sensors.length}
+            maxValue={sensors.filter((i) => i.state[0]).length}
             styles={buildStyles({
               textColor: "black",
               pathColor: props.activeColor,

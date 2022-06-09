@@ -100,23 +100,44 @@ export default function AddEditDialog({
   }, []);
 
   const save = async () => {
-    const err = await rService.addOrChange(
-      id,
-      noOfPeople,
-      name,
-      size,
-      roomType,
-      building,
-      {
-        [Equipment.Ventilator]: noOfVents,
-        [Equipment.Door]: noOfDoors,
-        [Equipment.Window]: noOfWindows,
-        [Equipment.Light]: noOfLights,
-      },
-      editMode
-    );
-    console.log(err);
-    setErr(err);
+    if (name === "") {
+      setErr({
+        error: true,
+        text: "Name is required",
+        status: 400,
+      });
+    } else if (size === 0) {
+      setErr({
+        error: true,
+        text: "Size is required",
+        status: 400,
+      });
+    } else if (noOfPeople === 0) {
+      setErr({
+        error: true,
+        text: "Number of people is required",
+        status: 400,
+      });
+    } else {
+      const err = await rService.addOrChange(
+        id,
+        noOfPeople,
+        name,
+        size,
+        roomType,
+        building,
+        {
+          [Equipment.Ventilator]: noOfVents,
+          [Equipment.Door]: noOfDoors,
+          [Equipment.Window]: noOfWindows,
+          [Equipment.Light]: noOfLights,
+        },
+        editMode
+      );
+      console.log(err);
+      setErr(err);
+    }
+
     if (!err.error) {
       triggerReload();
       handleClose();
