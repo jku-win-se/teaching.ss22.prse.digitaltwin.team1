@@ -33,8 +33,10 @@ export default function ControlUnit(props: IControlUnitProps) {
     if (props.sensors !== []) {
       setSensors(props.sensors);
       props.sensors.forEach((sensor) => {
-        removeWSListener(sensor.id, sensor.state[0].name);
-        getWSData(setSensors, sensor.id, sensor.state[0].name);
+        if (sensor.state.length !== 0) {
+          removeWSListener(sensor.id, sensor.state[0].name);
+          getWSData(setSensors, sensor.id, sensor.state[0].name);
+        }
       });
     }
   }, [props.sensors]);
@@ -66,25 +68,31 @@ export default function ControlUnit(props: IControlUnitProps) {
 
   const generateChips = () => {
     return sensors.map((i, index) => {
-      return (
-        <Grid key={index} item xs={12}>
-          <Chip
-            onClick={async () => {
-              await sService.changeSensorBinaryState(
-                i.id,
-                !i.state[0].value,
-                i.state[0].name,
-                i.state[0].id
-              );
-            }}
-            style={{
-              backgroundColor: i.state[0].value ? props.activeColor : "#BCBCBC",
-            }}
-            className="chip"
-            label={i.name + " " + index}
-          ></Chip>
-        </Grid>
-      );
+      if (i.state.length !== 0) {
+        return (
+          <Grid key={index} item xs={12}>
+            <Chip
+              onClick={async () => {
+                await sService.changeSensorBinaryState(
+                  i.id,
+                  !i.state[0].value,
+                  i.state[0].name,
+                  i.state[0].id
+                );
+              }}
+              style={{
+                backgroundColor: i.state[0].value
+                  ? props.activeColor
+                  : "#BCBCBC",
+              }}
+              className="chip"
+              label={i.name + " " + index}
+            ></Chip>
+          </Grid>
+        );
+      } else {
+        return null;
+      }
     });
   };
 
@@ -92,32 +100,38 @@ export default function ControlUnit(props: IControlUnitProps) {
     return sensors.length === 0
       ? `0%`
       : `${
-          (sensors.filter((i) => i.state[0].value).length / sensors.length) *
+          (sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
+            .length /
+            sensors.length) *
           100
         }%`;
   };
 
   const generateIcons = () => {
     return sensors.map((i, index) => {
-      return (
-        <Icon
-          key={index}
-          onClick={() => {
-            sService.changeSensorBinaryState(
-              i.id,
-              !i.state[0].value,
-              i.state[0].name,
-              i.state[0].id
-            );
-          }}
-          style={{
-            color: i.state[0].value ? props.activeColor : "#BCBCBC",
-            marginLeft: "1.5rem",
-            fontSize: "clamp(2.2rem, 3vw, 2.7rem)",
-          }}
-          name={props.iconName}
-        ></Icon>
-      );
+      if (i.state.length !== 0) {
+        return (
+          <Icon
+            key={index}
+            onClick={() => {
+              sService.changeSensorBinaryState(
+                i.id,
+                !i.state[0].value,
+                i.state[0].name,
+                i.state[0].id
+              );
+            }}
+            style={{
+              color: i.state[0].value ? props.activeColor : "#BCBCBC",
+              marginLeft: "1.5rem",
+              fontSize: "clamp(2.2rem, 3vw, 2.7rem)",
+            }}
+            name={props.iconName}
+          ></Icon>
+        );
+      } else {
+        return null;
+      }
     });
   };
   return (
@@ -138,7 +152,10 @@ export default function ControlUnit(props: IControlUnitProps) {
         >
           <CircularProgressbar
             strokeWidth={10}
-            value={sensors.filter((i) => i.state[0].value).length}
+            value={
+              sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
+                .length
+            }
             minValue={0}
             maxValue={sensors.length}
             styles={buildStyles({
