@@ -18,6 +18,7 @@ import { StateService } from "../../../../services/State.service";
 import { Measure } from "../../../../enums/measure.enum";
 import { IRoom } from "../../../../models/IRoom";
 import { Skeleton } from "@mui/material";
+import { IChartData } from "../../../../models/IChartData";
 
 export interface IPeopleChartProps {
   room: IRoom | undefined;
@@ -85,10 +86,16 @@ export default function PeopleChart(props: IPeopleChartProps) {
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timer>();
   async function fetchData(roomID: string) {
     console.log("Update PeopleInRoom");
-    const PeopleInRoom = await sService.getMeasureChartData(
-      roomID,
-      Measure.PeopleInRoom
-    );
+    let PeopleInRoom: IChartData[] = [];
+    try {
+      PeopleInRoom = await sService.getMeasureChartData(
+        roomID,
+        Measure.PeopleInRoom
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
     setChartData({
       labels: PeopleInRoom.map((val) => new Date(val.timeStamp)),
       datasets: [

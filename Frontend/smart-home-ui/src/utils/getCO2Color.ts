@@ -1,4 +1,7 @@
 export function getCO2Color(value: number) {
+  if (isNaN(value)) {
+    return "#000000";
+  }
   if (value < 800) {
     return "#71CCAB";
   }

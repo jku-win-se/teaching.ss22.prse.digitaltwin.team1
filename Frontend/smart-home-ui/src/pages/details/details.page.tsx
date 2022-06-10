@@ -21,7 +21,12 @@ export function Details(props: IDetailsProps) {
     const rService = RoomService.getInstance();
     async function fetchData() {
       const r = await rService.getById(roomid!);
-      await rService.addStatesForRoomEquipment();
+      try {
+        await rService.addStatesForRoomEquipment();
+      } catch (err) {
+        console.log(err);
+      }
+
       setRoom(r);
     }
     fetchData();

@@ -11,6 +11,10 @@
   margin-right: 5px;
 }
 
+.add-edit-dialog-cross {
+  cursor: pointer;
+}
+
 .add-edit-err {
   color: red;
   text-align: center;

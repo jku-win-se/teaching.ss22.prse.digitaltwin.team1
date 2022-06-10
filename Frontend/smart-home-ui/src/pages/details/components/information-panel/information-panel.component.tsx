@@ -25,22 +25,30 @@ export default function InformationPanel(props: IInformationPanelProps) {
   const [co2, setCo2] = React.useState<IWSData>();
   React.useEffect(() => {
     async function fetchData(roomID: string) {
-      await sService.getInitialMeasureById(roomID);
-      const temp = sService.returnWSDataForMeasure(Measure.Temperature, roomID);
-      const people = sService.returnWSDataForMeasure(
-        Measure.PeopleInRoom,
-        roomID
-      );
-      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
-      setTemp(temp);
-      setPeople(people);
-      setCo2(co2);
-      removeWSListener(temp.entityRef, temp.name);
-      removeWSListener(people.entityRef, people.name);
-      removeWSListener(co2.entityRef, co2.name);
-      getWSData(setTemp, temp.entityRef, temp.name);
-      getWSData(setPeople, people.entityRef, people.name);
-      getWSData(setCo2, co2.entityRef, co2.name);
+      try {
+        await sService.getInitialMeasureById(roomID);
+        const temp = sService.returnWSDataForMeasure(
+          Measure.Temperature,
+          roomID
+        );
+        const people = sService.returnWSDataForMeasure(
+          Measure.PeopleInRoom,
+          roomID
+        );
+        const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
+        setTemp(temp);
+        setPeople(people);
+        setCo2(co2);
+        removeWSListener(temp.entityRef, temp.name);
+        removeWSListener(people.entityRef, people.name);
+        removeWSListener(co2.entityRef, co2.name);
+        getWSData(setTemp, temp.entityRef, temp.name);
+        getWSData(setPeople, people.entityRef, people.name);
+        getWSData(setCo2, co2.entityRef, co2.name);
+      } catch (err) {
+        console.log(err);
+      }
+
       setIsLoading(false);
     }
     if (props.room !== undefined) {

@@ -122,13 +122,14 @@ export function Main(props: IMainProps) {
       >
         <AddIcon />
       </Fab>
-
-      <AddEditDialog
-        editMode={false}
-        handleClose={handleClose}
-        open={open}
-        triggerReload={triggerReload}
-      ></AddEditDialog>
+      {open ? (
+        <AddEditDialog
+          editMode={false}
+          handleClose={handleClose}
+          open={open}
+          triggerReload={triggerReload}
+        ></AddEditDialog>
+      ) : null}
     </Box>
   );
 }

@@ -101,7 +101,7 @@ export default function AddEditDialog({
 
   const save = async () => {
     let err: IError = { error: false, text: "", status: 200 };
-    if (name === "") {
+    if (name.trim() === "") {
       err = {
         error: true,
         text: "Name is required",
@@ -155,7 +155,10 @@ export default function AddEditDialog({
           className="add-edit-dialog-header"
           id="responsive-dialog-title"
         >
-          <ClearIcon onClick={handleClose}></ClearIcon>{" "}
+          <ClearIcon
+            className="add-edit-dialog-cross"
+            onClick={handleClose}
+          ></ClearIcon>{" "}
           {editMode ? "Edit" : "Add"} a Smart Room
         </DialogTitle>
         <DialogContent>

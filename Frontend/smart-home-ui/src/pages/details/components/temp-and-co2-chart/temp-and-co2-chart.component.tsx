@@ -18,6 +18,7 @@ import { StateService } from "../../../../services/State.service";
 import { Measure } from "../../../../enums/measure.enum";
 import { IRoom } from "../../../../models/IRoom";
 import { Skeleton } from "@mui/material";
+import { IChartData } from "../../../../models/IChartData";
 
 export interface ITempAndCo2ChartProps {
   room: IRoom | undefined;
@@ -93,11 +94,22 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timer>();
   async function fetchData(roomID: string) {
     console.log("Update Temperature");
-    const Temperature = await sService.getMeasureChartData(
-      roomID,
-      Measure.Temperature
-    );
-    const Co2 = await sService.getMeasureChartData(roomID, Measure.Co2);
+    let Temperature: IChartData[] = [];
+    let Co2: IChartData[] = [];
+    try {
+      Temperature = await sService.getMeasureChartData(
+        roomID,
+        Measure.Temperature
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      Co2 = await sService.getMeasureChartData(roomID, Measure.Co2);
+    } catch (err) {
+      console.log(err);
+    }
+
     setChartData({
       labels: Co2.map((val) => new Date(val.timeStamp)),
       datasets: [
