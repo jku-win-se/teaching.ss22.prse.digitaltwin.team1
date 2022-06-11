@@ -7,11 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import * as React from 'react';
-import { Navigate, Route } from 'react-router-dom';
-import { RoomService } from '../../../../services/Room.service';
-import { Main } from '../../main.page';
-import { useNavigate } from "react-router-dom";
 import { IError } from '../../../../models/IError';
+import { RoomService } from '../../../../services/Room.service';
 
 export interface IDeleteDialogProp {
     roomId: string;
@@ -32,8 +29,6 @@ export default function DeleteDialog({
         text: "",
         status: 200,
     });
-
-    const navigate = useNavigate();
 
     const handleClickOpen = () => {
         setOpen(true);
