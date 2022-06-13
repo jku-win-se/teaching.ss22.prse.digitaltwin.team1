@@ -16,7 +16,8 @@ export class RoomService {
 
     return RoomService.instance;
   }
-  BASE_URL: string = "https://basedataservice.azurewebsites.net/api/Room";
+  private BASE_URL: string =
+    "https://basedataservice.azurewebsites.net/api/Room";
 
   selectedRoom: IRoom | undefined = undefined;
 

@@ -41,10 +41,6 @@ export default function ControlUnit(props: IControlUnitProps) {
     }
   }, [props.sensors]);
 
-  React.useEffect(() => {
-    console.log(sensors);
-  }, [sensors]);
-
   const removeWSListener = (entityRef: string, name: string) => {
     sService.hubConnection.off("Sensor/" + entityRef + "/" + name);
   };
@@ -57,6 +53,7 @@ export default function ControlUnit(props: IControlUnitProps) {
     sService.hubConnection.on(
       "Sensor/" + entityRef + "/" + name,
       (data: IBinaryState) => {
+        console.log(data);
         setData((prev) => {
           return prev.map((s) =>
             s.id === data.entityRefID ? { ...s, state: [data] } : s

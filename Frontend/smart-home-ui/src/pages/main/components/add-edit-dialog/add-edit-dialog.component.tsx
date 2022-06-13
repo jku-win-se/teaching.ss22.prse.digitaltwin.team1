@@ -119,6 +119,12 @@ export default function AddEditDialog({
         text: "Number of people is required",
         status: 400,
       };
+    } else if (building === "") {
+      err = {
+        error: true,
+        text: "Building is required",
+        status: 400,
+      };
     } else {
       err = await rService.addOrChange(
         id,

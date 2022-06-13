@@ -120,17 +120,14 @@ export default function SensorChart(props: ISensorChartProps) {
     LightsChartData: IChartData[],
     VentilatorsChartData: IChartData[]
   ) => {
-    if (WindowsChartData.length !== 0) {
-      return WindowsChartData.map((w) => w.timeStamp);
-    } else if (DoorsChartData.length !== 0) {
-      return DoorsChartData.map((d) => d.timeStamp);
-    } else if (LightsChartData.length !== 0) {
-      return LightsChartData.map((l) => l.timeStamp);
-    } else if (VentilatorsChartData.length !== 0) {
-      return VentilatorsChartData.map((v) => v.timeStamp);
-    } else {
-      return [];
-    }
+    const arrLenghts = [
+      WindowsChartData,
+      DoorsChartData,
+      LightsChartData,
+      VentilatorsChartData,
+    ];
+    arrLenghts.sort((a, b) => b.length - a.length);
+    return arrLenghts[0];
   };
   async function fetchData(roomID: string) {
     const Doors = rService.getEquipmentByName(Equipment.Door);

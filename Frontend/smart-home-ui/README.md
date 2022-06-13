@@ -69,6 +69,8 @@ npm install
 This command installs all dependencies you need for executing the application.
 
 > After finishing all the steps you are now able to continue to the **Available Scripts** section and use the application as you wish.
+>
+> For the .env file for connecting to the backend please contact a Frontend Developer!
 
 ## Available Scripts
 
@@ -112,3 +114,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Important Notes
+
+### Backend URL changes
+
+If the URL of the Backend changes navigate to the services folder and edit the **constant variables** with the url in the files found and everything should work as expected.
+
+The names of constants are:
+
+- Room.service.ts: BASE_URL
+- State.service.ts: BASE_URL, WS_BASE_URL

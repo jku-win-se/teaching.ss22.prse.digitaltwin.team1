@@ -7,7 +7,9 @@ import { IBinaryState } from "../models/IBinaryState";
 
 export class StateService {
   private static instance: StateService;
-  BASE_URL: string = "https://transdataservice.azurewebsites.net/api/";
+  private BASE_URL: string = "https://transdataservice.azurewebsites.net/api/";
+  private WS_BASE_URL: string =
+    "https://transdataservice.azurewebsites.net/hub";
   hubConnection!: signalR.HubConnection;
   states: IMeasureState[] = [];
   private constructor() {}
@@ -21,7 +23,7 @@ export class StateService {
 
   establishWsConnection() {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl("https://transdataservice.azurewebsites.net/hub", {
+      .withUrl(this.WS_BASE_URL, {
         headers: { ApiKey: process.env.REACT_APP_API_KEY! },
       })
       .configureLogging(signalR.LogLevel.Information)

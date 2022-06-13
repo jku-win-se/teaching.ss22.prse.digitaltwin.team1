@@ -224,7 +224,7 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
                   display: true,
                 },
                 title: {
-                  text: "CO2 [ppm]",
+                  text: "Temperature [°C]",
                   display: true,
                 },
                 type: "linear",
@@ -233,7 +233,7 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
               },
               y1: {
                 title: {
-                  text: "Temperature [°C]",
+                  text: "CO2 [ppm]",
                   display: true,
                 },
                 type: "linear",

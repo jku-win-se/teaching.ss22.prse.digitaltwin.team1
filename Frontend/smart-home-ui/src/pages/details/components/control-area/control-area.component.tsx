@@ -58,7 +58,7 @@ export default function ControlArea(props: IControlAreaProps) {
             md={3}
           >
             <ControlUnit
-              header="Doors locked"
+              header="Doors open"
               iconName="SensorDoorOutlined"
               sensors={rService.getEquipmentByName(Equipment.Door)}
               activeColor="#0084BB"
