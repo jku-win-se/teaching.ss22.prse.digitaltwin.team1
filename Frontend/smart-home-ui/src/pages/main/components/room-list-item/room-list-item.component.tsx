@@ -9,6 +9,7 @@ import { Icon } from "../../../../components/icon/icon.component";
 import { Building } from "../../../../enums/building.enum";
 import { Measure } from "../../../../enums/measure.enum";
 import { RoomType } from "../../../../enums/roomType.enum";
+import { IMeasureState } from "../../../../models/IMeasureState";
 import { IWSData } from "../../../../models/IWSData";
 import { StateService } from "../../../../services/State.service";
 import { getCO2Color } from "../../../../utils/getCO2Color";
@@ -47,13 +48,53 @@ export default function RoomListItem(props: IRoomListItemProps) {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
 
+      const people = sService.returnWSDataForMeasure(
+        Measure.PeopleInRoom,
+        roomID
+      );
+      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
+
       setPeople(sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID));
       setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID));
+      removeWSListener(people.entityRef, people.name);
+      removeWSListener(co2.entityRef, co2.name);
+      getWSData(setPeople, people.entityRef, people.name);
+      getWSData(setCo2, co2.entityRef, co2.name);
     }
     if (props.roomId !== undefined) {
       fetchData(props.roomId);
     }
   }, [props.roomId]);
+
+  React.useEffect(() => {
+    return () => {
+      console.log("unmount");
+      removeWSListener(people!.entityRef, people!.name);
+      removeWSListener(co2!.entityRef, co2!.name);
+    };
+  }, []);
+
+  const getWSData = (
+    setData: React.Dispatch<React.SetStateAction<IWSData | undefined>>,
+    entityRef: string,
+    name: string
+  ) => {
+    console.log("Getting WS Data");
+    sService.hubConnection.on(
+      "Sensor/" + entityRef + "/" + name,
+      (data: IMeasureState) => {
+        setData({
+          name: name,
+          value: data.value.toString(),
+          entityRef: entityRef,
+        });
+      }
+    );
+  };
+
+  const removeWSListener = (entityRef: string, name: string) => {
+    sService.hubConnection.off("Sensor/" + entityRef + "/" + name);
+  };
 
   return (
     <div className="list">
