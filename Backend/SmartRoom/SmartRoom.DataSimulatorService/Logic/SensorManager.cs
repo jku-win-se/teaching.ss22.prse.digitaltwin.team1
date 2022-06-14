@@ -134,6 +134,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             var sensor = _sensors[id].Select(s => s as BinarySensor).First(s => s!.State.Name.Equals(type));
             if (sensor != null) sensor.ChangeState();
         }
+
         public void SetAllBinariesByRoom(Guid id, string type, bool val)
         {
             _rooms.First(r => r.Id.Equals(id))?.RoomEquipment.Where(re => re.Name.Equals(type)).ToList().ForEach(re =>
@@ -142,6 +143,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 if (ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
             });
         }
+
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
         {
             List<ST> sTs = new List<ST>();
@@ -172,6 +174,11 @@ namespace SmartRoom.DataSimulatorService.Logic
             if (!_loadingBaseData && sender is MeasureSensor)
             {
                 _transDataServiceContext.AddMeasureStates(new State<double>[] { ((MeasureSensor)sender).State }).GetAwaiter().GetResult();
+            }
+
+            if (!_loadingBaseData && sender is BinaryState)
+            {
+                _transDataServiceContext.AddBinaryStates(new State<bool>[] { ((BinarySensor)sender).State }).GetAwaiter().GetResult();
             }
             _logger.LogInformation(sender.ToString());
         }
