@@ -48,6 +48,7 @@ namespace SmartRoom.TransDataService.Logic
             else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall, typeof(E).Name, daySpan);
             else return new();
         }
+
         public async Task<object> GetChartData<E>(Guid[] ids, string name, int intervall, int daySpan) where E : class, IState
         {
             intervall *= daySpan;
