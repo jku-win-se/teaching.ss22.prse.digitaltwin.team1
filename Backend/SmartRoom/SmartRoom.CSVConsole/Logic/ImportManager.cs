@@ -25,7 +25,7 @@ namespace SmartRoom.CSVConsole.Logic
             _window = new List<Window>();
         }
 
-        public async Task ImportCSV ()
+        public async Task ImportCSV()
         {
             try
             {
@@ -36,25 +36,23 @@ namespace SmartRoom.CSVConsole.Logic
 
                 throw new Exception("Import fehlgeschlagen");
             }
-           
+
             AddEquipmentToRoom();
 
-            try
+            foreach (var room in _rooms)
             {
-                foreach (var room in _rooms)
+                try
                 {
-                    var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
-                    if (!res.IsSuccessStatusCode) throw new Exception();
+                    await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
                 }
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error " + room);
+                }   
             }
         }
 
-        
+
         private void AddEquipmentToRoom()
         {
             foreach (var roomModel in _roomCap)
