@@ -75,6 +75,51 @@ namespace SmartRoom.TransDataService.Tests
             Assert.NotNull(res);
         }
 
+        [Fact]
+        public async Task GetChartData_BinaryStateId_ThrowsInvalidOperationException()
+        {
+            var dbc = new Mock<IDbContextFactory<TransDataDBContext>>();
+            dbc.Setup(c => c.CreateDbContextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(GetInMemoryDBContext().GetAwaiter().GetResult());
+
+            var manager = new ReadManager(dbc.Object);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(() => manager.GetChartData<BinaryState>(new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), "IsOn", 5, 1));
+        }
+
+        [Fact]
+        public async Task GetChartData_MeasureStateId_InvalidOperationException()
+        {
+            var dbc = new Mock<IDbContextFactory<TransDataDBContext>>();
+            dbc.Setup(c => c.CreateDbContextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(GetInMemoryDBContext().GetAwaiter().GetResult());
+
+            var manager = new ReadManager(dbc.Object);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(() => manager.GetChartData<MeasureState>(new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), "Temperature", 5, 1));
+        }
+
+        [Fact]
+        public async Task GetChartData_BinaryStateIds_InvalidOperationException()
+        {
+            var dbc = new Mock<IDbContextFactory<TransDataDBContext>>();
+            dbc.Setup(c => c.CreateDbContextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(GetInMemoryDBContext().GetAwaiter().GetResult());
+
+            var manager = new ReadManager(dbc.Object);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(() => manager.GetChartData<BinaryState>(new Guid[] { new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6") }, "Temperature", 5, 1));
+        }
+
+        [Fact]
+        public async Task GetChartData_MeasureStateIds_EmtyObject()
+        {
+            var dbc = new Mock<IDbContextFactory<TransDataDBContext>>();
+            dbc.Setup(c => c.CreateDbContextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(GetInMemoryDBContext().GetAwaiter().GetResult());
+
+            var manager = new ReadManager(dbc.Object);
+
+            Assert.NotNull(await manager.GetChartData<MeasureState>(new Guid[] { new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6") }, "Temperature", 5, 1));
+        }
+
+
         private async Task<TransDataDBContext> GetInMemoryDBContext()
         {
             DbContextOptions<TransDataDBContext> options;
