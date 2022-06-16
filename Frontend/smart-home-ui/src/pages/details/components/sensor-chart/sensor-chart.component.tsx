@@ -127,7 +127,8 @@ export default function SensorChart(props: ISensorChartProps) {
       VentilatorsChartData,
     ];
     arrLenghts.sort((a, b) => b.length - a.length);
-    return arrLenghts[0];
+    console.log(arrLenghts[0].length);
+    return arrLenghts[0].map(x => x.timeStamp);
   };
   async function fetchData(roomID: string) {
     const Doors = rService.getEquipmentByName(Equipment.Door);

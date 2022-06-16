@@ -96,12 +96,11 @@ export default function ControlUnit(props: IControlUnitProps) {
   const renderText = () => {
     return sensors.length === 0
       ? `0%`
-      : `${
-          (sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
-            .length /
-            sensors.length) *
-          100
-        }%`;
+      : `${(sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
+        .length /
+        sensors.length) *
+      100
+      }%`;
   };
 
   const generateIcons = () => {
