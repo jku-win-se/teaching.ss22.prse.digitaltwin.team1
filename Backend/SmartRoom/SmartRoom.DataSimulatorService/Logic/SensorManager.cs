@@ -176,7 +176,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 _transDataServiceContext.AddMeasureStates(new State<double>[] { ((MeasureSensor)sender).State }).GetAwaiter().GetResult();
             }
 
-            if (!_loadingBaseData && sender is BinaryState)
+            if (!_loadingBaseData && sender is BinarySensor)
             {
                 _transDataServiceContext.AddBinaryStates(new State<bool>[] { ((BinarySensor)sender).State }).GetAwaiter().GetResult();
             }

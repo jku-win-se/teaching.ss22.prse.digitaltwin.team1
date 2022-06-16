@@ -18,7 +18,7 @@ namespace SmartRoom.DataSimulatorService.Models
         }
         public override string ToString()
         {
-            return $"[Sensor] [{State.Name}: {State.Value}]";
+            return $"[Sensor: {this.State.EntityRefID}] [{State.Name}: {State.Value}]";
         }
         protected virtual void OnStateUpdate() 
         {
