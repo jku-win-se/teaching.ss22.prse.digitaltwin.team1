@@ -29,11 +29,10 @@ export default function ControlArea(props: IControlAreaProps) {
       <div>
         <Grid container spacing={2}>
           <Grid
-            className={`${
-              rService.getEquipmentByName(Equipment.Window).length === 0
-                ? "control-area-hide-unit"
-                : ""
-            } `}
+            className={`${rService.getEquipmentByName(Equipment.Window).length === 0
+              ? "control-area-hide-unit"
+              : ""
+              } `}
             item
             xs={12}
             sm={12}
@@ -47,11 +46,10 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${
-              rService.getEquipmentByName(Equipment.Door).length === 0
-                ? "control-area-hide-unit"
-                : ""
-            } `}
+            className={`${rService.getEquipmentByName(Equipment.Door).length === 0
+              ? "control-area-hide-unit"
+              : ""
+              } `}
             item
             xs={12}
             sm={12}
@@ -65,11 +63,10 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${
-              rService.getEquipmentByName(Equipment.Ventilator).length === 0
-                ? "control-area-hide-unit"
-                : ""
-            } `}
+            className={`${rService.getEquipmentByName(Equipment.Ventilator).length === 0
+              ? "control-area-hide-unit"
+              : ""
+              } `}
             item
             xs={12}
             sm={12}
@@ -83,11 +80,10 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${
-              rService.getEquipmentByName(Equipment.Light).length === 0
-                ? "control-area-hide-unit"
-                : ""
-            } `}
+            className={`${rService.getEquipmentByName(Equipment.Light).length === 0
+              ? "control-area-hide-unit"
+              : ""
+              } `}
             item
             xs={12}
             sm={12}

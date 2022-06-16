@@ -1,7 +1,4 @@
-import * as React from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useTheme } from "@mui/material/styles";
 import {
   Button,
   Dialog,
@@ -16,14 +13,17 @@ import {
   RadioGroup,
   Select,
   SelectChangeEvent,
-  TextField,
+  TextField
 } from "@mui/material";
-import "./add-edit-dialog.styles.css";
-import { RoomType } from "../../../../enums/roomType.enum";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import * as React from "react";
 import { Building } from "../../../../enums/building.enum";
-import { RoomService } from "../../../../services/Room.service";
 import { Equipment } from "../../../../enums/equipment.enum";
+import { RoomType } from "../../../../enums/roomType.enum";
 import { IError } from "../../../../models/IError";
+import { RoomService } from "../../../../services/Room.service";
+import "./add-edit-dialog.styles.css";
 
 export interface IAddEditDialogProps {
   editMode: boolean;

@@ -1,13 +1,13 @@
+import * as Muicon from "@mui/icons-material";
 import { Chip, Grid } from "@mui/material";
+import { SvgIconProps } from "@mui/material/SvgIcon";
 import * as React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import * as Muicon from "@mui/icons-material";
-import { SvgIconProps } from "@mui/material/SvgIcon";
 import "react-circular-progressbar/dist/styles.css";
-import "./control-unit.styles.css";
-import { IRoomEquipment } from "../../../../models/IRoomEquipment";
 import { IBinaryState } from "../../../../models/IBinaryState";
+import { IRoomEquipment } from "../../../../models/IRoomEquipment";
 import { StateService } from "../../../../services/State.service";
+import "./control-unit.styles.css";
 
 export interface IControlUnitProps {
   sensors: IRoomEquipment[];

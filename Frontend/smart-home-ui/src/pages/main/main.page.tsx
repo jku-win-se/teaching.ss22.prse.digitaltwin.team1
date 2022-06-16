@@ -10,7 +10,7 @@ import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
 import "./main.style.css";
 
-export interface IMainProps {}
+export interface IMainProps { }
 
 const rService = RoomService.getInstance();
 

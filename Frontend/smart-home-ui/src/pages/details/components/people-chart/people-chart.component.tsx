@@ -1,24 +1,16 @@
-import * as React from "react";
+import { Skeleton } from "@mui/material";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ChartOptions,
-  TimeSeriesScale,
+  CategoryScale, Chart as ChartJS, ChartOptions, Legend, LinearScale, LineElement, PointElement, TimeSeriesScale, Title,
+  Tooltip
 } from "chart.js";
-import { Line } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
 import de from "date-fns/locale/de";
-import { StateService } from "../../../../services/State.service";
+import * as React from "react";
+import { Line } from "react-chartjs-2";
 import { Measure } from "../../../../enums/measure.enum";
-import { IRoom } from "../../../../models/IRoom";
-import { Skeleton } from "@mui/material";
 import { IChartData } from "../../../../models/IChartData";
+import { IRoom } from "../../../../models/IRoom";
+import { StateService } from "../../../../services/State.service";
 
 export interface IPeopleChartProps {
   room: IRoom | undefined;
@@ -115,7 +107,6 @@ export default function PeopleChart(props: IPeopleChartProps) {
   React.useEffect(() => {
     if (props.room !== undefined) {
       fetchData(props.room.id);
-      //clearInterval(intervalId!);
       setIntervalId(
         setInterval(() => {
           fetchData(props.room!.id);

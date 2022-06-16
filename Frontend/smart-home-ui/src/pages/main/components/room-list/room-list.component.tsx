@@ -1,4 +1,3 @@
-import React from "react";
 import { IRoom } from "../../../../models/IRoom";
 import RoomListItem from "../room-list-item/room-list-item.component";
 import "./room-list.styles.css";

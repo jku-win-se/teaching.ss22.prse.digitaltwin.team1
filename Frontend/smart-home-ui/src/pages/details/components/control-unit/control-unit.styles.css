@@ -41,16 +41,20 @@
 .control-unit-small-screen {
   display: none !important;
 }
+
 .control-unit-big-screen {
   display: block;
 }
+
 @media only screen and (max-width: 1000px) {
   .control-unit-big-screen {
     display: none;
   }
+
   .control-unit-small-screen {
     display: flex !important;
   }
+
   .control-unit-header {
     font-size: clamp(1.2rem, 3vw, 1.7rem);
   }

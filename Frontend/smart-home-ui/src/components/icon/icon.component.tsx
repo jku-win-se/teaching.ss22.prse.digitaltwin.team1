@@ -1,5 +1,5 @@
-import { SvgIconProps } from "@mui/material";
 import * as Muicon from "@mui/icons-material";
+import { SvgIconProps } from "@mui/material";
 
 export const Icon = ({
   name,

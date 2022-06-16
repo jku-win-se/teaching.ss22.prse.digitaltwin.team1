@@ -1,9 +1,9 @@
+import * as signalR from "@microsoft/signalr";
 import { Measure } from "../enums/measure.enum";
+import { IBinaryState } from "../models/IBinaryState";
 import { IChartData } from "../models/IChartData";
 import { IMeasureState } from "../models/IMeasureState";
-import * as signalR from "@microsoft/signalr";
 import { IWSData } from "../models/IWSData";
-import { IBinaryState } from "../models/IBinaryState";
 
 export class StateService {
   private static instance: StateService;
@@ -12,7 +12,7 @@ export class StateService {
     "https://transdataservice.azurewebsites.net/hub";
   hubConnection!: signalR.HubConnection;
   states: IMeasureState[] = [];
-  private constructor() {}
+  private constructor() { }
   public static getInstance(): StateService {
     if (!StateService.instance) {
       StateService.instance = new StateService();
@@ -68,10 +68,10 @@ export class StateService {
       stateNames.map(async (stateName) => {
         const response = await fetch(
           this.BASE_URL +
-            "/ReadMeasure/GetRecentBy/" +
-            roomID +
-            "&" +
-            stateName,
+          "/ReadMeasure/GetRecentBy/" +
+          roomID +
+          "&" +
+          stateName,
           {
             headers: new Headers(this.addHeaders()),
             method: "GET",

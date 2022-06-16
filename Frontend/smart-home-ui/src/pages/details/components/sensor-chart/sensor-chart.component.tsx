@@ -1,26 +1,17 @@
-import * as React from "react";
+import { Skeleton } from "@mui/material";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ChartOptions,
-  TimeSeriesScale,
-  TimeScale,
+  CategoryScale, Chart as ChartJS, ChartOptions, Legend, LinearScale, LineElement, PointElement, TimeScale, TimeSeriesScale, Title,
+  Tooltip
 } from "chart.js";
-import { Line } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
 import de from "date-fns/locale/de";
+import * as React from "react";
+import { Line } from "react-chartjs-2";
+import { Equipment } from "../../../../enums/equipment.enum";
+import { IChartData } from "../../../../models/IChartData";
 import { IRoom } from "../../../../models/IRoom";
 import { RoomService } from "../../../../services/Room.service";
 import { StateService } from "../../../../services/State.service";
-import { Equipment } from "../../../../enums/equipment.enum";
-import { IChartData } from "../../../../models/IChartData";
-import { Skeleton } from "@mui/material";
 
 export interface ISensorChartProps {
   room: IRoom | undefined;

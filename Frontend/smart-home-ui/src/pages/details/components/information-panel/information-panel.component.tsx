@@ -98,8 +98,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               (isNaN(Number(people?.value))
                 ? "-"
                 : Number(people?.value).toLocaleString(undefined, {
-                    maximumFractionDigits: 0,
-                  })) +
+                  maximumFractionDigits: 0,
+                })) +
               "/" +
               props.room?.peopleCount
             }
@@ -113,8 +113,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               isNaN(Number(temp?.value))
                 ? "-"
                 : Number(temp?.value).toLocaleString(undefined, {
-                    maximumFractionDigits: 1,
-                  })
+                  maximumFractionDigits: 1,
+                })
             }
             unit="°C"
             icon="ThermostatOutlined"
@@ -151,8 +151,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               isNaN(Number(co2?.value))
                 ? "-"
                 : Number(co2?.value).toLocaleString(undefined, {
-                    maximumFractionDigits: 1,
-                  })
+                  maximumFractionDigits: 1,
+                })
             }
             unit="ppm"
             icon="Co2Outlined"

@@ -8,7 +8,7 @@ import { StateService } from "./State.service";
 
 export class RoomService {
   private static instance: RoomService;
-  private constructor() {}
+  private constructor() { }
   public static getInstance(): RoomService {
     if (!RoomService.instance) {
       RoomService.instance = new RoomService();

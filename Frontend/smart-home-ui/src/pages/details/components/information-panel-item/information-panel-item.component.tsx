@@ -1,9 +1,8 @@
-import * as React from "react";
 import * as Muicon from "@mui/icons-material";
-import "./information-panel-item.style.css";
 import { Skeleton } from "@mui/material";
-import { getCO2Color } from "../../../../utils/getCO2Color";
 import { Icon } from "../../../../components/icon/icon.component";
+import { getCO2Color } from "../../../../utils/getCO2Color";
+import "./information-panel-item.style.css";
 
 export interface IInformationPanelItemProps {
   value: string | number | undefined;

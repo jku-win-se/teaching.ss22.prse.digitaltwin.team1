@@ -1,17 +1,17 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Box, Grid } from "@mui/material";
 import * as React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { IRoom } from "../../models/IRoom";
 import { RoomService } from "../../services/Room.service";
+import ControlArea from "./components/control-area/control-area.component";
 import InformationPanel from "./components/information-panel/information-panel.component";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import "./details.style.css";
-import { useNavigate, useParams } from "react-router-dom";
-import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import PeopleChart from "./components/people-chart/people-chart.component";
 import SensorChart from "./components/sensor-chart/sensor-chart.component";
-import ControlArea from "./components/control-area/control-area.component";
+import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
+import "./details.style.css";
 
-export interface IDetailsProps {}
+export interface IDetailsProps { }
 
 export function Details(props: IDetailsProps) {
   const [room, setRoom] = React.useState<IRoom>();
