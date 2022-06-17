@@ -30,7 +30,7 @@ namespace SmartRoom.CommonBase.Tests
             using (var reader = new GenericCSVReader<TestEntity>("Test.csv"))
             {
                 writer.WriteToCSV();
-                reader.Read();
+                Assert.NotEmpty(reader.Read());
             }
         }
     }

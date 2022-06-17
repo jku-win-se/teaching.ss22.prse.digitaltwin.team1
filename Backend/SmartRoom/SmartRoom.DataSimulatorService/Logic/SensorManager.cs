@@ -117,7 +117,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             try
             {
                 if (binaryStates.Any()) await _transDataServiceContext.AddBinaryStates(binaryStates.ToArray());
-                if (measureStates.Any()) await _transDataServiceContext.AddMeasureStates(measureStates.ToArray()); ;
+                if (measureStates.Any()) await _transDataServiceContext.AddMeasureStates(measureStates.ToArray());
             }
             catch (Exception e)
             {

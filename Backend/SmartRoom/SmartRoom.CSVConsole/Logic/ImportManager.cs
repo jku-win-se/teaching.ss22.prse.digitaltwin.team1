@@ -34,7 +34,7 @@ namespace SmartRoom.CSVConsole.Logic
             catch (Exception)
             {
 
-                throw new Exception("Import fehlgeschlagen");
+                throw new FileLoadException("Import fehlgeschlagen");
             }
 
             AddEquipmentToRoom();
@@ -45,7 +45,7 @@ namespace SmartRoom.CSVConsole.Logic
                 {
                     await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Error " + room);
                 }   

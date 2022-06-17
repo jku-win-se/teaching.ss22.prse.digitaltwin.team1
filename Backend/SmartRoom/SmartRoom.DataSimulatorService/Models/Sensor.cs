@@ -5,7 +5,7 @@ namespace SmartRoom.DataSimulatorService.Models
 {
     public abstract class Sensor<T> : ISensor
     {
-        public Sensor(EventHandler handler, State<T> state)
+        protected Sensor(EventHandler handler, State<T> state)
         {
             State = state;
             StateUpdated += handler;
