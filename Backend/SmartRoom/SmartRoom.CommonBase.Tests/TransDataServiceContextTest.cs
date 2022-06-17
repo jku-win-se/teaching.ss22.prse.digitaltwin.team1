@@ -2,6 +2,7 @@
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Transfer;
 using SmartRoom.CommonBase.Transfer.Contracts;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -26,8 +27,10 @@ namespace SmartRoom.CommonBase.Tests
             mock.Setup(m => m.TransDataService).Returns("https://transdataservice.azurewebsites.net/api/");
             mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
             var context = new TransDataServiceContext(mock.Object);
+            mock.Setup(m => m.BaseDataService).Returns("https://basedataservice.azurewebsites.net/api/");
+            var bContext = new BaseDataServiceContext(mock.Object);
 
-            Assert.NotNull(await context.GetRecentMeasureStateBy(new System.Guid("026bdf16-0d67-43ad-9d5d-afef430f1589"), "Co2"));
+            Assert.NotNull(await context.GetRecentMeasureStateBy((await bContext.GetRooms()).First().Id, "Co2"));
         }
 
         [Fact]
@@ -37,8 +40,10 @@ namespace SmartRoom.CommonBase.Tests
             mock.Setup(m => m.TransDataService).Returns("https://transdataservice.azurewebsites.net/api/");
             mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
             var context = new TransDataServiceContext(mock.Object);
+            mock.Setup(m => m.BaseDataService).Returns("https://basedataservice.azurewebsites.net/api/");
+            var bContext = new BaseDataServiceContext(mock.Object);
 
-            Assert.NotNull(await context.GetRecentBinaryStateBy(new System.Guid("026bdf16-0d67-43ad-9d5d-afef430f1589"), "Co2"));
+            Assert.NotNull(await context.GetRecentBinaryStateBy((await bContext.GetRooms()).First().Id, "Co2"));
         }
 
         [Fact]
