@@ -5,9 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class addedUnitIndexes : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateIndex(
@@ -22,7 +22,7 @@ namespace SmartRoom.BaseDataService.Migrations
                 columns: new[] { "Name", "EquipmentRef" },
                 unique: true);
         }
-        [ExcludeFromCodeCoverage]
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(

@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using SmartRoom.BaseDataService.Persistence;
+using System.Diagnostics.CodeAnalysis;
 
 #nullable disable
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     [DbContext(typeof(SmartRoomDBContext))]
     partial class SmartRoomDBContextModelSnapshot : ModelSnapshot
     {

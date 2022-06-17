@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initialMigration : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -30,7 +30,6 @@ namespace SmartRoom.TransDataService.Migrations
 
             migrationBuilder.Sql("SELECT create_hypertable('public.\"State\"', 'TimeStamp');");
         }
-        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
