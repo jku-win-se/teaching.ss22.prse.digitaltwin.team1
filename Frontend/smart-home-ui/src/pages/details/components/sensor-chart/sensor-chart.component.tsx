@@ -1,7 +1,16 @@
 import { Skeleton } from "@mui/material";
 import {
-  CategoryScale, Chart as ChartJS, ChartOptions, Legend, LinearScale, LineElement, PointElement, TimeScale, TimeSeriesScale, Title,
-  Tooltip
+  CategoryScale,
+  Chart as ChartJS,
+  ChartOptions,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  TimeScale,
+  TimeSeriesScale,
+  Title,
+  Tooltip,
 } from "chart.js";
 import "chartjs-adapter-date-fns";
 import de from "date-fns/locale/de";
@@ -118,10 +127,9 @@ export default function SensorChart(props: ISensorChartProps) {
       VentilatorsChartData,
     ];
     arrLenghts.sort((a, b) => b.length - a.length);
-    console.log(arrLenghts[0].length);
-    return arrLenghts[0].map(x => x.timeStamp);
+    return arrLenghts[0].map((x) => x.timeStamp);
   };
-  async function fetchData(roomID: string) {
+  async function fetchData() {
     const Doors = rService.getEquipmentByName(Equipment.Door);
     console.log(Doors);
     const Ventilators = rService.getEquipmentByName(Equipment.Ventilator);
@@ -223,18 +231,20 @@ export default function SensorChart(props: ISensorChartProps) {
 
   React.useEffect(() => {
     if (props.room !== undefined) {
-      fetchData(props.room.id);
+      fetchData();
       setIntervalId(
         setInterval(() => {
-          fetchData(props.room!.id);
+          fetchData();
         }, 300000)
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.room]);
   React.useEffect(() => {
     return () => {
       clearInterval(intervalId!);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {

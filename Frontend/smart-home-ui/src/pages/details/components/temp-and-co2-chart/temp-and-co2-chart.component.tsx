@@ -1,7 +1,15 @@
 import { Skeleton } from "@mui/material";
 import {
-  CategoryScale, Chart as ChartJS, ChartOptions, Legend, LinearScale, LineElement, PointElement, TimeSeriesScale, Title,
-  Tooltip
+  CategoryScale,
+  Chart as ChartJS,
+  ChartOptions,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  TimeSeriesScale,
+  Title,
+  Tooltip,
 } from "chart.js";
 import "chartjs-adapter-date-fns";
 import de from "date-fns/locale/de";
@@ -84,12 +92,19 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
 
   const [loading, setLoading] = React.useState(true);
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timer>();
+
+  const getLabels = (co2: IChartData[], temperature: IChartData[]) => {
+    const labels = [co2, temperature];
+    labels.sort((a, b) => b.length - a.length);
+
+    return labels[0].map((l) => l.timeStamp);
+  };
   async function fetchData(roomID: string) {
     console.log("Update Temperature");
-    let Temperature: IChartData[] = [];
-    let Co2: IChartData[] = [];
+    let temperature: IChartData[] = [];
+    let co2: IChartData[] = [];
     try {
-      Temperature = await sService.getMeasureChartData(
+      temperature = await sService.getMeasureChartData(
         roomID,
         Measure.Temperature
       );
@@ -97,19 +112,19 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
       console.log(err);
     }
     try {
-      Co2 = await sService.getMeasureChartData(roomID, Measure.Co2);
+      co2 = await sService.getMeasureChartData(roomID, Measure.Co2);
     } catch (err) {
       console.log(err);
     }
 
     setChartData({
-      labels: Co2.map((val) => new Date(val.timeStamp)),
+      labels: getLabels(co2, temperature),
       datasets: [
         {
           label: "Temperature",
           cubicInterpolationMode: "monotone",
           tension: 0.4,
-          data: Temperature.map((val) => val.value),
+          data: temperature.map((val) => val.value),
           borderColor: "#5BA755",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
           yAxisID: "y",
@@ -119,7 +134,7 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
           label: "CO2 Value",
           cubicInterpolationMode: "monotone",
           tension: 0.4,
-          data: Co2.map((val) => val.value),
+          data: co2.map((val) => val.value),
           borderColor: "#D95C4C",
           backgroundColor: "rgba(53, 162, 235, 0.5)",
           yAxisID: "y1",
@@ -138,12 +153,14 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
         }, 300000)
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.room]);
 
   React.useEffect(() => {
     return () => {
       clearInterval(intervalId!);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {

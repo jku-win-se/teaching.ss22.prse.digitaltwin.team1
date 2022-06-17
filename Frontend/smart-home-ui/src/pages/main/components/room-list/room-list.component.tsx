@@ -10,7 +10,7 @@ interface IRoomListProps {
 export default function RoomList(props: IRoomListProps) {
   return (
     <div>
-      {props.rooms.map((room, idx, arr) => (
+      {props.rooms.map((room) => (
         <RoomListItem
           key={room.id}
           triggerReload={props.triggerReload}

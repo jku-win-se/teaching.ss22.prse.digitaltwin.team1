@@ -27,24 +27,24 @@ export default function InformationPanel(props: IInformationPanelProps) {
     async function fetchData(roomID: string) {
       try {
         await sService.getInitialMeasureById(roomID);
-        const temp = sService.returnWSDataForMeasure(
+        const localTemp = sService.returnWSDataForMeasure(
           Measure.Temperature,
           roomID
         );
-        const people = sService.returnWSDataForMeasure(
+        const localPeople = sService.returnWSDataForMeasure(
           Measure.PeopleInRoom,
           roomID
         );
-        const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
-        setTemp(temp);
-        setPeople(people);
-        setCo2(co2);
-        removeWSListener(temp.entityRef, temp.name);
-        removeWSListener(people.entityRef, people.name);
-        removeWSListener(co2.entityRef, co2.name);
-        getWSData(setTemp, temp.entityRef, temp.name);
-        getWSData(setPeople, people.entityRef, people.name);
-        getWSData(setCo2, co2.entityRef, co2.name);
+        const localCo2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
+        setTemp(localTemp);
+        setPeople(localPeople);
+        setCo2(localCo2);
+        removeWSListener(localTemp.entityRef, localTemp.name);
+        removeWSListener(localPeople.entityRef, localPeople.name);
+        removeWSListener(localCo2.entityRef, localCo2.name);
+        getWSData(setTemp, localTemp.entityRef, localTemp.name);
+        getWSData(setPeople, localPeople.entityRef, localPeople.name);
+        getWSData(setCo2, localCo2.entityRef, localCo2.name);
       } catch (err) {
         console.log(err);
       }
@@ -63,6 +63,7 @@ export default function InformationPanel(props: IInformationPanelProps) {
       removeWSListener(people!.entityRef, people!.name);
       removeWSListener(co2!.entityRef, co2!.name);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getWSData = (
@@ -98,8 +99,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               (isNaN(Number(people?.value))
                 ? "-"
                 : Number(people?.value).toLocaleString(undefined, {
-                  maximumFractionDigits: 0,
-                })) +
+                    maximumFractionDigits: 0,
+                  })) +
               "/" +
               props.room?.peopleCount
             }
@@ -113,8 +114,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               isNaN(Number(temp?.value))
                 ? "-"
                 : Number(temp?.value).toLocaleString(undefined, {
-                  maximumFractionDigits: 1,
-                })
+                    maximumFractionDigits: 1,
+                  })
             }
             unit="°C"
             icon="ThermostatOutlined"
@@ -151,8 +152,8 @@ export default function InformationPanel(props: IInformationPanelProps) {
               isNaN(Number(co2?.value))
                 ? "-"
                 : Number(co2?.value).toLocaleString(undefined, {
-                  maximumFractionDigits: 1,
-                })
+                    maximumFractionDigits: 1,
+                  })
             }
             unit="ppm"
             icon="Co2Outlined"

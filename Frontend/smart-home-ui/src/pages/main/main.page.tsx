@@ -10,11 +10,11 @@ import FilterBar from "./components/filter-bar/filter-bar";
 import RoomList from "./components/room-list/room-list.component";
 import "./main.style.css";
 
-export interface IMainProps { }
+export interface IMainProps {}
 
 const rService = RoomService.getInstance();
 
-export function Main(props: IMainProps) {
+export function Main() {
   const [rooms, setRooms] = React.useState<IRoom[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);

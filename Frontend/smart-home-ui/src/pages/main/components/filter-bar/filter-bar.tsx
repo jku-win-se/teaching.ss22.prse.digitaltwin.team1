@@ -10,7 +10,7 @@ export default function FilterBar(props: IFilterBarProps) {
   const [value, setValue] = React.useState("AR");
 
   const handleChange = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     newValue: keyof typeof Building
   ) => {
     setValue(newValue);
@@ -28,7 +28,7 @@ export default function FilterBar(props: IFilterBarProps) {
           allowScrollButtonsMobile
           aria-label="scrollable force tabs example"
         >
-          {Object.entries(Building).map((val, index) => (
+          {Object.entries(Building).map((val) => (
             <Tab key={val[0]} value={val[0]} label={val[1]} />
           ))}
         </Tabs>

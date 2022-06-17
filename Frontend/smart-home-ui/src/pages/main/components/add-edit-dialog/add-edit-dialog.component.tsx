@@ -13,7 +13,7 @@ import {
   RadioGroup,
   Select,
   SelectChangeEvent,
-  TextField
+  TextField,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -68,8 +68,8 @@ export default function AddEditDialog({
   });
 
   React.useEffect(() => {
-    async function fetchData(id: string) {
-      const room = await rService.getById(id);
+    async function fetchData(roomId: string) {
+      const room = await rService.getById(roomId);
       console.log(room);
       setBuilding(room.building);
       setRoomType(room.roomType);
@@ -97,36 +97,37 @@ export default function AddEditDialog({
       setNoOfLights(0);
       setSize(0);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const save = async () => {
-    let err: IError = { error: false, text: "", status: 200 };
+    let error: IError;
     if (name.trim() === "") {
-      err = {
+      error = {
         error: true,
         text: "Name is required",
         status: 400,
       };
     } else if (size === 0) {
-      err = {
+      error = {
         error: true,
         text: "Size is required",
         status: 400,
       };
     } else if (noOfPeople === 0) {
-      err = {
+      error = {
         error: true,
         text: "Number of people is required",
         status: 400,
       };
     } else if (building === "") {
-      err = {
+      error = {
         error: true,
         text: "Building is required",
         status: 400,
       };
     } else {
-      err = await rService.addOrChange(
+      error = await rService.addOrChange(
         id,
         noOfPeople,
         name,
@@ -142,9 +143,8 @@ export default function AddEditDialog({
         editMode
       );
     }
-    console.log(err);
-    setErr(err);
-    if (!err.error) {
+    setErr(error);
+    if (!error.error) {
       triggerReload();
       handleClose();
     }
@@ -276,7 +276,7 @@ export default function AddEditDialog({
               <h5 className="add-edit-dialog-sub-header">Room type *</h5>
               <RadioGroup
                 value={roomType}
-                onChange={(event, value) => {
+                onChange={(_event, value) => {
                   console.log(Object.entries(RoomType));
                   console.log(value);
                   console.log(RoomType[value as keyof typeof RoomType]);
@@ -306,7 +306,7 @@ export default function AddEditDialog({
                     .slice(1)
                     .map((val) => (
                       <MenuItem key={val[0]} value={val[0]}>
-                        {val[1] as string}
+                        {val[1]}
                       </MenuItem>
                     ))}
                 </Select>

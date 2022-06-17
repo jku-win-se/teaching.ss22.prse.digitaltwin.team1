@@ -8,7 +8,7 @@ import { StateService } from "./State.service";
 
 export class RoomService {
   private static instance: RoomService;
-  private constructor() { }
+  private constructor() {}
   public static getInstance(): RoomService {
     if (!RoomService.instance) {
       RoomService.instance = new RoomService();
@@ -58,7 +58,7 @@ export class RoomService {
     );
     console.log(this.selectedRoom);
   }
-  async getById(id: String, persistant: boolean = true): Promise<IRoom> {
+  async getById(id: string, persistant: boolean = true): Promise<IRoom> {
     const response = await fetch(this.BASE_URL + "/" + id, {
       headers: new Headers(this.addHeaders()),
       method: "GET",

@@ -48,18 +48,18 @@ export default function RoomListItem(props: IRoomListItemProps) {
     async function fetchData(roomID: string) {
       await sService.getInitialMeasureById(roomID);
 
-      const people = sService.returnWSDataForMeasure(
+      const localPeople = sService.returnWSDataForMeasure(
         Measure.PeopleInRoom,
         roomID
       );
-      const co2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
+      const localCo2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
 
       setPeople(sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID));
       setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID));
-      removeWSListener(people.entityRef, people.name);
-      removeWSListener(co2.entityRef, co2.name);
-      getWSData(setPeople, people.entityRef, people.name);
-      getWSData(setCo2, co2.entityRef, co2.name);
+      removeWSListener(localPeople.entityRef, localPeople.name);
+      removeWSListener(localCo2.entityRef, localCo2.name);
+      getWSData(setPeople, localPeople.entityRef, localPeople.name);
+      getWSData(setCo2, localCo2.entityRef, localCo2.name);
     }
     if (props.roomId !== undefined) {
       fetchData(props.roomId);
@@ -68,10 +68,10 @@ export default function RoomListItem(props: IRoomListItemProps) {
 
   React.useEffect(() => {
     return () => {
-      console.log("unmount");
       removeWSListener(people!.entityRef, people!.name);
       removeWSListener(co2!.entityRef, co2!.name);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getWSData = (
@@ -156,8 +156,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 {isNaN(Number(co2?.value))
                   ? "-"
                   : Number(co2?.value).toLocaleString(undefined, {
-                    maximumFractionDigits: 1,
-                  })}{" "}
+                      maximumFractionDigits: 1,
+                    })}{" "}
                 <br /> ppm
               </div>
             </div>
@@ -224,8 +224,8 @@ export default function RoomListItem(props: IRoomListItemProps) {
               {isNaN(Number(people?.value))
                 ? "-"
                 : Number(people?.value).toLocaleString(undefined, {
-                  maximumFractionDigits: 0,
-                })}
+                    maximumFractionDigits: 0,
+                  })}
               /{props.maxPeople} People
             </div>
           </Grid>

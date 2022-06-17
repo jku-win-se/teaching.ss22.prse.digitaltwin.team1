@@ -11,9 +11,9 @@ import SensorChart from "./components/sensor-chart/sensor-chart.component";
 import TempAndCo2Chart from "./components/temp-and-co2-chart/temp-and-co2-chart.component";
 import "./details.style.css";
 
-export interface IDetailsProps { }
+export interface IDetailsProps {}
 
-export function Details(props: IDetailsProps) {
+export function Details() {
   const [room, setRoom] = React.useState<IRoom>();
   const navigate = useNavigate();
   const { roomid } = useParams();
@@ -30,6 +30,7 @@ export function Details(props: IDetailsProps) {
       setRoom(r);
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Box sx={{ flexGrow: 1, height: "100vh" }}>

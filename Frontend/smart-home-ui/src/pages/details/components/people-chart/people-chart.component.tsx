@@ -1,7 +1,15 @@
 import { Skeleton } from "@mui/material";
 import {
-  CategoryScale, Chart as ChartJS, ChartOptions, Legend, LinearScale, LineElement, PointElement, TimeSeriesScale, Title,
-  Tooltip
+  CategoryScale,
+  Chart as ChartJS,
+  ChartOptions,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  TimeSeriesScale,
+  Title,
+  Tooltip,
 } from "chart.js";
 import "chartjs-adapter-date-fns";
 import de from "date-fns/locale/de";
@@ -93,7 +101,7 @@ export default function PeopleChart(props: IPeopleChartProps) {
       datasets: [
         {
           label: "amount of people inside",
-          data: PeopleInRoom.map((val) => val.value),
+          data: PeopleInRoom.map((val) => Math.round(val.value)),
           borderColor: "#66B5D6",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
           yAxisID: "y",
@@ -119,6 +127,7 @@ export default function PeopleChart(props: IPeopleChartProps) {
     return () => {
       clearInterval(intervalId!);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (loading) {
     return (
