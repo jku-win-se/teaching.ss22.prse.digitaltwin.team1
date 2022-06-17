@@ -131,7 +131,7 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public void ChangeState(Guid id, string type)
         {
-            var sensor = _sensors[id].Select(s => s as BinarySensor).First(s => s!.State.Name.Equals(type));
+            var sensor = _sensors[id].Select(s => s as BinarySensor).FirstOrDefault(s => s!.State.Name.Equals(type));
             if (sensor != null) sensor.ChangeState();
         }
 
