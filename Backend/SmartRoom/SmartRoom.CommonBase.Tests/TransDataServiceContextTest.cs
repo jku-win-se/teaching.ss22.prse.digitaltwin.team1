@@ -33,18 +33,18 @@ namespace SmartRoom.CommonBase.Tests
             Assert.NotNull(await context.GetRecentMeasureStateBy((await bContext.GetRooms()).First().Id, "Co2"));
         }
 
-        [Fact]
-        public async Task GetRecentBinaryStateBy_ValidParams_ValidResult()
-        {
-            var mock = new Mock<IServiceRoutesManager>();
-            mock.Setup(m => m.TransDataService).Returns("https://transdataservice.azurewebsites.net/api/");
-            mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
-            var context = new TransDataServiceContext(mock.Object);
-            mock.Setup(m => m.BaseDataService).Returns("https://basedataservice.azurewebsites.net/api/");
-            var bContext = new BaseDataServiceContext(mock.Object);
-        
-            Assert.NotNull(await context.GetRecentBinaryStateBy((await bContext.GetRoomEquipments()).First(r => r.Name == "Light").Id, "IsOn"));
-        }
+        //[Fact]
+        //public async Task GetRecentBinaryStateBy_ValidParams_ValidResult()
+        //{
+        //    var mock = new Mock<IServiceRoutesManager>();
+        //    mock.Setup(m => m.TransDataService).Returns("https://transdataservice.azurewebsites.net/api/");
+        //    mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
+        //    var context = new TransDataServiceContext(mock.Object);
+        //    mock.Setup(m => m.BaseDataService).Returns("https://basedataservice.azurewebsites.net/api/");
+        //    var bContext = new BaseDataServiceContext(mock.Object);
+        //
+        //    Assert.NotNull(await context.GetRecentBinaryStateBy((await bContext.GetRoomEquipments()).First(r => r.Name == "Light").Id, "IsOn"));
+        //}
 
         [Fact]
         public void AddBinaryStates_ValidParams_ValidResult()
