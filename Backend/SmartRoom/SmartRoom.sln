@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5D20EF-8E4E-46D2-90C6-3CE5459B55EC}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		StartCodeQualityReport.bat = StartCodeQualityReport.bat
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.TransDataService", "SmartRoom.TransDataService\SmartRoom.TransDataService.csproj", "{16A8A4E7-4613-412D-A2EF-E52589BA7D7F}"
@@ -24,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.CSVConsole", "Sma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.DataSimulatorService", "SmartRoom.DataSimulatorService\SmartRoom.DataSimulatorService.csproj", "{F8DC02D2-2C74-49BD-AE53-83879A8D4DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRoom.DataSimulatorService.Tests", "SmartRoom.DataSimulatorService.Tests\SmartRoom.DataSimulatorService.Tests.csproj", "{EE4B2412-4825-4F37-95C9-D7291A81286C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartRoom.DataSimulatorService.Tests", "SmartRoom.DataSimulatorService.Tests\SmartRoom.DataSimulatorService.Tests.csproj", "{EE4B2412-4825-4F37-95C9-D7291A81286C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
