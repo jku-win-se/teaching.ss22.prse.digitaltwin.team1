@@ -23,7 +23,6 @@ namespace SmartRoom.CommonBase.Utils
         {
             if (data is not null) _data = data;
             else throw new ArgumentNullException(nameof(data));
-            if (string.IsNullOrEmpty(fileName)) throw new ArgumentNullException();
 
             FileName = fileName;
         }

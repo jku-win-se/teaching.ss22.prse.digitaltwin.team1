@@ -8,6 +8,7 @@ namespace SmartRoom.CommonBase.Tests.Models
         public string TestString { get; set; } = string.Empty;
         public int TestInt { get; set; }
         public bool TestBool { get; set; }
+        public double TestDouble { get; set; }
 
         public int CompareTo(TestEntity? other)
         {

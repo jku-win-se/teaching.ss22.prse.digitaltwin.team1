@@ -238,15 +238,15 @@ var assemblies = [
       { "name": "SmartRoom.CommonBase.Core.Exceptions.Messages", "rp": "SmartRoom.CommonBase_Messages.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 8, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Logic.GenericEntityManager<T>", "rp": "SmartRoom.CommonBase_GenericEntityManager_1.html", "cl": 32, "ucl": 0, "cal": 32, "tl": 59, "ct": "LineCoverage", "cbm": "-", "cb": 8, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Persistence.GenericEntityRepository<T>", "rp": "SmartRoom.CommonBase_GenericEntityRepository_1.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 44, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
-      { "name": "SmartRoom.CommonBase.Persistence.UnitOfWork", "rp": "SmartRoom.CommonBase_UnitOfWork.html", "cl": 8, "ucl": 14, "cal": 22, "tl": 41, "ct": "LineCoverage", "cbm": "-", "cb": 3, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
+      { "name": "SmartRoom.CommonBase.Persistence.UnitOfWork", "rp": "SmartRoom.CommonBase_UnitOfWork.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 41, "ct": "LineCoverage", "cbm": "-", "cb": 7, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Transfer.BaseDataServiceContext", "rp": "SmartRoom.CommonBase_BaseDataServiceContext.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 24, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Transfer.DataSimulatorContext", "rp": "SmartRoom.CommonBase_DataSimulatorContext.html", "cl": 4, "ucl": 3, "cal": 7, "tl": 20, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Transfer.ServiceRoutesManager", "rp": "SmartRoom.CommonBase_ServiceRoutesManager.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 24, "ct": "LineCoverage", "cbm": "-", "cb": 4, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Transfer.TransDataServiceContext", "rp": "SmartRoom.CommonBase_TransDataServiceContext.html", "cl": 12, "ucl": 6, "cal": 18, "tl": 36, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Utils.Aes256Cipher", "rp": "SmartRoom.CommonBase_Aes256Cipher.html", "cl": 30, "ucl": 0, "cal": 30, "tl": 48, "ct": "LineCoverage", "cbm": "-", "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Utils.ConfigurationRootExtensions", "rp": "SmartRoom.CommonBase_ConfigurationRootExtensions.html", "cl": 12, "ucl": 4, "cal": 16, "tl": 28, "ct": "LineCoverage", "cbm": "-", "cb": 4, "tb": 6, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
-      { "name": "SmartRoom.CommonBase.Utils.GenericCSVReader<T>", "rp": "SmartRoom.CommonBase_GenericCSVReader_1.html", "cl": 7, "ucl": 56, "cal": 63, "tl": 91, "ct": "LineCoverage", "cbm": "-", "cb": 3, "tb": 36, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
-      { "name": "SmartRoom.CommonBase.Utils.GenericCSVWriter<T>", "rp": "SmartRoom.CommonBase_GenericCSVWriter_1.html", "cl": 14, "ucl": 37, "cal": 51, "tl": 87, "ct": "LineCoverage", "cbm": "-", "cb": 5, "tb": 22, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
+      { "name": "SmartRoom.CommonBase.Utils.GenericCSVReader<T>", "rp": "SmartRoom.CommonBase_GenericCSVReader_1.html", "cl": 67, "ucl": 0, "cal": 67, "tl": 95, "ct": "LineCoverage", "cbm": "-", "cb": 39, "tb": 40, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
+      { "name": "SmartRoom.CommonBase.Utils.GenericCSVWriter<T>", "rp": "SmartRoom.CommonBase_GenericCSVWriter_1.html", "cl": 50, "ucl": 0, "cal": 50, "tl": 86, "ct": "LineCoverage", "cbm": "-", "cb": 15, "tb": 20, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Utils.GenericMapper", "rp": "SmartRoom.CommonBase_GenericMapper.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 20, "ct": "LineCoverage", "cbm": "-", "cb": 10, "tb": 10, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Utils.WebApiTrans", "rp": "SmartRoom.CommonBase_WebApiTrans.html", "cl": 15, "ucl": 14, "cal": 29, "tl": 48, "ct": "LineCoverage", "cbm": "-", "cb": 3, "tb": 8, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
       { "name": "SmartRoom.CommonBase.Web.ApiKeyManager", "rp": "SmartRoom.CommonBase_ApiKeyManager.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 38, "ct": "LineCoverage", "cbm": "-", "cb": 0, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [] },
@@ -294,6 +294,11 @@ var riskHotspots = [
     "assembly": "SmartRoom.DataSimulatorService", "class": "SmartRoom.DataSimulatorService.Models.MeasureSensor", "reportPath": "SmartRoom.DataSimulatorService_MeasureSensor.html", "methodName": "ChangeState(System.DateTime)", "methodShortName": "ChangeState(...)", "fileIndex": 0, "line": 11,
     "metrics": [
       { "value": 34, "exceeded": true },
+    ]},
+  {
+    "assembly": "SmartRoom.CommonBase", "class": "SmartRoom.CommonBase.Utils.GenericCSVReader<T>", "reportPath": "SmartRoom.CommonBase_GenericCSVReader_1.html", "methodName": "Read()", "methodShortName": "Read()", "fileIndex": 0, "line": 25,
+    "metrics": [
+      { "value": 32, "exceeded": true },
     ]},
 ];
 
