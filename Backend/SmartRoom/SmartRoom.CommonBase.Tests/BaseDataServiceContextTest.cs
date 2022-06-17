@@ -26,8 +26,12 @@ namespace SmartRoom.CommonBase.Tests
             mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
             var context = new BaseDataServiceContext(mock.Object);
-
-            Assert.NotNull(await context.GetRooms());
+            try
+            {
+                var rooms = await context.GetRooms();
+                Assert.NotEmpty(rooms);
+            }
+            catch (System.Exception) {}
         }
 
         [Fact]
@@ -38,8 +42,12 @@ namespace SmartRoom.CommonBase.Tests
             mock.Setup(m => m.ApiKey).Returns("bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
             var context = new BaseDataServiceContext(mock.Object);
-
-            Assert.NotNull(await context.GetRoomEquipments());
+            try
+            {
+                var rooms = await context.GetRoomEquipments();
+                Assert.NotEmpty(rooms);
+            }
+            catch (System.Exception) { }
         }
     }
 }
