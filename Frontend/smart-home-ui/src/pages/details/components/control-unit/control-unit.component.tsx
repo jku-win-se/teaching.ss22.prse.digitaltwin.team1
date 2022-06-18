@@ -31,6 +31,7 @@ export default function ControlUnit(props: IControlUnitProps) {
 
   React.useEffect(() => {
     if (props.sensors !== []) {
+      console.log(props.sensors);
       setSensors(props.sensors);
       props.sensors.forEach((sensor) => {
         if (sensor.state.length !== 0) {
@@ -64,10 +65,12 @@ export default function ControlUnit(props: IControlUnitProps) {
   };
 
   const generateChips = () => {
+    console.log(props.header);
+    console.log(sensors);
     return sensors.map((i, index) => {
       if (i.state.length !== 0) {
         return (
-          <Grid key={index} item xs={12}>
+          <Grid key={index + props.header} item xs={12}>
             <Chip
               onClick={async () => {
                 await sService.changeSensorBinaryState(
