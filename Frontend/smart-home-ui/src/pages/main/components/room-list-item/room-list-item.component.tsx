@@ -184,7 +184,12 @@ export default function RoomListItem(props: IRoomListItemProps) {
                 ),
               }}
             >
-              {co2?.value} ppm
+              {isNaN(Number(co2?.value))
+                ? "-"
+                : Number(co2?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 1,
+                  })}{" "}
+              ppm
             </Grid>
           </Grid>
 
