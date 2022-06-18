@@ -100,7 +100,6 @@ export default function TempAndCo2Chart(props: ITempAndCo2ChartProps) {
     return labels[0].map((l) => l.timeStamp);
   };
   async function fetchData(roomID: string) {
-    console.log("Update Temperature");
     let temperature: IChartData[] = [];
     let co2: IChartData[] = [];
     try {

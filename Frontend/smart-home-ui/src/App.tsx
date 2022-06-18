@@ -19,12 +19,12 @@ function App() {
     sService.establishWsConnection();
     sService.hubConnection.on("Alarm", async (data: IMeasureState) => {
       const r = await rService.getById(data.entityRefID, false);
-      /*setMessage(
+      setMessage(
         `Temperature in Room ${r.name} is ${data.value.toLocaleString(
           undefined,
           { maximumFractionDigits: 1 }
         )} °C!`
-      );*/
+      );
       setOpen(true);
     });
     return () => {

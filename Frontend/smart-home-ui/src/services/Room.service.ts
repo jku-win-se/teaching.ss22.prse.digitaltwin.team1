@@ -28,7 +28,6 @@ export class RoomService {
     requestHeaders.append("Content-Type", "application/json");
     requestHeaders.append("Accept", "/");
     requestHeaders.append("ApiKey", process.env.REACT_APP_API_KEY as string);
-    requestHeaders.forEach((val) => console.log(val));
     return requestHeaders;
   }
   async getAll(): Promise<IRoom[]> {
@@ -37,7 +36,6 @@ export class RoomService {
       method: "GET",
     });
     this.allRooms = (await response.json()) as IRoom[];
-    console.log(this.allRooms);
     return this.allRooms;
   }
 
@@ -56,7 +54,6 @@ export class RoomService {
         });
       }
     );
-    console.log(this.selectedRoom);
   }
   async getById(id: string, persistant: boolean = true): Promise<IRoom> {
     const response = await fetch(this.BASE_URL + "/" + id, {

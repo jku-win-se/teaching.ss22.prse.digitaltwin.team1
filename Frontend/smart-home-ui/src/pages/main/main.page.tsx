@@ -30,7 +30,6 @@ export function Main() {
   }, []);
 
   const changeFilterValue = (newValue: keyof typeof Building) => {
-    console.log(newValue);
     setRooms(rService.filterByBuilding(newValue));
   };
 

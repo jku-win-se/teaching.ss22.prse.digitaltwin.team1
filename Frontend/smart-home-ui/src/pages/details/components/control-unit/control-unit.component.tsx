@@ -1,11 +1,12 @@
 import * as Muicon from "@mui/icons-material";
 import { Chip, Grid } from "@mui/material";
-import { SvgIconProps } from "@mui/material/SvgIcon";
 import * as React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { Icon } from "../../../../components/icon/icon.component";
 import { IBinaryState } from "../../../../models/IBinaryState";
 import { IRoomEquipment } from "../../../../models/IRoomEquipment";
+import { RoomService } from "../../../../services/Room.service";
 import { StateService } from "../../../../services/State.service";
 import "./control-unit.styles.css";
 
@@ -17,21 +18,13 @@ export interface IControlUnitProps {
 }
 
 const sService = StateService.getInstance();
-
-const Icon = ({
-  name,
-  ...rest
-}: { name: keyof typeof Muicon } & SvgIconProps) => {
-  const IconComponent = Muicon[name];
-  return IconComponent ? <IconComponent {...rest} /> : null;
-};
+const rService = RoomService.getInstance();
 
 export default function ControlUnit(props: IControlUnitProps) {
   const [sensors, setSensors] = React.useState<IRoomEquipment[]>([]);
 
   React.useEffect(() => {
     if (props.sensors !== []) {
-      console.log(props.sensors);
       setSensors(props.sensors);
       props.sensors.forEach((sensor) => {
         if (sensor.state.length !== 0) {
@@ -55,6 +48,10 @@ export default function ControlUnit(props: IControlUnitProps) {
       "Sensor/" + entityRef + "/" + name,
       (data: IBinaryState) => {
         console.log(data);
+        rService.selectedRoom!.roomEquipment.filter(
+          (eq) => eq.id === entityRef
+        )[0].state = [data];
+
         setData((prev) => {
           return prev.map((s) =>
             s.id === data.entityRefID ? { ...s, state: [data] } : s
@@ -65,8 +62,6 @@ export default function ControlUnit(props: IControlUnitProps) {
   };
 
   const generateChips = () => {
-    console.log(props.header);
-    console.log(sensors);
     return sensors.map((i, index) => {
       if (i.state.length !== 0) {
         return (
@@ -99,11 +94,12 @@ export default function ControlUnit(props: IControlUnitProps) {
   const renderText = () => {
     return sensors.length === 0
       ? `0%`
-      : `${(sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
-        .length /
-        sensors.length) *
-      100
-      }%`;
+      : `${
+          (sensors.filter((i) => i.state[0]).filter((s) => s.state[0].value)
+            .length /
+            sensors.length) *
+          100
+        }%`;
   };
 
   const generateIcons = () => {

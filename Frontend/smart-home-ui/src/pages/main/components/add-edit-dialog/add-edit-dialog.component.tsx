@@ -70,7 +70,6 @@ export default function AddEditDialog({
   React.useEffect(() => {
     async function fetchData(roomId: string) {
       const room = await rService.getById(roomId);
-      console.log(room);
       setBuilding(room.building);
       setRoomType(room.roomType);
       setName(room.name);
@@ -86,7 +85,6 @@ export default function AddEditDialog({
     }
 
     return () => {
-      console.log("Destruction");
       setBuilding("");
       setRoomType(RoomType.Lab);
       setName("");
@@ -277,9 +275,6 @@ export default function AddEditDialog({
               <RadioGroup
                 value={roomType}
                 onChange={(_event, value) => {
-                  console.log(Object.entries(RoomType));
-                  console.log(value);
-                  console.log(RoomType[value as keyof typeof RoomType]);
                   setRoomType(value);
                 }}
               >

@@ -85,7 +85,6 @@ export default function PeopleChart(props: IPeopleChartProps) {
   const [loading, setLoading] = React.useState(true);
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timer>();
   async function fetchData(roomID: string) {
-    console.log("Update PeopleInRoom");
     let PeopleInRoom: IChartData[] = [];
     try {
       PeopleInRoom = await sService.getMeasureChartData(

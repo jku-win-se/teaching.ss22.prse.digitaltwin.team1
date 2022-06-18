@@ -12,7 +12,7 @@ export class StateService {
     "https://transdataservice.azurewebsites.net/hub";
   hubConnection!: signalR.HubConnection;
   states: IMeasureState[] = [];
-  private constructor() { }
+  private constructor() {}
   public static getInstance(): StateService {
     if (!StateService.instance) {
       StateService.instance = new StateService();
@@ -26,7 +26,7 @@ export class StateService {
       .withUrl(this.WS_BASE_URL, {
         headers: { ApiKey: process.env.REACT_APP_API_KEY! },
       })
-      .configureLogging(signalR.LogLevel.Information)
+      .configureLogging(signalR.LogLevel.Error)
       .build();
 
     this.hubConnection
@@ -68,10 +68,10 @@ export class StateService {
       stateNames.map(async (stateName) => {
         const response = await fetch(
           this.BASE_URL +
-          "/ReadMeasure/GetRecentBy/" +
-          roomID +
-          "&" +
-          stateName,
+            "/ReadMeasure/GetRecentBy/" +
+            roomID +
+            "&" +
+            stateName,
           {
             headers: new Headers(this.addHeaders()),
             method: "GET",
@@ -135,7 +135,6 @@ export class StateService {
   }
 
   returnWSDataForMeasure(measure: Measure, roomID: string) {
-    console.log(this.states);
     const measureState = this.states.filter(
       (s) => s.name === measure && s.entityRefID === roomID
     )[0];

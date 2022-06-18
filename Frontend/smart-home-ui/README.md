@@ -58,6 +58,8 @@ git clone https://github.com/jku-win-se/teaching.ss22.prse.digitaltwin.team1.git
 
 You are now able to see the different contents of this repository on your computer.
 
+As an alternative you can also download the Project as a Zip file simply visit the Repository [here](https://github.com/jku-win-se/teaching.ss22.prse.digitaltwin.team1).
+
 ### Installing Dependencies
 
 After cloning the project open a **cmd** and navigate to `teaching.ss22.prse.digitaltwin.team1\Frontend\smart-home-ui` and type:

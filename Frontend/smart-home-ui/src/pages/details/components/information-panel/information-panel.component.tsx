@@ -58,7 +58,6 @@ export default function InformationPanel(props: IInformationPanelProps) {
 
   React.useEffect(() => {
     return () => {
-      console.log("unmount");
       removeWSListener(temp!.entityRef, temp!.name);
       removeWSListener(people!.entityRef, people!.name);
       removeWSListener(co2!.entityRef, co2!.name);
@@ -71,7 +70,6 @@ export default function InformationPanel(props: IInformationPanelProps) {
     entityRef: string,
     name: string
   ) => {
-    console.log("Getting WS Data");
     sService.hubConnection.on(
       "Sensor/" + entityRef + "/" + name,
       (data: IMeasureState) => {

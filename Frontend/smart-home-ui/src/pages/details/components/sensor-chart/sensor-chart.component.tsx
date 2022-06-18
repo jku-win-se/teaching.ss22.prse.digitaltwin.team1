@@ -131,7 +131,6 @@ export default function SensorChart(props: ISensorChartProps) {
   };
   async function fetchData() {
     const Doors = rService.getEquipmentByName(Equipment.Door);
-    console.log(Doors);
     const Ventilators = rService.getEquipmentByName(Equipment.Ventilator);
     const Windows = rService.getEquipmentByName(Equipment.Window);
     const Lights = rService.getEquipmentByName(Equipment.Light);
@@ -171,15 +170,6 @@ export default function SensorChart(props: ISensorChartProps) {
         );
       }
     }
-    console.log(LightsChartData);
-    console.log(
-      getLabels(
-        WindowsChartData,
-        DoorsChartData,
-        LightsChartData,
-        VentilatorsChartData
-      )
-    );
     setChartData({
       labels: getLabels(
         WindowsChartData,

@@ -79,7 +79,6 @@ export default function RoomListItem(props: IRoomListItemProps) {
     entityRef: string,
     name: string
   ) => {
-    console.log("Getting WS Data");
     sService.hubConnection.on(
       "Sensor/" + entityRef + "/" + name,
       (data: IMeasureState) => {

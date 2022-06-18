@@ -14,13 +14,8 @@ export default function ControlArea(props: IControlAreaProps) {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      console.log(props.room);
-
-      setIsLoading(false);
-    };
     if (props.room) {
-      fetchData();
+      setIsLoading(false);
     }
   }, [props.room]);
 
@@ -29,10 +24,11 @@ export default function ControlArea(props: IControlAreaProps) {
       <div>
         <Grid container spacing={2}>
           <Grid
-            className={`${rService.getEquipmentByName(Equipment.Window).length === 0
-              ? "control-area-hide-unit"
-              : ""
-              } `}
+            className={`${
+              rService.getEquipmentByName(Equipment.Window).length === 0
+                ? "control-area-hide-unit"
+                : ""
+            } `}
             item
             xs={12}
             sm={12}
@@ -46,10 +42,11 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${rService.getEquipmentByName(Equipment.Door).length === 0
-              ? "control-area-hide-unit"
-              : ""
-              } `}
+            className={`${
+              rService.getEquipmentByName(Equipment.Door).length === 0
+                ? "control-area-hide-unit"
+                : ""
+            } `}
             item
             xs={12}
             sm={12}
@@ -63,10 +60,11 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${rService.getEquipmentByName(Equipment.Ventilator).length === 0
-              ? "control-area-hide-unit"
-              : ""
-              } `}
+            className={`${
+              rService.getEquipmentByName(Equipment.Ventilator).length === 0
+                ? "control-area-hide-unit"
+                : ""
+            } `}
             item
             xs={12}
             sm={12}
@@ -80,10 +78,11 @@ export default function ControlArea(props: IControlAreaProps) {
             ></ControlUnit>
           </Grid>
           <Grid
-            className={`${rService.getEquipmentByName(Equipment.Light).length === 0
-              ? "control-area-hide-unit"
-              : ""
-              } `}
+            className={`${
+              rService.getEquipmentByName(Equipment.Light).length === 0
+                ? "control-area-hide-unit"
+                : ""
+            } `}
             item
             xs={12}
             sm={12}
@@ -100,6 +99,6 @@ export default function ControlArea(props: IControlAreaProps) {
       </div>
     );
   } else {
-    return <h1>Control Area Loading</h1>;
+    return <h1>Control Area Loading...</h1>;
   }
 }
