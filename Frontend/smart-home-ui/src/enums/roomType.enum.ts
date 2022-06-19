@@ -1,5 +1,6 @@
 export enum RoomType {
-  ScienceLab = "Science Lab",
+  Lab = "Science Lab",
   LectureHall = "Lecture Hall",
   MeetingRoom = "Meeting Room",
+  Unknown = "Unknown",
 }

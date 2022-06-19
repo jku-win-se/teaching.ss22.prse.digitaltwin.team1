@@ -7,8 +7,6 @@
     0px 2.00602px 6.77711px rgba(0, 0, 0, 0.19);
 
   padding: 0 20px;
-  height: 30vh;
-  background-color: blue;
 }
 
 @media only screen and (max-width: 900px) {
@@ -17,11 +15,6 @@
     margin: auto !important;
     padding: 0;
   }
-}
-
-.control-height {
-  height: 35vh;
-  background-color: green;
 }
 
 .header-container {

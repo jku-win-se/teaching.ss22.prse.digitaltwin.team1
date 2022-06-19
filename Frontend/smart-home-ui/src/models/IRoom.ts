@@ -6,5 +6,6 @@ export interface IRoom {
   roomType: string;
   building: string;
   id: string;
+  peopleCount: number
   roomEquipment: IRoomEquipment[];
 }

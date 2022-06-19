@@ -1,8 +1,8 @@
-import * as React from "react";
 import * as Muicon from "@mui/icons-material";
-import { SvgIconProps } from "@mui/material/SvgIcon";
-import "./information-panel-item.style.css";
 import { Skeleton } from "@mui/material";
+import { Icon } from "../../../../components/icon/icon.component";
+import { getCO2Color } from "../../../../utils/getCO2Color";
+import "./information-panel-item.style.css";
 
 export interface IInformationPanelItemProps {
   value: string | number | undefined;
@@ -10,15 +10,9 @@ export interface IInformationPanelItemProps {
   icon: keyof typeof Muicon;
   color?: string;
   isLoading: boolean;
+  dynamic?: boolean;
+  numericValue?: number;
 }
-
-const Icon = ({
-  name,
-  ...rest
-}: { name: keyof typeof Muicon } & SvgIconProps) => {
-  const IconComponent = Muicon[name];
-  return IconComponent ? <IconComponent {...rest} /> : null;
-};
 
 export default function InformationPanelItem(
   props: IInformationPanelItemProps
@@ -46,10 +40,17 @@ export default function InformationPanelItem(
     return (
       <div className="information-panel-wrapper">
         <Icon
-          sx={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)" }}
+          sx={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", color: props.color }}
           name={props.icon}
         ></Icon>
-        <p className="information-panel-text">
+        <p
+          className="information-panel-text"
+          style={{
+            color: props.dynamic
+              ? getCO2Color(Number(props.numericValue!))
+              : "",
+          }}
+        >
           {props.value} {props.unit}
         </p>
       </div>
