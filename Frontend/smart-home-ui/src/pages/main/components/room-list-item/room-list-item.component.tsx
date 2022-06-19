@@ -1,12 +1,19 @@
-import * as Muicon from "@mui/icons-material";
 import { Edit } from "@mui/icons-material";
-import { IconButton, SvgIconProps } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useNavigate } from "react-router-dom";
-import { RoomTypeIcon } from "../../../../enums/roomTypeIcon.enum";
+import { Icon } from "../../../../components/icon/icon.component";
+import { Building } from "../../../../enums/building.enum";
+import { Measure } from "../../../../enums/measure.enum";
+import { RoomType } from "../../../../enums/roomType.enum";
+import { IMeasureState } from "../../../../models/IMeasureState";
+import { IWSData } from "../../../../models/IWSData";
+import { StateService } from "../../../../services/State.service";
+import { getCO2Color } from "../../../../utils/getCO2Color";
+import { getRoomTypeIcon } from "../../../../utils/getRoomTypeIcon";
 import AddEditDialog from "../add-edit-dialog/add-edit-dialog.component";
 import DeleteDialog from "../delete-dialog/delete-dialog.component";
 import "./room-list-item.styles.css";
@@ -16,42 +23,18 @@ export interface IRoomListItemProps {
   roomName: string;
   roomIcon: string;
   building: string;
-  coValue: number;
-  currentPeople: number;
   maxPeople: number;
+  triggerReload: () => void;
 }
 
-const Icon = ({
-  name,
-  ...rest
-}: { name: keyof typeof Muicon } & SvgIconProps) => {
-  const IconComponent = Muicon[name];
-  return IconComponent ? <IconComponent {...rest} /> : null;
-};
-
-function co2Color(value: number) {
-  if (value < 800) {
-    return "#71CCAB";
-  }
-  if (value > 1000) {
-    return "#FF5252";
-  }
-  return "#FFEE4D";
-}
-
-function roomType(type: string) {
-  if (type === "Lab") {
-    return RoomTypeIcon.Lab;
-  }
-  if (type === "LectureRoom") {
-    return RoomTypeIcon.LectureRoom;
-  }
-  return RoomTypeIcon.MeetingRoom;
-}
+const sService = StateService.getInstance();
 
 export default function RoomListItem(props: IRoomListItemProps) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+
+  const [people, setPeople] = React.useState<IWSData>();
+  const [co2, setCo2] = React.useState<IWSData>();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -59,6 +42,57 @@ export default function RoomListItem(props: IRoomListItemProps) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  React.useEffect(() => {
+    async function fetchData(roomID: string) {
+      await sService.getInitialMeasureById(roomID);
+
+      const localPeople = sService.returnWSDataForMeasure(
+        Measure.PeopleInRoom,
+        roomID
+      );
+      const localCo2 = sService.returnWSDataForMeasure(Measure.Co2, roomID);
+
+      setPeople(sService.returnWSDataForMeasure(Measure.PeopleInRoom, roomID));
+      setCo2(sService.returnWSDataForMeasure(Measure.Co2, roomID));
+      removeWSListener(localPeople.entityRef, localPeople.name);
+      removeWSListener(localCo2.entityRef, localCo2.name);
+      getWSData(setPeople, localPeople.entityRef, localPeople.name);
+      getWSData(setCo2, localCo2.entityRef, localCo2.name);
+    }
+    if (props.roomId !== undefined) {
+      fetchData(props.roomId);
+    }
+  }, [props.roomId]);
+
+  React.useEffect(() => {
+    return () => {
+      removeWSListener(people!.entityRef, people!.name);
+      removeWSListener(co2!.entityRef, co2!.name);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getWSData = (
+    setData: React.Dispatch<React.SetStateAction<IWSData | undefined>>,
+    entityRef: string,
+    name: string
+  ) => {
+    sService.hubConnection.on(
+      "Sensor/" + entityRef + "/" + name,
+      (data: IMeasureState) => {
+        setData({
+          name: name,
+          value: data.value.toString(),
+          entityRef: entityRef,
+        });
+      }
+    );
+  };
+
+  const removeWSListener = (entityRef: string, name: string) => {
+    sService.hubConnection.off("Sensor/" + entityRef + "/" + name);
   };
 
   return (
@@ -87,12 +121,15 @@ export default function RoomListItem(props: IRoomListItemProps) {
             alignContent={"center"}
             marginLeft={4}
           >
-            <Icon fontSize="large" name={roomType(props.roomIcon)}></Icon>
+            <Icon
+              fontSize="large"
+              name={getRoomTypeIcon(props.roomIcon as keyof typeof RoomType)}
+            ></Icon>
           </Grid>
 
           <Grid item xs={2} sm container alignContent={"center"}>
             <div className="room-font-size">{props.roomName}</div>
-            {props.building}
+            {Building[props.building as keyof typeof Building]}
           </Grid>
 
           <Grid item xs={4}></Grid>
@@ -108,10 +145,19 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <div
               id="co2"
               className="co2-indicator"
-              style={{ backgroundColor: co2Color(props.coValue) }}
+              style={{
+                backgroundColor: getCO2Color(
+                  isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
+                ),
+              }}
             >
               <div id="co2-text" className="co2-value">
-                {props.coValue} <br /> ppm
+                {isNaN(Number(co2?.value))
+                  ? "-"
+                  : Number(co2?.value).toLocaleString(undefined, {
+                      maximumFractionDigits: 1,
+                    })}{" "}
+                <br /> ppm
               </div>
             </div>
             <div className="indicator-text">co2 value</div>
@@ -131,9 +177,18 @@ export default function RoomListItem(props: IRoomListItemProps) {
               container
               alignContent={"center"}
               justifyContent={"center"}
-              style={{ backgroundColor: co2Color(props.coValue) }}
+              style={{
+                backgroundColor: getCO2Color(
+                  isNaN(Number(co2?.value)) ? 0 : Number(co2?.value)
+                ),
+              }}
             >
-              {props.coValue} ppm
+              {isNaN(Number(co2?.value))
+                ? "-"
+                : Number(co2?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 1,
+                  })}{" "}
+              ppm
             </Grid>
           </Grid>
 
@@ -150,14 +205,17 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <div className="people-indicator">
               <CircularProgressbar
                 strokeWidth={10}
-                value={(props.currentPeople / props.maxPeople) * 100}
+                value={isNaN(Number(people?.value)) ? 0 : Number(people?.value)}
                 minValue={0}
-                maxValue={100}
+                maxValue={props.maxPeople}
                 text={
-                  Math.round(
-                    (props.currentPeople / props.maxPeople) * 100 * 100
-                  ) /
-                    100 +
+                  (
+                    ((isNaN(Number(people?.value))
+                      ? 0
+                      : Number(people?.value)) /
+                      props.maxPeople) *
+                    100
+                  ).toLocaleString(undefined, { maximumFractionDigits: 0 }) +
                   "%"
                 }
                 styles={buildStyles({
@@ -167,13 +225,18 @@ export default function RoomListItem(props: IRoomListItemProps) {
               />
             </div>
             <div className="indicator-text">
-              {props.currentPeople}/{props.maxPeople} People
+              {isNaN(Number(people?.value))
+                ? "-"
+                : Number(people?.value).toLocaleString(undefined, {
+                    maximumFractionDigits: 0,
+                  })}
+              /{props.maxPeople} People
             </div>
           </Grid>
         </Grid>
 
         <div id="peopleMobile" className="people-indicator-mobile">
-          {props.currentPeople}/{props.maxPeople} People
+          {people?.value}/{props.maxPeople} People
         </div>
 
         <Grid
@@ -189,7 +252,11 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <Edit fontSize="large" />
           </IconButton>
 
-          <DeleteDialog />
+          <DeleteDialog
+            roomId={props.roomId}
+            triggerReload={props.triggerReload}
+            handleClose={handleClose}
+          />
         </Grid>
 
         <Grid
@@ -205,12 +272,23 @@ export default function RoomListItem(props: IRoomListItemProps) {
             <Edit fontSize="large" />
           </IconButton>
 
-          <DeleteDialog />
+          <DeleteDialog
+            roomId={props.roomId}
+            triggerReload={props.triggerReload}
+            handleClose={handleClose}
+          />
           <Grid item xs={0.5} sm={1}></Grid>
         </Grid>
       </Grid>
-
-      <AddEditDialog handleClose={handleClose} open={open}></AddEditDialog>
+      {open ? (
+        <AddEditDialog
+          editMode={true}
+          handleClose={handleClose}
+          open={open}
+          id={props.roomId}
+          triggerReload={props.triggerReload}
+        ></AddEditDialog>
+      ) : null}
     </div>
   );
 }

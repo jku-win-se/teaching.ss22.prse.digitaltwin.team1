@@ -1,92 +1,94 @@
 .list {
-    height: auto;
-    background: #FFFFFF;
-    box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(25, 25, 25, 0.25);
-    border-radius: 4px;
-    margin-top: 20px;
-    padding-bottom: 20px;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039),
+    0px 1.85px 6.25px rgba(25, 25, 25, 0.25);
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.list:last-of-type {
+  margin-bottom: 20px;
 }
 
 .indicator-text {
-    text-align: center;
-    margin-top: 5px;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .co2-indicator {
-    display: flex;
-    min-width: 80px;
-    min-height: 80px;
-    aspect-ratio: 1 / 1;
-    border-radius: 40px;
+  display: flex;
+  min-width: 80px;
+  min-height: 80px;
+  aspect-ratio: 1 / 1;
+  border-radius: 40px;
 }
 
 .people-indicator-mobile {
-    margin-top: 30px;
-    margin-left: 48px;
+  margin-top: 30px;
+  margin-left: 48px;
 }
 
 .co2-indicator-mobile {
-    margin-top: 30px;
-    text-align: center;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .co2-background {
-    text-align: center;
-    height: 35px;
-    border-radius: 100px;
+  text-align: center;
+  height: 35px;
+  border-radius: 100px;
 }
 
 .co2-value {
-    display: flex;
-    margin: auto;
-    white-space: pre-line;
-    text-align: center;
-    font-weight: bold;
+  display: flex;
+  margin: auto;
+  white-space: pre-line;
+  text-align: center;
+  font-weight: bold;
 }
 
 .people-indicator {
-    width: 80px;
+  width: 80px;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .icons-right-side {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 @media only screen and (max-width: 1300px) {
-    div#co2 {
-        min-width: 6vw;
-        min-height: 6vw;
-    }
+  div#co2 {
+    min-width: 6vw;
+    min-height: 6vw;
+  }
 
-    div#co2-text {
-        font-size: 1.2vw;
-    }
+  div#co2-text {
+    font-size: 1.2vw;
+  }
 }
 
 /* ausgeblendet bis 650 */
 @media only screen and (max-width: 900px) {
-
-    div#roomIcon,
-    div#indicators,
-    div#buttonsDesktop,
-    div#spacerDesktop {
-        display: none;
-    }
+  div#roomIcon,
+  div#indicators,
+  div#buttonsDesktop,
+  div#spacerDesktop {
+    display: none;
+  }
 }
 
 /* eingeblendet bis 651 */
 @media only screen and (min-width: 901px) {
-
-    div#test,
-    div#buttonsMobile,
-    div#peopleMobile,
-    div#co2Mobile,
-    div#spacerMobile {
-        display: none;
-        visibility: hidden;
-    }
+  div#test,
+  div#buttonsMobile,
+  div#peopleMobile,
+  div#co2Mobile,
+  div#spacerMobile {
+    display: none;
+    visibility: hidden;
+  }
 }
