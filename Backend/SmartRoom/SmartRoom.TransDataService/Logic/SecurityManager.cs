@@ -19,7 +19,7 @@ namespace SmartRoom.TransDataService.Logic
 
         public async void CheckTemperaturesAndSendAlarm(IEnumerable<IState?> states)
         {
-            if (!states.Any()) return;
+            if (states == null || !states.Any()) return;
 
             await Task.Run(() =>
              states.Where(s => s!.Name.Equals("Temperature")).Select(s => s as MeasureState).Where(s => s?.Value >= 70).ToList()

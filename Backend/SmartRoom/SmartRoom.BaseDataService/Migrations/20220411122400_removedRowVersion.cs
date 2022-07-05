@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class removedRowVersion : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -19,7 +19,6 @@ namespace SmartRoom.BaseDataService.Migrations
                 name: "RowVersion",
                 table: "RoomEquipments");
         }
-        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<byte[]>(

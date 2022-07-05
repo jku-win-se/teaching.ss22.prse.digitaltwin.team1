@@ -5,9 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class splittetStates : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
@@ -52,7 +52,7 @@ namespace SmartRoom.TransDataService.Migrations
 
             migrationBuilder.Sql("SELECT create_hypertable('public.\"BinaryStates\"', 'TimeStamp');");
         }
-        [ExcludeFromCodeCoverage]
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

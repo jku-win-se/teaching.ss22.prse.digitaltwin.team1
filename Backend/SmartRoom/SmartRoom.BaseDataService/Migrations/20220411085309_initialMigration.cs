@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initialMigration : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -52,8 +52,6 @@ namespace SmartRoom.BaseDataService.Migrations
                 table: "RoomEquipments",
                 column: "RoomID");
         }
-
-        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

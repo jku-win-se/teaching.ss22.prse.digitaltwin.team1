@@ -5,9 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class addedKeyToState : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<Guid>(
@@ -24,7 +24,6 @@ namespace SmartRoom.TransDataService.Migrations
                 nullable: false,
                 defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(

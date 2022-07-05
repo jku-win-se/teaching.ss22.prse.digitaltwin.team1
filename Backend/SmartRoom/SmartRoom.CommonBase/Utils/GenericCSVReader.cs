@@ -52,6 +52,10 @@ namespace SmartRoom.CommonBase.Utils
                         {
                             prop?.SetValue(t, Convert.ToBoolean(val));
                         }
+                        else if (typeof(Guid).Equals(type))
+                        {
+                            prop?.SetValue(t, Guid.Parse(val));
+                        }
                         else if (typeof(double).Equals(type))
                         {
                             if (val.Contains(".")) provider.NumberDecimalSeparator = ".";

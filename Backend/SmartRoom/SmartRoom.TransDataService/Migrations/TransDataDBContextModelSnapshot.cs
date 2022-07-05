@@ -8,10 +8,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     [DbContext(typeof(TransDataDBContext))]
     partial class TransDataDBContextModelSnapshot : ModelSnapshot
     {
-        [ExcludeFromCodeCoverage]
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

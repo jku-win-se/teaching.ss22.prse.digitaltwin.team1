@@ -1,6 +1,5 @@
-﻿using Moq;
+﻿using SmartRoom.CommonBase.Tests.Models;
 using SmartRoom.CommonBase.Utils;
-using SmartRoom.CommonBase.Utils.Contracts;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -9,14 +8,6 @@ namespace SmartRoom.CommonBase.Tests
 {
     public class GenericCSVWriterTest
     {
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        public void Ctor_NullOrEmptyFileName_ThrowsNullException(string value)
-        {
-            Assert.Throws<ArgumentNullException>(() => new GenericCSVWriter<Object>(new List<Object>(),value));
-        }
-
         [Fact]
         public void Ctor_NullData_ThrowsFormatException()
         {
@@ -34,9 +25,10 @@ namespace SmartRoom.CommonBase.Tests
         [Fact]
         public void WriteToCSV_ValidParams_NoException()
         {
-            var mock = new Mock<IGenericCSVWriter>();
-            mock.Setup(m => m.WriteToCSV()).Returns("Test.csv");
-            Assert.Equal("Test.csv", mock.Object.WriteToCSV());
+            using (var writer = new GenericCSVWriter<TestEntity>(new List<TestEntity> { new TestEntity { TestInt = 10 } }, "Test.csv"))
+            {
+                Assert.NotNull(writer.WriteToCSV());
+            }
         }
     }
 }

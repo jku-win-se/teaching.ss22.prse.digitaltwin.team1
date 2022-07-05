@@ -117,7 +117,7 @@ namespace SmartRoom.DataSimulatorService.Logic
             try
             {
                 if (binaryStates.Any()) await _transDataServiceContext.AddBinaryStates(binaryStates.ToArray());
-                if (measureStates.Any()) await _transDataServiceContext.AddMeasureStates(measureStates.ToArray()); ;
+                if (measureStates.Any()) await _transDataServiceContext.AddMeasureStates(measureStates.ToArray());
             }
             catch (Exception e)
             {
@@ -131,7 +131,7 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public void ChangeState(Guid id, string type)
         {
-            var sensor = _sensors[id].Select(s => s as BinarySensor).First(s => s!.State.Name.Equals(type));
+            var sensor = _sensors[id].Select(s => s as BinarySensor).FirstOrDefault(s => s!.State.Name.Equals(type));
             if (sensor != null) sensor.ChangeState();
         }
 
@@ -176,7 +176,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 _transDataServiceContext.AddMeasureStates(new State<double>[] { ((MeasureSensor)sender).State }).GetAwaiter().GetResult();
             }
 
-            if (!_loadingBaseData && sender is BinaryState)
+            if (!_loadingBaseData && sender is BinarySensor)
             {
                 _transDataServiceContext.AddBinaryStates(new State<bool>[] { ((BinarySensor)sender).State }).GetAwaiter().GetResult();
             }

@@ -5,7 +5,7 @@ namespace SmartRoom.DataSimulatorService.Models
 {
     public abstract class Sensor<T> : ISensor
     {
-        public Sensor(EventHandler handler, State<T> state)
+        protected Sensor(EventHandler handler, State<T> state)
         {
             State = state;
             StateUpdated += handler;
@@ -18,7 +18,7 @@ namespace SmartRoom.DataSimulatorService.Models
         }
         public override string ToString()
         {
-            return $"[Sensor] [{State.Name}: {State.Value}]";
+            return $"[Sensor: {this.State.EntityRefID}] [{State.Name}: {State.Value}]";
         }
         protected virtual void OnStateUpdate() 
         {

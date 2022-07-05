@@ -5,9 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class addedRoomSize : Migration
     {
-        [ExcludeFromCodeCoverage]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
@@ -18,7 +18,6 @@ namespace SmartRoom.BaseDataService.Migrations
                 defaultValue: 0);
         }
 
-        [ExcludeFromCodeCoverage]
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(

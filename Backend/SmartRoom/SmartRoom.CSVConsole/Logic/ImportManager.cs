@@ -25,7 +25,7 @@ namespace SmartRoom.CSVConsole.Logic
             _window = new List<Window>();
         }
 
-        public async Task ImportCSV ()
+        public async Task ImportCSV()
         {
             try
             {
@@ -34,9 +34,9 @@ namespace SmartRoom.CSVConsole.Logic
             catch (Exception)
             {
 
-                throw new Exception("Import fehlgeschlagen");
+                throw new FileLoadException("Import fehlgeschlagen");
             }
-           
+
             AddEquipmentToRoom();
 
             try
@@ -62,7 +62,7 @@ namespace SmartRoom.CSVConsole.Logic
             }
         }
 
-        
+
         private void AddEquipmentToRoom()
         {
             foreach (var roomModel in _roomCap)
