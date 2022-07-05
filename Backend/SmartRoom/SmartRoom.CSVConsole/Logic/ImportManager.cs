@@ -39,9 +39,9 @@ namespace SmartRoom.CSVConsole.Logic
 
             AddEquipmentToRoom();
 
-            try
+            foreach (var room in _rooms)
             {
-                foreach (var room in _rooms)
+                try
                 {
                     try
                     {
@@ -54,11 +54,11 @@ namespace SmartRoom.CSVConsole.Logic
                     }
 
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                    Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                }
             }
         }
 
