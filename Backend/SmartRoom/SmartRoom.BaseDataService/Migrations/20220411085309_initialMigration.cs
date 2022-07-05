@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace SmartRoom.BaseDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,7 +52,6 @@ namespace SmartRoom.BaseDataService.Migrations
                 table: "RoomEquipments",
                 column: "RoomID");
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 #nullable disable
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class splittetStates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

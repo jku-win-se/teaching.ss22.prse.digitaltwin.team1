@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Contracts;
-using SmartRoom.TransDataService.Logic;
+using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Exceptions;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Controllers
 {
-    public class ReadMeasureController : TransReadController<MeasureState> { public ReadMeasureController(ReadManager manager) : base(manager) { } }
-    public class ReadBinaryController : TransReadController<BinaryState> { public ReadBinaryController(ReadManager manager) : base(manager) { } }
+    public class ReadMeasureController : TransReadController<MeasureState> { public ReadMeasureController(IReadManager manager) : base(manager) { } }
+    public class ReadBinaryController : TransReadController<BinaryState> { public ReadBinaryController(IReadManager manager) : base(manager) { } }
 
 
     [Route("api/[controller]")]
     [ApiController]
     public abstract class TransReadController<S> : ControllerBase where S : class, IState, new()
     {
-        private readonly ReadManager _manager;
-        public TransReadController(ReadManager manager)
+        private readonly IReadManager _manager;
+        public TransReadController(IReadManager manager)
         {
             _manager = manager;
         }
@@ -25,7 +25,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetStatesByEntityID<S>(id);
+                return Ok(await _manager.GetStatesByEntityID<S>(id));
             }
             catch (Exception)
             {
@@ -38,7 +38,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetRecentStateByEntityID<S>(id, name);
+                return Ok(await _manager.GetRecentStateByEntityID<S>(id, name));
             }
             catch (Exception)
             {
@@ -51,7 +51,7 @@ namespace SmartRoom.TransDataService.Controllers
         {
             try
             {
-                return await _manager.GetStateTypesByEntityID<S>(id);
+                return Ok(await _manager.GetStateTypesByEntityID<S>(id));
             }
             catch (Exception)
             {
@@ -60,14 +60,14 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpGet("[action]/{id}&{name}")]
-        public async Task<object> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
+        public async Task<ActionResult<object>> GetChartData(Guid id, string name, int intervall = 5, int daySpan = 1)
         {
             if (!(await _manager.GetStateTypesByEntityID<S>(id)).Any(ms => ms.Equals(name))) return BadRequest("Parameter *name* does not exsist with the given ID!");
             if (intervall < 0) intervall *= -1;
             if (intervall == 0) intervall = 5;
             try
             {
-                return await _manager.GetChartData<S>(id, name, intervall, daySpan);
+                return Ok(await _manager.GetChartData<S>(id, name, intervall, daySpan));
             }
             catch (Exception)
             {
@@ -77,7 +77,7 @@ namespace SmartRoom.TransDataService.Controllers
         }
 
         [HttpPost("[action]/{name}")]
-        public async Task<object> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5, int daySpan = 1)
+        public async Task<ActionResult<object>> GetChartData([FromBody] Guid[] ids, string name, int intervall = 5, int daySpan = 1)
         {
             ids = ids.Where(id => _manager.GetStateTypesByEntityID<S>(id).Result.Any(ms => ms.Equals(name))).ToArray();
 
@@ -86,7 +86,7 @@ namespace SmartRoom.TransDataService.Controllers
             if (intervall == 0) intervall = 5;
             try
             {
-                return await _manager.GetChartData<S>(ids, name, intervall, daySpan);
+                return Ok(await _manager.GetChartData<S>(ids, name, intervall, daySpan));
             }
             catch (Exception)
             {

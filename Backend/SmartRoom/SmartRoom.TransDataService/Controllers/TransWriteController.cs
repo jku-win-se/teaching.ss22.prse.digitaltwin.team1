@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartRoom.CommonBase.Core.Entities;
 using SmartRoom.CommonBase.Core.Exceptions;
-using SmartRoom.TransDataService.Logic;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Controllers
 {
@@ -9,8 +9,8 @@ namespace SmartRoom.TransDataService.Controllers
     [ApiController]
     public class TransWriteController : ControllerBase
     {
-        private readonly WriteManager _manager;
-        public TransWriteController(WriteManager manager)
+        private readonly IWriteManager _manager;
+        public TransWriteController(IWriteManager manager)
         {
             _manager = manager;
         }

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace SmartRoom.TransDataService.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,7 +30,6 @@ namespace SmartRoom.TransDataService.Migrations
 
             migrationBuilder.Sql("SELECT create_hypertable('public.\"State\"', 'TimeStamp');");
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

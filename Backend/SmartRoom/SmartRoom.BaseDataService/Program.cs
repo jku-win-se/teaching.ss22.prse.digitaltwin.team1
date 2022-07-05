@@ -29,7 +29,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => StartUpConfigManager.SetSwaggerOptions(options));
 
 WebApplication app = builder.Build();
-StartUpConfigManager startUpManager = new(app);
+IStartUpConfigManager startUpManager = new StartUpConfigManager(app);
 startUpManager.ConfigureApp();
 
 app.Run();

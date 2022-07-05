@@ -1,4 +1,5 @@
 ﻿using SmartRoom.CommonBase.Utils;
+using SmartRoom.CommonBase.Utils.Contracts;
 using SmartRoom.CSVConsole.Models;
 
 namespace SmartRoom.CSVConsole.Logic
@@ -24,7 +25,7 @@ namespace SmartRoom.CSVConsole.Logic
             _window = new List<Window>();
         }
 
-        public async Task ImportCSV ()
+        public async Task ImportCSV()
         {
             try
             {
@@ -33,27 +34,35 @@ namespace SmartRoom.CSVConsole.Logic
             catch (Exception)
             {
 
-                throw new Exception("Import fehlgeschlagen");
+                throw new FileLoadException("Import fehlgeschlagen");
             }
-           
+
             AddEquipmentToRoom();
 
-            try
+            foreach (var room in _rooms)
             {
-                foreach (var room in _rooms)
+                try
                 {
-                    var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
-                    if (!res.IsSuccessStatusCode) throw new Exception();
-                }
-            }
-            catch (Exception)
-            {
+                    try
+                    {
+                        var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
+                        if (!res.IsSuccessStatusCode) throw new Exception();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                    }
 
-                throw new Exception("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                }
             }
         }
 
-        
+
         private void AddEquipmentToRoom()
         {
             foreach (var roomModel in _roomCap)
@@ -78,27 +87,27 @@ namespace SmartRoom.CSVConsole.Logic
 
         private void ImportData()
         {
-            using (GenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{_path}\Door.csv"))
+            using (IGenericCSVReader<Door> reader = new GenericCSVReader<Door>(@$"{_path}\Door.csv"))
             {
                 _doors = reader.Read();
             }
 
-            using (GenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{_path}\Door_Connects_Room.csv"))
+            using (IGenericCSVReader<DoorConnectsRoom> reader = new GenericCSVReader<DoorConnectsRoom>(@$"{_path}\Door_Connects_Room.csv"))
             {
                 _doorConnectsRoom = reader.Read();
             }
 
-            using (GenericCSVReader<Room> reader = new GenericCSVReader<Room>(@$"{_path}\Room.csv"))
+            using (IGenericCSVReader<Room> reader = new GenericCSVReader<Room>(@$"{_path}\Room.csv"))
             {
                 _roomCap = reader.Read();
             }
 
-            using (GenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@$"{_path}\Ventilator.csv"))
+            using (IGenericCSVReader<Ventilator> reader = new GenericCSVReader<Ventilator>(@$"{_path}\Ventilator.csv"))
             {
                 _ventilator = reader.Read();
             }
 
-            using (GenericCSVReader<Window> reader = new GenericCSVReader<Window>(@$"{_path}\Window.csv"))
+            using (IGenericCSVReader<Window> reader = new GenericCSVReader<Window>(@$"{_path}\Window.csv"))
             {
                 _window = reader.Read();
             }

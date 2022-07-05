@@ -1,31 +1,30 @@
 ﻿using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.CommonBase.Transfer.Contracts;
+using SmartRoom.TransDataService.Logic.Contracts;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class EnergySavingManager
+    public class EnergySavingManager : IEnergySavingManager
     {
-        private readonly ReadManager _readManager;
-        private readonly IConfiguration _configuration;
-        private string _dataSimulatorURL => _configuration["Services:DataSimulatorService"];
-        private string _apiKey => _configuration["ApiKey"];
-
-        public EnergySavingManager(ReadManager readManager, IConfiguration configuration)
+        private readonly IReadManager _readManager;
+        private readonly IDataSimulatorContext _dataSimulatorContext;
+        public EnergySavingManager(IReadManager readManager, IDataSimulatorContext dataSimulatorContext)
         {
             _readManager = readManager;
-            _configuration = configuration;
+            _dataSimulatorContext = dataSimulatorContext;
         }
         //Energy Saving: Turn lights on if there are people in the room.
         public void TurnLightsOnPeopleInRoom(IEnumerable<IState> states)
         {
-            if (DateTime.Now.Hour <= 8 || DateTime.Now.Hour >= 19) 
+            if (DateTime.Now.Hour <= 8 || DateTime.Now.Hour >= 19)
             {
                 states.Where(s => s.Name.Equals("PeopleInRoom")).Select(s => s as MeasureState)
                 .Where(s => s?.Value > 0 &&
                  _readManager.GetStatesByEntityID<MeasureState>(s!.EntityRefID).GetAwaiter().GetResult().Take(2).ToArray()[1].Value == 0)
                 .ToList().ForEach(async s =>
                 {
-                    await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{s?.EntityRefID}&Light&true", _apiKey);
+                    await _dataSimulatorContext.SetAllBinariesForRoomByEqipmentType(s!.EntityRefID, "Light", true);
                 });
             }
         }
@@ -36,7 +35,7 @@ namespace SmartRoom.TransDataService.Logic
             states.Where(s => s.Name.Equals("PeopleInRoom")).Select(s => s as MeasureState).Where(s => s?.Value == 0)
                 .ToList().ForEach(async s =>
                 {
-                    await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{s?.EntityRefID}&Light&false", _apiKey);
+                    await _dataSimulatorContext.SetAllBinariesForRoomByEqipmentType(s!.EntityRefID, "Light", false);
                 });
         }
 
@@ -46,7 +45,7 @@ namespace SmartRoom.TransDataService.Logic
             states.Where(s => s.Name.Equals("PeopleInRoom")).Select(s => s as MeasureState).Where(s => s?.Value == 0)
                 .ToList().ForEach(async s =>
                 {
-                    await CommonBase.Utils.WebApiTrans.GetAPI<object>($"{_dataSimulatorURL}command/SetAllBianriesForRoomByEquipmentType/{s?.EntityRefID}&Ventilator&false", _apiKey);
+                    await _dataSimulatorContext.SetAllBinariesForRoomByEqipmentType(s!.EntityRefID, "Ventilator", false);
                 });
         }
     }

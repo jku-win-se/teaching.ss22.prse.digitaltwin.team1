@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartRoom.BaseDataService\SmartRoom.BaseDataService.csproj" />
     <ProjectReference Include="..\SmartRoom.CommonBase\SmartRoom.CommonBase.csproj" />
   </ItemGroup>
 

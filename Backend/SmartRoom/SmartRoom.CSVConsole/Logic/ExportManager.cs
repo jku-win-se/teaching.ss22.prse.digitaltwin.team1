@@ -1,4 +1,5 @@
 ﻿using SmartRoom.CommonBase.Utils;
+using SmartRoom.CommonBase.Utils.Contracts;
 
 namespace SmartRoom.CSVConsole.Logic
 {
@@ -14,7 +15,7 @@ namespace SmartRoom.CSVConsole.Logic
         {
             var exp = await WebApiTrans.GetAPI<List< SmartRoom.CommonBase.Core.Entities.RoomEquipment>>("https://basedataservice.azurewebsites.net/api/RoomEquipment", "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
-            using (GenericCSVWriter<SmartRoom.CommonBase.Core.Entities.RoomEquipment> GenericCSVWriter = new GenericCSVWriter<CommonBase.Core.Entities.RoomEquipment>(exp, _path))
+            using (IGenericCSVWriter GenericCSVWriter = new GenericCSVWriter<CommonBase.Core.Entities.RoomEquipment>(exp, _path))
             {
                 GenericCSVWriter.WriteToCSV();
             }
@@ -22,7 +23,7 @@ namespace SmartRoom.CSVConsole.Logic
 
             var expRooms = await WebApiTrans.GetAPI<List<SmartRoom.CommonBase.Core.Entities.Room>>("https://basedataservice.azurewebsites.net/api/RoomEquipment", "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
-            using (GenericCSVWriter<SmartRoom.CommonBase.Core.Entities.Room> GenericCSVWriter = new GenericCSVWriter<CommonBase.Core.Entities.Room>(expRooms, _path))
+            using (IGenericCSVWriter GenericCSVWriter = new GenericCSVWriter<CommonBase.Core.Entities.Room>(expRooms, _path))
             {
                 GenericCSVWriter.WriteToCSV();
             }

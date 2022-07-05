@@ -2,8 +2,6 @@
 using SmartRoom.CommonBase.Utils;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Xunit;
 
 
@@ -25,25 +23,15 @@ namespace SmartRoom.CommonBase.Tests
             Assert.Throws<FormatException>(() => new GenericCSVReader<Object>("Test")); 
         }
 
-        //[Fact] ToDo
-        //public void Read_ValidCSVFile_ValidResult()
-        //{
-        //    string path = "/root/project/Backend/SmartRoom/SmartRoom.CommonBase.Tests/bin/Release/net6.0";
-        //    ICollection<CSVTestModel> result;
-        //    using (GenericCSVReader<CSVTestModel> reader = new GenericCSVReader<CSVTestModel>(@$"{path}\Data\TestFile.csv"))
-        //    {
-        //        result = reader.Read().ToList();
-        //    }
-        //
-        //    Assert.Equal(19, result.Count);
-        //    Assert.True(result.First().CompareTo(new CSVTestModel
-        //    {
-        //        Timestamp = Convert.ToDateTime("2022-02-15T08:00:00+0000"),
-        //        Door_Id = 1,
-        //        isOpen = true,
-        //        Room_Id = "Room101",
-        //        Temperature = 27.5
-        //    })==0);
-        //}
+        [Fact]
+        public void Read_ValidFile_Ok()
+        {
+            using (var writer = new GenericCSVWriter<TestEntity>(new List<TestEntity> { new TestEntity { TestInt = 10 } }, "Test.csv"))
+            using (var reader = new GenericCSVReader<TestEntity>("Test.csv"))
+            {
+                writer.WriteToCSV();
+                Assert.NotEmpty(reader.Read());
+            }
+        }
     }
 }

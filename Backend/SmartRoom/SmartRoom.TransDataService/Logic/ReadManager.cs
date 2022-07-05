@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRoom.CommonBase.Core.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
+using SmartRoom.TransDataService.Logic.Contracts;
 using SmartRoom.TransDataService.Persistence;
 
 namespace SmartRoom.TransDataService.Logic
 {
-    public class ReadManager
+    public class ReadManager : IReadManager
     {
         private readonly IDbContextFactory<TransDataDBContext> _dbContextFactory;
         public ReadManager(IDbContextFactory<TransDataDBContext> dbContextFactory)
@@ -26,16 +27,8 @@ namespace SmartRoom.TransDataService.Logic
             using (var context = await _dbContextFactory.CreateDbContextAsync())
             {
                 var data = context.Set<E>().Where(s => s.EntityRefID.Equals(id) && s.Name.Equals(name));
-                if(!data.Any()) return new E { EntityRefID = id, Name = name, TimeStamp = DateTime.MinValue};
+                if (!data.Any()) return new E { EntityRefID = id, Name = name, TimeStamp = DateTime.MinValue };
                 return await data.FirstAsync(s => s.TimeStamp.Equals(data.Max(st => st.TimeStamp)));
-            }
-        }
-
-        public async Task<E[]> GetStatesByTimeSpan<E>(DateTime from, DateTime to) where E : class, IState
-        {
-            using (var context = await _dbContextFactory.CreateDbContextAsync())
-            {
-                return await context.Set<E>().Where(s => s.TimeStamp >= from && s.TimeStamp < to).OrderByDescending(s => s.TimeStamp).Take(500).ToArrayAsync();
             }
         }
 
@@ -55,6 +48,7 @@ namespace SmartRoom.TransDataService.Logic
             else if (typeof(E).Equals(typeof(BinaryState))) return await GetBinaryChartData(id, name, intervall, typeof(E).Name, daySpan);
             else return new();
         }
+
         public async Task<object> GetChartData<E>(Guid[] ids, string name, int intervall, int daySpan) where E : class, IState
         {
             intervall *= daySpan;
@@ -90,7 +84,7 @@ namespace SmartRoom.TransDataService.Logic
 
             foreach (var id in ids)
             {
-                if(id == ids.Last()) idStmdChain += $"\"EntityRefID\" = '{id}'";
+                if (id == ids.Last()) idStmdChain += $"\"EntityRefID\" = '{id}'";
                 else idStmdChain += $"\"EntityRefID\" = '{id}' or ";
             }
 

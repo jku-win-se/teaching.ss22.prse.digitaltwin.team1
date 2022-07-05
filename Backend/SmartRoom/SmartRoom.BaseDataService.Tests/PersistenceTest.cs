@@ -38,14 +38,13 @@ namespace SmartRoom.BaseDataService.Tests
             Assert.Equal(1, roomRepo?.Get().GetAwaiter().GetResult().First().RoomEquipment.Count);
         }
 
-
         private SmartRoomUOW GetInMemoryUOW()
         {
             DbContextOptions<SmartRoomDBContext> options;
             var builder = new DbContextOptionsBuilder<SmartRoomDBContext>();
             builder.UseInMemoryDatabase("TestDB");
             options = builder.Options;
-            SmartRoomDBContext context = new (options);
+            SmartRoomDBContext context = new SmartRoomDBContext(options);
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 

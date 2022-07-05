@@ -1,10 +1,12 @@
 ﻿using SmartRoom.CommonBase.Core.Entities;
-using SmartRoom.DataSimulatorService.Contracts;
+using SmartRoom.CommonBase.Transfer.Contracts;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 using SmartRoom.DataSimulatorService.Models;
+using SmartRoom.DataSimulatorService.Models.Contracts;
 
 namespace SmartRoom.DataSimulatorService.Logic
 {
-    public class SensorManager
+    public class SensorManager : ISensorManager
     {
         private readonly Dictionary<string, string[]> _binaryTypes = new Dictionary<string, string[]>
         {
@@ -17,34 +19,34 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         private readonly Dictionary<Guid, ISensor[]> _sensors;
         private readonly ILogger<SensorManager> _logger;
-        private readonly IConfiguration _configuration;
-        private string _baseDataServiceURL => _configuration["Services:BaseDataService"];
-        private string _transDataServiceURL => _configuration["Services:TransDataService"];
-        private string _apiKey => _configuration["ApiKey"];
+        private readonly ITransDataServiceContext _transDataServiceContext;
+        private readonly IBaseDataServiceContext _baseDataServiceContext;
+
         private bool _loadingBaseData;
 
         private List<Room> _rooms;
         private List<RoomEquipment> _roomEquipment;
 
-        public SensorManager(IConfiguration configuration, ILogger<SensorManager> logger)
+        public SensorManager(ILogger<SensorManager> logger, ITransDataServiceContext transDataServiceContext, IBaseDataServiceContext baseDataServiceContext)
         {
             _rooms = new List<Room>();
             _roomEquipment = new List<RoomEquipment>();
             _sensors = new Dictionary<Guid, ISensor[]>();
-            _configuration = configuration;
             _logger = logger;
+            _transDataServiceContext = transDataServiceContext;
+            _baseDataServiceContext = baseDataServiceContext;
         }
 
         public async Task Init()
         {
             _loadingBaseData = true;
-            _rooms = await CommonBase.Utils.WebApiTrans.GetAPI<List<Room>>($"{_baseDataServiceURL}room", _apiKey);
-            _roomEquipment = await CommonBase.Utils.WebApiTrans.GetAPI<List<RoomEquipment>>($"{_baseDataServiceURL}roomequipment", _apiKey);
+            _rooms = await _baseDataServiceContext.GetRooms();
+            _roomEquipment = await _baseDataServiceContext.GetRoomEquipments();
             _rooms.ForEach(r =>
             {
                 _sensors.Add(r.Id,
                     _measureTypes
-                    .Select(d => new Models.MeasureSensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<MeasureState>($"{_transDataServiceURL}ReadMeasure/GetRecentBy/{r.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
+                    .Select(d => new Models.MeasureSensor(StateUpdated!, _transDataServiceContext.GetRecentMeasureStateBy(r.Id, d).GetAwaiter().GetResult()))
                     .ToArray());
             });
             _roomEquipment.ForEach(re =>
@@ -52,7 +54,7 @@ namespace SmartRoom.DataSimulatorService.Logic
                 if (_binaryTypes.ContainsKey(re.Name))
                 {
                     _sensors.Add(re.Id, _binaryTypes[re.Name]
-                        .Select(d => new Models.BinarySensor(StateUpdated!, CommonBase.Utils.WebApiTrans.GetAPI<BinaryState>($"{_transDataServiceURL}ReadBinary/GetRecentBy/{re.Id}&{d}", _apiKey).GetAwaiter().GetResult()))
+                        .Select(d => new Models.BinarySensor(StateUpdated!, _transDataServiceContext.GetRecentBinaryStateBy(re.Id, d).GetAwaiter().GetResult()))
                         .ToArray());
                 }
             });
@@ -114,8 +116,8 @@ namespace SmartRoom.DataSimulatorService.Logic
 
             try
             {
-                if (binaryStates.Any()) await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddBinaryState", binaryStates.ToArray(), _apiKey);
-                if (measureStates.Any()) await CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", measureStates.ToArray(), _apiKey);
+                if (binaryStates.Any()) await _transDataServiceContext.AddBinaryStates(binaryStates.ToArray());
+                if (measureStates.Any()) await _transDataServiceContext.AddMeasureStates(measureStates.ToArray());
             }
             catch (Exception e)
             {
@@ -129,17 +131,19 @@ namespace SmartRoom.DataSimulatorService.Logic
 
         public void ChangeState(Guid id, string type)
         {
-            var sensor = _sensors[id].Select(s => s as BinarySensor).First(s => s!.State.Name.Equals(type));
+            var sensor = _sensors[id].Select(s => s as BinarySensor).FirstOrDefault(s => s!.State.Name.Equals(type));
             if (sensor != null) sensor.ChangeState();
         }
+
         public void SetAllBinariesByRoom(Guid id, string type, bool val)
         {
             _rooms.First(r => r.Id.Equals(id))?.RoomEquipment.Where(re => re.Name.Equals(type)).ToList().ForEach(re =>
             {
                 var ses = _sensors[re.Id].Select(s => s as BinarySensor);
-                if(ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
+                if (ses.Any()) ses.ToList().ForEach(s => s?.ChangeState(val));
             });
         }
+
         private IEnumerable<ST> GenerateMissingDataForSensor<ST, SE, T>(SE sensor) where SE : Sensor<T> where ST : State<T>, new()
         {
             List<ST> sTs = new List<ST>();
@@ -169,7 +173,12 @@ namespace SmartRoom.DataSimulatorService.Logic
         {
             if (!_loadingBaseData && sender is MeasureSensor)
             {
-                var res = CommonBase.Utils.WebApiTrans.PostAPI($"{_transDataServiceURL}TransWrite/AddMeasureState", new State<double>[] {((MeasureSensor)sender).State}, _apiKey).GetAwaiter().GetResult();
+                _transDataServiceContext.AddMeasureStates(new State<double>[] { ((MeasureSensor)sender).State }).GetAwaiter().GetResult();
+            }
+
+            if (!_loadingBaseData && sender is BinarySensor)
+            {
+                _transDataServiceContext.AddBinaryStates(new State<bool>[] { ((BinarySensor)sender).State }).GetAwaiter().GetResult();
             }
             _logger.LogInformation(sender.ToString());
         }

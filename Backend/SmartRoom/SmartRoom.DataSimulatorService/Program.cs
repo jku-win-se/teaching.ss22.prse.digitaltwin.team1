@@ -1,19 +1,26 @@
 using Serilog;
+using SmartRoom.CommonBase.Transfer;
+using SmartRoom.CommonBase.Transfer.Contracts;
 using SmartRoom.CommonBase.Web;
 using SmartRoom.DataSimulatorService.Logic;
+using SmartRoom.DataSimulatorService.Logic.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
-DataSink sink = new();
+IDataSink sink = new DataSink();
 
 Log.Logger = new LoggerConfiguration()
   .WriteTo.Sink(sink)
   .CreateLogger();
 
 builder.Services.AddSingleton<IConfiguration>(StartUpConfigManager.GetConfigBuilder());
-builder.Services.AddSingleton<DataSink>(sink);
-builder.Services.AddSingleton<SensorManager, SensorManager>();
+builder.Services.AddSingleton<IDataSink>(sink);
+builder.Services.AddSingleton<ISensorManager, SensorManager>();
+builder.Services.AddSingleton<IServiceRoutesManager, ServiceRoutesManager>();
 
 builder.Services.AddHostedService<SimulatorService>();
+
+builder.Services.AddTransient<ITransDataServiceContext, TransDataServiceContext>();
+builder.Services.AddTransient<IBaseDataServiceContext, BaseDataServiceContext>();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger);
@@ -25,7 +32,7 @@ builder.Services.AddSwaggerGen(options => StartUpConfigManager.SetSwaggerOptions
 
 
 WebApplication app = builder.Build();
-StartUpConfigManager startUpManager = new (app);
+IStartUpConfigManager startUpManager = new StartUpConfigManager(app);
 startUpManager.ConfigureApp();
 
 try

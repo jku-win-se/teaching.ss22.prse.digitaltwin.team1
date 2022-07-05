@@ -55,10 +55,10 @@ namespace SmartRoom.BaseDataService.Controllers
 
                 foreach (var re in model.RoomEquipmentDict)
                 {
-                    var count = roomToUpdate.RoomEquipment.Where(rre => rre.Name.Equals(re.Key)).Count();
+                    var count = roomToUpdate.RoomEquipment.Count(rre => rre.Name.Equals(re.Key));
                     while (count > re.Value)
                     {
-                        roomToUpdate.RoomEquipment.Remove(roomToUpdate.RoomEquipment.Where(rre => rre.Name.Equals(re.Key)).Last());
+                        roomToUpdate.RoomEquipment.Remove(roomToUpdate.RoomEquipment.Last(rre => rre.Name.Equals(re.Key)));
                         count--;
                     }
                     if (count < re.Value) 

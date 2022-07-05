@@ -27,6 +27,6 @@
     - Instances: 
         - BaseDataService: (https://basedataservice.azurewebsites.net/swagger/index.html)
         - TransDataService: (https://transdataservice.azurewebsites.net/swagger/index.html)
-
+        - DataSimulatorService: (https://simulatorservice.azurewebsites.net/swagger/index.html)
 ## Architecture
-
+![ServiceArchitecture](../Doku/Models/ServiceArchitecture.jpg)

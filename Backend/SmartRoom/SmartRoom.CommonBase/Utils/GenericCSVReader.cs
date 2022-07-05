@@ -1,11 +1,12 @@
 ﻿using Microsoft.Win32.SafeHandles;
+using SmartRoom.CommonBase.Utils.Contracts;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace SmartRoom.CommonBase.Utils
 {
-    public class GenericCSVReader<T> : IDisposable where T : new()
+    public class GenericCSVReader<T> : IDisposable, IGenericCSVReader<T> where T : new()
     {
         List<T> _data = new List<T>();
         private readonly string _fileName;
@@ -50,6 +51,10 @@ namespace SmartRoom.CommonBase.Utils
                         else if (typeof(bool).Equals(type))
                         {
                             prop?.SetValue(t, Convert.ToBoolean(val));
+                        }
+                        else if (typeof(Guid).Equals(type))
+                        {
+                            prop?.SetValue(t, Guid.Parse(val));
                         }
                         else if (typeof(double).Equals(type))
                         {

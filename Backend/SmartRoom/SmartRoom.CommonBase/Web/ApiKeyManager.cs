@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using SmartRoom.CommonBase.Web.Contracts;
 
 namespace SmartRoom.CommonBase.Web
 {
-    public class ApiKeyManager
+    public class ApiKeyManager : IApiKeyManager
     {
         private readonly RequestDelegate _next;
         private readonly IConfiguration _configuration;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartRoom.BaseDataService.Persistence.Contracts;
 using SmartRoom.CommonBase.Core.Entities;
 
 namespace SmartRoom.BaseDataService.Persistence
@@ -15,7 +16,7 @@ namespace SmartRoom.BaseDataService.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Room>()
-            .HasIndex(p => new { p.Name }).IsUnique();
+            .HasIndex(p => new { p.Name, p.Building }).IsUnique();
 
             modelBuilder.Entity<RoomEquipment>()
             .HasIndex(p => new { p.Name, p.EquipmentRef }).IsUnique();

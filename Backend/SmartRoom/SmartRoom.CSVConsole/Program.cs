@@ -35,7 +35,7 @@ do
     {
         case "i":
             var import = new ImportManager(path);
-            import?.ImportCSV();
+             import?.ImportCSV().GetAwaiter().GetResult();
 
             Console.WriteLine($"Import beendet ");
             break;

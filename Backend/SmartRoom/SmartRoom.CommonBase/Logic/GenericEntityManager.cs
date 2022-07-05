@@ -14,31 +14,18 @@ namespace SmartRoom.CommonBase.Logic
         public async Task Add(E entity)
         {
             if (entity == null) throw new ArgumentNullException();
-            try
-            {
-                await GetRepo().Add(entity);
-                await _unitOfWork.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            await GetRepo().Add(entity);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task Delete(Guid id)
         {
             var del = await GetRepo().GetBy(id);
             if (del == null) throw new KeyNotFoundException();
-            try
-            {
-                await GetRepo().Delete(del);
-                await _unitOfWork.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+
+            await GetRepo().Delete(del);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task Update(E entity)
@@ -46,17 +33,11 @@ namespace SmartRoom.CommonBase.Logic
             if (entity == null) throw new ArgumentNullException();
             var toUpdate = await GetRepo().GetBy(entity.Id);
             if (toUpdate == null) throw new KeyNotFoundException();
-            
-            try
-            {
-                Utils.GenericMapper.MapObjects(toUpdate, entity);
-                await GetRepo().Update(toUpdate);
-                await _unitOfWork.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+
+            Utils.GenericMapper.MapObjects(toUpdate, entity);
+
+            await GetRepo().Update(toUpdate);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<E> GetBy(Guid id)

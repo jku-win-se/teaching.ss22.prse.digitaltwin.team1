@@ -25,7 +25,7 @@ namespace SmartRoom.CommonBase.Utils
                 var res = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(res);
             }
-            return new T();
+            else throw new HttpRequestException(response.StatusCode.ToString());
         }
 
         public static async Task<HttpResponseMessage> PostAPI<T>(string uri, T contentparam, string authtoken = "")
@@ -41,8 +41,8 @@ namespace SmartRoom.CommonBase.Utils
                 }
                 response = await client.PostAsJsonAsync(uri, contentparam);
             }
-
-            return response;
+            if(!response.IsSuccessStatusCode) throw new HttpRequestException(response.StatusCode.ToString());
+            else return response;
         }
     }
 }
