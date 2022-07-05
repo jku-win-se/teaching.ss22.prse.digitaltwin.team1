@@ -21,7 +21,7 @@ namespace SmartRoom.CSVConsole.Logic
             }
 
 
-            var expRooms = await WebApiTrans.GetAPI<List<SmartRoom.CommonBase.Core.Entities.Room>>("https://basedataservice.azurewebsites.net/api/RoomEquipment", "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
+            var expRooms = await WebApiTrans.GetAPI<List<SmartRoom.CommonBase.Core.Entities.Room>>("https://basedataservice.azurewebsites.net/api/Room", "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
 
             using (IGenericCSVWriter GenericCSVWriter = new GenericCSVWriter<CommonBase.Core.Entities.Room>(expRooms, _path))
             {

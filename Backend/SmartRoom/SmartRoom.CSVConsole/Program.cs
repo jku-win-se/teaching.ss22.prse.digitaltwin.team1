@@ -41,8 +41,8 @@ do
             break;
 
         case "e":
-            var export = new ExportManager(path);
-            export?.ExportCSV();
+            var export = new ExportManager("");
+            export?.ExportCSV().GetAwaiter().GetResult();
 
             Console.WriteLine($"Export beendet ");
             break;
