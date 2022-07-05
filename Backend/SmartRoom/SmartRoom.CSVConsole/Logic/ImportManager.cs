@@ -43,14 +43,22 @@ namespace SmartRoom.CSVConsole.Logic
             {
                 foreach (var room in _rooms)
                 {
-                    var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
-                    if (!res.IsSuccessStatusCode) throw new Exception();
+                    try
+                    {
+                        var res = await SmartRoom.CommonBase.Utils.WebApiTrans.PostAPI("https://basedataservice.azurewebsites.net/api/Room", room, "bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9");
+                        if (!res.IsSuccessStatusCode) throw new Exception();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                    }
+
                 }
             }
             catch (Exception)
             {
 
-                throw new Exception("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
+                Console.WriteLine("Raum hinzufuegen beim Base-Data-Service fehlgeschlagen");
             }
         }
 
