@@ -33,25 +33,32 @@
 
 
 ## Installation for Backend-Execution
+### Requirements
+Be sure you have the following installed:
 - Microsoft Visual Studio Community 2022 17.1.1 or higher with(https://visualstudio.microsoft.com/de/vs/community/)
-    - ASP.NET und Webentwicklung
-    - Azure-Entwicklung
-    - Mobile-Entwicklung mit .NET
-    - .NET-Desktopentwicklung
-    - Entwicklung für die universelle Window-Plattform
-    - Datenspeicherung und -verarbeitung
-  
+- NET 6: (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- State of the art browser (Google Chrome recommended)
+- Local Git-Repository
+
+Open the project:
 - Open SLN-File *\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.sln
 
-## Testing SmartRoom.CSVConsole
+For TransDataService you need:
+- TimeScale DB-Connection on the internet
+
+### Running the CSV import and export
+- Check if BaseDataService is available: (https://basedataservice.azurewebsites.net/swagger/index.html)
 - Excecute SmartRoom.CSVConsole after installing MS Visual Studio and importing sln-File
 - follow the dialog for instance: 
 
-Console-Output:
+Console-Dialog:
+```
 Import-File-Pfad angeben:
 teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\
 Folgende Files wurden im angegebenen Verzeichnis gefunden
-
+```
+After your input you get a list of all importable files at the given folder:
+```
 1: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door.csv
 2: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\DoorOpen.csv
 3: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door_Connects_Room.csv
@@ -61,7 +68,9 @@ Folgende Files wurden im angegebenen Verzeichnis gefunden
 7: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\VentilatorOn.csv
 8: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Window.csv
 9: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\WindowOpen.csv
-
+```
+Now you can choose between (i)mport and (e)xport the base data (the exported files are located in the executing directory)
+```
 Was moechten Sie machen?  
 i fuer Import  
 e fuer Export
@@ -76,4 +85,31 @@ Import beendet
 Was moechten Sie machen?  
 i fuer Import  
 e fuer Export  
-stop fuer beenden  
+stop fuer beenden 
+```
+
+### Running the backend
+As mentioned above we use free azure ressources for backend hosting.
+This ressources will be availiable till Oct. 31
+The implementation of our CD keeps the services up to date on all commits to the main brunch.
+
+Unfortunately our TimeScale-DB for the TransDataService is no longer availiable, so if you want to run the entire backend you need to configure a TimeScale-DB connection, the following section shows how to do this:
+
+Replace the marked string with your connection string like this ("Host=serverName;Username=loginName;Password=password;Database=databasename"):
+
+![ServiceArchitecture](../Doku/Pictures/ConnectionString.PNG)
+
+Run the follwoing command at: C:\Users\uvhs0mm\source\repos\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.TransDataService
+```
+dotnet ef database update
+```
+This should apply the migrations on the database succesfully
+
+After that you can push the changes to the main brunch and the service will get updated.
+
+Now the backend should be available, you can test the services with the Swagger UI as follows:
+- Open the service URL -> swagger should open (The SimulatorService takes a while to open at the first time. Sometimes you get a timeout, just wait a few minutes and open it again, this is because the service needs some time by generating the missing data)
+- Input the API-Key at the authorize section and click authorize: bFR9bGhOi0n0ccoEhrhsE57VrHjkJJz9
+- Now you can run the APIs for tests
+
+Further information you can get from: markus.muehleder@gmail.com
