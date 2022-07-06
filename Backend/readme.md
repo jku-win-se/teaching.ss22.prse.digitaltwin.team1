@@ -30,3 +30,50 @@
         - DataSimulatorService: (https://simulatorservice.azurewebsites.net/swagger/index.html)
 ## Architecture
 ![ServiceArchitecture](../Doku/Models/ServiceArchitecture.jpg)
+
+
+## Installation for Backend-Execution
+- Microsoft Visual Studio Community 2022 17.1.1 or higher with(https://visualstudio.microsoft.com/de/vs/community/)
+    - ASP.NET und Webentwicklung
+    - Azure-Entwicklung
+    - Mobile-Entwicklung mit .NET
+    - .NET-Desktopentwicklung
+    - Entwicklung für die universelle Window-Plattform
+    - Datenspeicherung und -verarbeitung
+  
+- Open SLN-File *\teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.sln
+
+## Testing SmartRoom.CSVConsole
+- Excecute SmartRoom.CSVConsole after installing MS Visual Studio and importing sln-File
+- follow the dialog for instance: 
+
+Console-Output:
+Import-File-Pfad angeben:
+teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\
+Folgende Files wurden im angegebenen Verzeichnis gefunden
+
+1: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door.csv
+2: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\DoorOpen.csv
+3: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Door_Connects_Room.csv
+4: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\PeopleInRoom.csv
+5: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Room.csv
+6: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Ventilator.csv
+7: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\VentilatorOn.csv
+8: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\Window.csv
+9: teaching.ss22.prse.digitaltwin.team1\Backend\SmartRoom\SmartRoom.CSVConsole\Data\WindowOpen.csv
+
+Was moechten Sie machen?  
+i fuer Import  
+e fuer Export
+stop fuer beenden  
+i  
+Reading 3 lines from Door  
+Reading 5 lines from DoorConnectsRoom  
+Reading 6 lines from Room  
+Reading 3 lines from Ventilator  
+Reading 6 lines from Window  
+Import beendet  
+Was moechten Sie machen?  
+i fuer Import  
+e fuer Export  
+stop fuer beenden  
