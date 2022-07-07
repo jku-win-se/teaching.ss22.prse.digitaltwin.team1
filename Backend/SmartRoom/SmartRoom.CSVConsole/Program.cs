@@ -35,14 +35,14 @@ do
     {
         case "i":
             var import = new ImportManager(path);
-            import?.ImportCSV();
+             import?.ImportCSV().GetAwaiter().GetResult();
 
             Console.WriteLine($"Import beendet ");
             break;
 
         case "e":
-            var export = new ExportManager(path);
-            export?.ExportCSV();
+            var export = new ExportManager("");
+            export?.ExportCSV().GetAwaiter().GetResult();
 
             Console.WriteLine($"Export beendet ");
             break;
